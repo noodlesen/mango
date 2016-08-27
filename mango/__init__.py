@@ -110,6 +110,10 @@ def maintenance():
 # for example
 @app.route('/')
 def root():
+    return render_template('place.html')
+
+@app.route('/users')
+def users():
     users = User.query.all()
     if current_user.is_authenticated:
         notifications = Notification.count(current_user)

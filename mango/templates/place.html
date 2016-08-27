@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}Hello world!{% endblock %}
+
+{% block styles %}
+{{ super() }}
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/ui.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/place.css') }}">
+{% endblock %}
+
+{% block page_content %}
+<div class="container-fluid" id="cont">
+    <div class="row">
+   
+        
+        <div class="col-lg-7">
+
+            <div id="filters">
+                
+                <div class="tags__list">
+                    <h2>Метки</h2>
+                    <div class="filter-item" 
+                        v-for="f in inactive"
+                        v-bind:class="[f.style]"
+                        
+                        v-on:click="toggleFilter($index)" 
+                        >
+                        <span class="glyphicon glyphicon-tag" style="font-size:75%;"></span>
+                        <span v-text="f.name"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tips">
+                <div class="item-block tip has-cmd-bar">
+                    <div class="item-block__body">
+                        <div class="tip__main-text">
+                           остров Airborek - чудо расчудесное, мечта. Обязательно побывайте здесь! Белые попугаи, звездное небо, которое напоминает космические снимки или как - будто ты находишься на совершенно другой планете и конечно  главная достопримечательность этого острова - стаи мант
+                        </div>
+                        <div class="tip__tags">
+                            <span class="label label-success">Что посмотреть</span>
+                        </div>
+                    </div>
+                    <div class="cmd-bar">
+                        <i class="btn-agree fa fa-thumbs-down" aria-hidden="true"></i>
+                        <i class="btn-agree fa fa-thumbs-up" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="item-block tip has-cmd-bar">
+                    <div class="item-block__body">
+                       Преимущество этого места перед оными в том, что людишек здесь не так много. Пока не так много. Так что кто не успел, тот опоздал! А если серьезно это место правда стоит посетить, пока оно не превратилось в Тайланд№2
+                    </div>
+                    <div class="tip__tags item-block__body">
+                        <span class="label label-success">Что посмотреть</span>
+                    </div>
+                    <div class="cmd-bar">
+                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+
+                    </div>
+                </div>
+                <div class="item-block tip has-cmd-bar">
+                    <div class="item-block__body">
+                       остров Airborek - чудо расчудесное, мечта. Обязательно побывайте здесь! Белые попугаи, звездное небо, которое напоминает космические снимки или как - будто ты находишься на совершенно другой планете и конечно  главная достопримечательность этого острова - стаи мант
+                    </div>
+                    <div class="tip__tags item-block__body">
+                        <span class="label label-success">Что посмотреть</span>
+                    </div>
+                    <div class="cmd-bar">
+                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+        <div class="col-lg-5 place__info">
+
+            <h1>Ко Чанг</h1>
+            <div id="main-picture">
+                <img class="img img-responsive" src="{{ url_for('static', filename="images/testpic.jpg") }}" />
+            </div>
+
+        </div>
+
+
+</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src ="{{ url_for('static', filename="lib/vue.js") }}" type="text/javascript"></script>
+    <script src ="{{ url_for('static', filename="js/common.js") }}" type="text/javascript"></script>
+    <script src ="{{ url_for('static', filename="js/place.js") }}" type="text/javascript"></script>
+{% endblock %}

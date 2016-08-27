@@ -7,7 +7,7 @@
 
 {% block metas %}
 {{ super () }}
-<meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 {% endblock %}
 
 {% block title %}
@@ -28,7 +28,7 @@
 {% block navbar %}
     
     <div id="navbar">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-5 col-xs-6" id="navbar__logo">
                     <a href="{{url_for('root')}}">

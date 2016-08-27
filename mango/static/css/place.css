@@ -1,0 +1,92 @@
+/* line 3, scss/place.scss */
+h1 {
+  font-size: 400%;
+}
+
+/* line 7, scss/place.scss */
+#filters {
+  float: left;
+  width: 22%;
+  margin-right: 2%;
+}
+/* line 12, scss/place.scss */
+#filters h2 {
+  text-align: right;
+}
+/* line 15, scss/place.scss */
+#filters .tags__list {
+  border-width: 0 1px 0 0px;
+  border-color: #c6c6c6;
+  border-style: solid;
+  padding: 10px 4px 20px 0;
+}
+
+/* line 23, scss/place.scss */
+#tips {
+  float: left;
+  width: 76%;
+}
+
+/* line 28, scss/place.scss */
+.filter-item {
+  padding: 1px 7px;
+  border-radius: 5px 0 0 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* line 36, scss/place.scss */
+.filter-item-inactive {
+  background-color: #efefef;
+  color: #c6c6c6;
+  border: 1px solid #c6c6c6;
+}
+/* line 41, scss/place.scss */
+.filter-item-inactive:hover {
+  border: 1px solid #878787;
+  color: #878787;
+}
+
+/* .filter-item-active{
+    color:white;
+    
+    &:hover{
+        color: $gray3;
+    }
+} */
+/* line 55, scss/place.scss */
+.color-green {
+  background-color: #55d426;
+  color: white;
+}
+
+/* line 60, scss/place.scss */
+.color-red {
+  background-color: #ff4e2b;
+  color: white;
+}
+
+/* line 65, scss/place.scss */
+.color-yellow {
+  background-color: #fff10d;
+  color: white;
+}
+
+/* line 70, scss/place.scss */
+.tip__main-text {
+  font-size: 15px;
+  line-height: 1.2em;
+}
+
+/* line 75, scss/place.scss */
+.place__info {
+  border-width: 0 0 0 1px;
+  border-color: #c6c6c6;
+  border-style: solid;
+}
+
+/* line 81, scss/place.scss */
+.btn-agree {
+  font-size: 150%;
+}
