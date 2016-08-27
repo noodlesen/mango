@@ -1,0 +1,179 @@
+/* 
+ div {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: red;
+} */
+/* line 11, scss/common.scss */
+h1, h2, h3, h4 {
+  margin-top: 0;
+}
+
+/* line 15, scss/common.scss */
+.inactive {
+  display: none;
+}
+
+/* line 19, scss/common.scss */
+.row {
+  padding: 10px;
+  outline-color: blue;
+}
+/* line 22, scss/common.scss */
+.row h2.row__header {
+  margin-left: 20px;
+  margin-bottom: 25px;
+  font-size: 180%;
+}
+
+/* line 29, scss/common.scss */
+h3.col__header {
+  font-size: 150%;
+}
+
+/* line 33, scss/common.scss */
+a, .plink {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+
+/* line 42, scss/common.scss */
+.plink {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* line 48, scss/common.scss */
+.error {
+  color: red;
+  outline-color: red;
+  outline-style: solid;
+  outline-width: 2px;
+}
+
+/* line 55, scss/common.scss */
+.debug {
+  outline-width: 1px;
+  outline-color: red;
+  outline-style: solid;
+}
+
+/* line 62, scss/common.scss */
+.waiting {
+  cursor: pointer;
+  color: #c6c6c6;
+}
+/* line 65, scss/common.scss */
+.waiting:hover {
+  color: #27c257;
+}
+
+/* line 70, scss/common.scss */
+.label-as-badge {
+  border-radius: 1em;
+}
+
+/* line 74, scss/common.scss */
+.label-brand {
+  background-color: #0088cc;
+  color: white;
+}
+
+/* line 80, scss/common.scss */
+.hint {
+  font-size: 120%;
+  color: #878787;
+  padding: .5em;
+}
+
+/* line 86, scss/common.scss */
+.hint-icon {
+  font-size: 200%;
+}
+
+/* line 90, scss/common.scss */
+.nano-timeline img {
+  max-width: 12px;
+  margin-left: -1px;
+}
+
+/* line 97, scss/common.scss */
+.center-label {
+  font-size: 300%;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 100px;
+}
+
+/* line 102, scss/common.scss */
+.center-sub-label {
+  text-align: center;
+}
+
+/* line 106, scss/common.scss */
+section {
+  border-width: 1px;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: #efefef;
+  padding: 40px 40px;
+  background-color: white;
+}
+
+/* line 115, scss/common.scss */
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #efefef;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* line 123, scss/common.scss */
+.form-inline {
+  margin-bottom: 15px;
+}
+
+/* line 127, scss/common.scss */
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+/* line 133, scss/common.scss */
+.avatar-big {
+  border-radius: 6px;
+}
+
+/* line 137, scss/common.scss */
+.avatar-small {
+  border-radius: 3px;
+  width: 40px;
+  height: 40px;
+}
+
+/* line 143, scss/common.scss */
+.inline-menu__item {
+  display: inline-block;
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+/* line 148, scss/common.scss */
+.inline-menu__item:hover {
+  background-color: #c6c6c6;
+  color: white;
+}
+@media screen and (max-width: 486px) {
+  /* line 143, scss/common.scss */
+  .inline-menu__item {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* line 158, scss/common.scss */
+.inline-menu__item--selected {
+  background-color: #0088cc;
+  color: white;
+}

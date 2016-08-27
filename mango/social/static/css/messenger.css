@@ -1,0 +1,112 @@
+/* line 4, scss/messenger.scss */
+ul {
+  padding: 0;
+}
+
+/* line 8, scss/messenger.scss */
+li.v__contact-list__item {
+  list-style: none;
+  display: block;
+  width: 100%;
+  background-color: #f8f8f8;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  padding: 5px;
+}
+/* line 16, scss/messenger.scss */
+li.v__contact-list__item:hover {
+  background-color: #0088cc;
+  color: white;
+  cursor: pointer;
+}
+
+/* line 22, scss/messenger.scss */
+li.v__contact-list__item--selected {
+  background-color: #ffc501;
+  color: white;
+}
+
+/* line 27, scss/messenger.scss */
+.msg {
+  margin-bottom: 5px;
+}
+
+/* line 31, scss/messenger.scss */
+.msg__bubble {
+  border-radius: 6px;
+  padding: 15px;
+}
+
+/* line 37, scss/messenger.scss */
+.msg__to-me .msg__bubble {
+  background-color: #ffeaa5;
+  width: 80%;
+}
+
+/* line 44, scss/messenger.scss */
+.msg__from-me .msg__bubble {
+  background-color: #c8efb1;
+  width: 80%;
+  margin-left: 20%;
+}
+/* line 49, scss/messenger.scss */
+.msg__from-me .msg__prefix {
+  text-align: right;
+}
+
+/* line 54, scss/messenger.scss */
+.msg__prefix {
+  font-style: italic;
+  font-size: 70%;
+  color: #c6c6c6;
+  width: 100%;
+}
+
+/* line 61, scss/messenger.scss */
+#msg__textarea {
+  width: 100%;
+  resize: vertical;
+  padding: .5em;
+  border: 0.1em solid #ccc;
+  border-radius: 6px;
+}
+
+/* line 69, scss/messenger.scss */
+#msg__send-button {
+  width: 100%;
+  margin-top: 5px;
+}
+
+/* line 74, scss/messenger.scss */
+.contact-avatar {
+  display: inline-block;
+  margin-right: 5px;
+  height: 40px;
+}
+
+/* line 80, scss/messenger.scss */
+#v__chat-header__title {
+  float: left;
+}
+
+/* line 84, scss/messenger.scss */
+#v__chat-header__controls {
+  float: right;
+}
+
+/* line 91, scss/messenger.scss */
+#v__chat-header__status {
+  display: none;
+}
+
+/* line 95, scss/messenger.scss */
+.ban-disabled {
+  color: white;
+  background-color: #55d426;
+}
+
+/* line 100, scss/messenger.scss */
+.ban-enabled {
+  color: black;
+  background-color: #ff4e2b;
+}

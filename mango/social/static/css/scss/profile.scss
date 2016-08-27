@@ -1,0 +1,83 @@
+@import "../../../../static/css/scss/_config";
+
+#nickname__title{
+    font-size: 300%;
+    margin-top:0;
+    line-height: .8em;
+}
+
+
+.dropzone{
+
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 10px;
+    font-size: 18px;
+    cursor: default;
+    line-height: 0.8em;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    div#dnd-cta {
+        padding-top: 20px;
+    }
+
+    div#or {
+        font-size:14px;
+        font-weight: bold;
+        color: #C0C0C0;
+        padding-top: 10px;
+    }
+
+    div.browser {
+
+        span {
+            cursor: pointer;
+        }
+
+        label {
+            background-color: white;
+            padding: 5px 15px;
+            /* color: white; */
+            font-size: 14px;
+            /* font-weight: bold; */
+            cursor: pointer;
+            border-radius: 3px;
+            border-style: solid;
+            border-color: $gray4;
+            border-width: 1px;
+            position: relative;
+            overflow: hidden;
+            display: block;
+            width: 90%;
+            margin: 15px auto 0px auto;
+            /* box-shadow: 2px 2px 2px #888888; */
+            &:hover{
+                background-color: $gray5;
+            }
+        }
+
+        input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            border: solid transparent;
+            border-width: 0 0 100px 200px;
+            opacity: .0;
+            filter: alpha(opacity= 0);
+            -o-transform: translate(250px,-50px) scale(1);
+            -moz-transform: translate(-300px,0) scale(4);
+            direction: ltr;
+            cursor: pointer;
+        }
+    
+    }
+
+}
+

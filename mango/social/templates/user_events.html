@@ -1,0 +1,73 @@
+{% from 'macros.html' import inline_menu %}
+
+{% extends "base.html" %}
+
+{% block title %}События{% endblock %}
+
+{% block styles %}
+{{ super() }}
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/ui.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('social.static', filename='css/user_events.css') }}">
+{% endblock %}
+
+{% block page_content %}
+<div class="container">
+
+    {{inline_menu('events')}}
+
+    <div class="row" id ="profile__main">
+      <div class="col-lg-6 col-lg-offset-3">
+
+        {% for n in nots %}
+          <div class=" item-block notification notification-new has-cmd-bar">
+
+
+            {% if n.ntype=='PM' %}
+            <div class="item-block__body">
+              {{n.message}}
+            </div>
+
+            <div class="cmd-bar">
+              <a href="{{url_for('social.messenger')}}?user={{n.user_from}}">
+                  <span class="glyphicon glyphicon-envelope"></span>
+                  Перейти к сообщениям 
+              </a>
+                <a 
+                href="{{url_for('social.public_profile', uid=n.user_from)}}">
+                <span class="glyphicon glyphicon-user"></span>
+                Профиль пользователя
+              </a>
+            </div>
+            {% else %}
+              <div class="item-block__body">
+              {{n.message}}
+            </div>
+            {% endif %}
+
+
+          </div>
+        {% endfor %}
+
+        {% for h in nots_history %}
+          <div class="item-block notification notification-old has-cmd-bar">
+            <div class="item-block__body">
+              {{h.message}}
+            </div>
+          </div>
+        {% endfor %}
+
+
+      </div>
+    </div>
+
+
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src ="{{ url_for('static', filename="js/common.js") }}" type="text/javascript"></script>
+    <script src ="{{ url_for('social.static', filename="js/user_events.js") }}" type="text/javascript"></script>
+{% endblock %}

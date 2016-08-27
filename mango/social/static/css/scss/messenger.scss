@@ -1,0 +1,103 @@
+@import "../../../../static/css/scss/_config";
+
+
+ul{
+    padding: 0;
+}
+
+li.v__contact-list__item{
+    list-style: none;
+    display:block;
+    width:100%;
+    background-color: #f8f8f8;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    padding: 5px;
+    &:hover{
+        background-color: $c-prim;
+        color:white;
+        cursor: pointer;
+    }
+}
+li.v__contact-list__item--selected{
+    background-color: $c-sec;
+    color:white;
+}
+
+.msg {
+    margin-bottom: 5px;
+}
+
+.msg__bubble{
+    border-radius: 6px;
+    padding:15px;
+}
+
+.msg__to-me{
+    .msg__bubble{
+        background-color: $light-orange;
+        width:80%;
+    }
+}
+
+.msg__from-me{
+    .msg__bubble{
+        background-color: $light-green;
+        width:80%;
+        margin-left: 20%;
+    }
+    .msg__prefix{
+        text-align: right;
+    }
+}
+
+.msg__prefix{
+    font-style: italic;
+    font-size: 70%;
+    color:$gray4;
+    width:100%;
+}
+
+#msg__textarea{
+    width:100%;
+    resize:vertical;
+    padding:.5em;
+    border: 0.1em solid #ccc;
+    border-radius: 6px;
+}
+
+#msg__send-button{
+    width:100%;
+    margin-top: 5px;
+}
+
+.contact-avatar{
+    display: inline-block;
+    margin-right: 5px;
+    height: 40px;
+}
+
+#v__chat-header__title{
+    float: left;
+}
+
+#v__chat-header__controls{
+    float: right;
+}
+
+#v__chat-header__ban-button{
+} 
+
+#v__chat-header__status{
+    display: none;
+}
+
+ .ban-disabled{
+    color:white;
+    background-color: $green;
+} 
+
+.ban-enabled{
+    color:black;
+    background-color: $red;
+}

@@ -1,0 +1,18 @@
+@import "../../../../static/css/scss/_config";
+.notification {
+    
+}
+
+.event__pm-text {
+    padding-left: 20px;
+    font-style: italic;
+}
+
+.notification-new {
+    background-color: $light-green;
+}
+
+.notification-old {
+    background-color: $gray5;
+    color:$gray3;
+}

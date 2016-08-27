@@ -1,0 +1,62 @@
+{% extends 'admin_base.html' %}
+
+
+{% block top_bar %}
+    {{super()}}
+{% endblock %}
+
+
+
+{% block main_area %}
+<div class="col-lg-8">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active" ><a href="#workers" data-toggle="tab">Workers</a></li> 
+    <li role="presentation" ><a href="#other-tab" data-toggle="tab">Other</a></li>
+    
+  </ul>
+
+  <!-- Tab panes -->
+    <div class="tab-content">
+
+    <!-- 1st tab -->
+    <div  class="tab-pane fade in active" id="workers">
+        <table class="tablesorter" id="workers-list">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Routes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for w in wrk %}
+                    <tr>
+                        <td><a href="{{url_for('admin.worker_login', wid=w.id)}}">{{w.nickname}}</a></td>
+                        <td>{{w.id}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 2nd tab -->
+    <div class="tab-pane fade" id="other-tab">
+        <div id="toolbar">
+            <a class="btn btn-xs btn-warning" href="#">BUTTON</a>
+        </div>
+
+    </div>
+
+
+
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+<script type="text/javascript" src="{{url_for('static', filename='js/common.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='js/admin.js')}}"></script>
+{% endblock %}

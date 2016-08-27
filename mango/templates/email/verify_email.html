@@ -1,0 +1,8 @@
+<html>
+<h1>Подтвердите ваш адрес электронной почты</h1>
+<p>
+    Для подтверждения просто перейдите по 
+    <a href="{{url_for('social.verify_email', _external=True)}}?uid={{uid}}&code={{hash}}">этой ссылке</a>
+
+</p>
+</html>

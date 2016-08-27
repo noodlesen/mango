@@ -1,0 +1,75 @@
+/* line 4, scss/base.scss */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+/* line 10, scss/base.scss */
+#pre-footer {
+  height: 150px;
+}
+
+/* line 15, scss/base.scss */
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #efefef;
+  background-color: #585858;
+  /* Set the fixed height of the footer here */
+  height: 70px;
+  text-align: center;
+}
+/* line 24, scss/base.scss */
+#footer p {
+  font-size: 80%;
+}
+
+/* line 29, scss/base.scss */
+body {
+  color: #585858;
+  background-color: #f8f8f8;
+  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Arimo', sans-serif; */
+  font-size: 15px;
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+/* ================================= NAVBAR =============================*/
+/* line 41, scss/base.scss */
+#navbar {
+  background-color: white;
+  color: #585858;
+  border-width: 0 0 2px 0;
+  border-color: #efefef;
+  border-style: solid;
+  height: 60px;
+}
+
+/* line 51, scss/base.scss */
+#navbar__user td {
+  padding-left: 10px;
+}
+
+/* #user__image{
+    display: inline-block;
+} */
+/* line 60, scss/base.scss */
+#user__nickname {
+  font-size: 18px;
+  float: right;
+}
+
+/* line 65, scss/base.scss */
+#user__nots {
+  float: right;
+  padding-top: 5px;
+}
+
+/* line 71, scss/base.scss */
+.user__alert a {
+  text-decoration: none;
+}
+
+/* ================================= END NAVBAR =============================*/

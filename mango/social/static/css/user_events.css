@@ -1,0 +1,16 @@
+/* line 6, scss/user_events.scss */
+.event__pm-text {
+  padding-left: 20px;
+  font-style: italic;
+}
+
+/* line 11, scss/user_events.scss */
+.notification-new {
+  background-color: #c8efb1;
+}
+
+/* line 15, scss/user_events.scss */
+.notification-old {
+  background-color: #efefef;
+  color: #878787;
+}

@@ -1,0 +1,99 @@
+{% from 'macros.html' import inline_menu %}
+
+{% extends "base.html" %}
+
+{% block title %}Ваш профиль: {{u.nickname}}{% endblock %}
+
+{% block styles %}
+{{ super() }}
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/ui.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('social.static', filename='css/profile.css') }}">
+{% endblock %}
+
+{% block page_content %}
+<div class="container">
+
+    {{inline_menu('profile')}}
+
+    <div class="row" id ="profile__main">
+        <h2 class="row__header">Профиль пользователя</h2>
+        <div class="col-lg-3">
+
+        <section id="avatar__dropzone" class="dropzone">
+                    <img class="avatar-big" id="avatar__image" src="{{u.get_avatar()}}"/>
+          <div id="dnd-cta">Перетащите новое фото сюда</div>
+          <div id="or">-или-</div>
+          <div class="browser">
+            <label>
+              <span>Выберите файл</span>
+              <input type="file" name="files[]" multiple="multiple" title='Click to add Files'>
+            </label>
+          </div>
+        </section>
+
+
+        </div>
+
+        <div class="col-lg-9">
+            <section id="userinfo">
+                <h1 id="nickname__title">{{u.nickname}}</h1>
+                <div class="divider"></div>
+
+                <label class="form-label" for="nickname__edit-input">Никнейм:</label>
+                <div class="form-inline">
+                  <div id ="nickname__group" class="form-group" >
+                    {% if u.nickname %}{% set nick=u.nickname %}{% endif %}
+                    <input type="text" class="form-control" id="nickname__edit-input" value="{{nick}}" placeholder="Add nickname">
+                  </div>
+                  <button id="nickname__save-button" class="btn btn-default">Сохранить</button>
+                </div>
+                <div id="nickname__status"></div>
+
+                <label class="form-label" for="nickname__edit-input">E-mail для связи:</label>
+                <div class="form-inline">
+                  <div id ="email__group" class="form-group" >
+                    {% set es=u.get_email_status() %}
+                    <input type="text" class="form-control"  id="email__edit-input" value="{{es['email']}}" placeholder="Имя пользователя"
+                      >
+                  </div>
+                  <button id="email__save-button" class="btn btn-default">Сохранить</button>
+                </div>
+                <div id="email__status"></div>
+
+                
+            </section>
+            <section>
+                <h2>Авторизация</h2>
+                {% if u.google_id %}
+                    Вы вошли с помощью Google
+                {% endif %}
+                <div class="divider"></div>
+                <a class="btn btn-large btn-warning" href="{{url_for('social.logout')}}"><i class="fa fa-sign-out" title="Выйти"></i>&nbsp;Выйти</a>
+            </section>
+        </div>
+
+    </div>
+
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src ="{{ url_for('static', filename="js/common.js") }}" type="text/javascript"></script>
+    <script src ="{{ url_for('social.static', filename="js/profile.js") }}" type="text/javascript"></script>
+    <script src ="{{ url_for('static', filename="lib/dmuploader.min.js") }}" type="text/javascript"></script>
+{% endblock %}

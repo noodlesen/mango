@@ -1,0 +1,20 @@
+{% macro inline_menu(page) %}
+    <div class="row" id="profile__menu">
+        <div class="col-lg-12">
+            <a class="inline-menu__item
+                {% if page=='events' %}
+                inline-menu__item--selected
+                {% endif %}" href="{{url_for('social.user_events')}}">События <span class="badge serverNotsCount"></span></a>
+            <a class="inline-menu__item 
+                {% if page=='profile' %}
+                inline-menu__item--selected
+                {% endif %}" href="{{url_for('social.profile')}}">Профиль</a>
+            <a class="
+                inline-menu__item 
+                {% if page=='messenger' %}
+                inline-menu__item--selected
+                {% endif %}" 
+            href="{{url_for('social.messenger')}}">Личные сообщения <span class="serverMsgIndicator"><span class="badge serverMsgCount"></span></span></a>
+        </div>
+    </div>
+{% endmacro %}

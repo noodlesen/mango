@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Ваш профиль: {{u.nickname}}{% endblock %}
+
+{% block styles %}
+{{ super() }}
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/ui.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('social.static', filename='css/public_profile.css') }}">
+{% endblock %}
+
+{% block page_content %}
+<div class="container">
+
+
+    <div class="row" id ="profile__main">
+        <h2 class="row__header">Профиль пользователя {{u.nickname}}</h2>
+        <div class="col-lg-3">
+
+        <section id="avatar">
+              <img class="avatar-big" id="avatar__image" src="{{u.get_avatar()}}"/>
+        </section>
+
+
+        </div>
+
+        <div class="col-lg-5">
+            <section id="userinfo">
+                <h1 id="nickname__title">{{u.nickname}}</h1>
+                <div class="divider"></div>
+                {% if current_user.id!= u.id %}
+                <div id="user-actions__panel">
+                  <button class="btn btn-large {% if not current_user.is_authenticated %} disabled {% endif %}"><i class="fa fa-user-plus"></i>&nbsp;
+  Подписаться</button>
+                  <button id="private-message__show" class="btn btn-large {% if not current_user.is_authenticated %} disabled {% endif %}"><i class="glyphicon glyphicon-envelope" title="Выйти"></i>&nbsp;Личное сообщение</button>
+                  
+                  <div id="private-message__form">
+                    <h4>Личное сообщение пользователю {{u.nickname}}</h4>
+                    <textarea id="private-message__textarea"></textarea>
+                    <button id="private-message__send-button" class="btn btn-large" data-uid="{{u.id}}">Отправить</button>
+                  </div>
+                  <div id="private-message__status" class="alert alert-success">Ваше сообщение успешно отправлено!<br/>Всю переписку вы можете посмотреть в вашем профиле, в разделе <a href="{{url_for('social.messenger')}}"> "Личные сообщения"</a></div>
+                </div>
+                {% endif %}
+                
+            </section>
+        </div>
+      </div>
+
+
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src ="{{ url_for('static', filename="js/common.js") }}" type="text/javascript"></script>
+    <script src ="{{ url_for('social.static', filename="js/public_profile.js") }}" type="text/javascript"></script>
+{% endblock %}

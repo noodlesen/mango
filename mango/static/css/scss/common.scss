@@ -1,0 +1,168 @@
+@import "config";
+
+/* 
+ div {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: red;
+} */
+ 
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+}
+
+.inactive {
+    display: none;
+}
+
+.row {
+    padding: 10px;
+    outline-color: blue;
+    h2.row__header{
+        margin-left: 20px;
+        margin-bottom: 25px;
+        font-size: 180%;
+    }
+}
+
+h3.col__header{
+    font-size: 150%;
+}
+
+%link-style{
+    text-decoration-line: underline;
+    text-decoration-style: dotted; 
+}
+
+a {
+    @extend %link-style;
+}
+
+.plink {
+    text-decoration: underline;
+    @extend %link-style;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    outline-color: red;
+    outline-style: solid;
+    outline-width: 2px;
+}
+
+.debug {
+    outline-width: 1px;
+    outline-color: red;
+    outline-style: solid;
+}
+
+
+.waiting {
+    cursor: pointer;
+    color:$gray4;
+    &:hover{
+        color:#27c257;
+    }
+}
+
+.label-as-badge{
+    border-radius: 1em;
+}
+
+.label-brand {
+    background-color: $k-blue;
+    color: white;
+}
+
+
+.hint{
+    font-size: 120%;
+    color: $gray3; 
+    padding: .5em;
+}
+
+.hint-icon{
+    font-size: 200%;
+}
+
+.nano-timeline img {
+    max-width: 12px;
+    margin-left: -1px;
+}
+
+
+//For 404 and maintenance pages
+.center-label{
+    font-size: 300%; text-align: center; font-weight: 600;
+    margin-top: 100px;
+}
+
+.center-sub-label {
+    text-align: center;
+}
+
+section{
+    border-width: 1px;
+    border-radius: 6px;
+    border-style: solid;
+    border-color: $gray5;
+    padding: 40px 40px;
+    background-color: white;
+}
+
+.divider{
+    width:100%;
+    height:1px;
+    background-color: $gray5;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.form-inline{
+    margin-bottom: 15px;
+}
+
+.form-label{
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+
+.avatar-big{
+    border-radius: 6px;
+}
+
+.avatar-small{
+    border-radius: 3px;
+    width:40px;
+    height:40px;
+}
+
+.inline-menu__item{
+    display:inline-block;
+    padding:5px;
+    margin-right: 10px;
+    border-radius: 3px;
+    &:hover{
+        background-color: $gray4;
+        color: white;
+    }
+    @media screen and (max-width: 486px){
+        display: block;
+        width: 100%;
+    }
+}
+
+.inline-menu__item--selected{
+    background-color: $c-prim;
+    color:white;
+}
+
+
+
+
+
+
+
