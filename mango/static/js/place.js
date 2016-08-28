@@ -14,12 +14,29 @@ var cTip = Vue.extend({
             if (!this.agree && !this.disagree){
                 this.agreed++;
                 this.agree = true;
+            } else if (this.agree){
+                this.agreed--;
+                this.agree=false;
+            } else if (this.disagree){
+                this.disagreed--;
+                this.disagree=false;
+                this.agreed++;
+                this.agree=true;
             }
         },
+
         clickDisagree: function(){
             if (!this.agree && !this.disagree){
                 this.disagreed++;
                 this.disagree = true;
+            } else if (this.disagree){
+                this.disagreed--;
+                this.disagree=false;
+            } else if (this.agree){
+                this.agreed--;
+                this.agree=false;
+                this.disagreed++;
+                this.disagree=true;
             }
         }
 
