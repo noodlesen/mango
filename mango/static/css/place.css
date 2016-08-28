@@ -78,7 +78,7 @@ h1 {
   font-weight: 400;
 }
 
-/* line 73, scss/place.scss */
+/* line 72, scss/place.scss */
 .tip__tag {
   display: inline-block;
   background-color: #55d426;
@@ -89,14 +89,14 @@ h1 {
   padding: 0 3px;
 }
 
-/* line 83, scss/place.scss */
+/* line 82, scss/place.scss */
 .place__info {
   border-width: 0 0 0 1px;
   border-color: #c6c6c6;
   border-style: solid;
 }
 
-/* line 89, scss/place.scss */
+/* line 88, scss/place.scss */
 .btn-agree {
   font-size: 150%;
 }
