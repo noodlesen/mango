@@ -30,7 +30,7 @@ body {
     color: $gray2;
     background-color: $gray6;
     font-family: 'Open Sans', sans-serif;
-    /* font-family: 'Arimo', sans-serif; */
+    //font-family: 'Arimo', sans-serif;
     font-size: 15px;
     /* Margin bottom by footer height */
     margin-bottom: 60px;
@@ -56,6 +56,10 @@ body {
 /* #user__image{
     display: inline-block;
 } */
+
+#navbar__logo{
+  margin-top: -12px;
+}
 
 #user__nickname{
   font-size: 18px;

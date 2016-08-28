@@ -16,7 +16,7 @@
         
         <div class="col-lg-7">
 
-            <div id="filters">
+            <div id="filters" class="hidden-xs">
                 
                 <div class="tags__list">
                     <h2>Метки</h2>
@@ -33,18 +33,24 @@
             </div>
 
             <div id="tips">
+                <div id="tips-content">
                 <div class="item-block tip has-cmd-bar">
                     <div class="item-block__body">
                         <div class="tip__main-text">
                            остров Airborek - чудо расчудесное, мечта. Обязательно побывайте здесь! Белые попугаи, звездное небо, которое напоминает космические снимки или как - будто ты находишься на совершенно другой планете и конечно  главная достопримечательность этого острова - стаи мант
                         </div>
                         <div class="tip__tags">
-                            <span class="label label-success">Что посмотреть</span>
+                            <span class="tip__tag">Что посмотреть</span>
                         </div>
                     </div>
                     <div class="cmd-bar">
-                        <i class="btn-agree fa fa-thumbs-down" aria-hidden="true"></i>
-                        <i class="btn-agree fa fa-thumbs-up" aria-hidden="true"></i>
+                        
+                        <span class="cmd-bar__btn--disagree" ><i class="btn-agree glyphicon glyphicon-remove"></i>
+                            <span>34</span>
+                        </span>
+                        <span class="cmd-bar__btn--agree" ><i class="btn-agree glyphicon glyphicon-ok"></i>
+                            <span>34</span>
+                        </span>
                     </div>
                 </div>
                 <div class="item-block tip has-cmd-bar">
@@ -72,6 +78,7 @@
                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
 
                     </div>
+                </div>
                 </div>
             </div>
 

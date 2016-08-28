@@ -21,7 +21,7 @@
 .cmd-bar {
     display: none;
     padding: 5px;
-    background-color: $c-sec;
+    background-color: $gray5;
     color: black;
     text-align: right;
     border-radius: 0 0 6px 6px;
@@ -39,6 +39,39 @@
     color: black;
     text-align: right;
     border-radius: 0 0 6px 6px;
+}
+
+%cmd-bar__btn {
+    text-align: center;
+    display: inline-block;
+    margin: 0 3px;
+    color:white;
+    padding: 0 4px;
+    border-radius: 6px;
+    font-size: 120%;
+    font-weight: bolder;
+    //padding: 5px 8px 0;
+    cursor:pointer;
+}
+
+.cmd-bar__btn--agree {
+    @extend %cmd-bar__btn;
+    background-color: $light-green;
+}
+
+.cmd-bar__btn--agree-active {
+    @extend %cmd-bar__btn;
+    background-color: $green;
+}
+
+.cmd-bar__btn--disagree {
+    @extend %cmd-bar__btn;
+    background-color: $light-red;
+}
+
+.cmd-bar__btn--disagree-active {
+    @extend %cmd-bar__btn;
+    background-color: $red;
 }
 
 

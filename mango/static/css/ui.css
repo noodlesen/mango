@@ -23,7 +23,7 @@
 .cmd-bar {
   display: none;
   padding: 5px;
-  background-color: #ffc501;
+  background-color: #efefef;
   color: black;
   text-align: right;
   border-radius: 0 0 6px 6px;
@@ -44,7 +44,40 @@
   border-radius: 0 0 6px 6px;
 }
 
-/* line 45, scss/ui.scss */
+/* line 44, scss/ui.scss */
+.cmd-bar__btn--agree, .cmd-bar__btn--agree-active, .cmd-bar__btn--disagree, .cmd-bar__btn--disagree-active {
+  text-align: center;
+  display: inline-block;
+  margin: 0 3px;
+  color: white;
+  padding: 0 4px;
+  border-radius: 6px;
+  font-size: 120%;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+/* line 57, scss/ui.scss */
+.cmd-bar__btn--agree {
+  background-color: #c8efb1;
+}
+
+/* line 62, scss/ui.scss */
+.cmd-bar__btn--agree-active {
+  background-color: #55d426;
+}
+
+/* line 67, scss/ui.scss */
+.cmd-bar__btn--disagree {
+  background-color: #ffc4b3;
+}
+
+/* line 72, scss/ui.scss */
+.cmd-bar__btn--disagree-active {
+  background-color: #ff4e2b;
+}
+
+/* line 78, scss/ui.scss */
 .confirm-delete {
   background-color: red;
   color: white;
@@ -53,12 +86,12 @@
   margin-top: 3px;
 }
 
-/* line 54, scss/ui.scss */
+/* line 87, scss/ui.scss */
 .has-cmd-bar:hover .cmd-bar {
   display: block;
 }
 
-/* line 59, scss/ui.scss */
+/* line 92, scss/ui.scss */
 .badge {
   background-color: red;
   color: white;

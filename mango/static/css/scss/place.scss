@@ -6,7 +6,7 @@ h1 {
 
 #filters{
     float: left;
-    width:22%;
+    width:24%;
     margin-right:2%;
 
     h2{
@@ -22,7 +22,10 @@ h1 {
 
 #tips{
     float: left;
-    width:76%
+    width:74%
+}
+.tip{
+    background-color: white;
 }
 
 .filter-item{
@@ -44,13 +47,6 @@ h1 {
     }
 }
 
-/* .filter-item-active{
-    color:white;
-    
-    &:hover{
-        color: $gray3;
-    }
-} */
 
 .color-green{
     background-color: $green;
@@ -68,8 +64,20 @@ h1 {
 }
 
 .tip__main-text {
-    font-size: 15px;
-    line-height: 1.2em;
+    font-size: 14px;
+    line-height: 1.4em;
+    font-weight: 400;
+    //color:black;
+}
+
+.tip__tag {
+    display: inline-block;
+    background-color: $green;
+    color: white;
+    border-radius: 2px;
+    font-weight: bolder;
+    font-size: 12px;
+    padding: 0 3px;
 }
 
 .place__info {

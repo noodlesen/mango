@@ -1,6 +1,57 @@
+var cTip = Vue.extend({
+    data: function(){
+        return {
+            text: 'остров Airborek - чудо расчудесное, мечта. Обязательно побывайте здесь! Белые попугаи, звездное небо, которое напоминает космические снимки или как - будто ты находишься на совершенно другой планете и конечно  главная достопримечательность этого острова - стаи мант',
+            disagreed: 16,
+            agreed: 34,
+            agree: false,
+            disagree:false,
+            outdated: false
+        }
+    },
+    methods:{
+        clickAgree: function(){
+            if (!this.agree && !this.disagree){
+                this.agreed++;
+                this.agree = true;
+            }
+        },
+        clickDisagree: function(){
+            if (!this.agree && !this.disagree){
+                this.disagreed++;
+                this.disagree = true;
+            }
+        }
+
+    },
+
+    template: '<div class="item-block tip has-cmd-bar">\
+                    <div class="item-block__body">\
+                        <div class="tip__main-text">\
+                           {{text}}\
+                        </div>\
+                        <div class="tip__tags">\
+                            <span class="tip__tag">Что посмотреть</span>\
+                        </div>\
+                    </div>\
+                    <div class="cmd-bar">\
+                        \
+                        <span class="cmd-bar__btn--disagree" :class="{\'cmd-bar__btn--disagree-active\':disagree}"  v-on:click="clickDisagree">\
+                        <i class="btn-agree glyphicon glyphicon-remove"></i>\
+                            <span>{{disagreed}}</span>\
+                        </span>\
+                        <span class="cmd-bar__btn--agree" :class="{\'cmd-bar__btn--agree-active\':agree}" v-on:click="clickAgree">\
+                            <i class="btn-agree glyphicon glyphicon-ok"></i>\
+                            <span>{{agreed}}</span>\
+                        </span>\
+                    </div>\
+                </div>'
+}); 
+
+Vue.component('c-tip', cTip);
 
 var f = new Vue({
-    el: '#cont',
+    el: '#filters',
     data:{
         inactive: [
             {name: 'Что посмотреть', state: false, style:'', init: 'color-red'},
@@ -26,9 +77,19 @@ var f = new Vue({
                 this.inactive[i].style= 'filter-item-inactive';
             }
             else{
-              this.inactive[i].style= this.inactive[i].init;  
+              this.inactive[i].style= this.inactive[i].init;
             }
             
         }
     }
+});
+
+var t = new Vue({
+    el:'#tips-content',
+    data:{
+        htext:'Hello wforld!!!'
+    },
+    ready: function(){
+    },
+    template:'<c-tip></c-tip>'
 });

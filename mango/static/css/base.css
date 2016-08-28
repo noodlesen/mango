@@ -30,7 +30,6 @@ body {
   color: #585858;
   background-color: #f8f8f8;
   font-family: 'Open Sans', sans-serif;
-  /* font-family: 'Arimo', sans-serif; */
   font-size: 15px;
   /* Margin bottom by footer height */
   margin-bottom: 60px;
@@ -56,18 +55,23 @@ body {
     display: inline-block;
 } */
 /* line 60, scss/base.scss */
+#navbar__logo {
+  margin-top: -12px;
+}
+
+/* line 64, scss/base.scss */
 #user__nickname {
   font-size: 18px;
   float: right;
 }
 
-/* line 65, scss/base.scss */
+/* line 69, scss/base.scss */
 #user__nots {
   float: right;
   padding-top: 5px;
 }
 
-/* line 71, scss/base.scss */
+/* line 75, scss/base.scss */
 .user__alert a {
   text-decoration: none;
 }
