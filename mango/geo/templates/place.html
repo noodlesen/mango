@@ -88,9 +88,9 @@
 
         <div class="col-lg-5 place__info">
 
-            <h1>Ко Чанг</h1>
+            <h1>{{place.rus_name}}</h1>
             <div id="main-picture">
-                <img class="img img-responsive" src="{{ url_for('static', filename="images/testpic.jpg") }}" />
+                <img class="img img-responsive" src="{{ url_for('geo.static', filename='images/places/'+place.image+'_big.jpg') }}" />
             </div>
 
         </div>
@@ -104,5 +104,5 @@
     {{ super() }}
     <script src ="{{ url_for('static', filename="lib/vue.js") }}" type="text/javascript"></script>
     <script src ="{{ url_for('static', filename="js/common.js") }}" type="text/javascript"></script>
-    <script src ="{{ url_for('static', filename="js/place.js") }}" type="text/javascript"></script>
+    <script src ="{{ url_for('geo.static', filename="js/place.js") }}" type="text/javascript"></script>
 {% endblock %}

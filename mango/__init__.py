@@ -16,6 +16,7 @@ from .config import DEBUG, SECRET_KEY, DBURI, MAINTENANCE, PROJECT_NAME, MAIL_SE
 from .social import social, oauth
 from .social.models import User, Notification
 from .admin import admin
+from .geo import geo
 
 # from .mailer import mail
 
@@ -25,6 +26,7 @@ app = Flask(__name__)
 
 app.register_blueprint(social)
 app.register_blueprint(admin)
+app.register_blueprint(geo)
 
 
 app.debug = DEBUG

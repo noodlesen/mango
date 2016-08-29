@@ -1,6 +1,7 @@
 mango/config.py
 mango/static/photos
 mango/social/static/images
+mango/geo/static/images
 __pycache__
 mango/__pycache__
 mango/upload

@@ -1,7 +1,7 @@
 var cTip = Vue.extend({
     data: function(){
         return {
-            text: 'остров Airborek - чудо расчудесное, мечта. Обязательно побывайте здесь! Белые попугаи, звездное небо, которое напоминает космические снимки или как - будто ты находишься на совершенно другой планете и конечно  главная достопримечательность этого острова - стаи мант',
+            
             disagreed: 16,
             agreed: 34,
             agree: false,
@@ -42,10 +42,10 @@ var cTip = Vue.extend({
 
     },
 
-    template: '<div class="item-block tip has-cmd-bar">\
+    template: '<div class="item-block tip has-cmd-bar" :class="{\'tip-agreed\':agree, \'tip-disagreed\':disagree}">\
                     <div class="item-block__body">\
                         <div class="tip__main-text">\
-                           {{text}}\
+                           <slot></slot>\
                         </div>\
                         <div class="tip__tags">\
                             <span class="tip__tag">Что посмотреть</span>\
@@ -108,5 +108,8 @@ var t = new Vue({
     },
     ready: function(){
     },
-    template:'<c-tip></c-tip>'
+    template:'<c-tip>\
+        остров Airborek - чудо расчудесное, мечта. Обязательно побывайте здесь!\
+        Белые попугаи, звездное небо, которое напоминает космические снимки или как - будто ты находишься на совершенно другой планете и конечно  главная достопримечательность этого острова - стаи мант\
+    </c-tip>'
 });
