@@ -1,3 +1,152 @@
+/* line 62, scss/_config.scss */
+.color-none {
+  background-color: #878787;
+}
+
+/* line 67, scss/_config.scss */
+.color-blue {
+  background-color: #0088cc;
+  color: white;
+}
+
+/* line 72, scss/_config.scss */
+.color-cyan {
+  background-color: #0cbeb2;
+  color: white;
+}
+
+/* line 77, scss/_config.scss */
+.color-green {
+  background-color: #55d426;
+  color: white;
+}
+
+/* line 82, scss/_config.scss */
+.color-yellow {
+  background-color: #ffc501;
+  color: white;
+}
+
+/* line 87, scss/_config.scss */
+.color-yellow {
+  background-color: #fff10d;
+  color: white;
+}
+
+/* line 92, scss/_config.scss */
+.color-red {
+  background-color: #ff4e2b;
+  color: white;
+}
+
+/* line 98, scss/_config.scss */
+.color-dark-blue {
+  background-color: #002c87;
+  color: white;
+}
+
+/* line 103, scss/_config.scss */
+.color-dark-cyan {
+  background-color: #00705d;
+  color: white;
+}
+
+/* line 108, scss/_config.scss */
+.color-dark-green {
+  background-color: #0c9702;
+  color: white;
+}
+
+/* line 113, scss/_config.scss */
+.color-dark-yellow {
+  background-color: #ff7b00;
+  color: white;
+}
+
+/* line 118, scss/_config.scss */
+.color-dark-yellow {
+  background-color: #ffd900;
+  color: white;
+}
+
+/* line 123, scss/_config.scss */
+.color-dark-red {
+  background-color: #ff0a02;
+  color: white;
+}
+
+/* line 128, scss/_config.scss */
+.color-light-blue {
+  background-color: #acd6e7;
+  color: white;
+}
+
+/* line 133, scss/_config.scss */
+.color-light-cyan {
+  background-color: #b1e8df;
+  color: white;
+}
+
+/* line 138, scss/_config.scss */
+.color-light-green {
+  background-color: #c8efb1;
+  color: white;
+}
+
+/* line 143, scss/_config.scss */
+.color-light-yellow {
+  background-color: #ffeaa5;
+  color: white;
+}
+
+/* line 148, scss/_config.scss */
+.color-light-yellow {
+  background-color: #fff8a9;
+  color: white;
+}
+
+/* line 153, scss/_config.scss */
+.color-light-red {
+  background-color: #ffc4b3;
+  color: white;
+}
+
+/* line 158, scss/_config.scss */
+.color-pale-blue {
+  background-color: #d5eaf3;
+  color: white;
+}
+
+/* line 163, scss/_config.scss */
+.color-pale-cyan {
+  background-color: #d8f3ef;
+  color: white;
+}
+
+/* line 168, scss/_config.scss */
+.color-pale-green {
+  background-color: #e3f7d8;
+  color: white;
+}
+
+/* line 173, scss/_config.scss */
+.color-pale-yellow {
+  background-color: #fff4d2;
+  color: white;
+}
+
+/* line 178, scss/_config.scss */
+.color-pale-yellow {
+  background-color: #fffbd4;
+  color: white;
+}
+
+/* line 183, scss/_config.scss */
+.color-pale-red {
+  background-color: #ffe1d9;
+  color: white;
+}
+
 /* line 3, scss/ui.scss */
 .item-block {
   background-color: #f8f8f8;

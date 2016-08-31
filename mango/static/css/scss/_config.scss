@@ -25,6 +25,7 @@ $green: #55d426;
 $yellow: #fff10d;
 $orange: #ffc501;
 $red: #ff4e2b;
+$magenta: #b652bf;
 
 $dark-blue: #002c87;
 $dark-cyan: #00705d;
@@ -32,6 +33,7 @@ $dark-green: #0c9702;
 $dark-yellow: #ffd900;
 $dark-orange: #ff7b00;
 $dark-red: #ff0a02;
+$dark-magenta: #821a8f;
 
 $light-blue: #acd6e7;
 $light-cyan: #b1e8df;
@@ -39,6 +41,7 @@ $light-green: #c8efb1;
 $light-yellow: #fff8a9;
 $light-orange: #ffeaa5;
 $light-red: #ffc4b3;
+$light-magenta: #d294d7;
 
 $pale-blue: #d5eaf3;
 $pale-cyan: #d8f3ef;
@@ -46,6 +49,7 @@ $pale-green: #e3f7d8;
 $pale-yellow: #fffbd4;
 $pale-orange: #fff4d2;
 $pale-red: #ffe1d9;
+$pale-magenta: #e8c9eb;
 
 $c-prim: $blue;
 $c-sec: $orange;
@@ -54,4 +58,132 @@ $c-add: $green;
 $c-error: $red;
 $c-success: $green;
 $c-attention: $orange;
+
+.color-none{
+    //border-radius: 1px solid $gray4;
+    background-color: $gray3;
+}
+
+.color-blue{
+    background-color: $blue;
+    color:white;
+}
+
+.color-cyan{
+    background-color: $cyan;
+    color:white;
+}
+
+.color-green{
+    background-color: $green;
+    color:white;
+}
+
+.color-yellow{
+    background-color: $orange;
+    color:white;
+}
+
+.color-yellow{
+    background-color: $yellow;
+    color:white;
+}
+
+.color-red{
+    background-color: $red;
+    color:white;
+}
+
+
+.color-dark-blue{
+    background-color: $dark-blue;
+    color:white;
+}
+
+.color-dark-cyan{
+    background-color: $dark-cyan;
+    color:white;
+}
+
+.color-dark-green{
+    background-color: $dark-green;
+    color:white;
+}
+
+.color-dark-yellow{
+    background-color: $dark-orange;
+    color:white;
+}
+
+.color-dark-yellow{
+    background-color: $dark-yellow;
+    color:white;
+}
+
+.color-dark-red{
+    background-color: $dark-red;
+    color:white;
+}
+
+.color-light-blue{
+    background-color: $light-blue;
+    color:white;
+}
+
+.color-light-cyan{
+    background-color: $light-cyan;
+    color:white;
+}
+
+.color-light-green{
+    background-color: $light-green;
+    color:white;
+}
+
+.color-light-yellow{
+    background-color: $light-orange;
+    color:white;
+}
+
+.color-light-yellow{
+    background-color: $light-yellow;
+    color:white;
+}
+
+.color-light-red{
+    background-color: $light-red;
+    color:white;
+}
+
+.color-pale-blue{
+    background-color: $pale-blue;
+    color:white;
+}
+
+.color-pale-cyan{
+    background-color: $pale-cyan;
+    color:white;
+}
+
+.color-pale-green{
+    background-color: $pale-green;
+    color:white;
+}
+
+.color-pale-yellow{
+    background-color: $pale-orange;
+    color:white;
+}
+
+.color-pale-yellow{
+    background-color: $pale-yellow;
+    color:white;
+}
+
+.color-pale-red{
+    background-color: $pale-red;
+    color:white;
+}
+
+
 

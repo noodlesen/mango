@@ -50,7 +50,9 @@ def json_place():
         res['tips'].append(tip)
     place_tags=[]
     for t in res['tips']:
-        for tag in t.tags:
+        print ('>>>>>>>>>>>>>>>>>>>>>>>')
+        print (t)
+        for tag in t['tags']:
             if tag not in place_tags:
                 place_tags.append(tag)
     res['place_tags'] = place_tags

@@ -45,7 +45,7 @@ var cTip = Vue.extend({
     template: '<div class="item-block tip has-cmd-bar" :class="{\'tip-agreed\':agree, \'tip-disagreed\':disagree}">\
                     <div class="item-block__body">\
                         <div class="tip__tags">\
-                            <span v-for="t in tags" class="tip__tag" style="background-color:{{t.style}}">{{t.name}}</span>\
+                            <span v-for="t in tags" class="tip__tag" :class="t.style" >{{t.name}}</span>\
                         </div>\
                         <div class="tip__main-text">\
                            <slot></slot>\
@@ -84,8 +84,46 @@ var tag = Vue.extend({
 
 Vue.component('tag', tag);
 
-// ==========================================
 
+var place = new Vue({
+        template: '<div>\
+                    <div id="filters" class="hidden-xs">\
+                        <div class="tags__list">\
+                            <h2>Метки</h2>\
+                            <div id="tag-list"><tag v-for="t in tags" :name="t.name"></tag></div>\
+                        </div>\
+                    </div>\
+                    <div id="tips">\
+                        <div id="tips-content">\
+                        <c-tip v-for="tip in tips" :tags="tip.tags">\
+                            {{tip.text}}\
+                        </c-tip>\
+                        </div>\
+                    </div>\
+                    <div class="clearfix"></div></div>',
+
+        el: '#place-tips',
+
+        data: {
+            tags:[],
+            tips:[]
+        },
+
+        ready: function(){
+            var self = this;
+            getResults('/json/place', 'json', {place_id: place_id}, function(res){
+                if (res.status=='ok'){
+                    console.log (JSON.stringify(res));
+                    self.tips=res.tips;
+                    self.tags=res.place_tags;
+                }
+            });
+        },
+
+});
+
+// ==========================================
+/*
 var tl = new Vue({
     el:'#tag-list',
     data: {
@@ -116,4 +154,4 @@ var t = new Vue({
     template:'<div><c-tip v-for="tip in tips" :tags="tip.tags">\
         {{tip.text}}\
     </c-tip></div>'
-});
+});*/
