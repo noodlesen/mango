@@ -44,11 +44,11 @@ var cTip = Vue.extend({
 
     template: '<div class="item-block tip has-cmd-bar" :class="{\'tip-agreed\':agree, \'tip-disagreed\':disagree}">\
                     <div class="item-block__body">\
+                        <div class="tip__tags">\
+                            <span v-for="t in tags" class="tip__tag" style="background-color:{{t.style}}">{{t.name}}</span>\
+                        </div>\
                         <div class="tip__main-text">\
                            <slot></slot>\
-                        </div>\
-                        <div class="tip__tags">\
-                            <span class="tip__tag">Что посмотреть</span>\
                         </div>\
                     </div>\
                     <div class="cmd-bar">\
@@ -62,54 +62,58 @@ var cTip = Vue.extend({
                             <span>{{agreed}}</span>\
                         </span>\
                     </div>\
-                </div>'
+                </div>',
+
+    props: ['tags']
 }); 
 
 Vue.component('c-tip', cTip);
 
-var f = new Vue({
-    el: '#filters',
-    data:{
-        inactive: [
-            {name: 'Что посмотреть', state: false, style:'', init: 'color-red'},
-            {name: 'Как добраться', state: true,  style:'', init: 'color-yellow'},
-            {name: 'Транспорт', state: true,   style:'', init: 'color-green'},
-            {name: 'Цены', state: true,   style:'', init: 'color-green'}
-        ]
-    },
-    methods:{
-        toggleFilter: function(d){
-            this.inactive[d].state = !this.inactive[d].state;
-            if (!this.inactive[d].state){
-                this.inactive[d].style = 'filter-item-inactive';
-            } else {
-                this.inactive[d].style = this.inactive[d].init;
-            }
-        }
-    },
 
-    ready: function(){
-        for (i=0; i<this.inactive.length; i++){
-            if (this.inactive[i].state){
-                this.inactive[i].style= 'filter-item-inactive';
-            }
-            else{
-              this.inactive[i].style= this.inactive[i].init;
-            }
-            
+var tag = Vue.extend({
+    template:'<div class="filter-item" :class="{\'filter-item-inactive\':state=\'off\'}">\
+                        <span class="glyphicon glyphicon-tag" style="font-size:75%" ></span>\
+                        <span>{{name}}</span>\
+            </div>',
+    data: function(){
+        return {
         }
-    }
+    },
+    props:['name', 'color', 'state']
 });
+
+Vue.component('tag', tag);
+
+// ==========================================
+
+var tl = new Vue({
+    el:'#tag-list',
+    data: {
+        place_tags:[]
+    },
+    ready: function(){
+        this.place_tags = place_tags;
+    },
+    template:'<div id="filters-list"><tag name="Что посмотреть" color="red" state="off"></tag></div>'
+});
+
+                    
 
 var t = new Vue({
     el:'#tips-content',
     data:{
-        htext:'Hello wforld!!!'
+        tips:[]
     },
     ready: function(){
+        var self = this;
+        getResults('/json/place', 'json', {place_id: place_id}, function(res){
+            if (res.status=='ok'){
+                console.log (JSON.stringify(res));
+                self.tips=res.tips;
+            }
+        });
     },
-    template:'<c-tip>\
-        остров Airborek - чудо расчудесное, мечта. Обязательно побывайте здесь!\
-        Белые попугаи, звездное небо, которое напоминает космические снимки или как - будто ты находишься на совершенно другой планете и конечно  главная достопримечательность этого острова - стаи мант\
-    </c-tip>'
+    template:'<div><c-tip v-for="tip in tips" :tags="tip.tags">\
+        {{tip.text}}\
+    </c-tip></div>'
 });

@@ -18,4 +18,41 @@ import json
 @geo.route('/places/id/<pid>', methods=['GET'])
 def old_places(pid):
     p = Place.query.filter_by(fpid=pid).first()
-    return render_template('place.html', place=p)
+    if p:
+        #return render_template('place.html', place=p)
+        return redirect(url_for('geo.places', us=p.url_string))
+    else:
+        abort(404)
+
+@geo.route('/place/<us>', methods=['GET'])
+def places(us):
+    p = Place.query.filter_by(url_string=us).first()
+    if p:
+        return render_template('place.html', place=p)
+    else:
+        abort(404)
+
+@geo.route('/json/place', methods=['POST'])
+def json_place():
+    q = request.json
+    place_id = q['place_id']
+    p = Place.query.get(place_id)
+    res={}
+    res['tips']=[]
+    for t in p.tips:
+        tip = {"text":t.text, "tags":[]}
+        for tag in t.tags:
+            tip['tags'].append({"id": tag.id,
+                                "name": tag.name,
+                                "style": tag.style,
+                                "count": tag.count
+                })
+        res['tips'].append(tip)
+    place_tags=[]
+    for t in res['tips']:
+        for tag in t.tags:
+            if tag not in place_tags:
+                place_tags.append(tag)
+    res['place_tags'] = place_tags
+    res['status']='ok'
+    return json.dumps(res)

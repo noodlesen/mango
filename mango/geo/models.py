@@ -36,6 +36,7 @@ class Place(db.Model):
     fpid = db.Column(db.Integer)
     url_string = db.Column(db.String(50))
     image = db.Column(db.String(50))
+    tips = db.relationship('Tip', backref='place', lazy='dynamic')
 
 
 class GeoAlias(db.Model):
@@ -43,3 +44,37 @@ class GeoAlias(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     alias = db.Column(db.String(50))
     location_id = db.Column(db.Integer, db.ForeignKey('G_places.id'))
+
+
+tags2tips = db.Table ('tags2tips',
+       db.Column('tag_id', db.Integer, db.ForeignKey('tags.id')), 
+       db.Column('tip_id', db.Integer, db.ForeignKey('tips.id'))
+    )
+
+
+class Tip(db.Model):
+    __tablename__ = 'tips'
+    id = db.Column(db.Integer, primary_key=True)
+    place_id = db.Column(db.Integer, db.ForeignKey('G_places.id'))
+    text = db.Column(db.Text)
+    tags = db.relationship('Tag', secondary=tags2tips, backref=db.backref('tips', lazy='dynamic'))
+
+    #temp
+    taglines = db.Column(db.Text)
+    sex = db.Column(db.String(1))
+
+
+class Tag(db.Model):
+    __tablename__ = 'tags'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50))
+    style = db.Column(db.String(20))
+    count = db.Column(db.Integer)
+
+
+
+
+
+
+
+

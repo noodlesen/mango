@@ -6,7 +6,7 @@
 {{ super() }}
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/common.css') }}">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/ui.css') }}">
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/place.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('geo.static', filename='css/place.css') }}">
 {% endblock %}
 
 {% block page_content %}
@@ -20,24 +20,25 @@
                 
                 <div class="tags__list">
                     <h2>Метки</h2>
-                    <div class="filter-item" 
-                        v-for="f in inactive"
-                        v-bind:class="[f.style]"
-                        
-                        v-on:click="toggleFilter($index)" 
-                        >
-                        <span class="glyphicon glyphicon-tag" style="font-size:75%;"></span>
-                        <span v-text="f.name"></span>
-                    </div>
+                    <div id="tag-list"></div>
                 </div>
             </div>
 
             <div id="tips">
                 <div id="tips-content">
+                {% for t in place.tips %}
+                    <div>{{t.text}}</div>
+                    <div>
+                        {% for tag in t.tags %}
+                            <span class="tip__tag">{{tag.name}}</span>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div class="divider"></div>
                 <div class="item-block tip has-cmd-bar">
                     <div class="item-block__body">
                         <div class="tip__main-text">
-                           остров Airborek - чудо расчудесное, мечта. Обязательно побывайте здесь! Белые попугаи, звездное небо, которое напоминает космические снимки или как - будто ты находишься на совершенно другой планете и конечно  главная достопримечательность этого острова - стаи мант
+                           Остров Airborek - чудо расчудесное, мечта. Обязательно побывайте здесь! Белые попугаи, звездное небо, которое напоминает космические снимки или как - будто ты находишься на совершенно другой планете и конечно  главная достопримечательность этого острова - стаи мант
                         </div>
                         <div class="tip__tags">
                             <span class="tip__tag">Что посмотреть</span>
@@ -90,7 +91,9 @@
 
             <h1>{{place.rus_name}}</h1>
             <div id="main-picture">
+                {% if place.image %}
                 <img class="img img-responsive" src="{{ url_for('geo.static', filename='images/places/'+place.image+'_big.jpg') }}" />
+                {% endif %}
             </div>
 
         </div>
@@ -102,6 +105,9 @@
 
 {% block scripts %}
     {{ super() }}
+    <script type="text/javascript">
+        var place_id = {{place.id}};
+    </script>
     <script src ="{{ url_for('static', filename="lib/vue.js") }}" type="text/javascript"></script>
     <script src ="{{ url_for('static', filename="js/common.js") }}" type="text/javascript"></script>
     <script src ="{{ url_for('geo.static', filename="js/place.js") }}" type="text/javascript"></script>
