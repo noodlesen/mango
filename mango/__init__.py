@@ -17,6 +17,7 @@ from .social import social, oauth
 from .social.models import User, Notification
 from .admin import admin
 from .geo import geo
+from .geo.models import Place
 
 # from .mailer import mail
 
@@ -109,10 +110,11 @@ def maintenance():
         return redirect(url_for('root'))
 
 
-# for example
+#for example
 @app.route('/')
 def root():
-    return render_template('place.html')
+    places = Place.query.filter_by(active=1)
+    return render_template('test_places.html', places=places)
 
 @app.route('/users')
 def users():

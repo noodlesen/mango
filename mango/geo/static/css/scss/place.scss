@@ -56,12 +56,16 @@ h1 {
 }
 
 
-
-
 .tip__main-text {
     font-size: 14px;
-    line-height: 1.4em;
+    line-height: 1.3em;
     font-weight: 400;
+    padding-left: 35px;
+    padding-right: 15px;
+    padding-top: 6px;
+    &:first-letter{
+        font-size: 1.2em;
+    }
 }
 
 .tip__tag {
@@ -71,7 +75,11 @@ h1 {
     font-weight: bolder;
     font-size: 12px;
     padding: 0 3px;
-    margin-right: 4px;
+    margin-right: 1px;
+}
+
+.tip__author{
+    
 }
 
 .place__info {

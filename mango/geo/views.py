@@ -14,6 +14,11 @@ from sqlalchemy import desc
 from datetime import datetime
 import json
 
+from . .cache import cache
+
+from operator import itemgetter
+
+
 
 @geo.route('/places/id/<pid>', methods=['GET'])
 def old_places(pid):
@@ -24,6 +29,7 @@ def old_places(pid):
     else:
         abort(404)
 
+@cache.cached(50)
 @geo.route('/place/<us>', methods=['GET'])
 def places(us):
     p = Place.query.filter_by(url_string=us).first()
@@ -40,7 +46,7 @@ def json_place():
     res={}
     res['tips']=[]
     for t in p.tips:
-        tip = {"text":t.text, "tags":[]}
+        tip = {"text":t.text, "tags":[], "author":{'id':t.user.id, 'name':t.user.nickname}}
         for tag in t.tags:
             tip['tags'].append({"id": tag.id,
                                 "name": tag.name,
@@ -55,6 +61,6 @@ def json_place():
         for tag in t['tags']:
             if tag not in place_tags:
                 place_tags.append(tag)
-    res['place_tags'] = place_tags
+    res['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
     res['status']='ok'
     return json.dumps(res)

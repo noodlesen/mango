@@ -8,6 +8,8 @@ from datetime import datetime
 
 from sqlalchemy.sql import or_
 
+from . .geo.models import Tip
+
 # import os
 # from . .path import ROOT_DIR, UPLOAD_FOLDER, AVATAR_FOLDER
 from . .logger import StrangersLog
@@ -61,6 +63,11 @@ class User (UserMixin, db.Model):
     private_messages_to = db.relationship('PrivateMessage', backref='recipient', lazy='dynamic', foreign_keys='PrivateMessage.user_to')
     users_relationships = db.relationship('UsersRelationship', backref='user', lazy='dynamic', foreign_keys='UsersRelationship.user1')
     notifications = db.relationship('Notification', backref='recipient', lazy='dynamic', foreign_keys='Notification.user_to')
+
+
+    # MANGO EXTRAS ===============================
+    tips = db.relationship('Tip', backref='user', lazy='dynamic', foreign_keys='Tip.user_id') 
+    #=============================================
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -148,6 +155,8 @@ class User (UserMixin, db.Model):
         if not image:
             image='avatar_placeholder.png'
         return (url_for('social.static', filename='images/avatars/'+image))
+
+
 
 class NotificationMixin():
     id = db.Column(db.Integer, primary_key=True)

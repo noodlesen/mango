@@ -59,131 +59,299 @@ $c-error: $red;
 $c-success: $green;
 $c-attention: $orange;
 
+
 .color-none{
     //border-radius: 1px solid $gray4;
-    background-color: $gray3;
+    color: #78a7b4;
 }
 
 .color-blue{
-    background-color: $blue;
-    color:white;
+    color: $blue;
+    
 }
 
 .color-cyan{
-    background-color: $cyan;
-    color:white;
+    color: $cyan;
+    
 }
 
 .color-green{
-    background-color: $green;
-    color:white;
+    color: $green;
+    
 }
 
 .color-yellow{
-    background-color: $orange;
-    color:white;
+    color: $orange;
+    
 }
 
-.color-yellow{
-    background-color: $yellow;
-    color:white;
+.color-orange{
+    color: $orange;
+    
 }
 
 .color-red{
-    background-color: $red;
-    color:white;
+    color: $red;
+}
+
+.color-magenta{
+    color: $magenta;
+    
 }
 
 
 .color-dark-blue{
+    color: $dark-blue;
+    
+}
+
+.color-dark-cyan{
+    color: $dark-cyan;
+    
+}
+
+.color-dark-green{
+    color: $dark-green;
+    
+}
+
+.color-dark-orange{
+    color: $dark-orange;
+    
+}
+
+.color-dark-yellow{
+    color: $dark-yellow;
+    
+}
+
+.color-dark-red{
+    color: $dark-red;
+    
+}
+
+.color-dark-magenta{
+    color: $dark-magenta;
+    
+}
+
+.color-light-blue{
+    color: $light-blue;
+    
+}
+
+.color-light-cyan{
+    color: $light-cyan;
+    
+}
+
+.color-light-green{
+    color: $light-green;
+    
+}
+
+.color-light-orange{
+    color: $light-orange;
+    
+}
+
+.color-light-yellow{
+    color: $light-yellow;
+    
+}
+
+.color-light-red{
+    color: $light-red;
+    
+}
+
+.color-pale-blue{
+    color: $pale-blue;
+    
+}
+
+.color-light-magenta{
+    color: $light-magenta;
+    
+}
+
+.color-pale-cyan{
+    color: $pale-cyan;
+    
+}
+
+.color-pale-green{
+    color: $pale-green;
+    
+}
+
+.color-pale-yellow{
+    color: $pale-orange;
+    
+}
+
+.color-pale-yellow{
+    color: $pale-yellow;
+    
+}
+
+.color-pale-red{
+    color: $pale-red;
+    
+}
+
+.color-pale-magenta{
+    color: $pale-magenta;
+    
+}
+
+//
+
+
+.back-color-none{
+    //border-radius: 1px solid $gray4;
+    background-color: #78a7b4;
+}
+
+.back-color-blue{
+    background-color: $blue;
+    color:white;
+}
+
+.back-color-cyan{
+    background-color: $cyan;
+    color:white;
+}
+
+.back-color-green{
+    background-color: $green;
+    color:white;
+}
+
+.back-color-yellow{
+    background-color: $orange;
+    color:white;
+}
+
+.back-color-orange{
+    background-color: $orange;
+    color:white;
+}
+
+.back-color-red{
+    background-color: $red;
+    color:white;
+}
+
+.back-color-magenta{
+    background-color: $magenta;
+    color:white;
+}
+
+
+.back-color-dark-blue{
     background-color: $dark-blue;
     color:white;
 }
 
-.color-dark-cyan{
+.back-color-dark-cyan{
     background-color: $dark-cyan;
     color:white;
 }
 
-.color-dark-green{
+.back-color-dark-green{
     background-color: $dark-green;
     color:white;
 }
 
-.color-dark-yellow{
+.back-color-dark-orange{
     background-color: $dark-orange;
     color:white;
 }
 
-.color-dark-yellow{
+.back-color-dark-yellow{
     background-color: $dark-yellow;
     color:white;
 }
 
-.color-dark-red{
+.back-color-dark-red{
     background-color: $dark-red;
     color:white;
 }
 
-.color-light-blue{
+.back-color-dark-magenta{
+    background-color: $dark-magenta;
+    color:white;
+}
+
+.back-color-light-blue{
     background-color: $light-blue;
     color:white;
 }
 
-.color-light-cyan{
+.back-color-light-cyan{
     background-color: $light-cyan;
     color:white;
 }
 
-.color-light-green{
+.back-color-light-green{
     background-color: $light-green;
     color:white;
 }
 
-.color-light-yellow{
+.back-color-light-orange{
     background-color: $light-orange;
     color:white;
 }
 
-.color-light-yellow{
+.back-color-light-yellow{
     background-color: $light-yellow;
     color:white;
 }
 
-.color-light-red{
+.back-color-light-red{
     background-color: $light-red;
     color:white;
 }
 
-.color-pale-blue{
+.back-color-pale-blue{
     background-color: $pale-blue;
     color:white;
 }
 
-.color-pale-cyan{
+.back-color-light-magenta{
+    background-color: $light-magenta;
+    color:white;
+}
+
+.back-color-pale-cyan{
     background-color: $pale-cyan;
     color:white;
 }
 
-.color-pale-green{
+.back-color-pale-green{
     background-color: $pale-green;
     color:white;
 }
 
-.color-pale-yellow{
+.back-color-pale-orange{
     background-color: $pale-orange;
     color:white;
 }
 
-.color-pale-yellow{
+.back-color-pale-yellow{
     background-color: $pale-yellow;
     color:white;
 }
 
-.color-pale-red{
+.back-color-pale-red{
     background-color: $pale-red;
     color:white;
 }
 
+.back-color-pale-magenta{
+    background-color: $pale-magenta;
+    color:white;
+}
 
 

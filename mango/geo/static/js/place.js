@@ -1,3 +1,5 @@
+// TIP COMPONENT =========================================
+
 var cTip = Vue.extend({
     data: function(){
         return {
@@ -44,11 +46,17 @@ var cTip = Vue.extend({
 
     template: '<div class="item-block tip has-cmd-bar" :class="{\'tip-agreed\':agree, \'tip-disagreed\':disagree}">\
                     <div class="item-block__body">\
-                        <div class="tip__tags">\
-                            <span v-for="t in tags" class="tip__tag" :class="t.style" >{{t.name}}</span>\
-                        </div>\
+                          <div class="tip__tags">\
+                                <span v-for="t in tags" class="tip__tag" :class="\'back-\'+t.style" >{{t.name}}</span>\
+                            </div>\
                         <div class="tip__main-text">\
                            <slot></slot>\
+                        </div>\
+                        <div class="tip__bottom">\
+                            <div class="tip__author" style="text-align:right">\
+                                <span class="glyphicon glyphicon-user"></span>\
+                                <a href="/user/{{author.id}}" >{{author.name}}</a>\
+                            </div>\
                         </div>\
                     </div>\
                     <div class="cmd-bar">\
@@ -64,38 +72,64 @@ var cTip = Vue.extend({
                     </div>\
                 </div>',
 
-    props: ['tags']
+    props: ['tags', 'author']
 }); 
 
 Vue.component('c-tip', cTip);
 
 
+// FILTER TAG COMPONENT =========================================
+
 var tag = Vue.extend({
-    template:'<div class="filter-item" :class="{\'filter-item-inactive\':state=\'off\'}">\
-                        <span class="glyphicon glyphicon-tag" style="font-size:75%" ></span>\
+    template:'<div class="filter-item" :class="[tag_class]" @click="toggle">\
+                        <span class="glyphicon glyphicon-tag" :class="[act_color]" style="font-size:75%" ></span>\
                         <span>{{name}}</span>\
             </div>',
     data: function(){
         return {
         }
     },
-    props:['name', 'color', 'state']
+    methods:{
+        toggle: function(){
+            this.active = !this.active;
+            this.$dispatch('eFilterChanged', {name: this.name, value: this.active});
+        }
+    },
+    computed:{
+        act_color: function(){
+            if (this.active){
+                return ('back-'+this.color);
+            } else {
+                return (this.color);
+            }
+        },
+        tag_class: function(){
+            if (this.active){
+                return ('back-'+this.color);
+            } else {
+                return ('filter-item-inactive');
+            }
+        }
+    },
+    props:['name', 'color', 'active']
 });
 
 Vue.component('tag', tag);
 
+// VUE INSTANCE ========================================
 
 var place = new Vue({
         template: '<div>\
                     <div id="filters" class="hidden-xs">\
                         <div class="tags__list">\
                             <h2>Метки</h2>\
-                            <div id="tag-list"><tag v-for="t in tags" :name="t.name"></tag></div>\
+                            <div id="tag-list"><tag v-for="t in tags" :name="t.name" :color="t.style" :active="false"></tag></div>\
                         </div>\
                     </div>\
                     <div id="tips">\
                         <div id="tips-content">\
-                        <c-tip v-for="tip in tips" :tags="tip.tags">\
+                        <c-tip v-for="tip in shown_tips" :tags="tip.tags" :author="tip.author">\
+                            {{tip.showThis}}\
                             {{tip.text}}\
                         </c-tip>\
                         </div>\
@@ -106,52 +140,65 @@ var place = new Vue({
 
         data: {
             tags:[],
-            tips:[]
+            all_tips:[],
+            shown_tips:[],
+            selectedTags:{},
+            showAll: true
         },
 
         ready: function(){
             var self = this;
             getResults('/json/place', 'json', {place_id: place_id}, function(res){
                 if (res.status=='ok'){
-                    console.log (JSON.stringify(res));
-                    self.tips=res.tips;
+                    
+                    self.all_tips=res.tips;
+                    self.shown_tips=res.tips;
                     self.tags=res.place_tags;
+                    self.tags.forEach(function(t){
+                        self.selectedTags[t.name]=false;
+                    });
+
+                    console.log (JSON.stringify(self.selectedTags));
                 }
             });
         },
 
+        events: {
+            'eFilterChanged': function(e){
+                console.log('GOT IT!');
+                var self = this;
+                this.selectedTags[e.name] = e.value;
+
+                var hasSelected = false;
+
+                Object.keys(this.selectedTags).forEach(function(t){
+                    if (self.selectedTags[t]){
+                        hasSelected = true;
+                    }
+                });
+
+                console.log('hasSelected '+hasSelected);
+
+                this.showAll = hasSelected ? false : true;
+
+                if (!this.showAll){
+                    console.log ('SELECTED');
+                    this.shown_tips=[];
+                    this.all_tips.forEach(function(tip){
+                        tip.tags.forEach(function(tag){
+                            if (self.selectedTags[tag.name]){
+                                //tip.showThis = true;
+                                self.shown_tips.push(tip);
+                            }
+                        });
+                    });
+                } else {
+                    this.shown_tips = this.all_tips;
+                }
+                console.log (JSON.stringify(this.tips));
+            }
+        }
+
 });
 
 // ==========================================
-/*
-var tl = new Vue({
-    el:'#tag-list',
-    data: {
-        place_tags:[]
-    },
-    ready: function(){
-        this.place_tags = place_tags;
-    },
-    template:'<div id="filters-list"><tag name="Что посмотреть" color="red" state="off"></tag></div>'
-});
-
-                    
-
-var t = new Vue({
-    el:'#tips-content',
-    data:{
-        tips:[]
-    },
-    ready: function(){
-        var self = this;
-        getResults('/json/place', 'json', {place_id: place_id}, function(res){
-            if (res.status=='ok'){
-                console.log (JSON.stringify(res));
-                self.tips=res.tips;
-            }
-        });
-    },
-    template:'<div><c-tip v-for="tip in tips" :tags="tip.tags">\
-        {{tip.text}}\
-    </c-tip></div>'
-});*/

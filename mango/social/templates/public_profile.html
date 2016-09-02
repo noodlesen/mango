@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Ваш профиль: {{u.nickname}}{% endblock %}
+{% block title %}Профиль пользователя {{u.nickname}}{% endblock %}
 
 {% block styles %}
 {{ super() }}
@@ -13,18 +13,18 @@
 
 
     <div class="row" id ="profile__main">
-        <h2 class="row__header">Профиль пользователя {{u.nickname}}</h2>
-        <div class="col-lg-3">
+<!--         <div class="col-lg-3">
 
         <section id="avatar">
-              <img class="avatar-big" id="avatar__image" src="{{u.get_avatar()}}"/>
+              
         </section>
 
 
-        </div>
+        </div> -->
 
-        <div class="col-lg-5">
+        <div class="col-lg-8 col-lg-offset-2" style="text-align:center">
             <section id="userinfo">
+              <img class="avatar-big" id="avatar__image" src="{{u.get_avatar()}}"/>
                 <h1 id="nickname__title">{{u.nickname}}</h1>
                 <div class="divider"></div>
                 {% if current_user.id!= u.id %}

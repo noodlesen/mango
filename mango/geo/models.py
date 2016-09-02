@@ -37,6 +37,7 @@ class Place(db.Model):
     url_string = db.Column(db.String(50))
     image = db.Column(db.String(50))
     tips = db.relationship('Tip', backref='place', lazy='dynamic')
+    active = db.Column(db.Boolean, default=False)
 
 
 class GeoAlias(db.Model):
@@ -58,6 +59,7 @@ class Tip(db.Model):
     place_id = db.Column(db.Integer, db.ForeignKey('G_places.id'))
     text = db.Column(db.Text)
     tags = db.relationship('Tag', secondary=tags2tips, backref=db.backref('tips', lazy='dynamic'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     #temp
     taglines = db.Column(db.Text)

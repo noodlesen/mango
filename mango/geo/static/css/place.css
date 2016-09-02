@@ -1,3 +1,321 @@
+/* line 63, ../../../static/css/scss/_config.scss */
+.color-none {
+  color: #78a7b4;
+}
+
+/* line 68, ../../../static/css/scss/_config.scss */
+.color-blue {
+  color: #0088cc;
+}
+
+/* line 73, ../../../static/css/scss/_config.scss */
+.color-cyan {
+  color: #0cbeb2;
+}
+
+/* line 78, ../../../static/css/scss/_config.scss */
+.color-green {
+  color: #55d426;
+}
+
+/* line 83, ../../../static/css/scss/_config.scss */
+.color-yellow {
+  color: #ffc501;
+}
+
+/* line 88, ../../../static/css/scss/_config.scss */
+.color-orange {
+  color: #ffc501;
+}
+
+/* line 93, ../../../static/css/scss/_config.scss */
+.color-red {
+  color: #ff4e2b;
+}
+
+/* line 97, ../../../static/css/scss/_config.scss */
+.color-magenta {
+  color: #b652bf;
+}
+
+/* line 103, ../../../static/css/scss/_config.scss */
+.color-dark-blue {
+  color: #002c87;
+}
+
+/* line 108, ../../../static/css/scss/_config.scss */
+.color-dark-cyan {
+  color: #00705d;
+}
+
+/* line 113, ../../../static/css/scss/_config.scss */
+.color-dark-green {
+  color: #0c9702;
+}
+
+/* line 118, ../../../static/css/scss/_config.scss */
+.color-dark-orange {
+  color: #ff7b00;
+}
+
+/* line 123, ../../../static/css/scss/_config.scss */
+.color-dark-yellow {
+  color: #ffd900;
+}
+
+/* line 128, ../../../static/css/scss/_config.scss */
+.color-dark-red {
+  color: #ff0a02;
+}
+
+/* line 133, ../../../static/css/scss/_config.scss */
+.color-dark-magenta {
+  color: #821a8f;
+}
+
+/* line 138, ../../../static/css/scss/_config.scss */
+.color-light-blue {
+  color: #acd6e7;
+}
+
+/* line 143, ../../../static/css/scss/_config.scss */
+.color-light-cyan {
+  color: #b1e8df;
+}
+
+/* line 148, ../../../static/css/scss/_config.scss */
+.color-light-green {
+  color: #c8efb1;
+}
+
+/* line 153, ../../../static/css/scss/_config.scss */
+.color-light-orange {
+  color: #ffeaa5;
+}
+
+/* line 158, ../../../static/css/scss/_config.scss */
+.color-light-yellow {
+  color: #fff8a9;
+}
+
+/* line 163, ../../../static/css/scss/_config.scss */
+.color-light-red {
+  color: #ffc4b3;
+}
+
+/* line 168, ../../../static/css/scss/_config.scss */
+.color-pale-blue {
+  color: #d5eaf3;
+}
+
+/* line 173, ../../../static/css/scss/_config.scss */
+.color-light-magenta {
+  color: #d294d7;
+}
+
+/* line 178, ../../../static/css/scss/_config.scss */
+.color-pale-cyan {
+  color: #d8f3ef;
+}
+
+/* line 183, ../../../static/css/scss/_config.scss */
+.color-pale-green {
+  color: #e3f7d8;
+}
+
+/* line 188, ../../../static/css/scss/_config.scss */
+.color-pale-yellow {
+  color: #fff4d2;
+}
+
+/* line 193, ../../../static/css/scss/_config.scss */
+.color-pale-yellow {
+  color: #fffbd4;
+}
+
+/* line 198, ../../../static/css/scss/_config.scss */
+.color-pale-red {
+  color: #ffe1d9;
+}
+
+/* line 203, ../../../static/css/scss/_config.scss */
+.color-pale-magenta {
+  color: #e8c9eb;
+}
+
+/* line 211, ../../../static/css/scss/_config.scss */
+.back-color-none {
+  background-color: #78a7b4;
+}
+
+/* line 216, ../../../static/css/scss/_config.scss */
+.back-color-blue {
+  background-color: #0088cc;
+  color: white;
+}
+
+/* line 221, ../../../static/css/scss/_config.scss */
+.back-color-cyan {
+  background-color: #0cbeb2;
+  color: white;
+}
+
+/* line 226, ../../../static/css/scss/_config.scss */
+.back-color-green {
+  background-color: #55d426;
+  color: white;
+}
+
+/* line 231, ../../../static/css/scss/_config.scss */
+.back-color-yellow {
+  background-color: #ffc501;
+  color: white;
+}
+
+/* line 236, ../../../static/css/scss/_config.scss */
+.back-color-orange {
+  background-color: #ffc501;
+  color: white;
+}
+
+/* line 241, ../../../static/css/scss/_config.scss */
+.back-color-red {
+  background-color: #ff4e2b;
+  color: white;
+}
+
+/* line 246, ../../../static/css/scss/_config.scss */
+.back-color-magenta {
+  background-color: #b652bf;
+  color: white;
+}
+
+/* line 252, ../../../static/css/scss/_config.scss */
+.back-color-dark-blue {
+  background-color: #002c87;
+  color: white;
+}
+
+/* line 257, ../../../static/css/scss/_config.scss */
+.back-color-dark-cyan {
+  background-color: #00705d;
+  color: white;
+}
+
+/* line 262, ../../../static/css/scss/_config.scss */
+.back-color-dark-green {
+  background-color: #0c9702;
+  color: white;
+}
+
+/* line 267, ../../../static/css/scss/_config.scss */
+.back-color-dark-orange {
+  background-color: #ff7b00;
+  color: white;
+}
+
+/* line 272, ../../../static/css/scss/_config.scss */
+.back-color-dark-yellow {
+  background-color: #ffd900;
+  color: white;
+}
+
+/* line 277, ../../../static/css/scss/_config.scss */
+.back-color-dark-red {
+  background-color: #ff0a02;
+  color: white;
+}
+
+/* line 282, ../../../static/css/scss/_config.scss */
+.back-color-dark-magenta {
+  background-color: #821a8f;
+  color: white;
+}
+
+/* line 287, ../../../static/css/scss/_config.scss */
+.back-color-light-blue {
+  background-color: #acd6e7;
+  color: white;
+}
+
+/* line 292, ../../../static/css/scss/_config.scss */
+.back-color-light-cyan {
+  background-color: #b1e8df;
+  color: white;
+}
+
+/* line 297, ../../../static/css/scss/_config.scss */
+.back-color-light-green {
+  background-color: #c8efb1;
+  color: white;
+}
+
+/* line 302, ../../../static/css/scss/_config.scss */
+.back-color-light-orange {
+  background-color: #ffeaa5;
+  color: white;
+}
+
+/* line 307, ../../../static/css/scss/_config.scss */
+.back-color-light-yellow {
+  background-color: #fff8a9;
+  color: white;
+}
+
+/* line 312, ../../../static/css/scss/_config.scss */
+.back-color-light-red {
+  background-color: #ffc4b3;
+  color: white;
+}
+
+/* line 317, ../../../static/css/scss/_config.scss */
+.back-color-pale-blue {
+  background-color: #d5eaf3;
+  color: white;
+}
+
+/* line 322, ../../../static/css/scss/_config.scss */
+.back-color-light-magenta {
+  background-color: #d294d7;
+  color: white;
+}
+
+/* line 327, ../../../static/css/scss/_config.scss */
+.back-color-pale-cyan {
+  background-color: #d8f3ef;
+  color: white;
+}
+
+/* line 332, ../../../static/css/scss/_config.scss */
+.back-color-pale-green {
+  background-color: #e3f7d8;
+  color: white;
+}
+
+/* line 337, ../../../static/css/scss/_config.scss */
+.back-color-pale-orange {
+  background-color: #fff4d2;
+  color: white;
+}
+
+/* line 342, ../../../static/css/scss/_config.scss */
+.back-color-pale-yellow {
+  background-color: #fffbd4;
+  color: white;
+}
+
+/* line 347, ../../../static/css/scss/_config.scss */
+.back-color-pale-red {
+  background-color: #ffe1d9;
+  color: white;
+}
+
+/* line 352, ../../../static/css/scss/_config.scss */
+.back-color-pale-magenta {
+  background-color: #e8c9eb;
+  color: white;
+}
+
 /* line 3, scss/place.scss */
 h1 {
   font-size: 400%;
@@ -64,14 +382,21 @@ h1 {
   color: #878787;
 }
 
-/* line 61, scss/place.scss */
+/* line 59, scss/place.scss */
 .tip__main-text {
   font-size: 14px;
-  line-height: 1.4em;
+  line-height: 1.3em;
   font-weight: 400;
+  padding-left: 35px;
+  padding-right: 15px;
+  padding-top: 6px;
+}
+/* line 66, scss/place.scss */
+.tip__main-text:first-letter {
+  font-size: 1.2em;
 }
 
-/* line 67, scss/place.scss */
+/* line 71, scss/place.scss */
 .tip__tag {
   display: inline-block;
   color: white;
@@ -79,17 +404,17 @@ h1 {
   font-weight: bolder;
   font-size: 12px;
   padding: 0 3px;
-  margin-right: 4px;
+  margin-right: 1px;
 }
 
-/* line 77, scss/place.scss */
+/* line 85, scss/place.scss */
 .place__info {
   border-width: 0 0 0 1px;
   border-color: #c6c6c6;
   border-style: solid;
 }
 
-/* line 83, scss/place.scss */
+/* line 91, scss/place.scss */
 .btn-agree {
   font-size: 150%;
 }
