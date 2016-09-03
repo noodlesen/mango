@@ -127,6 +127,8 @@ var place = new Vue({
                         </div>\
                     </div>\
                     <div id="tips">\
+                        <div><span class="plink" @click="showAddTipForm">Добавьте свой совет!</span></div>\
+                        <div v-if="addTipFormShowing">FORM</div>\
                         <div id="tips-content">\
                         <c-tip v-for="tip in shown_tips" :tags="tip.tags" :author="tip.author">\
                             {{tip.showThis}}\
@@ -143,7 +145,14 @@ var place = new Vue({
             all_tips:[],
             shown_tips:[],
             selectedTags:{},
-            showAll: true
+            showAll: true,
+            addTipFormShowing: false
+        },
+
+        methods:{
+            showAddTipForm: function(){
+                this.addTipFormShowing = true;
+            }
         },
 
         ready: function(){
