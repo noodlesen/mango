@@ -8,7 +8,7 @@
     margin-top: 6px;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.22);
     border-radius: 6px;
-    padding-top: 3px;
+    //padding-top: 3px;
     &:hover{
         background-color: white;
         border-color: #acf;
@@ -16,7 +16,21 @@
 }
 
 .item-block__body{
-    //padding: 20px 25px 15px 25px;
+    padding-bottom: 12px;
+    width:93%;
+    float: left;
+}
+
+.item-block__sidebar{
+    padding-bottom: 12px;
+    width:7%;
+    float: right;
+    border-width: 0 0 0 1px;
+    border-color: $gray4;
+    border-style: dotted;
+    //padding-left: 2px;
+    font-size: 1.6em;
+    text-align: center;
 }
 
 .cmd-bar {
@@ -26,13 +40,6 @@
     color: black;
     text-align: right;
     border-radius: 0 0 6px 6px;
-    a {
-        display: inline-block;
-        margin-left: 15px;
-        color:white;
-        //background-color: white;
-        border-radius: 3px;
-    }
 }
 
 .cmd-bar-static {
@@ -43,18 +50,22 @@
 }
 
 %cmd-bar__btn {
+    padding: 1px 3px;
+    background-color: white;
+    color: $blue;
     text-align: center;
     display: inline-block;
     margin: 0 3px;
-    color:white;
     padding: 0 4px;
-    border-radius: 6px;
-    font-size: 120%;
-    font-weight: bolder;
+    border-radius: 3px;
     //padding: 5px 8px 0;
     cursor:pointer;
 }
 
+
+.cmd-bar__button{
+    @extend %cmd-bar__btn;
+}
 .cmd-bar__btn--agree {
     @extend %cmd-bar__btn;
     background-color: $light-green;

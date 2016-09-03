@@ -46,29 +46,33 @@ var cTip = Vue.extend({
 
     template: '<div class="item-block tip has-cmd-bar" :class="{\'tip-agreed\':agree, \'tip-disagreed\':disagree}">\
                     <div class="item-block__body">\
-                          <div class="tip__tags">\
-                                <span v-for="t in tags" class="tip__tag" :class="\'back-\'+t.style" >{{t.name}}</span>\
+                            <div class="tip__top">\
+                              <div class="tip__tags">\
+                                    <span v-for="t in tags" class="tip__tag" :class="\'back-\'+t.style" >{{t.name}}</span>\
+                                </div>\
+                                <div class="tip__favorite"><i class="fa fa-star-o"></i></div>\
+                                <div class="clearfix"></div>\
                             </div>\
                         <div class="tip__main-text">\
                            <slot></slot>\
                         </div>\
                         <div class="tip__bottom">\
-                            <div class="tip__author" style="text-align:right">\
-                                <span class="glyphicon glyphicon-user"></span>\
-                                <a href="/user/{{author.id}}" >{{author.name}}</a>\
-                            </div>\
                         </div>\
                     </div>\
+                    <div class="item-block__sidebar">\
+                        <div class="tip__vote-up" :class="{\'tip__vote-up--active\':agree}"><span class="glyphicon glyphicon-triangle-top" @click="clickAgree"></span></div>\
+                        <div class="tip__vote-dn" :class="{\'tip__vote-dn--active\':disagree}"><span class="glyphicon glyphicon-triangle-bottom"  @click="clickDisagree"></span></div>\
+                    </div><div class="clearfix"></div>\
                     <div class="cmd-bar">\
-                        \
-                        <span class="cmd-bar__btn--disagree" :class="{\'cmd-bar__btn--disagree-active\':disagree}"  v-on:click="clickDisagree">\
-                        <i class="btn-agree glyphicon glyphicon-remove"></i>\
-                            <span>{{disagreed}}</span>\
-                        </span>\
-                        <span class="cmd-bar__btn--agree" :class="{\'cmd-bar__btn--agree-active\':agree}" v-on:click="clickAgree">\
-                            <i class="btn-agree glyphicon glyphicon-ok"></i>\
-                            <span>{{agreed}}</span>\
-                        </span>\
+                        <div class="cmd-bar__button">\
+                                <i class="fa fa-share-alt-square"></i> Поделиться\
+                        </div>\
+                        <div class="cmd-bar__button">\
+                                <i class="fa fa-comment-o"></i> Комментарии\
+                        </div>\
+                        <div class="cmd-bar__button">\
+                                <a href="/user/{{author.id}}" ><span class="glyphicon glyphicon-user"></span> {{author.name}}</a>\
+                        </div>\
                     </div>\
                 </div>',
 
@@ -211,3 +215,15 @@ var place = new Vue({
 });
 
 // ==========================================
+
+/*
+
+<span class="cmd-bar__btn--disagree" :class="{\'cmd-bar__btn--disagree-active\':disagree}"  v-on:click="clickDisagree">\
+                        <i class="btn-agree glyphicon glyphicon-remove"></i>\
+                            <span>{{disagreed}}</span>\
+                        </span>\
+                        <span class="cmd-bar__btn--agree" :class="{\'cmd-bar__btn--agree-active\':agree}" v-on:click="clickAgree">\
+                            <i class="btn-agree glyphicon glyphicon-ok"></i>\
+                            <span>{{agreed}}</span>\
+                        </span>\
+                    </div>\*/

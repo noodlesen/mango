@@ -20,12 +20,12 @@
 
 /* line 83, scss/_config.scss */
 .color-yellow {
-  color: #ffc501;
+  color: #ff9800;
 }
 
 /* line 88, scss/_config.scss */
 .color-orange {
-  color: #ffc501;
+  color: #ff9800;
 }
 
 /* line 93, scss/_config.scss */
@@ -168,13 +168,13 @@
 
 /* line 231, scss/_config.scss */
 .back-color-yellow {
-  background-color: #ffc501;
+  background-color: #ff9800;
   color: white;
 }
 
 /* line 236, scss/_config.scss */
 .back-color-orange {
-  background-color: #ffc501;
+  background-color: #ff9800;
   color: white;
 }
 

@@ -30,10 +30,10 @@ h1 {
 }
 
 .tip-agreed{
-    border-color:#0f0;
+    background-color: $pale-green;
 }
 .tip-disagreed{
-    border-color:$red;
+    background-color:$pale-red;
 }
 
 .filter-item{
@@ -61,8 +61,8 @@ h1 {
     line-height: 1.3em;
     font-weight: 400;
     padding-left: 35px;
-    padding-right: 15px;
-    padding-top: 6px;
+    padding-right: 4px;
+    //padding-top: 6px;
     &:first-letter{
         font-size: 1.2em;
     }
@@ -78,9 +78,19 @@ h1 {
     margin-right: 1px;
 }
 
-.tip__author{
-    
+.tip__tags {
+        float: left;
+    width:96%;
+
 }
+
+.tip__favorite{
+    float:right;
+    width:4%;
+    font-size: 1.3em;
+    color: $orange;
+}
+
 
 .place__info {
     border-width: 0 0 0 1px;
@@ -88,6 +98,43 @@ h1 {
     border-style: solid;
 }
 
+
+.tip__vote-up{
+    cursor: pointer;
+    color: $pale-green;
+    &:hover{
+        color:$light-green;
+    }
+    &:active{
+        color: $dark-green;
+    }
+}
+
+
+
+.tip__vote-dn{
+    cursor: pointer;
+    color: $pale-red;
+    &:hover{
+        color:$light-red;
+    }
+}
+
+.tip__vote-up--active{
+    color: $green;
+    &:hover{
+        color:$dark-green;
+    }
+}
+
+.tip__vote-dn--active{
+    color: $red;
+    &:hover{
+        color:$dark-red;
+    }
+}
+
+/* 
 .btn-agree {
     font-size: 150%;
-}
+} */
