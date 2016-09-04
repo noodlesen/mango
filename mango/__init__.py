@@ -111,6 +111,7 @@ def maintenance():
 
 
 #for example
+@cache.cached(3600)
 @app.route('/')
 def root():
     places = Place.query.filter_by(active=1)

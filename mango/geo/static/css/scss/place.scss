@@ -89,6 +89,10 @@ h1 {
     width:4%;
     font-size: 1.3em;
     color: $orange;
+    cursor: pointer;
+    &:hover{
+        color:$dark-orange;
+    }
 }
 
 
@@ -132,6 +136,10 @@ h1 {
     &:hover{
         color:$dark-red;
     }
+}
+
+.tip__author{
+    font-weight: bolder;
 }
 
 /* 

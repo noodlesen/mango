@@ -36,10 +36,20 @@
 .cmd-bar {
     display: none;
     padding: 5px;
-    background-color: $gray5;
+    background-color: #eef;
     color: black;
-    text-align: right;
+    //text-align: right;
     border-radius: 0 0 6px 6px;
+}
+
+.cmd-bar__left{
+    float: left;
+    text-align: left;
+}
+
+.cmd-bar__right{
+    float: right;
+    text-align: right;
 }
 
 .cmd-bar-static {

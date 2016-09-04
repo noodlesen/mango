@@ -1,6 +1,6 @@
 from flask import session, request, url_for, redirect, render_template, flash, abort
 from . import geo
-from .models import Place
+from .models import Place, Tip
 from flask.ext.login import login_user, login_required, logout_user, current_user
 
 
@@ -38,6 +38,7 @@ def places(us):
     else:
         abort(404)
 
+@login_required
 @geo.route('/json/place', methods=['POST'])
 def json_place():
     q = request.json
@@ -45,8 +46,21 @@ def json_place():
     p = Place.query.get(place_id)
     res={}
     res['tips']=[]
+    faves = Tip.favorited_by(current_user)
+    likes = Tip.liked_by(current_user)
+    dislikes = Tip.disliked_by(current_user)
     for t in p.tips:
-        tip = {"text":t.text, "tags":[], "author":{'id':t.user.id, 'name':t.user.nickname}}
+        favorite = True if t.id in faves else False
+        like = True if t.id in likes else False
+        dislike = True if t.id in dislikes else False
+        tip = {"text":t.text, 
+                "tags":[],
+                "author":{'id':t.user.id, 'name':t.user.nickname},
+                'id':t.id,
+                'favorite':favorite,
+                'like':like,
+                'dislike':dislike
+                }
         for tag in t.tags:
             tip['tags'].append({"id": tag.id,
                                 "name": tag.name,
@@ -54,6 +68,7 @@ def json_place():
                                 "count": tag.count
                 })
         res['tips'].append(tip)
+    
     place_tags=[]
     for t in res['tips']:
         print ('>>>>>>>>>>>>>>>>>>>>>>>')
@@ -64,3 +79,47 @@ def json_place():
     res['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
     res['status']='ok'
     return json.dumps(res)
+
+
+@login_required
+@geo.route('/json/tip', methods=['POST'])
+def json_tip():
+    q = request.json
+    res={}
+    if q['cmd']=='setFavorite':
+        tip = Tip.query.get(q['id'])
+        if q['value'] is True:
+            tip.set_as_favorite(current_user)
+        else:
+            tip.remove_favorite(current_user)
+
+
+    elif q['cmd']=='clickAgree':
+        tip = Tip.query.get(q['id'])
+        if q['selected']=="none":
+            tip.set_like(current_user)
+        elif q['selected']=="agree":
+            tip.remove_like(current_user)
+        elif q['selected']=="disagree":
+            tip.remove_dislike(current_user)
+            tip.set_like(current_user)
+
+    elif q['cmd']=='clickDisagree':
+        tip = Tip.query.get(q['id'])
+        if q['selected']=="none":
+            tip.set_dislike(current_user)
+        elif q['selected']=="disagree":
+            tip.remove_dislike(current_user)
+        elif q['selected']=="agree":
+            tip.remove_like(current_user)
+            tip.set_dislike(current_user)
+
+
+    res['status']='ok'
+    return json.dumps(res)
+
+
+
+
+
+

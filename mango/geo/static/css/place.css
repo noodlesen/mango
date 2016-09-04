@@ -418,55 +418,65 @@ h1 {
   width: 4%;
   font-size: 1.3em;
   color: #ff9800;
+  cursor: pointer;
+}
+/* line 93, scss/place.scss */
+.tip__favorite:hover {
+  color: #ff7b00;
 }
 
-/* line 95, scss/place.scss */
+/* line 99, scss/place.scss */
 .place__info {
   border-width: 0 0 0 1px;
   border-color: #c6c6c6;
   border-style: solid;
 }
 
-/* line 102, scss/place.scss */
+/* line 106, scss/place.scss */
 .tip__vote-up {
   cursor: pointer;
   color: #e3f7d8;
 }
-/* line 105, scss/place.scss */
+/* line 109, scss/place.scss */
 .tip__vote-up:hover {
   color: #c8efb1;
 }
-/* line 108, scss/place.scss */
+/* line 112, scss/place.scss */
 .tip__vote-up:active {
   color: #0c9702;
 }
 
-/* line 115, scss/place.scss */
+/* line 119, scss/place.scss */
 .tip__vote-dn {
   cursor: pointer;
   color: #ffe1d9;
 }
-/* line 118, scss/place.scss */
+/* line 122, scss/place.scss */
 .tip__vote-dn:hover {
   color: #ffc4b3;
 }
 
-/* line 123, scss/place.scss */
+/* line 127, scss/place.scss */
 .tip__vote-up--active {
   color: #55d426;
 }
-/* line 125, scss/place.scss */
+/* line 129, scss/place.scss */
 .tip__vote-up--active:hover {
   color: #0c9702;
 }
 
-/* line 130, scss/place.scss */
+/* line 134, scss/place.scss */
 .tip__vote-dn--active {
   color: #ff4e2b;
 }
-/* line 132, scss/place.scss */
+/* line 136, scss/place.scss */
 .tip__vote-dn--active:hover {
   color: #ff0a02;
+}
+
+/* line 141, scss/place.scss */
+.tip__author {
+  font-weight: bolder;
 }
 
 /* 
