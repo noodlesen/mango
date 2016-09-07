@@ -25,6 +25,47 @@ h1 {
     width:74%;
     border-color: #08c;
 }
+
+#tips__info{
+    border-radius: 6px 6px 0 0 ;
+    margin-top: 20px;
+    width: 100%;
+    background-color: $pale-blue;
+    padding: 5px 15px 5px 15px;
+}
+
+#tip__add-new-form{
+
+    background-color: $pale-green;
+    padding: 15px;
+    border-radius: 6px;
+
+}
+
+#add-new-form__textarea{
+    height:6em;
+    width:100%;
+    resize:vertical;
+    padding:.5em;
+    border: 0.1em solid $green;
+    border-radius: 6px;
+}
+
+#add-new-form__tags-ta{
+    height: 2em;
+    width:100%;
+    resize:vertical;
+    padding:0.1em 0.5em;
+    border: 0.1em solid $green;
+    border-radius: 6px;
+}
+
+#filter-message{
+    border-radius: 6px;
+    background-color: white;
+    padding: 5px 10px 7px;
+}
+
 .tip{
     background-color: white;
 }
@@ -76,10 +117,11 @@ h1 {
     font-size: 12px;
     padding: 0 3px;
     margin-right: 1px;
+    cursor: pointer;
 }
 
 .tip__tags {
-        float: left;
+    float: left;
     width:96%;
 
 }

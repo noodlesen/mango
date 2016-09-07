@@ -113,6 +113,11 @@ var cTip = Vue.extend({
                 }
             });
             
+        },
+
+        filterByTag: function(name){
+            this.$dispatch('eFilterOnly', {name: name});
+            console.log(name);
         }
 
     },
@@ -121,7 +126,7 @@ var cTip = Vue.extend({
                     <div class="item-block__body">\
                             <div class="tip__top">\
                               <div class="tip__tags">\
-                                    <span v-for="t in tags" class="tip__tag" :class="\'back-\'+t.style" >{{t.name}}</span>\
+                                    <span v-for="t in tags" class="tip__tag" :class="\'back-\'+t.style" @click="filterByTag(t.name)">{{t.name}}</span>\
                                 </div>\
                                 <div class="tip__favorite" @click="toggleFavorite">\
                                     <i v-if="!favorite" class="fa fa-star-o" title="Добавить в избранное"></i>\
@@ -200,7 +205,19 @@ var tag = Vue.extend({
             }
         }
     },
-    props:['name', 'color', 'active']
+    props:['name', 'color', 'active'],
+    events: {
+        'eSwitchFilterOn' : function(e){
+            if (e.name==this.name){
+                this.active = true;
+            } else {
+                this.active = false;
+            }
+        },
+        'eResetAllFilters' : function(){
+            this.active = false;
+        }
+    }
 });
 
 Vue.component('tag', tag);
@@ -217,7 +234,35 @@ var place = new Vue({
                     </div>\
                     <div id="tips">\
                         <div><span class="plink" @click="showAddTipForm">Добавьте свой совет!</span></div>\
-                        <div v-if="addTipFormShowing">FORM</div>\
+                        <div v-if="addTipFormShowing" id="tip__add-new-form">\
+                            <h2>Текст</h2>\
+                            <textarea id = "add-new-form__textarea"></textarea>\
+                            <div id="add-new-form__tags">\
+                                <h2>Метки </h2>\
+                                <div class="add-new-form__selected-tags">\
+                                    <h3>Выбранные</h3>\
+                                    <span v-for="t in popularTags">{{t.name}}, </span>\
+                                </div>\
+                                <div class="add-new-form__popular-tags">\
+                                    <h3>Популярные</h3>\
+                                    <span v-for="t in popularTags">{{t.name}}, </span>\
+                                </div>\
+                                <h3>Найти или создать метки</h3>\
+                                <input type="text" id="add-new-form__tags-ta" @keyup="tagsTextChanged" @blur="tagsTextChanged" v-model="tagsText"></input>\
+                                <div id="add-new-form__tags-ac">\
+                                    <span v-for="t in acTags">{{t.name}}, </span>\
+                                </div>\
+                            </div>\
+                            <button class="btn btn-large btn-normal" >Отмена</button>\
+                            <button class="btn btn-large btn-warning" >Готово</button>\
+                        </div>\
+                        <div id="tips__info" v-if="!showAll" >\
+                            <div>Показаны советы с метками: </div>\
+                            <div id="filter-message" v-html="filterMessage" ></div>\
+                            <div style="text-align:right" @click="resetFilters">\
+                                <span class="glyphicon glyphicon-remove"></span>\
+                                <span class="plink">Снять все фильтры</span></div>\
+                        </div>\
                         <div id="tips-content">\
                         <c-tip v-for="tip in shown_tips" :tags="tip.tags" :author="tip.author" :id="tip.id" :fave="tip.favorite" :like="tip.like" :dislike="tip.dislike">\
                             {{tip.showThis}}\
@@ -235,12 +280,63 @@ var place = new Vue({
             shown_tips:[],
             selectedTags:{},
             showAll: true,
-            addTipFormShowing: false
+            addTipFormShowing: false,
+            filterMessage:'', 
+            allTags:[],
+            acTags:[],
+            popularTags:[],
+            selectedForNewTags:[],
+            tagsText:''
         },
 
         methods:{
+            tagsTextChanged:function(){
+                var self = this;
+                var textTags = this.tagsText.split(',');
+                var needle = textTags[textTags.length-1].trim();
+                this.acTags = this.allTags.filter(function(t){
+                    return t.name.lastIndexOf(needle, 0 ) == 0;
+                });
+            },
+            resetFilters : function(){
+                this.selectedTags = {};
+                this.showAll = true;
+                this.shown_tips = this.all_tips;
+                this.$broadcast('eResetAllFilters');
+            },
             showAddTipForm: function(){
                 this.addTipFormShowing = true;
+            },
+
+            filterTips: function(){
+                var self = this;
+
+                self.filterMessage = "";
+                Object.keys(this.selectedTags).forEach(function(t){
+                    console.log(t);
+                    if (self.selectedTags[t]){
+                        var style='';
+                        self.tags.forEach(function(f){
+                            if (f.name==t){
+                                style=f.style;
+                            }
+                        });
+                        if (style != ''){
+                            style='back-'+style;
+                        }
+                        self.filterMessage += '<span class="tip__tag '+style+'">'+t+"</span>";
+                    }
+                    
+                });
+
+                this.shown_tips=[];
+                    this.all_tips.forEach(function(tip){
+                        tip.tags.forEach(function(tag){
+                            if (self.selectedTags[tag.name]){
+                                self.shown_tips.push(tip);
+                            }
+                        });
+                    });
             }
         },
 
@@ -252,6 +348,9 @@ var place = new Vue({
                     self.all_tips=res.tips;
                     self.shown_tips=res.tips;
                     self.tags=res.place_tags;
+                    self.allTags=res.all_tags;
+                    self.acTags=res.all_tags;
+                    self.popularTags = res.all_tags.slice(0, 11);
                     self.tags.forEach(function(t){
                         self.selectedTags[t.name]=false;
                     });
@@ -263,7 +362,6 @@ var place = new Vue({
 
         events: {
             'eFilterChanged': function(e){
-                console.log('GOT IT!');
                 var self = this;
                 this.selectedTags[e.name] = e.value;
 
@@ -275,40 +373,28 @@ var place = new Vue({
                     }
                 });
 
-                console.log('hasSelected '+hasSelected);
-
                 this.showAll = hasSelected ? false : true;
 
                 if (!this.showAll){
-                    console.log ('SELECTED');
-                    this.shown_tips=[];
-                    this.all_tips.forEach(function(tip){
-                        tip.tags.forEach(function(tag){
-                            if (self.selectedTags[tag.name]){
-                                //tip.showThis = true;
-                                self.shown_tips.push(tip);
-                            }
-                        });
-                    });
+                    this.filterTips();
+
                 } else {
                     this.shown_tips = this.all_tips;
                 }
                 console.log (JSON.stringify(this.tips));
+            },
+
+            'eFilterOnly': function(e){
+                console.log(e);
+                var self = this;
+                this.showAll = false;
+                Object.keys(this.selectedTags).forEach(function(t){
+                    self.selectedTags[t]=false;
+                });
+                this.selectedTags[e.name]=true;
+                this.filterTips();
+                this.$broadcast('eSwitchFilterOn',{name: e.name});
             }
-        }
+        } 
 
 });
-
-// ==========================================
-
-/*
-
-<span class="cmd-bar__btn--disagree" :class="{\'cmd-bar__btn--disagree-active\':disagree}"  v-on:click="clickDisagree">\
-                        <i class="btn-agree glyphicon glyphicon-remove"></i>\
-                            <span>{{disagreed}}</span>\
-                        </span>\
-                        <span class="cmd-bar__btn--agree" :class="{\'cmd-bar__btn--agree-active\':agree}" v-on:click="clickAgree">\
-                            <i class="btn-agree glyphicon glyphicon-ok"></i>\
-                            <span>{{agreed}}</span>\
-                        </span>\
-                    </div>\*/

@@ -1,6 +1,6 @@
 from flask import session, request, url_for, redirect, render_template, flash, abort
 from . import geo
-from .models import Place, Tip
+from .models import Place, Tip, Tag
 from flask.ext.login import login_user, login_required, logout_user, current_user
 
 
@@ -71,11 +71,13 @@ def json_place():
     
     place_tags=[]
     for t in res['tips']:
-        print ('>>>>>>>>>>>>>>>>>>>>>>>')
-        print (t)
         for tag in t['tags']:
             if tag not in place_tags:
                 place_tags.append(tag)
+    all_tags = Tag.query.order_by(desc(Tag.count)).all()
+    res['all_tags']=[]
+    for t in all_tags:
+        res['all_tags'].append({"name":t.name, "style":t.style, "count":t.count})
     res['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
     res['status']='ok'
     return json.dumps(res)
