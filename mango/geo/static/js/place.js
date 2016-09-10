@@ -229,36 +229,35 @@ var place = new Vue({
                     <div id="filters" class="hidden-xs">\
                         <div class="tags__list">\
                             <h2>Метки</h2>\
-                            <div id="tag-list"><tag v-for="t in tags" :name="t.name" :color="t.style" :active="false"></tag></div>\
+                            <div id="tag-list"><tag v-for="t in tagsFilter.placeTags" :name="t.name" :color="t.style" :active="false"></tag></div>\
                         </div>\
                     </div>\
                     <div id="tips">\
-                        <div><span class="plink" @click="showAddTipForm">Добавьте свой совет!</span></div>\
+                        <div v-show="!addTipFormShowing"><span class="plink" @click="showAddTipForm">Добавьте свой совет!</span></div>\
                         <div v-if="addTipFormShowing" id="tip__add-new-form">\
-                            <h2>Текст</h2>\
                             <textarea id = "add-new-form__textarea"></textarea>\
+                            <div class="add-new-form__added-tags">\
+                                    <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.addedTags">{{t.name}}</span>\
+                                </div>\
+                            <div class="divider"></div>\
                             <div id="add-new-form__tags">\
-                                <h2>Метки </h2>\
-                                <div class="add-new-form__selected-tags">\
-                                    <h3>Выбранные</h3>\
-                                    <span v-for="t in popularTags">{{t.name}}, </span>\
+                                <h3>Выберите или добавьте собственные метки</h3>\
+                                <div class="subtitle">Используйте запятые, чтобы добавить несколько меток</div>\
+                                <input type="text" id="add-new-form__tags-ta" @keyup="tagsTextChanged" @blur="tagsTextChanged" v-model="newTipForm.tagsText"></input>\
+                                <div id="add-new-form__tags-ac">\
+                                    <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.acTags" @click="addTag(\'ac\', $index)">{{t.name}}</span>\
                                 </div>\
                                 <div class="add-new-form__popular-tags">\
                                     <h3>Популярные</h3>\
-                                    <span v-for="t in popularTags">{{t.name}}, </span>\
+                                    <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.popularTags" @click="addTag(\'popular\', $index)">{{t.name}}</span>\
                                 </div>\
-                                <h3>Найти или создать метки</h3>\
-                                <input type="text" id="add-new-form__tags-ta" @keyup="tagsTextChanged" @blur="tagsTextChanged" v-model="tagsText"></input>\
-                                <div id="add-new-form__tags-ac">\
-                                    <span v-for="t in acTags">{{t.name}}, </span>\
-                                </div>\
-                            </div>\
+                            </div><div class="divider"></div>\
                             <button class="btn btn-large btn-normal" >Отмена</button>\
                             <button class="btn btn-large btn-warning" >Готово</button>\
                         </div>\
                         <div id="tips__info" v-if="!showAll" >\
                             <div>Показаны советы с метками: </div>\
-                            <div id="filter-message" v-html="filterMessage" ></div>\
+                            <div id="filter-message" v-html="tagsFilter.message" ></div>\
                             <div style="text-align:right" @click="resetFilters">\
                                 <span class="glyphicon glyphicon-remove"></span>\
                                 <span class="plink">Снять все фильтры</span></div>\
@@ -275,28 +274,44 @@ var place = new Vue({
         el: '#place-tips',
 
         data: {
-            tags:[],
+            tagsFilter:{
+                placeTags:[],
+                selectedTags:{},
+                message:''
+            },
+
+            newTipForm:{
+                allTags:[],
+                acTags:[],
+                popularTags:[],
+                tagsText:'',
+                addedTags:[]
+            },
+
             all_tips:[],
             shown_tips:[],
-            selectedTags:{},
             showAll: true,
             addTipFormShowing: false,
-            filterMessage:'', 
-            allTags:[],
-            acTags:[],
-            popularTags:[],
-            selectedForNewTags:[],
-            tagsText:''
+
         },
 
         methods:{
+            addTag: function(src, i){
+                if (src=='ac'){
+                    this.newTipForm.addedTags.push(this.newTipForm.acTags[i]);
+                } else if (src=='popular'){
+                    this.newTipForm.addedTags.push(this.newTipForm.popularTags[i]);
+                }
+            },
             tagsTextChanged:function(){
-                var self = this;
-                var textTags = this.tagsText.split(',');
-                var needle = textTags[textTags.length-1].trim();
-                this.acTags = this.allTags.filter(function(t){
-                    return t.name.lastIndexOf(needle, 0 ) == 0;
-                });
+                
+                    var self = this;
+                    var textTags = this.newTipForm.tagsText.split(',');
+                    var needle = textTags[textTags.length-1].trim();
+                    this.newTipForm.acTags = this.newTipForm.allTags.filter(function(t){
+                        return (t.name.lastIndexOf(needle, 0 ) == 0 &&  needle.trim()!='');
+                    });
+
             },
             resetFilters : function(){
                 this.selectedTags = {};
@@ -311,12 +326,12 @@ var place = new Vue({
             filterTips: function(){
                 var self = this;
 
-                self.filterMessage = "";
-                Object.keys(this.selectedTags).forEach(function(t){
+                self.tagsFilter.message = "";
+                Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
                     console.log(t);
-                    if (self.selectedTags[t]){
+                    if (self.tagsFilter.selectedTags[t]){
                         var style='';
-                        self.tags.forEach(function(f){
+                        self.tagsFilter.placeTags.forEach(function(f){
                             if (f.name==t){
                                 style=f.style;
                             }
@@ -324,7 +339,7 @@ var place = new Vue({
                         if (style != ''){
                             style='back-'+style;
                         }
-                        self.filterMessage += '<span class="tip__tag '+style+'">'+t+"</span>";
+                        self.tagsFilter.message += '<span class="tip__tag '+style+'">'+t+"</span>";
                     }
                     
                 });
@@ -332,7 +347,7 @@ var place = new Vue({
                 this.shown_tips=[];
                     this.all_tips.forEach(function(tip){
                         tip.tags.forEach(function(tag){
-                            if (self.selectedTags[tag.name]){
+                            if (self.tagsFilter.selectedTags[tag.name]){
                                 self.shown_tips.push(tip);
                             }
                         });
@@ -347,12 +362,12 @@ var place = new Vue({
                     
                     self.all_tips=res.tips;
                     self.shown_tips=res.tips;
-                    self.tags=res.place_tags;
-                    self.allTags=res.all_tags;
-                    self.acTags=res.all_tags;
-                    self.popularTags = res.all_tags.slice(0, 11);
-                    self.tags.forEach(function(t){
-                        self.selectedTags[t.name]=false;
+                    self.tagsFilter.placeTags=res.place_tags;
+                    self.newTipForm.allTags=res.all_tags;
+                    //self.newTipForm.acTags=res.all_tags;
+                    self.newTipForm.popularTags = res.all_tags.slice(0, 24);
+                    self.tagsFilter.placeTags.forEach(function(t){
+                        self.tagsFilter.selectedTags[t.name]=false;
                     });
 
                     console.log (JSON.stringify(res));
@@ -363,12 +378,12 @@ var place = new Vue({
         events: {
             'eFilterChanged': function(e){
                 var self = this;
-                this.selectedTags[e.name] = e.value;
+                this.tagsFilter.selectedTags[e.name] = e.value;
 
                 var hasSelected = false;
 
-                Object.keys(this.selectedTags).forEach(function(t){
-                    if (self.selectedTags[t]){
+                Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
+                    if (self.tagsFilter.selectedTags[t]){
                         hasSelected = true;
                     }
                 });
@@ -388,10 +403,10 @@ var place = new Vue({
                 console.log(e);
                 var self = this;
                 this.showAll = false;
-                Object.keys(this.selectedTags).forEach(function(t){
-                    self.selectedTags[t]=false;
+                Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
+                    self.tagsFilter.selectedTags[t]=false;
                 });
-                this.selectedTags[e.name]=true;
+                this.tagsFilter.selectedTags[e.name]=true;
                 this.filterTips();
                 this.$broadcast('eSwitchFilterOn',{name: e.name});
             }

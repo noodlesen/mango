@@ -109,15 +109,28 @@ h1 {
     }
 }
 
-.tip__tag {
+%tag__common{
     display: inline-block;
     color: white;
-    border-radius: 2px;
     font-weight: bolder;
+    cursor: pointer; 
+}
+
+.tip__tag {
+    @extend %tag__common;
     font-size: 12px;
+    border-radius: 2px;
     padding: 0 3px;
     margin-right: 1px;
-    cursor: pointer;
+}
+
+.form__tag {
+    @extend %tag__common;
+    font-size: 14px;
+    border-radius: 3px;
+    padding: 0 4px;
+    margin-right: 3px;
+    line-height: 1.3em;
 }
 
 .tip__tags {

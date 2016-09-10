@@ -46,6 +46,13 @@ a {
     cursor: pointer;
 }
 
+.subtitle {
+    font-style: italic;
+    margin-top: -12px;
+    color: $gray3;
+    font-size: 0.8em;
+}
+
 .error {
     color: red;
     outline-color: red;

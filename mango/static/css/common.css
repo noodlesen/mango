@@ -363,6 +363,14 @@ a, .plink {
 }
 
 /* line 49, scss/common.scss */
+.subtitle {
+  font-style: italic;
+  margin-top: -12px;
+  color: #878787;
+  font-size: 0.8em;
+}
+
+/* line 56, scss/common.scss */
 .error {
   color: red;
   outline-color: red;
@@ -370,53 +378,53 @@ a, .plink {
   outline-width: 2px;
 }
 
-/* line 56, scss/common.scss */
+/* line 63, scss/common.scss */
 .debug {
   outline-width: 1px;
   outline-color: red;
   outline-style: solid;
 }
 
-/* line 63, scss/common.scss */
+/* line 70, scss/common.scss */
 .waiting {
   cursor: pointer;
   color: #c6c6c6;
 }
-/* line 66, scss/common.scss */
+/* line 73, scss/common.scss */
 .waiting:hover {
   color: #27c257;
 }
 
-/* line 71, scss/common.scss */
+/* line 78, scss/common.scss */
 .label-as-badge {
   border-radius: 1em;
 }
 
-/* line 75, scss/common.scss */
+/* line 82, scss/common.scss */
 .label-brand {
   background-color: #0088cc;
   color: white;
 }
 
-/* line 81, scss/common.scss */
+/* line 88, scss/common.scss */
 .hint {
   font-size: 120%;
   color: #878787;
   padding: .5em;
 }
 
-/* line 87, scss/common.scss */
+/* line 94, scss/common.scss */
 .hint-icon {
   font-size: 200%;
 }
 
-/* line 91, scss/common.scss */
+/* line 98, scss/common.scss */
 .nano-timeline img {
   max-width: 12px;
   margin-left: -1px;
 }
 
-/* line 98, scss/common.scss */
+/* line 105, scss/common.scss */
 .center-label {
   font-size: 300%;
   text-align: center;
@@ -424,12 +432,12 @@ a, .plink {
   margin-top: 100px;
 }
 
-/* line 103, scss/common.scss */
+/* line 110, scss/common.scss */
 .center-sub-label {
   text-align: center;
 }
 
-/* line 107, scss/common.scss */
+/* line 114, scss/common.scss */
 section {
   border-width: 1px;
   border-radius: 6px;
@@ -439,7 +447,7 @@ section {
   background-color: white;
 }
 
-/* line 116, scss/common.scss */
+/* line 123, scss/common.scss */
 .divider {
   width: 100%;
   height: 1px;
@@ -448,50 +456,50 @@ section {
   margin-bottom: 15px;
 }
 
-/* line 124, scss/common.scss */
+/* line 131, scss/common.scss */
 .form-inline {
   margin-bottom: 15px;
 }
 
-/* line 128, scss/common.scss */
+/* line 135, scss/common.scss */
 .form-label {
   font-weight: 600;
   margin-bottom: 0;
 }
 
-/* line 134, scss/common.scss */
+/* line 141, scss/common.scss */
 .avatar-big {
   border-radius: 6px;
 }
 
-/* line 138, scss/common.scss */
+/* line 145, scss/common.scss */
 .avatar-small {
   border-radius: 3px;
   width: 40px;
   height: 40px;
 }
 
-/* line 144, scss/common.scss */
+/* line 151, scss/common.scss */
 .inline-menu__item {
   display: inline-block;
   padding: 5px;
   margin-right: 10px;
   border-radius: 3px;
 }
-/* line 149, scss/common.scss */
+/* line 156, scss/common.scss */
 .inline-menu__item:hover {
   background-color: #c6c6c6;
   color: white;
 }
 @media screen and (max-width: 486px) {
-  /* line 144, scss/common.scss */
+  /* line 151, scss/common.scss */
   .inline-menu__item {
     display: block;
     width: 100%;
   }
 }
 
-/* line 159, scss/common.scss */
+/* line 166, scss/common.scss */
 .inline-menu__item--selected {
   background-color: #0088cc;
   color: white;
