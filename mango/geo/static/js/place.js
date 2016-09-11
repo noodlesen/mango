@@ -237,7 +237,9 @@ var place = new Vue({
                         <div v-if="addTipFormShowing" id="tip__add-new-form">\
                             <textarea id = "add-new-form__textarea"></textarea>\
                             <div class="add-new-form__added-tags">\
-                                    <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.addedTags">{{t.name}}</span>\
+                                    <span class="form__added-tag back-{{t.style}}" v-for="t in newTipForm.addedTags"  @click="removeAddedTag($index)">\
+                                    {{t.name}}<span class="added-tag__remove-sign glyphicon glyphicon-remove" style="font-size:80%;"></span>\
+                                    </span>\
                                 </div>\
                             <div class="divider"></div>\
                             <div id="add-new-form__tags">\
@@ -296,12 +298,17 @@ var place = new Vue({
         },
 
         methods:{
+
             addTag: function(src, i){
                 if (src=='ac'){
                     this.newTipForm.addedTags.push(this.newTipForm.acTags[i]);
                 } else if (src=='popular'){
                     this.newTipForm.addedTags.push(this.newTipForm.popularTags[i]);
                 }
+            },
+            removeAddedTag: function(i){
+                console.log(i);
+                this.newTipForm.addedTags.splice(i,1);
             },
             tagsTextChanged:function(){
                 

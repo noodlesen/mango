@@ -439,7 +439,7 @@ h1 {
 }
 
 /* line 112, scss/place.scss */
-.tip__tag, .form__tag {
+.tip__tag, .form__tag, .form__added-tag {
   display: inline-block;
   color: white;
   font-weight: bolder;
@@ -464,12 +464,29 @@ h1 {
 }
 
 /* line 136, scss/place.scss */
+.form__added-tag {
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 0 4px;
+  margin-right: 3px;
+  line-height: 1.3em;
+}
+/* line 143, scss/place.scss */
+.form__added-tag .added-tag__remove-sign {
+  display: none;
+}
+/* line 146, scss/place.scss */
+.form__added-tag:hover .added-tag__remove-sign {
+  display: inline;
+}
+
+/* line 151, scss/place.scss */
 .tip__tags {
   float: left;
   width: 96%;
 }
 
-/* line 142, scss/place.scss */
+/* line 157, scss/place.scss */
 .tip__favorite {
   float: right;
   width: 4%;
@@ -477,61 +494,61 @@ h1 {
   color: #ff9800;
   cursor: pointer;
 }
-/* line 148, scss/place.scss */
+/* line 163, scss/place.scss */
 .tip__favorite:hover {
   color: #ff7b00;
 }
 
-/* line 154, scss/place.scss */
+/* line 169, scss/place.scss */
 .place__info {
   border-width: 0 0 0 1px;
   border-color: #c6c6c6;
   border-style: solid;
 }
 
-/* line 161, scss/place.scss */
+/* line 176, scss/place.scss */
 .tip__vote-up {
   cursor: pointer;
   color: #e3f7d8;
 }
-/* line 164, scss/place.scss */
+/* line 179, scss/place.scss */
 .tip__vote-up:hover {
   color: #c8efb1;
 }
-/* line 167, scss/place.scss */
+/* line 182, scss/place.scss */
 .tip__vote-up:active {
   color: #0c9702;
 }
 
-/* line 174, scss/place.scss */
+/* line 189, scss/place.scss */
 .tip__vote-dn {
   cursor: pointer;
   color: #ffe1d9;
 }
-/* line 177, scss/place.scss */
+/* line 192, scss/place.scss */
 .tip__vote-dn:hover {
   color: #ffc4b3;
 }
 
-/* line 182, scss/place.scss */
+/* line 197, scss/place.scss */
 .tip__vote-up--active {
   color: #55d426;
 }
-/* line 184, scss/place.scss */
+/* line 199, scss/place.scss */
 .tip__vote-up--active:hover {
   color: #0c9702;
 }
 
-/* line 189, scss/place.scss */
+/* line 204, scss/place.scss */
 .tip__vote-dn--active {
   color: #ff4e2b;
 }
-/* line 191, scss/place.scss */
+/* line 206, scss/place.scss */
 .tip__vote-dn--active:hover {
   color: #ff0a02;
 }
 
-/* line 196, scss/place.scss */
+/* line 211, scss/place.scss */
 .tip__author {
   font-weight: bolder;
 }

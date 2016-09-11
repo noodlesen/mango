@@ -133,6 +133,21 @@ h1 {
     line-height: 1.3em;
 }
 
+.form__added-tag{
+    @extend %tag__common;
+    font-size: 14px;
+    border-radius: 3px;
+    padding: 0 4px;
+    margin-right: 3px;
+    line-height: 1.3em;
+    .added-tag__remove-sign{
+        display: none;
+    }
+    &:hover .added-tag__remove-sign{
+        display: inline;
+    }
+}
+
 .tip__tags {
     float: left;
     width:96%;
