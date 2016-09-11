@@ -11,14 +11,14 @@ params = {
     "sorting": "price",
     "trip_class": 0,
     "period_type":"month",
-    "one_way":"true",
-    "beginning_of_period":"2016-12-1"
+    "one_way":"false",
+    "beginning_of_period":"2017-07-1"
 }
 req_base = "http://api.travelpayouts.com/v2/prices/latest"
 rp = []
 for k, v in params.items():
     rp.append(str(k)+'='+str(v))
-req = req_base+"?"+"&".join(rp)+"&origin=MOW&destination=BKK"
+req = req_base+"?"+"&".join(rp)+"&origin=MOW&destination=PKC"
 print(req)
 
 response = requests.get(req, headers=headers)

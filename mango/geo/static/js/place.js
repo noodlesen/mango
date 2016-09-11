@@ -243,15 +243,16 @@ var place = new Vue({
                                 </div>\
                             <div class="divider"></div>\
                             <div id="add-new-form__tags">\
-                                <h3>Выберите или добавьте собственные метки</h3>\
-                                <div class="subtitle">Используйте запятые, чтобы добавить несколько меток</div>\
+                                <div class="add-new-form__popular-tags">\
+                                    <h3>Популярные</h3>\
+                                    <span class="form__main-tag back-{{t.style}}" v-for="t in newTipForm.popularTags" @click="addTag(\'popular\', $index)">{{t.name}}</span>\
+                                </div>\
+                                <h3>Найдите метки</h3>\
+                                <div class="subtitle">созданные другими пользователями</div>\
+                                <span class="glyphicon glyphicon-search"></span>\
                                 <input type="text" id="add-new-form__tags-ta" @keyup="tagsTextChanged" @blur="tagsTextChanged" v-model="newTipForm.tagsText"></input>\
                                 <div id="add-new-form__tags-ac">\
                                     <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.acTags" @click="addTag(\'ac\', $index)">{{t.name}}</span>\
-                                </div>\
-                                <div class="add-new-form__popular-tags">\
-                                    <h3>Популярные</h3>\
-                                    <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.popularTags" @click="addTag(\'popular\', $index)">{{t.name}}</span>\
                                 </div>\
                             </div><div class="divider"></div>\
                             <button class="btn btn-large btn-normal" >Отмена</button>\
@@ -300,10 +301,17 @@ var place = new Vue({
         methods:{
 
             addTag: function(src, i){
+                var self = this;
+                var target;
                 if (src=='ac'){
-                    this.newTipForm.addedTags.push(this.newTipForm.acTags[i]);
+                    target = this.newTipForm.acTags;
                 } else if (src=='popular'){
-                    this.newTipForm.addedTags.push(this.newTipForm.popularTags[i]);
+                    target = this.newTipForm.popularTags
+                }
+
+                if(this.newTipForm.addedTags.filter(function(t){return t.name==target[i].name}).length==0){
+                       this.newTipForm.addedTags.push(target[i]); 
+                       console.log(JSON.stringify(this.newTipForm.addedTags));
                 }
             },
             removeAddedTag: function(i){
@@ -372,7 +380,7 @@ var place = new Vue({
                     self.tagsFilter.placeTags=res.place_tags;
                     self.newTipForm.allTags=res.all_tags;
                     //self.newTipForm.acTags=res.all_tags;
-                    self.newTipForm.popularTags = res.all_tags.slice(0, 24);
+                    self.newTipForm.popularTags = res.all_tags.slice(0, 12);
                     self.tagsFilter.placeTags.forEach(function(t){
                         self.tagsFilter.selectedTags[t.name]=false;
                     });

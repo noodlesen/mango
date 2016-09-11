@@ -48,6 +48,36 @@ def check_prices():
                 n+=1
     f.close()
 
+@manager.command
+def get_length():
+    tips = Tip.query.all()
+    tmax=0
+    tmin=10000
+    tsum = 0
+    tcount = 0
+    p300 = 0
+    p400=0
+    p500=0
+    for t in tips:
+        print (tcount)
+        tcount+=1
+        l = len(t.text)
+        tsum+=l
+        if l<tmin:
+            tmin=l
+        if l>tmax:
+            tmax=l
+        if l>300:
+            p300+=1
+        if l>400:
+            p400+=1
+        if l>500:
+            p500+=1
+    tavg = round(tsum/tcount)
+    print ("MIN :%d MAX :%d AVG :%d" % (tmin, tmax, tavg))
+    print('TOTAL %d' % tcount)
+    print (">300 :%d >400 :%d >500 :%d" % (p300, p400, p500))
+
 
 
 
