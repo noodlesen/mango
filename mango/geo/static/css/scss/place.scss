@@ -48,7 +48,15 @@ h1 {
     resize:vertical;
     padding:.5em;
     border: 0.1em solid $green;
-    border-radius: 6px;
+    border-radius: 6px 6px 0 0;
+}
+
+#add-new-form__added-tags{
+    margin-top: -10px;
+    border-radius:  0 0 6px 6px;
+    background-color: $gray6;
+    border: 0.1em solid $green;
+    padding: 7px;
 }
 
 #add-new-form__tags-ta{

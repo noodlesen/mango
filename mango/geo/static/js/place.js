@@ -235,18 +235,22 @@ var place = new Vue({
                     <div id="tips">\
                         <div v-show="!addTipFormShowing"><span class="plink" @click="showAddTipForm">Добавьте свой совет!</span></div>\
                         <div v-if="addTipFormShowing" id="tip__add-new-form">\
-                            <textarea id = "add-new-form__textarea"></textarea>\
-                            <div class="add-new-form__added-tags">\
+                            <textarea id = "add-new-form__textarea" placeholder="Напишите здесь свой совет другим путешественникам..."></textarea>\
+                            <div id="add-new-form__added-tags">\
+                                    <span v-show="!newTipForm.addedTags.length">Добавьте от одной до пяти меток</span>\
                                     <span class="form__added-tag back-{{t.style}}" v-for="t in newTipForm.addedTags"  @click="removeAddedTag($index)">\
                                     {{t.name}}<span class="added-tag__remove-sign glyphicon glyphicon-remove" style="font-size:80%;"></span>\
                                     </span>\
                                 </div>\
+                                \
                             <div class="divider"></div>\
                             <div id="add-new-form__tags">\
                                 <div class="add-new-form__popular-tags">\
                                     <h3>Популярные</h3>\
-                                    <span class="form__main-tag back-{{t.style}}" v-for="t in newTipForm.popularTags" @click="addTag(\'popular\', $index)">{{t.name}}</span>\
+                                    <span class="form__main-tag back-{{t.style}}" v-for="t in newTipForm.popularTags" @click="addTag(\'popular\', $index)">\
+                                    {{t.name}}</span>\
                                 </div>\
+                                <div style="text-align:center"><span class="plink">Показать больше</span></div>\
                                 <h3>Найдите метки</h3>\
                                 <div class="subtitle">созданные другими пользователями</div>\
                                 <span class="glyphicon glyphicon-search"></span>\
@@ -254,6 +258,8 @@ var place = new Vue({
                                 <div id="add-new-form__tags-ac">\
                                     <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.acTags" @click="addTag(\'ac\', $index)">{{t.name}}</span>\
                                 </div>\
+                                <h3>Добавьте собственные метки</h3>\
+                                <div class="subtitle">Используйте запятые, чтобы добавить несколько меток</div>\
                             </div><div class="divider"></div>\
                             <button class="btn btn-large btn-normal" >Отмена</button>\
                             <button class="btn btn-large btn-warning" >Готово</button>\
