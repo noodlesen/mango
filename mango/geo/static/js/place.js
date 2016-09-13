@@ -244,22 +244,20 @@ var place = new Vue({
                                 </div>\
                                 \
                             <div class="divider"></div>\
-                            <div id="add-new-form__tags">\
+                            <div id="add-new-form__tags" >\
                                 <div class="add-new-form__popular-tags">\
-                                    <h3>Популярные</h3>\
                                     <span class="form__main-tag back-{{t.style}}" v-for="t in newTipForm.popularTags" @click="addTag(\'popular\', $index)">\
                                     {{t.name}}</span>\
                                 </div>\
-                                <div style="text-align:center"><span class="plink">Показать больше</span></div>\
-                                <h3>Найдите метки</h3>\
-                                <div class="subtitle">созданные другими пользователями</div>\
+                                <div v-show="!showingMoreTags" ><span class="plink" @click="showMoreTags">Показать больше</span></div>\
+                                <div v-show="showingMoreTags">\
+                                    <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.moreTags" @click="addTag(\'more\', $index)">{{t.name}}</span>\
+                                </div>\
                                 <span class="glyphicon glyphicon-search"></span>\
-                                <input type="text" id="add-new-form__tags-ta" @keyup="tagsTextChanged" @blur="tagsTextChanged" v-model="newTipForm.tagsText"></input>\
+                                <input placeholder="Найти или создать метку" type="text" id="add-new-form__tags-ta" @keyup="tagsTextChanged" @blur="tagsTextChanged" v-model="newTipForm.tagsText"></input>\
                                 <div id="add-new-form__tags-ac">\
                                     <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.acTags" @click="addTag(\'ac\', $index)">{{t.name}}</span>\
                                 </div>\
-                                <h3>Добавьте собственные метки</h3>\
-                                <div class="subtitle">Используйте запятые, чтобы добавить несколько меток</div>\
                             </div><div class="divider"></div>\
                             <button class="btn btn-large btn-normal" >Отмена</button>\
                             <button class="btn btn-large btn-warning" >Готово</button>\
@@ -294,17 +292,22 @@ var place = new Vue({
                 acTags:[],
                 popularTags:[],
                 tagsText:'',
-                addedTags:[]
+                addedTags:[],
+                moreTags:[]
             },
 
             all_tips:[],
             shown_tips:[],
             showAll: true,
             addTipFormShowing: false,
-
+            showingMoreTags: false
         },
 
         methods:{
+
+            showMoreTags: function(){
+                this.showingMoreTags = !this.showingMoreTags;
+            },
 
             addTag: function(src, i){
                 var self = this;
@@ -379,7 +382,7 @@ var place = new Vue({
         ready: function(){
             var self = this;
             getResults('/json/place', 'json', {place_id: place_id}, function(res){
-                if (res.status=='ok'){
+                if (res.status=='ok' || res.status=='not logged in'){
                     
                     self.all_tips=res.tips;
                     self.shown_tips=res.tips;
@@ -387,6 +390,7 @@ var place = new Vue({
                     self.newTipForm.allTags=res.all_tags;
                     //self.newTipForm.acTags=res.all_tags;
                     self.newTipForm.popularTags = res.all_tags.slice(0, 12);
+                    self.newTipForm.moreTags = res.all_tags.slice(12, 48);
                     self.tagsFilter.placeTags.forEach(function(t){
                         self.tagsFilter.selectedTags[t.name]=false;
                     });

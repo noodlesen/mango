@@ -29,7 +29,7 @@ def old_places(pid):
     else:
         abort(404)
 
-@cache.cached(50)
+#@cache.cached(50)
 @geo.route('/place/<us>', methods=['GET'])
 def places(us):
     p = Place.query.filter_by(url_string=us).first()
@@ -41,14 +41,19 @@ def places(us):
 @login_required
 @geo.route('/json/place', methods=['POST'])
 def json_place():
+    res={}
     q = request.json
     place_id = q['place_id']
     p = Place.query.get(place_id)
-    res={}
     res['tips']=[]
-    faves = Tip.favorited_by(current_user)
-    likes = Tip.liked_by(current_user)
-    dislikes = Tip.disliked_by(current_user)
+    if current_user.is_authenticated:
+        faves = Tip.favorited_by(current_user)
+        likes = Tip.liked_by(current_user)
+        dislikes = Tip.disliked_by(current_user)
+    else:
+        faves = []
+        likes = []
+        dislikes = []
     for t in p.tips:
         favorite = True if t.id in faves else False
         like = True if t.id in likes else False
@@ -80,6 +85,7 @@ def json_place():
         res['all_tags'].append({"name":t.name, "style":t.style, "count":t.count})
     res['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
     res['status']='ok'
+
     return json.dumps(res)
 
 

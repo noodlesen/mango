@@ -417,10 +417,13 @@ def public_profile(uid):
 def notifier():
     q=request.json
     if q['cmd'] == 'checkNotifications':
-        notifications = Notification.count(current_user)
-        return json.dumps({'messages': notifications['messages'],
-                            'notifications': notifications['other'],
-                            'status':'ok'})
+        if current_user.is_authenticated:
+            notifications = Notification.count(current_user)
+            return json.dumps({'messages': notifications['messages'],
+                                'notifications': notifications['other'],
+                                'status':'ok'})
+        else:
+            return json.dumps({'staus':'not logged in'})
 
 
 

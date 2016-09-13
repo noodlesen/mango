@@ -59,13 +59,18 @@ h1 {
     padding: 7px;
 }
 
+#add-new-form__tags{
+    text-align:center;
+}
+
 #add-new-form__tags-ta{
     height: 2em;
-    width:100%;
+    width:95%;
     resize:vertical;
     padding:0.1em 0.5em;
     border: 0.1em solid $green;
     border-radius: 6px;
+    display: inline-block;
 }
 
 #filter-message{
@@ -150,7 +155,7 @@ h1 {
     font-size: 14px;
     border-radius: 3px;
     padding: 3px 4px;
-    margin-right: 1%;
+    margin-left: 1%;
     margin-bottom: 3px;
     line-height: 1.3em;
 }
