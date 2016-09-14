@@ -251,6 +251,7 @@ var place = new Vue({
                                 <div v-show="!showingMoreTags" ><span class="plink" @click="showMoreTags">Показать больше</span></div>\
                                 <div v-show="showingMoreTags">\
                                     <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.moreTags" @click="addTag(\'more\', $index)">{{t.name}}</span>\
+                                    <div v-show="showingMoreTags" ><span class="plink" @click="showMoreTags">Свернуть</span></div>\
                                 </div>\
                                 <div id="add-new-form__search-tags" :class="{\'search-active\':searchActive}">\
                                     <span class="glyphicon glyphicon-search"></span>\
@@ -259,7 +260,7 @@ var place = new Vue({
                                         <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.acTags" @click="addTag(\'ac\', $index)">{{t.name}}</span>\
                                     </div>\
                                     <div v-show="searchActive && newTipForm.tagsText.length>1">\
-                                        <span class="plink">Создать новую метку "{{newTipForm.tagsText}}"</span>\
+                                        <span class="plink" @click="createTag">Создать новую метку "{{newTipForm.tagsText}}"</span>\
                                     </div>\
                                 </div>\
                             </div><div class="divider"></div>\
@@ -317,6 +318,16 @@ var place = new Vue({
 
             showMoreTags: function(){
                 this.showingMoreTags = !this.showingMoreTags;
+            },
+
+            createTag: function(){
+                var name = this.newTipForm.tagsText;
+                if(this.newTipForm.addedTags.filter(function(t){return t.name==name}).length==0){
+                    var newTag = {name: name, style:'color-none', count:0};
+                    this.newTipForm.addedTags.push(newTag); 
+                    this.newTipForm.allTags.push(newTag); 
+                    this.newTipForm.tagsText = '';
+                }
             },
 
             addTag: function(src, i){
