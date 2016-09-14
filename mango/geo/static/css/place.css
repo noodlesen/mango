@@ -596,3 +596,15 @@ h1 {
 .btn-agree {
     font-size: 150%;
 } */
+/* always present */
+/* line 264, scss/place.scss */
+.expand-transition {
+  transition: all .3s ease;
+}
+
+/* .expand-enter defines the starting state for entering */
+/* .expand-leave defines the ending state for leaving */
+/* line 269, scss/place.scss */
+.expand-enter, .expand-leave {
+  opacity: 0;
+}

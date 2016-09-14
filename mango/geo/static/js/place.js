@@ -238,7 +238,7 @@ var place = new Vue({
                             <textarea id = "add-new-form__textarea" placeholder="Напишите здесь свой совет другим путешественникам..."></textarea>\
                             <div id="add-new-form__added-tags">\
                                     <span v-show="!newTipForm.addedTags.length">Добавьте от одной до пяти меток</span>\
-                                    <span class="form__added-tag back-{{t.style}}" v-for="t in newTipForm.addedTags"  @click="removeAddedTag($index)">\
+                                    <span class="form__added-tag back-{{t.style}}" transition="expand" v-for="t in newTipForm.addedTags"  @click="removeAddedTag($index)">\
                                     {{t.name}}<span class="added-tag__remove-sign glyphicon glyphicon-remove" style="font-size:80%;"></span>\
                                     </span>\
                                 </div>\
@@ -248,11 +248,11 @@ var place = new Vue({
                                     <span class="form__main-tag back-{{t.style}}" v-for="t in newTipForm.popularTags" @click="addTag(\'popular\', $index)">\
                                     {{t.name}}</span>\
                                 </div>\
-                                <div v-show="!showingMoreTags" ><span class="plink" @click="showMoreTags">Показать больше</span></div>\
-                                <div v-show="showingMoreTags">\
+                                <div v-show="showingMoreTags" transition="expand">\
                                     <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.moreTags" @click="addTag(\'more\', $index)">{{t.name}}</span>\
-                                    <div v-show="showingMoreTags" ><span class="plink" @click="showMoreTags">Свернуть</span></div>\
                                 </div>\
+                                <div v-show="showingMoreTags"  transition="expand" ><span class="plink" @click="showMoreTags">Свернуть</span></div>\
+                                <div v-show="!showingMoreTags"  transition="expand"><span class="plink" @click="showMoreTags">Показать больше</span></div>\
                                 <div id="add-new-form__search-tags" :class="{\'search-active\':searchActive}">\
                                     <span class="glyphicon glyphicon-search"></span>\
                                     <input placeholder="Найти или создать метку" type="text" id="add-new-form__tags-ta" @keyup="tagsTextChanged" @blur="tagsTextChanged" v-model="newTipForm.tagsText"></input>\

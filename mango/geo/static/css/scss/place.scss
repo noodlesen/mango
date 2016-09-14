@@ -257,3 +257,15 @@ h1 {
 .btn-agree {
     font-size: 150%;
 } */
+
+// TRANSITIONS
+
+/* always present */
+.expand-transition {
+  transition: all .3s ease;
+}
+/* .expand-enter defines the starting state for entering */
+/* .expand-leave defines the ending state for leaving */
+.expand-enter, .expand-leave {
+  opacity: 0;
+}
