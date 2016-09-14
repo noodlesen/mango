@@ -243,7 +243,6 @@ var place = new Vue({
                                     </span>\
                                 </div>\
                                 \
-                            <div class="divider"></div>\
                             <div id="add-new-form__tags" >\
                                 <div class="add-new-form__popular-tags">\
                                     <span class="form__main-tag back-{{t.style}}" v-for="t in newTipForm.popularTags" @click="addTag(\'popular\', $index)">\
@@ -253,10 +252,15 @@ var place = new Vue({
                                 <div v-show="showingMoreTags">\
                                     <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.moreTags" @click="addTag(\'more\', $index)">{{t.name}}</span>\
                                 </div>\
-                                <span class="glyphicon glyphicon-search"></span>\
-                                <input placeholder="Найти или создать метку" type="text" id="add-new-form__tags-ta" @keyup="tagsTextChanged" @blur="tagsTextChanged" v-model="newTipForm.tagsText"></input>\
-                                <div id="add-new-form__tags-ac">\
-                                    <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.acTags" @click="addTag(\'ac\', $index)">{{t.name}}</span>\
+                                <div id="add-new-form__search-tags" :class="{\'search-active\':searchActive}">\
+                                    <span class="glyphicon glyphicon-search"></span>\
+                                    <input placeholder="Найти или создать метку" type="text" id="add-new-form__tags-ta" @keyup="tagsTextChanged" @blur="tagsTextChanged" v-model="newTipForm.tagsText"></input>\
+                                    <div id="add-new-form__tags-ac">\
+                                        <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.acTags" @click="addTag(\'ac\', $index)">{{t.name}}</span>\
+                                    </div>\
+                                    <div v-show="searchActive && newTipForm.tagsText.length>1">\
+                                        <span class="plink">Создать новую метку "{{newTipForm.tagsText}}"</span>\
+                                    </div>\
                                 </div>\
                             </div><div class="divider"></div>\
                             <button class="btn btn-large btn-normal" >Отмена</button>\
@@ -303,6 +307,12 @@ var place = new Vue({
             showingMoreTags: false
         },
 
+        computed:{
+            searchActive: function(){
+                return this.newTipForm.tagsText!='';
+            }
+        },
+
         methods:{
 
             showMoreTags: function(){
@@ -310,12 +320,17 @@ var place = new Vue({
             },
 
             addTag: function(src, i){
+                console.log('addtag');
                 var self = this;
                 var target;
                 if (src=='ac'){
+                    console.log('ac');
                     target = this.newTipForm.acTags;
                 } else if (src=='popular'){
-                    target = this.newTipForm.popularTags
+                    target = this.newTipForm.popularTags;
+                } else if (src=='more'){
+                    target = this.newTipForm.moreTags;
+                    console.log('more');
                 }
 
                 if(this.newTipForm.addedTags.filter(function(t){return t.name==target[i].name}).length==0){
@@ -328,13 +343,15 @@ var place = new Vue({
                 this.newTipForm.addedTags.splice(i,1);
             },
             tagsTextChanged:function(){
-                
+                    
                     var self = this;
                     var textTags = this.newTipForm.tagsText.split(',');
                     var needle = textTags[textTags.length-1].trim();
                     this.newTipForm.acTags = this.newTipForm.allTags.filter(function(t){
                         return (t.name.lastIndexOf(needle, 0 ) == 0 &&  needle.trim()!='');
                     });
+                    console.log(JSON.stringify(this.newTipForm.acTags));
+                    
 
             },
             resetFilters : function(){
@@ -390,7 +407,7 @@ var place = new Vue({
                     self.newTipForm.allTags=res.all_tags;
                     //self.newTipForm.acTags=res.all_tags;
                     self.newTipForm.popularTags = res.all_tags.slice(0, 12);
-                    self.newTipForm.moreTags = res.all_tags.slice(12, 48);
+                    self.newTipForm.moreTags = res.all_tags.slice(12, 64);
                     self.tagsFilter.placeTags.forEach(function(t){
                         self.tagsFilter.selectedTags[t.name]=false;
                     });

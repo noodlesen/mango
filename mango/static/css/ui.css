@@ -141,171 +141,172 @@
 /* line 210, scss/_config.scss */
 .back-color-none {
   background-color: #78a7b4;
+  color: white;
 }
 
-/* line 214, scss/_config.scss */
+/* line 215, scss/_config.scss */
 .back-color-blue {
   background-color: #0088cc;
   color: white;
 }
 
-/* line 219, scss/_config.scss */
+/* line 220, scss/_config.scss */
 .back-color-cyan {
   background-color: #0cbeb2;
   color: white;
 }
 
-/* line 224, scss/_config.scss */
+/* line 225, scss/_config.scss */
 .back-color-green {
   background-color: #55d426;
   color: white;
 }
 
-/* line 229, scss/_config.scss */
+/* line 230, scss/_config.scss */
 .back-color-yellow {
   background-color: #ff9800;
   color: white;
 }
 
-/* line 234, scss/_config.scss */
+/* line 235, scss/_config.scss */
 .back-color-orange {
   background-color: #ff9800;
   color: white;
 }
 
-/* line 239, scss/_config.scss */
+/* line 240, scss/_config.scss */
 .back-color-red {
   background-color: #ff4e2b;
   color: white;
 }
 
-/* line 244, scss/_config.scss */
+/* line 245, scss/_config.scss */
 .back-color-magenta {
   background-color: #b652bf;
   color: white;
 }
 
-/* line 250, scss/_config.scss */
+/* line 251, scss/_config.scss */
 .back-color-dark-blue {
   background-color: #002c87;
   color: white;
 }
 
-/* line 255, scss/_config.scss */
+/* line 256, scss/_config.scss */
 .back-color-dark-cyan {
   background-color: #00705d;
   color: white;
 }
 
-/* line 260, scss/_config.scss */
+/* line 261, scss/_config.scss */
 .back-color-dark-green {
   background-color: #0c9702;
   color: white;
 }
 
-/* line 265, scss/_config.scss */
+/* line 266, scss/_config.scss */
 .back-color-dark-orange {
   background-color: #ff7b00;
   color: white;
 }
 
-/* line 270, scss/_config.scss */
+/* line 271, scss/_config.scss */
 .back-color-dark-yellow {
   background-color: #ffd900;
   color: white;
 }
 
-/* line 275, scss/_config.scss */
+/* line 276, scss/_config.scss */
 .back-color-dark-red {
   background-color: #ff0a02;
   color: white;
 }
 
-/* line 280, scss/_config.scss */
+/* line 281, scss/_config.scss */
 .back-color-dark-magenta {
   background-color: #821a8f;
   color: white;
 }
 
-/* line 285, scss/_config.scss */
+/* line 286, scss/_config.scss */
 .back-color-light-blue {
   background-color: #acd6e7;
   color: white;
 }
 
-/* line 290, scss/_config.scss */
+/* line 291, scss/_config.scss */
 .back-color-light-cyan {
   background-color: #b1e8df;
   color: white;
 }
 
-/* line 295, scss/_config.scss */
+/* line 296, scss/_config.scss */
 .back-color-light-green {
   background-color: #c8efb1;
   color: white;
 }
 
-/* line 300, scss/_config.scss */
+/* line 301, scss/_config.scss */
 .back-color-light-orange {
   background-color: #ffeaa5;
   color: white;
 }
 
-/* line 305, scss/_config.scss */
+/* line 306, scss/_config.scss */
 .back-color-light-yellow {
   background-color: #fff8a9;
   color: white;
 }
 
-/* line 310, scss/_config.scss */
+/* line 311, scss/_config.scss */
 .back-color-light-red {
   background-color: #ffc4b3;
   color: white;
 }
 
-/* line 315, scss/_config.scss */
+/* line 316, scss/_config.scss */
 .back-color-pale-blue {
   background-color: #d5eaf3;
   color: white;
 }
 
-/* line 320, scss/_config.scss */
+/* line 321, scss/_config.scss */
 .back-color-light-magenta {
   background-color: #d294d7;
   color: white;
 }
 
-/* line 325, scss/_config.scss */
+/* line 326, scss/_config.scss */
 .back-color-pale-cyan {
   background-color: #d8f3ef;
   color: white;
 }
 
-/* line 330, scss/_config.scss */
+/* line 331, scss/_config.scss */
 .back-color-pale-green {
   background-color: #e3f7d8;
   color: white;
 }
 
-/* line 335, scss/_config.scss */
+/* line 336, scss/_config.scss */
 .back-color-pale-orange {
   background-color: #fff4d2;
   color: white;
 }
 
-/* line 340, scss/_config.scss */
+/* line 341, scss/_config.scss */
 .back-color-pale-yellow {
   background-color: #fffbd4;
   color: white;
 }
 
-/* line 345, scss/_config.scss */
+/* line 346, scss/_config.scss */
 .back-color-pale-red {
   background-color: #ffe1d9;
   color: white;
 }
 
-/* line 350, scss/_config.scss */
+/* line 351, scss/_config.scss */
 .back-color-pale-magenta {
   background-color: #e8c9eb;
   color: white;

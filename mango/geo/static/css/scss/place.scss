@@ -36,7 +36,7 @@ h1 {
 
 #tip__add-new-form{
 
-    background-color: $pale-green;
+    background-color: $gray5;
     padding: 15px;
     border-radius: 6px;
 
@@ -61,7 +61,21 @@ h1 {
 
 #add-new-form__tags{
     text-align:center;
+    margin-top: 10px;
 }
+
+#add-new-form__search-tags{
+    text-align:center;
+    margin-top: 20px;
+    padding: 10px
+}
+
+.search-active{
+    background-color: $gray6;
+    border-radius: 5px;
+
+}
+
 
 #add-new-form__tags-ta{
     height: 2em;

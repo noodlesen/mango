@@ -141,171 +141,172 @@
 /* line 210, ../../../static/css/scss/_config.scss */
 .back-color-none {
   background-color: #78a7b4;
+  color: white;
 }
 
-/* line 214, ../../../static/css/scss/_config.scss */
+/* line 215, ../../../static/css/scss/_config.scss */
 .back-color-blue {
   background-color: #0088cc;
   color: white;
 }
 
-/* line 219, ../../../static/css/scss/_config.scss */
+/* line 220, ../../../static/css/scss/_config.scss */
 .back-color-cyan {
   background-color: #0cbeb2;
   color: white;
 }
 
-/* line 224, ../../../static/css/scss/_config.scss */
+/* line 225, ../../../static/css/scss/_config.scss */
 .back-color-green {
   background-color: #55d426;
   color: white;
 }
 
-/* line 229, ../../../static/css/scss/_config.scss */
+/* line 230, ../../../static/css/scss/_config.scss */
 .back-color-yellow {
   background-color: #ff9800;
   color: white;
 }
 
-/* line 234, ../../../static/css/scss/_config.scss */
+/* line 235, ../../../static/css/scss/_config.scss */
 .back-color-orange {
   background-color: #ff9800;
   color: white;
 }
 
-/* line 239, ../../../static/css/scss/_config.scss */
+/* line 240, ../../../static/css/scss/_config.scss */
 .back-color-red {
   background-color: #ff4e2b;
   color: white;
 }
 
-/* line 244, ../../../static/css/scss/_config.scss */
+/* line 245, ../../../static/css/scss/_config.scss */
 .back-color-magenta {
   background-color: #b652bf;
   color: white;
 }
 
-/* line 250, ../../../static/css/scss/_config.scss */
+/* line 251, ../../../static/css/scss/_config.scss */
 .back-color-dark-blue {
   background-color: #002c87;
   color: white;
 }
 
-/* line 255, ../../../static/css/scss/_config.scss */
+/* line 256, ../../../static/css/scss/_config.scss */
 .back-color-dark-cyan {
   background-color: #00705d;
   color: white;
 }
 
-/* line 260, ../../../static/css/scss/_config.scss */
+/* line 261, ../../../static/css/scss/_config.scss */
 .back-color-dark-green {
   background-color: #0c9702;
   color: white;
 }
 
-/* line 265, ../../../static/css/scss/_config.scss */
+/* line 266, ../../../static/css/scss/_config.scss */
 .back-color-dark-orange {
   background-color: #ff7b00;
   color: white;
 }
 
-/* line 270, ../../../static/css/scss/_config.scss */
+/* line 271, ../../../static/css/scss/_config.scss */
 .back-color-dark-yellow {
   background-color: #ffd900;
   color: white;
 }
 
-/* line 275, ../../../static/css/scss/_config.scss */
+/* line 276, ../../../static/css/scss/_config.scss */
 .back-color-dark-red {
   background-color: #ff0a02;
   color: white;
 }
 
-/* line 280, ../../../static/css/scss/_config.scss */
+/* line 281, ../../../static/css/scss/_config.scss */
 .back-color-dark-magenta {
   background-color: #821a8f;
   color: white;
 }
 
-/* line 285, ../../../static/css/scss/_config.scss */
+/* line 286, ../../../static/css/scss/_config.scss */
 .back-color-light-blue {
   background-color: #acd6e7;
   color: white;
 }
 
-/* line 290, ../../../static/css/scss/_config.scss */
+/* line 291, ../../../static/css/scss/_config.scss */
 .back-color-light-cyan {
   background-color: #b1e8df;
   color: white;
 }
 
-/* line 295, ../../../static/css/scss/_config.scss */
+/* line 296, ../../../static/css/scss/_config.scss */
 .back-color-light-green {
   background-color: #c8efb1;
   color: white;
 }
 
-/* line 300, ../../../static/css/scss/_config.scss */
+/* line 301, ../../../static/css/scss/_config.scss */
 .back-color-light-orange {
   background-color: #ffeaa5;
   color: white;
 }
 
-/* line 305, ../../../static/css/scss/_config.scss */
+/* line 306, ../../../static/css/scss/_config.scss */
 .back-color-light-yellow {
   background-color: #fff8a9;
   color: white;
 }
 
-/* line 310, ../../../static/css/scss/_config.scss */
+/* line 311, ../../../static/css/scss/_config.scss */
 .back-color-light-red {
   background-color: #ffc4b3;
   color: white;
 }
 
-/* line 315, ../../../static/css/scss/_config.scss */
+/* line 316, ../../../static/css/scss/_config.scss */
 .back-color-pale-blue {
   background-color: #d5eaf3;
   color: white;
 }
 
-/* line 320, ../../../static/css/scss/_config.scss */
+/* line 321, ../../../static/css/scss/_config.scss */
 .back-color-light-magenta {
   background-color: #d294d7;
   color: white;
 }
 
-/* line 325, ../../../static/css/scss/_config.scss */
+/* line 326, ../../../static/css/scss/_config.scss */
 .back-color-pale-cyan {
   background-color: #d8f3ef;
   color: white;
 }
 
-/* line 330, ../../../static/css/scss/_config.scss */
+/* line 331, ../../../static/css/scss/_config.scss */
 .back-color-pale-green {
   background-color: #e3f7d8;
   color: white;
 }
 
-/* line 335, ../../../static/css/scss/_config.scss */
+/* line 336, ../../../static/css/scss/_config.scss */
 .back-color-pale-orange {
   background-color: #fff4d2;
   color: white;
 }
 
-/* line 340, ../../../static/css/scss/_config.scss */
+/* line 341, ../../../static/css/scss/_config.scss */
 .back-color-pale-yellow {
   background-color: #fffbd4;
   color: white;
 }
 
-/* line 345, ../../../static/css/scss/_config.scss */
+/* line 346, ../../../static/css/scss/_config.scss */
 .back-color-pale-red {
   background-color: #ffe1d9;
   color: white;
 }
 
-/* line 350, ../../../static/css/scss/_config.scss */
+/* line 351, ../../../static/css/scss/_config.scss */
 .back-color-pale-magenta {
   background-color: #e8c9eb;
   color: white;
@@ -352,7 +353,7 @@ h1 {
 
 /* line 37, scss/place.scss */
 #tip__add-new-form {
-  background-color: #e3f7d8;
+  background-color: #efefef;
   padding: 15px;
   border-radius: 6px;
 }
@@ -379,9 +380,23 @@ h1 {
 /* line 62, scss/place.scss */
 #add-new-form__tags {
   text-align: center;
+  margin-top: 10px;
 }
 
-/* line 66, scss/place.scss */
+/* line 67, scss/place.scss */
+#add-new-form__search-tags {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+/* line 73, scss/place.scss */
+.search-active {
+  background-color: #f8f8f8;
+  border-radius: 5px;
+}
+
+/* line 80, scss/place.scss */
 #add-new-form__tags-ta {
   height: 2em;
   width: 95%;
@@ -392,29 +407,29 @@ h1 {
   display: inline-block;
 }
 
-/* line 76, scss/place.scss */
+/* line 90, scss/place.scss */
 #filter-message {
   border-radius: 6px;
   background-color: white;
   padding: 5px 10px 7px;
 }
 
-/* line 82, scss/place.scss */
+/* line 96, scss/place.scss */
 .tip {
   background-color: white;
 }
 
-/* line 86, scss/place.scss */
+/* line 100, scss/place.scss */
 .tip-agreed {
   background-color: #e3f7d8;
 }
 
-/* line 89, scss/place.scss */
+/* line 103, scss/place.scss */
 .tip-disagreed {
   background-color: #ffe1d9;
 }
 
-/* line 93, scss/place.scss */
+/* line 107, scss/place.scss */
 .filter-item {
   padding: 1px 7px;
   border-radius: 5px 0 0 5px;
@@ -423,19 +438,19 @@ h1 {
   cursor: pointer;
 }
 
-/* line 101, scss/place.scss */
+/* line 115, scss/place.scss */
 .filter-item-inactive {
   background-color: #efefef;
   color: #c6c6c6;
   border: 1px solid #c6c6c6;
 }
-/* line 106, scss/place.scss */
+/* line 120, scss/place.scss */
 .filter-item-inactive:hover {
   border: 1px solid #878787;
   color: #878787;
 }
 
-/* line 113, scss/place.scss */
+/* line 127, scss/place.scss */
 .tip__main-text {
   font-size: 14px;
   line-height: 1.3em;
@@ -443,12 +458,12 @@ h1 {
   padding-left: 35px;
   padding-right: 4px;
 }
-/* line 120, scss/place.scss */
+/* line 134, scss/place.scss */
 .tip__main-text:first-letter {
   font-size: 1.2em;
 }
 
-/* line 125, scss/place.scss */
+/* line 139, scss/place.scss */
 .tip__tag, .form__tag, .form__main-tag, .form__added-tag {
   display: inline-block;
   color: white;
@@ -456,7 +471,7 @@ h1 {
   cursor: pointer;
 }
 
-/* line 132, scss/place.scss */
+/* line 146, scss/place.scss */
 .tip__tag {
   font-size: 12px;
   border-radius: 2px;
@@ -464,7 +479,7 @@ h1 {
   margin-right: 1px;
 }
 
-/* line 140, scss/place.scss */
+/* line 154, scss/place.scss */
 .form__tag {
   font-size: 14px;
   border-radius: 3px;
@@ -473,7 +488,7 @@ h1 {
   line-height: 1.3em;
 }
 
-/* line 149, scss/place.scss */
+/* line 163, scss/place.scss */
 .form__main-tag {
   display: block;
   float: left;
@@ -487,7 +502,7 @@ h1 {
   line-height: 1.3em;
 }
 
-/* line 163, scss/place.scss */
+/* line 177, scss/place.scss */
 .form__added-tag {
   font-size: 14px;
   border-radius: 3px;
@@ -495,22 +510,22 @@ h1 {
   margin-right: 3px;
   line-height: 1.3em;
 }
-/* line 170, scss/place.scss */
+/* line 184, scss/place.scss */
 .form__added-tag .added-tag__remove-sign {
   display: none;
 }
-/* line 173, scss/place.scss */
+/* line 187, scss/place.scss */
 .form__added-tag:hover .added-tag__remove-sign {
   display: inline;
 }
 
-/* line 178, scss/place.scss */
+/* line 192, scss/place.scss */
 .tip__tags {
   float: left;
   width: 96%;
 }
 
-/* line 184, scss/place.scss */
+/* line 198, scss/place.scss */
 .tip__favorite {
   float: right;
   width: 4%;
@@ -518,61 +533,61 @@ h1 {
   color: #ff9800;
   cursor: pointer;
 }
-/* line 190, scss/place.scss */
+/* line 204, scss/place.scss */
 .tip__favorite:hover {
   color: #ff7b00;
 }
 
-/* line 196, scss/place.scss */
+/* line 210, scss/place.scss */
 .place__info {
   border-width: 0 0 0 1px;
   border-color: #c6c6c6;
   border-style: solid;
 }
 
-/* line 203, scss/place.scss */
+/* line 217, scss/place.scss */
 .tip__vote-up {
   cursor: pointer;
   color: #e3f7d8;
 }
-/* line 206, scss/place.scss */
+/* line 220, scss/place.scss */
 .tip__vote-up:hover {
   color: #c8efb1;
 }
-/* line 209, scss/place.scss */
+/* line 223, scss/place.scss */
 .tip__vote-up:active {
   color: #0c9702;
 }
 
-/* line 216, scss/place.scss */
+/* line 230, scss/place.scss */
 .tip__vote-dn {
   cursor: pointer;
   color: #ffe1d9;
 }
-/* line 219, scss/place.scss */
+/* line 233, scss/place.scss */
 .tip__vote-dn:hover {
   color: #ffc4b3;
 }
 
-/* line 224, scss/place.scss */
+/* line 238, scss/place.scss */
 .tip__vote-up--active {
   color: #55d426;
 }
-/* line 226, scss/place.scss */
+/* line 240, scss/place.scss */
 .tip__vote-up--active:hover {
   color: #0c9702;
 }
 
-/* line 231, scss/place.scss */
+/* line 245, scss/place.scss */
 .tip__vote-dn--active {
   color: #ff4e2b;
 }
-/* line 233, scss/place.scss */
+/* line 247, scss/place.scss */
 .tip__vote-dn--active:hover {
   color: #ff0a02;
 }
 
-/* line 238, scss/place.scss */
+/* line 252, scss/place.scss */
 .tip__author {
   font-weight: bolder;
 }
