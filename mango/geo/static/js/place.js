@@ -1,5 +1,9 @@
 
 moment.locale('ru');
+
+var relatedUsers =[];
+
+
 // TIP COMPONENT =========================================
 
 var cTip = Vue.extend({
@@ -124,8 +128,12 @@ var cTip = Vue.extend({
         },
 
         getDate: function(timestamp){
-
             return moment.utc(timestamp, 'YY MM DD hh mm ss').fromNow();
+        },
+
+        getUser: function(uid){
+            console.log('get user: '+uid);
+            return relatedUsers.find(function(u){ return u.id==uid}).nickname;
         }
     },
 
@@ -177,7 +185,7 @@ var cTip = Vue.extend({
                 <div v-if="showingComments" class="comments">\
                     <div class="comment" v-for="c in comments">\
                         <div class="comment-text">{{c.text}}</div>\
-                        <div class="comment-meta">{{c.author_id}} / {{getDate(c.timestamp)}}</div>\
+                        <div class="comment-meta">{{getUser(c.author_id)}} / {{getDate(c.timestamp)}}</div>\
                     </div>\
                     <div class="addCommentForm">\
                         <textarea v-model="commentText" class="addCommentForm__ta" rows="3" placeholder="Добавьте свой комментарий"></textarea>\
@@ -463,8 +471,8 @@ var place = new Vue({
             self.tagsFilter.placeTags.forEach(function(t){
                 self.tagsFilter.selectedTags[t.name]=false;
             });
-            self.relatedUsers=jd.related_users;
-            console.log (JSON.stringify(self.relatedUsers));
+            relatedUsers=jd.related_users;
+            //console.log (JSON.stringify(self.relatedUsers));
 /*            getResults('/json/place', 'json', {place_id: place_id}, function(res){
                 if (res.status=='ok' || res.status=='not logged in'){
                     
