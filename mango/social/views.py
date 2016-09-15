@@ -2,7 +2,7 @@ from flask import session, request, url_for, redirect, render_template, flash, a
 from .models import User, PrivateMessage, UsersRelationship, Notification, NotificationHistory
 from flask.ext.login import login_user, login_required, logout_user, current_user
 from . .db import db
-from . .config import GOOGLE_ID, GOOGLE_SECRET, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET
+from . .config import GOOGLE_ID, GOOGLE_SECRET, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET, VK_APP_KEY, VK_APP_SECRET
 from datetime import datetime
 import json
 
@@ -19,11 +19,84 @@ from . .mailer import Mailer
 
 from sqlalchemy import desc
 
+import requests
+
 
 def welcome_procedure():
     Notification.add(current_user.id, 'personal', 'Добро пожаловать в органы, сынок! (Пример приветственного сообщения) Параллельно должно прийти письмо на почту')
     Mailer.welcome_mail(current_user.contact_email)
 
+
+# VK OAUTH
+#=============================================================
+
+vk = oauth.remote_app(
+    'vk',
+    consumer_key=VK_APP_KEY,
+    consumer_secret=VK_APP_SECRET,
+    request_token_params={'scope': 'email, username'},
+    base_url='https://api.vk.com/method/',
+    request_token_url=None,
+    access_token_url='https://oauth.vk.com/access_token',
+    authorize_url='https://oauth.vk.com/authorize'
+)
+
+@social.route('/vk-login', methods=['GET'])
+def v_login():
+    if request.args and request.args['follow']:
+        session['follow'] = request.args['follow']
+    return vk.authorize(callback=url_for('social.v_authorized', _external=True))
+
+
+@social.route('/vk-login/authorized')
+def v_authorized():
+    just_registered = False
+    resp = vk.authorized_response()
+    print('RESPONSE:')
+    print(resp)
+    if resp is None:
+        return 'Access denied: reason=%s error=%s' % (
+            request.args['error_reason'],
+            request.args['error_description']
+        )
+    print ('TOKEN')
+    ac_token  = resp['access_token']
+    session['vk_token'] = (resp['access_token'], '')
+
+    #me = vk.get('userinfo', token=session['vk_token'])
+    user_info = json.loads(
+                    requests.get('https://api.vk.com/method/users.get?user_ids=%s&access_token=%s' % (resp['user_id'], ac_token))
+                    .text)
+    user_info = user_info['response'][0]
+
+    username = user_info['first_name']+" "+user_info['last_name']
+    email = resp['email']
+    uid = user_info["uid"]
+
+    # check for user
+    user = User.query.filter_by(vk_id=uid).first()
+    if user is None:
+        user = User.query.filter_by(register_email=email).first()
+        if user is None:
+            user = User.register_vk_user(username, email, uid)
+            just_registered = True
+        else:
+            user.vk_id = uid
+            user.vk_username = username
+            #user.image = me.data['image']
+    user.last_login = datetime.utcnow()
+    #user.image = me.data['picture']
+    db.session.add(user)
+    db.session.commit()
+    login_user(user)
+    if just_registered:
+        welcome_procedure()
+    return redirect(url_for('root'))
+
+
+@vk.tokengetter
+def get_vk_oauth_token():
+    return session.get('vk_token')
 
 # GOOGLE OAUTH
 #=============================================================
