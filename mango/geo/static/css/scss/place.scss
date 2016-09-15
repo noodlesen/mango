@@ -41,7 +41,14 @@ h1 {
     border-radius: 6px;
 
 }
+#addTipForm__header{
+    float: left;
+}
 
+#addTipForm__close{
+    float: right;
+    cursor: pointer;
+}
 #add-new-form__textarea{
     height:6em;
     width:100%;
@@ -253,10 +260,6 @@ h1 {
     font-weight: bolder;
 }
 
-/* 
-.btn-agree {
-    font-size: 150%;
-} */
 
 // TRANSITIONS
 
@@ -269,3 +272,15 @@ h1 {
 .expand-enter, .expand-leave {
   opacity: 0;
 }
+
+
+// COMMENTS
+
+.addCommentForm__ta{
+    width:100%;
+    resize:vertical;
+    padding:0.1em 0.5em;
+    border: 0.1em solid $green;
+    border-radius: 6px;
+}
+

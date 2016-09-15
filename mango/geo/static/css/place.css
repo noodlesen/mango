@@ -358,7 +358,18 @@ h1 {
   border-radius: 6px;
 }
 
-/* line 45, scss/place.scss */
+/* line 44, scss/place.scss */
+#addTipForm__header {
+  float: left;
+}
+
+/* line 48, scss/place.scss */
+#addTipForm__close {
+  float: right;
+  cursor: pointer;
+}
+
+/* line 52, scss/place.scss */
 #add-new-form__textarea {
   height: 6em;
   width: 100%;
@@ -368,7 +379,7 @@ h1 {
   border-radius: 6px 6px 0 0;
 }
 
-/* line 54, scss/place.scss */
+/* line 61, scss/place.scss */
 #add-new-form__added-tags {
   margin-top: -10px;
   border-radius: 0 0 6px 6px;
@@ -377,26 +388,26 @@ h1 {
   padding: 7px;
 }
 
-/* line 62, scss/place.scss */
+/* line 69, scss/place.scss */
 #add-new-form__tags {
   text-align: center;
   margin-top: 10px;
 }
 
-/* line 67, scss/place.scss */
+/* line 74, scss/place.scss */
 #add-new-form__search-tags {
   text-align: center;
   margin-top: 20px;
   padding: 10px;
 }
 
-/* line 73, scss/place.scss */
+/* line 80, scss/place.scss */
 .search-active {
   background-color: #f8f8f8;
   border-radius: 5px;
 }
 
-/* line 80, scss/place.scss */
+/* line 87, scss/place.scss */
 #add-new-form__tags-ta {
   height: 2em;
   width: 95%;
@@ -407,29 +418,29 @@ h1 {
   display: inline-block;
 }
 
-/* line 90, scss/place.scss */
+/* line 97, scss/place.scss */
 #filter-message {
   border-radius: 6px;
   background-color: white;
   padding: 5px 10px 7px;
 }
 
-/* line 96, scss/place.scss */
+/* line 103, scss/place.scss */
 .tip {
   background-color: white;
 }
 
-/* line 100, scss/place.scss */
+/* line 107, scss/place.scss */
 .tip-agreed {
   background-color: #e3f7d8;
 }
 
-/* line 103, scss/place.scss */
+/* line 110, scss/place.scss */
 .tip-disagreed {
   background-color: #ffe1d9;
 }
 
-/* line 107, scss/place.scss */
+/* line 114, scss/place.scss */
 .filter-item {
   padding: 1px 7px;
   border-radius: 5px 0 0 5px;
@@ -438,19 +449,19 @@ h1 {
   cursor: pointer;
 }
 
-/* line 115, scss/place.scss */
+/* line 122, scss/place.scss */
 .filter-item-inactive {
   background-color: #efefef;
   color: #c6c6c6;
   border: 1px solid #c6c6c6;
 }
-/* line 120, scss/place.scss */
+/* line 127, scss/place.scss */
 .filter-item-inactive:hover {
   border: 1px solid #878787;
   color: #878787;
 }
 
-/* line 127, scss/place.scss */
+/* line 134, scss/place.scss */
 .tip__main-text {
   font-size: 14px;
   line-height: 1.3em;
@@ -458,12 +469,12 @@ h1 {
   padding-left: 35px;
   padding-right: 4px;
 }
-/* line 134, scss/place.scss */
+/* line 141, scss/place.scss */
 .tip__main-text:first-letter {
   font-size: 1.2em;
 }
 
-/* line 139, scss/place.scss */
+/* line 146, scss/place.scss */
 .tip__tag, .form__tag, .form__main-tag, .form__added-tag {
   display: inline-block;
   color: white;
@@ -471,7 +482,7 @@ h1 {
   cursor: pointer;
 }
 
-/* line 146, scss/place.scss */
+/* line 153, scss/place.scss */
 .tip__tag {
   font-size: 12px;
   border-radius: 2px;
@@ -479,7 +490,7 @@ h1 {
   margin-right: 1px;
 }
 
-/* line 154, scss/place.scss */
+/* line 161, scss/place.scss */
 .form__tag {
   font-size: 14px;
   border-radius: 3px;
@@ -488,7 +499,7 @@ h1 {
   line-height: 1.3em;
 }
 
-/* line 163, scss/place.scss */
+/* line 170, scss/place.scss */
 .form__main-tag {
   display: block;
   float: left;
@@ -502,7 +513,7 @@ h1 {
   line-height: 1.3em;
 }
 
-/* line 177, scss/place.scss */
+/* line 184, scss/place.scss */
 .form__added-tag {
   font-size: 14px;
   border-radius: 3px;
@@ -510,22 +521,22 @@ h1 {
   margin-right: 3px;
   line-height: 1.3em;
 }
-/* line 184, scss/place.scss */
+/* line 191, scss/place.scss */
 .form__added-tag .added-tag__remove-sign {
   display: none;
 }
-/* line 187, scss/place.scss */
+/* line 194, scss/place.scss */
 .form__added-tag:hover .added-tag__remove-sign {
   display: inline;
 }
 
-/* line 192, scss/place.scss */
+/* line 199, scss/place.scss */
 .tip__tags {
   float: left;
   width: 96%;
 }
 
-/* line 198, scss/place.scss */
+/* line 205, scss/place.scss */
 .tip__favorite {
   float: right;
   width: 4%;
@@ -533,78 +544,83 @@ h1 {
   color: #ff9800;
   cursor: pointer;
 }
-/* line 204, scss/place.scss */
+/* line 211, scss/place.scss */
 .tip__favorite:hover {
   color: #ff7b00;
 }
 
-/* line 210, scss/place.scss */
+/* line 217, scss/place.scss */
 .place__info {
   border-width: 0 0 0 1px;
   border-color: #c6c6c6;
   border-style: solid;
 }
 
-/* line 217, scss/place.scss */
+/* line 224, scss/place.scss */
 .tip__vote-up {
   cursor: pointer;
   color: #e3f7d8;
 }
-/* line 220, scss/place.scss */
+/* line 227, scss/place.scss */
 .tip__vote-up:hover {
   color: #c8efb1;
 }
-/* line 223, scss/place.scss */
+/* line 230, scss/place.scss */
 .tip__vote-up:active {
   color: #0c9702;
 }
 
-/* line 230, scss/place.scss */
+/* line 237, scss/place.scss */
 .tip__vote-dn {
   cursor: pointer;
   color: #ffe1d9;
 }
-/* line 233, scss/place.scss */
+/* line 240, scss/place.scss */
 .tip__vote-dn:hover {
   color: #ffc4b3;
 }
 
-/* line 238, scss/place.scss */
+/* line 245, scss/place.scss */
 .tip__vote-up--active {
   color: #55d426;
 }
-/* line 240, scss/place.scss */
+/* line 247, scss/place.scss */
 .tip__vote-up--active:hover {
   color: #0c9702;
 }
 
-/* line 245, scss/place.scss */
+/* line 252, scss/place.scss */
 .tip__vote-dn--active {
   color: #ff4e2b;
 }
-/* line 247, scss/place.scss */
+/* line 254, scss/place.scss */
 .tip__vote-dn--active:hover {
   color: #ff0a02;
 }
 
-/* line 252, scss/place.scss */
+/* line 259, scss/place.scss */
 .tip__author {
   font-weight: bolder;
 }
 
-/* 
-.btn-agree {
-    font-size: 150%;
-} */
 /* always present */
-/* line 264, scss/place.scss */
+/* line 267, scss/place.scss */
 .expand-transition {
   transition: all .3s ease;
 }
 
 /* .expand-enter defines the starting state for entering */
 /* .expand-leave defines the ending state for leaving */
-/* line 269, scss/place.scss */
+/* line 272, scss/place.scss */
 .expand-enter, .expand-leave {
   opacity: 0;
+}
+
+/* line 279, scss/place.scss */
+.addCommentForm__ta {
+  width: 100%;
+  resize: vertical;
+  padding: 0.1em 0.5em;
+  border: 0.1em solid #55d426;
+  border-radius: 6px;
 }

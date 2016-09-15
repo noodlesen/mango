@@ -27,5 +27,6 @@ function getResults(route, resultType, formData, callback){
 	});
 }
 
-const DAY = 86400000;
+//const DAY = 86400000;
+
 

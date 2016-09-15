@@ -8,6 +8,7 @@ from . .config import GOOGLE_ID, GOOGLE_SECRET, FACEBOOK_APP_ID, FACEBOOK_APP_SE
 from . .path import ROOT_DIR, UPLOAD_DIR
 from . .toolbox import get_hash, how_long_ago
 from . .mailer import Mailer
+from . .db import db
 
 from sqlalchemy.sql import or_, and_
 from sqlalchemy import desc
@@ -58,13 +59,19 @@ def json_place():
         favorite = True if t.id in faves else False
         like = True if t.id in likes else False
         dislike = True if t.id in dislikes else False
+        # if t.comments:
+        #     comments = json.loads(t.comments)
+        # else:
+        #     comments = []
+        comments = json.loads(t.comments) if t.comments else []
         tip = {"text":t.text, 
                 "tags":[],
                 "author":{'id':t.user.id, 'name':t.user.nickname},
                 'id':t.id,
                 'favorite':favorite,
                 'like':like,
-                'dislike':dislike
+                'dislike':dislike,
+                'comments': comments
                 }
         for tag in t.tags:
             tip['tags'].append({"id": tag.id,
@@ -95,6 +102,7 @@ def json_tip():
     q = request.json
     res={}
     if q['cmd']=='setFavorite':
+        res['status']='ok'
         tip = Tip.query.get(q['id'])
         if q['value'] is True:
             tip.set_as_favorite(current_user)
@@ -103,6 +111,7 @@ def json_tip():
 
 
     elif q['cmd']=='clickAgree':
+        res['status']='ok'
         tip = Tip.query.get(q['id'])
         if q['selected']=="none":
             tip.set_like(current_user)
@@ -113,6 +122,7 @@ def json_tip():
             tip.set_like(current_user)
 
     elif q['cmd']=='clickDisagree':
+        res['status']='ok'
         tip = Tip.query.get(q['id'])
         if q['selected']=="none":
             tip.set_dislike(current_user)
@@ -122,8 +132,24 @@ def json_tip():
             tip.remove_like(current_user)
             tip.set_dislike(current_user)
 
+    elif q['cmd']=='addComment':
 
-    res['status']='ok'
+        res['status']='ok'
+        #try:
+        tip = Tip.query.get(q['id'])
+        comments = json.loads(tip.comments) if tip.comments else []
+        ts = (datetime.utcnow().strftime('%y %m %d %H %M %S'))
+        comments.append({"text":q['text'], "author_id":current_user.id, "timestamp":ts})
+        
+        tip.comments = json.dumps(comments)
+        res['comments'] = comments
+        db.session.add(tip)
+        db.session.commit()
+        print ("ADD COMMENT")
+
+        #res['status']='error'
+
+    
     return json.dumps(res)
 
 
