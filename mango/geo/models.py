@@ -1,6 +1,7 @@
 from . .db import db
 
 
+
 class Direction(db.Model):
     __tablename__ = 'G_directions'
     id = db.Column(db.Integer, primary_key=True)
@@ -107,6 +108,8 @@ class Tip(db.Model):
 
     def remove_dislike(self, u):
         TipRelation.remove(u.id, self.id, "D")
+
+
 
 
 class Tag(db.Model):

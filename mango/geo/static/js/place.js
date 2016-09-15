@@ -452,14 +452,26 @@ var place = new Vue({
 
         ready: function(){
             var self = this;
-            getResults('/json/place', 'json', {place_id: place_id}, function(res){
+            var jd = JSON.parse(jsonData);
+            
+            self.all_tips=jd.tips;
+            self.shown_tips=jd.tips;
+            self.tagsFilter.placeTags=jd.place_tags;
+            self.newTipForm.allTags=jd.all_tags;
+            self.newTipForm.popularTags = jd.all_tags.slice(0, 12);
+            self.newTipForm.moreTags = jd.all_tags.slice(12, 64);
+            self.tagsFilter.placeTags.forEach(function(t){
+                self.tagsFilter.selectedTags[t.name]=false;
+            });
+            self.relatedUsers=jd.related_users;
+            console.log (JSON.stringify(self.relatedUsers));
+/*            getResults('/json/place', 'json', {place_id: place_id}, function(res){
                 if (res.status=='ok' || res.status=='not logged in'){
                     
                     self.all_tips=res.tips;
                     self.shown_tips=res.tips;
                     self.tagsFilter.placeTags=res.place_tags;
                     self.newTipForm.allTags=res.all_tags;
-                    //self.newTipForm.acTags=res.all_tags;
                     self.newTipForm.popularTags = res.all_tags.slice(0, 12);
                     self.newTipForm.moreTags = res.all_tags.slice(12, 64);
                     self.tagsFilter.placeTags.forEach(function(t){
@@ -468,7 +480,7 @@ var place = new Vue({
 
                     console.log (JSON.stringify(res));
                 }
-            });
+            });*/
         },
 
         // EVENTS ********************************************************

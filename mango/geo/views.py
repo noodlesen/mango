@@ -2,7 +2,7 @@ from flask import session, request, url_for, redirect, render_template, flash, a
 from . import geo
 from .models import Place, Tip, Tag
 from flask.ext.login import login_user, login_required, logout_user, current_user
-
+from . .social.models import User
 
 from . .config import GOOGLE_ID, GOOGLE_SECRET, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET
 from . .path import ROOT_DIR, UPLOAD_DIR
@@ -35,7 +35,62 @@ def old_places(pid):
 def places(us):
     p = Place.query.filter_by(url_string=us).first()
     if p:
-        return render_template('place.html', place=p)
+        jd ={}
+        jd['tips']=[]
+        related_users_ids = []
+        if current_user.is_authenticated:
+            faves = Tip.favorited_by(current_user)
+            likes = Tip.liked_by(current_user)
+            dislikes = Tip.disliked_by(current_user)
+        else:
+            faves = []
+            likes = []
+            dislikes = []
+        for t in p.tips:
+            favorite = True if t.id in faves else False
+            like = True if t.id in likes else False
+            dislike = True if t.id in dislikes else False
+            comments = json.loads(t.comments) if t.comments else []
+            for c in comments:
+                related_users_ids.append(c['author_id'])
+                print (related_users_ids)
+            tip = {"text":t.text, 
+                    "tags":[],
+                    "author":{'id':t.user.id, 'name':t.user.nickname},
+                    'id':t.id,
+                    'favorite':favorite,
+                    'like':like,
+                    'dislike':dislike,
+                    'comments': comments
+                    }
+            for tag in t.tags:
+                tip['tags'].append({"id": tag.id,
+                                    "name": tag.name,
+                                    "style": tag.style,
+                                    "count": tag.count
+                    })
+            jd['tips'].append(tip)
+        
+        place_tags=[]
+        for t in jd['tips']:
+            for tag in t['tags']:
+                if tag not in place_tags:
+                    place_tags.append(tag)
+        all_tags = Tag.query.order_by(desc(Tag.count)).all()
+        jd['all_tags']=[]
+        for t in all_tags:
+            jd['all_tags'].append({"name":t.name, "style":t.style, "count":t.count})
+        jd['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
+
+        jd['related_users']=[]
+        ru = User.query.filter(User.id.in_(related_users_ids)).all()
+        for u in ru:
+            jd['related_users'].append({"id":u.id, "nickname":u.nickname})
+
+        print (jd['related_users'])
+
+        return render_template('place.html', place=p, json_data=json.dumps(jd))
+
     else:
         abort(404)
 
@@ -59,10 +114,6 @@ def json_place():
         favorite = True if t.id in faves else False
         like = True if t.id in likes else False
         dislike = True if t.id in dislikes else False
-        # if t.comments:
-        #     comments = json.loads(t.comments)
-        # else:
-        #     comments = []
         comments = json.loads(t.comments) if t.comments else []
         tip = {"text":t.text, 
                 "tags":[],

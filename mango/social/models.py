@@ -8,11 +8,12 @@ from datetime import datetime
 
 from sqlalchemy.sql import or_
 
-from . .geo.models import Tip
+#from . .geo.models import Tip
 
 # import os
 # from . .path import ROOT_DIR, UPLOAD_FOLDER, AVATAR_FOLDER
 from . .logger import StrangersLog
+
 
 
 class PrivateMessage(db.Model):
