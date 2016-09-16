@@ -89,62 +89,62 @@ def places(us):
 
         print (jd['related_users'])
 
-        return render_template('place.html', place=p, json_data=json.dumps(jd))
+        return render_template('place.html', place=p, json_data=json.dumps(jd), signed=current_user.is_authenticated)
 
     else:
         abort(404)
 
-@login_required
-@geo.route('/json/place', methods=['POST'])
-def json_place():
-    res={}
-    q = request.json
-    place_id = q['place_id']
-    p = Place.query.get(place_id)
-    res['tips']=[]
-    if current_user.is_authenticated:
-        faves = Tip.favorited_by(current_user)
-        likes = Tip.liked_by(current_user)
-        dislikes = Tip.disliked_by(current_user)
-    else:
-        faves = []
-        likes = []
-        dislikes = []
-    for t in p.tips:
-        favorite = True if t.id in faves else False
-        like = True if t.id in likes else False
-        dislike = True if t.id in dislikes else False
-        comments = json.loads(t.comments) if t.comments else []
-        tip = {"text":t.text, 
-                "tags":[],
-                "author":{'id':t.user.id, 'name':t.user.nickname},
-                'id':t.id,
-                'favorite':favorite,
-                'like':like,
-                'dislike':dislike,
-                'comments': comments
-                }
-        for tag in t.tags:
-            tip['tags'].append({"id": tag.id,
-                                "name": tag.name,
-                                "style": tag.style,
-                                "count": tag.count
-                })
-        res['tips'].append(tip)
+# @login_required
+# @geo.route('/json/place', methods=['POST'])
+# def json_place():
+#     res={}
+#     q = request.json
+#     place_id = q['place_id']
+#     p = Place.query.get(place_id)
+#     res['tips']=[]
+#     if current_user.is_authenticated:
+#         faves = Tip.favorited_by(current_user)
+#         likes = Tip.liked_by(current_user)
+#         dislikes = Tip.disliked_by(current_user)
+#     else:
+#         faves = []
+#         likes = []
+#         dislikes = []
+#     for t in p.tips:
+#         favorite = True if t.id in faves else False
+#         like = True if t.id in likes else False
+#         dislike = True if t.id in dislikes else False
+#         comments = json.loads(t.comments) if t.comments else []
+#         tip = {"text":t.text, 
+#                 "tags":[],
+#                 "author":{'id':t.user.id, 'name':t.user.nickname},
+#                 'id':t.id,
+#                 'favorite':favorite,
+#                 'like':like,
+#                 'dislike':dislike,
+#                 'comments': comments
+#                 }
+#         for tag in t.tags:
+#             tip['tags'].append({"id": tag.id,
+#                                 "name": tag.name,
+#                                 "style": tag.style,
+#                                 "count": tag.count
+#                 })
+#         res['tips'].append(tip)
     
-    place_tags=[]
-    for t in res['tips']:
-        for tag in t['tags']:
-            if tag not in place_tags:
-                place_tags.append(tag)
-    all_tags = Tag.query.order_by(desc(Tag.count)).all()
-    res['all_tags']=[]
-    for t in all_tags:
-        res['all_tags'].append({"name":t.name, "style":t.style, "count":t.count})
-    res['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
-    res['status']='ok'
+#     place_tags=[]
+#     for t in res['tips']:
+#         for tag in t['tags']:
+#             if tag not in place_tags:
+#                 place_tags.append(tag)
+#     all_tags = Tag.query.order_by(desc(Tag.count)).all()
+#     res['all_tags']=[]
+#     for t in all_tags:
+#         res['all_tags'].append({"name":t.name, "style":t.style, "count":t.count})
+#     res['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
+#     res['status']='ok'
 
-    return json.dumps(res)
+#     return json.dumps(res)
 
 
 @login_required

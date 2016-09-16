@@ -29,14 +29,15 @@
                 <div class="divider"></div>
                 {% if current_user.id!= u.id %}
                 <div id="user-actions__panel">
-                  <button class="btn btn-large {% if not current_user.is_authenticated %} disabled {% endif %}"><i class="fa fa-user-plus"></i>&nbsp;
+                  <button class="btn btn-large btn-default  {% if not current_user.is_authenticated %} disabled {% endif %}"><i class="fa fa-user-plus"></i>&nbsp;
   Подписаться</button>
-                  <button id="private-message__show" class="btn btn-large {% if not current_user.is_authenticated %} disabled {% endif %}"><i class="glyphicon glyphicon-envelope" title="Выйти"></i>&nbsp;Личное сообщение</button>
+                  <button id="private-message__show" class="btn btn-large btn-default {% if not current_user.is_authenticated %} disabled {% endif %}"><i class="glyphicon glyphicon-envelope" title="Выйти"></i>&nbsp;Личное сообщение</button>
                   
                   <div id="private-message__form">
+                    <div class="divider"></div>
                     <h4>Личное сообщение пользователю {{u.nickname}}</h4>
                     <textarea id="private-message__textarea"></textarea>
-                    <button id="private-message__send-button" class="btn btn-large" data-uid="{{u.id}}">Отправить</button>
+                    <button id="private-message__send-button" class="btn btn-large btn-default" data-uid="{{u.id}}">Отправить</button>
                   </div>
                   <div id="private-message__status" class="alert alert-success">Ваше сообщение успешно отправлено!<br/>Всю переписку вы можете посмотреть в вашем профиле, в разделе <a href="{{url_for('social.messenger')}}"> "Личные сообщения"</a></div>
                 </div>

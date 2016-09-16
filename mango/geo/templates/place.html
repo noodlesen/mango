@@ -49,6 +49,27 @@
 
 
 </div>
+    <!-- Modal -->
+    <div class="modal fade" id="si-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h2 class="modal-title" id="myModalLabel">Присоединяйтесь к нам :)</h2>
+          </div>
+          <div class="modal-body">
+            <p>Всего один клик, и вы сможете сохранять понравившиеся советы в избранное, добавлять свои, комментировать и помогать авторам самых достоверных и полезных советов становиться популярнее!</p>
+            <a class="si-facebook"><span class="si-icon fa fa-facebook"></span>Войти через <strong>Facebook</strong></a>
+            <a class="si-vk"><span class="si-icon fa fa-vk"></span>Войти через <strong>ВКонтакте</strong></a>
+            <a class="si-google"><span class="si-icon fa fa-google"></span>Войти через <strong>Google</strong></a>
+            <p class="subtitle"><span class="glyphicon glyphicon-exclamation-sign"></span>Мы не получаем никакой информации кроме имени пользователя и его e-mail.<br/>И, разумеется, не делаем никаких публикаций от вашего имени.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">&times; Да ну нафиг</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 {% endblock %}
 
@@ -57,6 +78,7 @@
     <script type="text/javascript">
         var place_id = {{place.id}};
         var jsonData = {{json_data|tojson|safe}};
+        var signedIn = {{signed|lower}};
     </script>
     <script src ="{{ url_for('static', filename="lib/moment-with-locales.min.js") }}" type="text/javascript"></script>
     <script src ="{{ url_for('static', filename="lib/vue.js") }}" type="text/javascript"></script>

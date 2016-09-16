@@ -3,6 +3,11 @@ moment.locale('ru');
 
 var relatedUsers =[];
 
+$(document).ready(function(){
+    //$('#si-modal').modal();
+    //$('#si-modal').modal('show');
+});
+
 
 // TIP COMPONENT =========================================
 
@@ -30,38 +35,42 @@ var cTip = Vue.extend({
     },
     methods:{
         clickAgree: function(){
-            var selected;
-            if (!this.agree && !this.disagree){
-            
-                selected="none";
-            } else if (this.agree){
-             
-                selected ="agree"
-            } else if (this.disagree){
+            if (signedIn){
+                var selected;
+                if (!this.agree && !this.disagree){
+                
+                    selected="none";
+                } else if (this.agree){
+                 
+                    selected ="agree"
+                } else if (this.disagree){
 
-                selected = "disagree"
-            }
-            var self = this;
-            getResults('/json/tip', 'json', {cmd: 'clickAgree', selected: selected, id: this.id}, function(res){
-                if (res.status=='ok'){
-                    switch (selected){
-                        case "none":
-                            self.agreed++;
-                            self.agree = true;
-                            break;
-                        case "agree":
-                            self.agreed--;
-                            self.agree=false;
-                            break;
-                        case "disagree":
-                            self.disagreed--;
-                            self.disagree=false;
-                            self.agreed++;
-                            self.agree=true;
-                            break;
-                    }
+                    selected = "disagree"
                 }
-            });
+                var self = this;
+                getResults('/json/tip', 'json', {cmd: 'clickAgree', selected: selected, id: this.id}, function(res){
+                    if (res.status=='ok'){
+                        switch (selected){
+                            case "none":
+                                self.agreed++;
+                                self.agree = true;
+                                break;
+                            case "agree":
+                                self.agreed--;
+                                self.agree=false;
+                                break;
+                            case "disagree":
+                                self.disagreed--;
+                                self.disagree=false;
+                                self.agreed++;
+                                self.agree=true;
+                                break;
+                        }
+                    }
+                });
+            } else {
+                $('#si-modal').modal('show');
+            }
 
         },        
 
@@ -190,7 +199,7 @@ var cTip = Vue.extend({
                     <div class="addCommentForm">\
                         <textarea v-model="commentText" class="addCommentForm__ta" rows="3" placeholder="Добавьте свой комментарий"></textarea>\
                     </div>\
-                    <button @click="addComment" class="btn btn-large btn-warning">Добавить комментарий</button>\
+                    <button @click="addComment" class="btn btn-large btn-default add-comment__button">Добавить комментарий</button>\
                     <div class="divider"></div>\
                 </div>\
                 </div>',
@@ -299,8 +308,8 @@ var place = new Vue({
                                     </div>\
                                 </div>\
                             </div><div class="divider"></div>\
-                            <button class="btn btn-large btn-normal" >Отмена</button>\
-                            <button class="btn btn-large btn-warning" >Готово</button>\
+                            <button class="btn btn-large btn-default" style="width:15%" >Отмена</button>\
+                            <button class="btn btn-large btn-primary" style="width:84%" >Сохранить мой совет</button>\
                         </div>\
                         <div id="tips__info" v-if="!showAll" >\
                             <div>Показаны советы с метками: </div>\
@@ -319,7 +328,8 @@ var place = new Vue({
                         </c-tip>\
                         </div>\
                     </div>\
-                    <div class="clearfix"></div></div>',
+                    <div class="clearfix"></div>\
+                    </div>',
 
         el: '#place-tips',
 
@@ -343,7 +353,8 @@ var place = new Vue({
             shown_tips:[],
             showAll: true,
             addTipFormShowing: false,
-            showingMoreTags: false
+            showingMoreTags: false,
+            siModalShowing:true
         },
 
         computed:{
@@ -355,7 +366,6 @@ var place = new Vue({
         // METHODS **************************************************
 
         methods:{
-
 
 
             // ADD NEW TIP / TAGS ============================================
