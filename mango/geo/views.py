@@ -77,6 +77,7 @@ def places(us):
                 if tag not in place_tags:
                     place_tags.append(tag)
         all_tags = Tag.query.order_by(desc(Tag.count)).all()
+
         jd['all_tags']=[]
         for t in all_tags:
             jd['all_tags'].append({"name":t.name, "style":t.style, "count":t.count})
@@ -146,59 +147,90 @@ def places(us):
 
 #     return json.dumps(res)
 
+@geo.route('/tip/<tid>', methods=['GET'])
+def single_tip(tid):
+    tip = Tip.query.get(tid)
+    if tip:
+        return render_template('single_tip.html', tip=tip)
+    else:
+        abort(404)
 
 @login_required
 @geo.route('/json/tip', methods=['POST'])
 def json_tip():
     q = request.json
-    res={}
-    if q['cmd']=='setFavorite':
-        res['status']='ok'
-        tip = Tip.query.get(q['id'])
-        if q['value'] is True:
-            tip.set_as_favorite(current_user)
-        else:
-            tip.remove_favorite(current_user)
+    res={"status":"ok"}
+
+    if current_user.is_authenticated:
+        if q['cmd']=='setFavorite':
+            tip = Tip.query.get(q['id'])
+            if q['value'] is True:
+                tip.set_as_favorite(current_user)
+            else:
+                tip.remove_favorite(current_user)
 
 
-    elif q['cmd']=='clickAgree':
-        res['status']='ok'
-        tip = Tip.query.get(q['id'])
-        if q['selected']=="none":
-            tip.set_like(current_user)
-        elif q['selected']=="agree":
-            tip.remove_like(current_user)
-        elif q['selected']=="disagree":
-            tip.remove_dislike(current_user)
-            tip.set_like(current_user)
+        elif q['cmd']=='clickAgree':
+            tip = Tip.query.get(q['id'])
+            if q['selected']=="none":
+                tip.set_like(current_user)
+            elif q['selected']=="agree":
+                tip.remove_like(current_user)
+            elif q['selected']=="disagree":
+                tip.remove_dislike(current_user)
+                tip.set_like(current_user)
 
-    elif q['cmd']=='clickDisagree':
-        res['status']='ok'
-        tip = Tip.query.get(q['id'])
-        if q['selected']=="none":
-            tip.set_dislike(current_user)
-        elif q['selected']=="disagree":
-            tip.remove_dislike(current_user)
-        elif q['selected']=="agree":
-            tip.remove_like(current_user)
-            tip.set_dislike(current_user)
+        elif q['cmd']=='clickDisagree':
+            tip = Tip.query.get(q['id'])
+            if q['selected']=="none":
+                tip.set_dislike(current_user)
+            elif q['selected']=="disagree":
+                tip.remove_dislike(current_user)
+            elif q['selected']=="agree":
+                tip.remove_like(current_user)
+                tip.set_dislike(current_user)
 
-    elif q['cmd']=='addComment':
+        elif q['cmd']=='addComment':
+            tip = Tip.query.get(q['id'])
+            comments = json.loads(tip.comments) if tip.comments else []
+            ts = (datetime.utcnow().strftime('%y %m %d %H %M %S'))
+            comments.append({"text":q['text'], "author_id":current_user.id, "timestamp":ts})
+            
+            tip.comments = json.dumps(comments)
+            res['comments'] = comments
+            db.session.add(tip)
+            db.session.commit()
 
-        res['status']='ok'
-        #try:
-        tip = Tip.query.get(q['id'])
-        comments = json.loads(tip.comments) if tip.comments else []
-        ts = (datetime.utcnow().strftime('%y %m %d %H %M %S'))
-        comments.append({"text":q['text'], "author_id":current_user.id, "timestamp":ts})
-        
-        tip.comments = json.dumps(comments)
-        res['comments'] = comments
-        db.session.add(tip)
-        db.session.commit()
-        print ("ADD COMMENT")
 
-        #res['status']='error'
+        elif q['cmd']=='addNew':
+            tip = Tip()
+            tip.text = q['text'].strip()
+            tip.user_id = current_user.id
+            tip.place_id = q['placeID']
+            tag_names = q['tags']
+
+            if tip.text!='' and len(tag_names)>0:
+                for tn in tag_names:
+                    tag = Tag.query.filter_by(name=tn['name']).first()
+                    if tag:
+                        tip.tags.append(tag)
+                        
+                    else:
+                        new_tag = Tag()
+                        new_tag.name = tn['name']
+                        new_tag.style = tn['style']
+                        new_tag.count = 1
+                        db.session.add(new_tag)
+                        tip.tags.append(new_tag)
+                        
+                db.session.add(tip)
+                db.session.commit()
+                res['tip_data']={'author_name': current_user.nickname, 'author_id':current_user.id, 'tip_id': tip.id}
+
+
+
+    else:
+        res['status']='error: not logged in'
 
     
     return json.dumps(res)

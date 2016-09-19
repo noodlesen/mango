@@ -137,7 +137,7 @@ h1 {
     font-weight: 400;
     padding-left: 35px;
     padding-right: 4px;
-    //padding-top: 6px;
+    padding-top: 4px;
     &:first-letter{
         font-size: 1.2em;
     }
@@ -211,6 +211,7 @@ h1 {
     &:hover{
         color:$dark-orange;
     }
+    margin-top: -3px;
 }
 
 
@@ -218,6 +219,14 @@ h1 {
     border-width: 0 0 0 1px;
     border-color: $gray4;
     border-style: solid;
+}
+
+.tip__vote-icon{
+    font-size: 120%;
+}
+
+.tip__vote-number{
+    font-size: 75%;
 }
 
 
@@ -230,6 +239,7 @@ h1 {
     &:active{
         color: $dark-green;
     }
+    margin-bottom: .7em;
 }
 
 
@@ -287,11 +297,41 @@ h1 {
 .comments{
     width:90%;
     margin-left: 10%;
-
+    margin-top: 10px;
     .add-comment__button{
         width:100%;
     }
 }
+
+.comment{
+    background-color: white;
+    //border-radius: 6px;
+    border-width: 0 0 0 7px;
+    border-color: $blue;
+    border-style: solid;
+    padding: 12px 12px 2px 25px;
+    margin-bottom: 5px;
+    .comment__text{
+        font-size: 14px;
+        line-height: 1.3em;
+        font-weight: 400;
+        margin-bottom: 5px;
+        &:first-letter{
+            font-size: 1.2em;
+        }
+    }
+    .comment__meta{
+        font-size: 12px;
+        width: 100%;
+        text-align: right;
+        color: $gray3;
+    }
+}
+
+.comment-link{
+    color:$blue;
+}
+
 
 // MODAL 
 
@@ -326,6 +366,7 @@ h1 {
 
 .si-icon{
     font-size: 250%;
+    margin-right: .5em;
 }
 
 .si-facebook{

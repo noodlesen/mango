@@ -468,6 +468,7 @@ h1 {
   font-weight: 400;
   padding-left: 35px;
   padding-right: 4px;
+  padding-top: 4px;
 }
 /* line 141, scss/place.scss */
 .tip__main-text:first-letter {
@@ -543,13 +544,14 @@ h1 {
   font-size: 1.3em;
   color: #ff9800;
   cursor: pointer;
+  margin-top: -3px;
 }
 /* line 211, scss/place.scss */
 .tip__favorite:hover {
   color: #ff7b00;
 }
 
-/* line 217, scss/place.scss */
+/* line 218, scss/place.scss */
 .place__info {
   border-width: 0 0 0 1px;
   border-color: #c6c6c6;
@@ -557,66 +559,77 @@ h1 {
 }
 
 /* line 224, scss/place.scss */
+.tip__vote-icon {
+  font-size: 120%;
+}
+
+/* line 228, scss/place.scss */
+.tip__vote-number {
+  font-size: 75%;
+}
+
+/* line 233, scss/place.scss */
 .tip__vote-up {
   cursor: pointer;
   color: #e3f7d8;
+  margin-bottom: .7em;
 }
-/* line 227, scss/place.scss */
+/* line 236, scss/place.scss */
 .tip__vote-up:hover {
   color: #c8efb1;
 }
-/* line 230, scss/place.scss */
+/* line 239, scss/place.scss */
 .tip__vote-up:active {
   color: #0c9702;
 }
 
-/* line 237, scss/place.scss */
+/* line 247, scss/place.scss */
 .tip__vote-dn {
   cursor: pointer;
   color: #ffe1d9;
 }
-/* line 240, scss/place.scss */
+/* line 250, scss/place.scss */
 .tip__vote-dn:hover {
   color: #ffc4b3;
 }
 
-/* line 245, scss/place.scss */
+/* line 255, scss/place.scss */
 .tip__vote-up--active {
   color: #55d426;
 }
-/* line 247, scss/place.scss */
+/* line 257, scss/place.scss */
 .tip__vote-up--active:hover {
   color: #0c9702;
 }
 
-/* line 252, scss/place.scss */
+/* line 262, scss/place.scss */
 .tip__vote-dn--active {
   color: #ff4e2b;
 }
-/* line 254, scss/place.scss */
+/* line 264, scss/place.scss */
 .tip__vote-dn--active:hover {
   color: #ff0a02;
 }
 
-/* line 259, scss/place.scss */
+/* line 269, scss/place.scss */
 .tip__author {
   font-weight: bolder;
 }
 
 /* always present */
-/* line 267, scss/place.scss */
+/* line 277, scss/place.scss */
 .expand-transition {
   transition: all .3s ease;
 }
 
 /* .expand-enter defines the starting state for entering */
 /* .expand-leave defines the ending state for leaving */
-/* line 272, scss/place.scss */
+/* line 282, scss/place.scss */
 .expand-enter, .expand-leave {
   opacity: 0;
 }
 
-/* line 279, scss/place.scss */
+/* line 289, scss/place.scss */
 .addCommentForm__ta {
   width: 100%;
   resize: vertical;
@@ -625,28 +638,62 @@ h1 {
   border-radius: 6px;
 }
 
-/* line 287, scss/place.scss */
+/* line 297, scss/place.scss */
 .comments {
   width: 90%;
   margin-left: 10%;
+  margin-top: 10px;
 }
-/* line 291, scss/place.scss */
+/* line 301, scss/place.scss */
 .comments .add-comment__button {
   width: 100%;
 }
 
-/* line 298, scss/place.scss */
+/* line 306, scss/place.scss */
+.comment {
+  background-color: white;
+  border-width: 0 0 0 7px;
+  border-color: #0088cc;
+  border-style: solid;
+  padding: 12px 12px 2px 25px;
+  margin-bottom: 5px;
+}
+/* line 314, scss/place.scss */
+.comment .comment__text {
+  font-size: 14px;
+  line-height: 1.3em;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+/* line 319, scss/place.scss */
+.comment .comment__text:first-letter {
+  font-size: 1.2em;
+}
+/* line 323, scss/place.scss */
+.comment .comment__meta {
+  font-size: 12px;
+  width: 100%;
+  text-align: right;
+  color: #878787;
+}
+
+/* line 331, scss/place.scss */
+.comment-link {
+  color: #0088cc;
+}
+
+/* line 338, scss/place.scss */
 .modal {
   margin-top: 10%;
   text-align: center;
 }
 
-/* line 302, scss/place.scss */
+/* line 342, scss/place.scss */
 .modal-footer {
   text-align: center;
 }
 
-/* line 306, scss/place.scss */
+/* line 346, scss/place.scss */
 .si-facebook, .si-google, .si-vk {
   display: block;
   min-width: 240px;
@@ -659,33 +706,34 @@ h1 {
   margin: 0 auto 8px;
   text-decoration: none;
 }
-/* line 317, scss/place.scss */
+/* line 357, scss/place.scss */
 .si-facebook span, .si-google span, .si-vk span {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 321, scss/place.scss */
+/* line 361, scss/place.scss */
 .si-facebook:hover, .si-google:hover, .si-vk:hover {
   color: white;
   text-decoration: none;
 }
 
-/* line 327, scss/place.scss */
+/* line 367, scss/place.scss */
 .si-icon {
   font-size: 250%;
+  margin-right: .5em;
 }
 
-/* line 331, scss/place.scss */
+/* line 372, scss/place.scss */
 .si-facebook {
   background-color: #3b5998;
 }
 
-/* line 336, scss/place.scss */
+/* line 377, scss/place.scss */
 .si-google {
   background-color: #3367d6;
 }
 
-/* line 340, scss/place.scss */
+/* line 381, scss/place.scss */
 .si-vk {
   background-color: #507299;
 }

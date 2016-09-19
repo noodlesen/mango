@@ -333,21 +333,24 @@
   padding-bottom: 12px;
   width: 93%;
   float: left;
+  border-width: 0 1px 0 0;
+  border-color: #c6c6c6;
+  border-style: dotted;
+  min-height: 110px;
 }
 
-/* line 24, scss/ui.scss */
+/* line 28, scss/ui.scss */
 .item-block__sidebar {
   padding-bottom: 12px;
   width: 7%;
   float: right;
-  border-width: 0 0 0 1px;
-  border-color: #c6c6c6;
-  border-style: dotted;
+  font-weight: bolder;
   font-size: 1.6em;
   text-align: center;
+  line-height: .5em;
 }
 
-/* line 36, scss/ui.scss */
+/* line 39, scss/ui.scss */
 .cmd-bar {
   display: none;
   padding: 5px;
@@ -356,19 +359,19 @@
   border-radius: 0 0 6px 6px;
 }
 
-/* line 45, scss/ui.scss */
+/* line 48, scss/ui.scss */
 .cmd-bar__left {
   float: left;
   text-align: left;
 }
 
-/* line 50, scss/ui.scss */
+/* line 53, scss/ui.scss */
 .cmd-bar__right {
   float: right;
   text-align: right;
 }
 
-/* line 55, scss/ui.scss */
+/* line 58, scss/ui.scss */
 .cmd-bar-static {
   padding: 5px;
   color: black;
@@ -376,7 +379,7 @@
   border-radius: 0 0 6px 6px;
 }
 
-/* line 62, scss/ui.scss */
+/* line 65, scss/ui.scss */
 .cmd-bar__button, .cmd-bar__btn--agree, .cmd-bar__btn--agree-active, .cmd-bar__btn--disagree, .cmd-bar__btn--disagree-active {
   padding: 1px 3px;
   background-color: white;
@@ -389,27 +392,27 @@
   cursor: pointer;
 }
 
-/* line 79, scss/ui.scss */
+/* line 82, scss/ui.scss */
 .cmd-bar__btn--agree {
   background-color: #c8efb1;
 }
 
-/* line 84, scss/ui.scss */
+/* line 87, scss/ui.scss */
 .cmd-bar__btn--agree-active {
   background-color: #55d426;
 }
 
-/* line 89, scss/ui.scss */
+/* line 92, scss/ui.scss */
 .cmd-bar__btn--disagree {
   background-color: #ffc4b3;
 }
 
-/* line 94, scss/ui.scss */
+/* line 97, scss/ui.scss */
 .cmd-bar__btn--disagree-active {
   background-color: #ff4e2b;
 }
 
-/* line 100, scss/ui.scss */
+/* line 103, scss/ui.scss */
 .confirm-delete {
   background-color: red;
   color: white;
@@ -418,12 +421,12 @@
   margin-top: 3px;
 }
 
-/* line 109, scss/ui.scss */
+/* line 112, scss/ui.scss */
 .has-cmd-bar:hover .cmd-bar {
   display: block;
 }
 
-/* line 114, scss/ui.scss */
+/* line 117, scss/ui.scss */
 .badge {
   background-color: red;
   color: white;

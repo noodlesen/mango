@@ -328,18 +328,19 @@ html {
   position: absolute;
   bottom: 0;
   width: 100%;
-  color: #efefef;
-  background-color: #585858;
+  font-weight: bolder;
+  color: black;
+  background-color: #c6c6c6;
   /* Set the fixed height of the footer here */
   height: 70px;
   text-align: center;
 }
-/* line 24, scss/base.scss */
+/* line 25, scss/base.scss */
 #footer p {
   font-size: 80%;
 }
 
-/* line 29, scss/base.scss */
+/* line 30, scss/base.scss */
 body {
   color: #585858;
   background-color: #f8f8f8;
@@ -351,7 +352,7 @@ body {
 }
 
 /* ================================= NAVBAR =============================*/
-/* line 42, scss/base.scss */
+/* line 43, scss/base.scss */
 #navbar {
   background-color: white;
   color: #585858;
@@ -361,7 +362,7 @@ body {
   height: 60px;
 }
 
-/* line 52, scss/base.scss */
+/* line 53, scss/base.scss */
 #navbar__user td {
   padding-left: 10px;
 }
@@ -369,24 +370,24 @@ body {
 /* #user__image{
     display: inline-block;
 } */
-/* line 61, scss/base.scss */
+/* line 62, scss/base.scss */
 #navbar__logo {
   margin-top: -12px;
 }
 
-/* line 65, scss/base.scss */
+/* line 66, scss/base.scss */
 #user__nickname {
   font-size: 18px;
   float: right;
 }
 
-/* line 70, scss/base.scss */
+/* line 71, scss/base.scss */
 #user__nots {
   float: right;
   padding-top: 5px;
 }
 
-/* line 76, scss/base.scss */
+/* line 77, scss/base.scss */
 .user__alert a {
   text-decoration: none;
 }

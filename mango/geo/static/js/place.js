@@ -21,16 +21,24 @@ var cTip = Vue.extend({
             outdated: false,
             favorite: false,
             showingComments: false,
-            commentText:''
+            showingShare: false,
+            commentText:'',
+            signedIn: false
         }
     },
     ready:function(){
+        this.signedIn = signedIn;
         console.log(this.id+'>   '+this.fave);
         this.favorite = this.fave;
         if (this.like){
             this.agree=true;
         } else if (this.dislike){
             this.disagree = true;
+        }
+    },
+    computed: {
+        hasComments : function(){
+            return this.comments.length > 0;
         }
     },
     methods:{
@@ -75,45 +83,53 @@ var cTip = Vue.extend({
         },        
 
         clickDisagree: function(){
-            var selected;
-            if (!this.agree && !this.disagree){
-                selected="none";
-            } else if (this.agree){
-                selected ="agree"
-            } else if (this.disagree){
-                selected = "disagree"
-            }
-            var self = this;
-            getResults('/json/tip', 'json', {cmd: 'clickDisagree', selected: selected, id: this.id}, function(res){
-                if (res.status=='ok'){
-                    switch (selected){
-                        case "none":
-                            self.disagreed++;
-                            self.disagree = true;
-                            break;
-                        case "disagree":
-                            self.disagreed--;
-                            self.disagree=false;
-                            break;
-                        case "agree":
-                            self.agreed--;
-                            self.agree=false;
-                            self.disagreed++;
-                            self.disagree=true;
-                            break;
-                    }
+            if (signedIn){
+                var selected;
+                if (!this.agree && !this.disagree){
+                    selected="none";
+                } else if (this.agree){
+                    selected ="agree"
+                } else if (this.disagree){
+                    selected = "disagree"
                 }
-            });
+                var self = this;
+                getResults('/json/tip', 'json', {cmd: 'clickDisagree', selected: selected, id: this.id}, function(res){
+                    if (res.status=='ok'){
+                        switch (selected){
+                            case "none":
+                                self.disagreed++;
+                                self.disagree = true;
+                                break;
+                            case "disagree":
+                                self.disagreed--;
+                                self.disagree=false;
+                                break;
+                            case "agree":
+                                self.agreed--;
+                                self.agree=false;
+                                self.disagreed++;
+                                self.disagree=true;
+                                break;
+                        }
+                    }
+                });
+            } else {
+                $('#si-modal').modal('show');
+            }
 
         },
 
         toggleFavorite: function(){
-            var self = this;
-            getResults('/json/tip', 'json', {cmd: 'setFavorite', value: !this.favorite, id: this.id}, function(res){
-                if (res.status=='ok'){
-                    self.favorite = !self.favorite;
-                }
-            });
+            if (signedIn){
+                var self = this;
+                getResults('/json/tip', 'json', {cmd: 'setFavorite', value: !this.favorite, id: this.id}, function(res){
+                    if (res.status=='ok'){
+                        self.favorite = !self.favorite;
+                    }
+                });
+            } else {
+                $('#si-modal').modal('show');
+            }
             
         },
 
@@ -126,14 +142,20 @@ var cTip = Vue.extend({
             this.showingComments=!this.showingComments;
         },
 
+        toggleShowShare: function(){
+            this.showingShare=!this.showingShare;
+        },
+
         addComment: function(){
             var self = this;
-            getResults('/json/tip', 'json', {cmd: 'addComment', text: this.commentText, id: this.id}, function(res){
-                if (res.status=='ok'){
-                    self.commentText = '';
-                    self.comments = res.comments;
-                }
-            });
+            if (this.commentText.trim()!=''){
+                getResults('/json/tip', 'json', {cmd: 'addComment', text: this.commentText, id: this.id}, function(res){
+                    if (res.status=='ok'){
+                        self.commentText = '';
+                        self.comments = res.comments;
+                    }
+                });
+            }
         },
 
         getDate: function(timestamp){
@@ -148,35 +170,37 @@ var cTip = Vue.extend({
 
 
     template: '<div>\
-                <div class="item-block tip has-cmd-bar" :class="{\'tip-agreed\':agree, \'tip-disagreed\':disagree}">\
-                    <div class="item-block__body">\
+                <div class="item-block tip has-cmd-bar" >\
+                    <div class="item-block__body" :class="{\'tip-agreed\':agree, \'tip-disagreed\':disagree}" >\
                             <div class="tip__top">\
                               <div class="tip__tags">\
                                     <span v-for="t in tags" class="tip__tag" :class="\'back-\'+t.style" @click="filterByTag(t.name)">{{t.name}}</span>\
                                 </div>\
                                 <div class="tip__favorite" @click="toggleFavorite">\
-                                    <i v-if="!favorite" class="fa fa-star-o" title="Добавить в избранное"></i>\
-                                    <i v-if="favorite" class="fa fa-star" title="Уже у вас в избранном"></i>\
+                                    <i v-if="!favorite" class="glyphicon glyphicon-bookmark color-pale-blue" title="Добавить в избранное"></i>\
+                                    <i v-if="favorite" class="glyphicon glyphicon-bookmark color-blue" title="Уже у вас в избранном"></i>\
                                 </div>\
                                 <div class="clearfix"></div>\
                             </div>\
                         <div class="tip__main-text">\
-                           <slot></slot>\
+                           <slot></slot> <span class="plink comment-link" v-if="hasComments" @click="toggleShowComments"> <i class="fa fa-comment"></i>{{comments.length}}</span>\
                         </div>\
                         <div class="tip__bottom">\
                         </div>\
                     </div>\
                     <div class="item-block__sidebar">\
                         <div class="tip__vote-up" @click="clickAgree" :class="{\'tip__vote-up--active\':agree}">\
-                            <span class="glyphicon glyphicon-ok" ></span>\
+                            <div class="glyphicon glyphicon-triangle-top tip__vote-icon" ></div>\
+                            <div class="tip__vote-number">32</div>\
                         </div>\
                         <div class="tip__vote-dn"  @click="clickDisagree" :class="{\'tip__vote-dn--active\':disagree}">\
-                            <span class="glyphicon glyphicon-remove" ></span>\
+                            <div class="tip__vote-number">23</div>\
+                            <div class="glyphicon glyphicon-triangle-bottom tip__vote-icon" ></div>\
                         </div>\
                     </div><div class="clearfix"></div>\
                     <div class="cmd-bar">\
                         <div class="cmd-bar__left">\
-                        <div class="cmd-bar__button">\
+                        <div class="cmd-bar__button" @click="toggleShowShare">\
                                 <i class="fa fa-share-alt-square"></i> Поделиться\
                         </div>\
                         <div class="cmd-bar__button" @click="toggleShowComments">\
@@ -193,13 +217,13 @@ var cTip = Vue.extend({
                 </div>\
                 <div v-if="showingComments" class="comments">\
                     <div class="comment" v-for="c in comments">\
-                        <div class="comment-text">{{c.text}}</div>\
-                        <div class="comment-meta">{{getUser(c.author_id)}} / {{getDate(c.timestamp)}}</div>\
+                        <div class="comment__text">{{c.text}}</div>\
+                        <div class="comment__meta">{{getUser(c.author_id)}} / {{getDate(c.timestamp)}}</div>\
                     </div>\
-                    <div class="addCommentForm">\
+                    <div class="addCommentForm" v-if="signedIn">\
                         <textarea v-model="commentText" class="addCommentForm__ta" rows="3" placeholder="Добавьте свой комментарий"></textarea>\
-                    </div>\
                     <button @click="addComment" class="btn btn-large btn-default add-comment__button">Добавить комментарий</button>\
+                    </div>\
                     <div class="divider"></div>\
                 </div>\
                 </div>',
@@ -277,9 +301,9 @@ var place = new Vue({
                         <div v-show="!addTipFormShowing"><span class="plink" @click="showAddTipForm">Добавьте свой совет!</span></div>\
                         <div v-if="addTipFormShowing" id="tip__add-new-form">\
                             <div id="addTipForm__header"><h2>Добавьте свой совет</h2></div>\
-                            <div id="addTipForm__close"><span class="glyphicon glyphicon-remove"></span></div>\
+                            <div @click="closeAddTipForm" id="addTipForm__close"><span class="glyphicon glyphicon-remove"></span></div>\
                             <div class="clearfix"></div>\
-                            <textarea id = "add-new-form__textarea" placeholder="Напишите здесь свой совет другим путешественникам..."></textarea>\
+                            <textarea v-model="newTipForm.tipText" id = "add-new-form__textarea" placeholder="Напишите здесь свой совет другим путешественникам..."></textarea>\
                             <div id="add-new-form__added-tags">\
                                     <span v-show="!newTipForm.addedTags.length">Добавьте от одной до пяти меток</span>\
                                     <span class="form__added-tag back-{{t.style}}" transition="expand" v-for="t in newTipForm.addedTags"  @click="removeAddedTag($index)">\
@@ -308,8 +332,8 @@ var place = new Vue({
                                     </div>\
                                 </div>\
                             </div><div class="divider"></div>\
-                            <button class="btn btn-large btn-default" style="width:15%" >Отмена</button>\
-                            <button class="btn btn-large btn-primary" style="width:84%" >Сохранить мой совет</button>\
+                            <button @click="closeAddTipForm" class="btn btn-large btn-default" style="width:15%" >Отмена</button>\
+                            <button @click="submitAddTipForm" class="btn btn-large btn-primary" style="width:84%" >Сохранить мой совет</button>\
                         </div>\
                         <div id="tips__info" v-if="!showAll" >\
                             <div>Показаны советы с метками: </div>\
@@ -322,7 +346,14 @@ var place = new Vue({
                         <!-- ==== TIPS CONTENT ==== -->\
                         \
                         <div id="tips-content">\
-                        <c-tip v-for="tip in shown_tips" :tags="tip.tags" :author="tip.author" :id="tip.id" :fave="tip.favorite" :like="tip.like" :dislike="tip.dislike" :comments="tip.comments">\
+                        <c-tip v-for="tip in shown_tips" \
+                                :tags="tip.tags" \
+                                :author="tip.author"\
+                                :id="tip.id" \
+                                :fave="tip.favorite" \
+                                :like="tip.like" \
+                                :dislike="tip.dislike" \
+                                :comments="tip.comments">\
                             {{tip.showThis}}\
                             {{tip.text}}\
                         </c-tip>\
@@ -346,7 +377,8 @@ var place = new Vue({
                 popularTags:[],
                 tagsText:'',
                 addedTags:[],
-                moreTags:[]
+                moreTags:[],
+                tipText:''
             },
 
             all_tips:[],
@@ -354,7 +386,8 @@ var place = new Vue({
             showAll: true,
             addTipFormShowing: false,
             showingMoreTags: false,
-            siModalShowing:true
+            siModalShowing:true,
+            signedIn:false
         },
 
         computed:{
@@ -366,6 +399,62 @@ var place = new Vue({
         // METHODS **************************************************
 
         methods:{
+
+            submitAddTipForm: function(){
+                var self=this;
+                getResults('/json/tip', 
+                            'json', 
+                            {
+                                cmd:'addNew', 
+                                tags: this.newTipForm.addedTags, 
+                                text:this.newTipForm.tipText, 
+                                placeID: place_id
+                            },
+                            function(res){
+                                if (res.status=='ok'){
+                                    self.addTipFormShowing = false;
+                                    self.newTipForm.addedTags.forEach(function(t){
+                                        if (self.tagsFilter.placeTags.find(function(pt){return pt.name == t.name }) == undefined){
+                                            self.tagsFilter.placeTags.push(t);
+                                        }
+                                    });
+                                    newTip = {
+                                        favorite: false,
+                                        like: false,
+                                        dislike: false,
+                                        agreed:0,
+                                        disagreed:0,
+                                        text: self.newTipForm.tipText,
+                                        tags: self.newTipForm.addedTags,
+                                        author: {id: res.tip_data.author_id, name: res.tip_data.author_name},
+                                        id: res.tip_data.tip_id
+                                    };
+                                    self.all_tips.push(newTip);
+                                    self.shown_tips.push(newTip);
+                                    self.resetNewTipForm();
+                                } else {
+                                    alert('error');
+                                }
+                            });
+            },
+
+            closeAddTipForm: function(){
+                this.addTipFormShowing = false;
+                this.resetNewTipForm();
+            },
+
+            resetNewTipForm: function(){
+                var popularTagsTemp = this.newTipForm.popularTags;
+                this.newTipForm = {
+                    allTags:[],
+                    acTags:[],
+                    tagsText:'',
+                    addedTags:[],
+                    moreTags:[],
+                    tipText:''
+                }
+                this.newTipForm.popularTags = popularTagsTemp;
+            },
 
 
             // ADD NEW TIP / TAGS ============================================
@@ -379,6 +468,7 @@ var place = new Vue({
                 if(this.newTipForm.addedTags.filter(function(t){return t.name==name}).length==0){
                     var newTag = {name: name, style:'color-none', count:0};
                     this.newTipForm.addedTags.push(newTag); 
+                    //this.newTipForm.createdTags.push(newTag); 
                     this.newTipForm.allTags.push(newTag); 
                     this.newTipForm.tagsText = '';
                 }
@@ -421,7 +511,12 @@ var place = new Vue({
             },
 
             showAddTipForm: function(){
-                this.addTipFormShowing = true;
+                if (signedIn){
+                    this.addTipFormShowing = true;
+                } else {
+                    $('#si-modal').modal('show');
+                }
+                
             },
 
             // FILTER METHODS =========================================================
@@ -482,8 +577,13 @@ var place = new Vue({
                 self.tagsFilter.selectedTags[t.name]=false;
             });
             relatedUsers=jd.related_users;
-            //console.log (JSON.stringify(self.relatedUsers));
-/*            getResults('/json/place', 'json', {place_id: place_id}, function(res){
+            console.log (JSON.stringify(this.all_tips[0]));
+
+
+
+            this.signedIn = signedIn;
+
+            /*            getResults('/json/place', 'json', {place_id: place_id}, function(res){
                 if (res.status=='ok' || res.status=='not logged in'){
                     
                     self.all_tips=res.tips;
@@ -495,7 +595,6 @@ var place = new Vue({
                     self.tagsFilter.placeTags.forEach(function(t){
                         self.tagsFilter.selectedTags[t.name]=false;
                     });
-
                     console.log (JSON.stringify(res));
                 }
             });*/

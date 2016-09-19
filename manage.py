@@ -19,9 +19,10 @@ def test_russian_plurals():
 
 @manager.command
 def check_prices():
-    f = open('food_report.txt', 'w')
+    f = open('dive_report.txt', 'w')
     tips = Tip.query.all()
-    words = ['евро', 'доллар', 'доллара', "долларов", "доллару", "рупий", "рупия", "EUR", "eur", "usd", "USD", "$", "юань", "юаней", "юаня"]
+    words = ['дайв', 'Дайв', 'PADI']
+    #words = ['евро', 'доллар', 'доллара', "долларов", "доллару", "рупий", "рупия", "EUR", "eur", "usd", "USD", "$", "юань", "юаней", "юаня"]
     #words = ['поесть', 'поели', 'еда', "кухня", "кухни", "блюдо", "ресторан", "ресторанчик", "ресторане", "ресторанчике", "перекусить", "пожрать", "сожрать", "вкусно", "вкуснятина"]
     n=1
     for tip in tips:
@@ -34,7 +35,7 @@ def check_prices():
             tags=''
             for tag in tip.tags:
                 tags+=' / '+tag.name
-                if tag.name=='цены':
+                if tag.name=='дайвинг':
                     has_tag=True
             if not has_tag:
                 f.write('\n')

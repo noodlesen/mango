@@ -22,7 +22,7 @@ function getResults(route, resultType, formData, callback){
 		error: function(result){
 			console.log(result);
 			//alert('Something went wrong :( \nTry to reload this page (F5 or Ctrl+R)');
-			//location.reload();
+			location.reload();
 		}
 	});
 }
