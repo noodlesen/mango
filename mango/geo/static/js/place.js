@@ -42,6 +42,17 @@ var cTip = Vue.extend({
         }
     },
     methods:{
+        shareVk: function(){
+            Share.vkontakte(this.url, 'Полезный совет', 'А тут собственно текст');
+        },
+
+        shareFacebook: function(){
+            Share.facebook(this.url, 'Полезный совет');
+        },
+
+        shareTwitter: function(){
+            Share.twitter(this.url, 'Полезный совет');
+        },
         clickAgree: function(){
             if (signedIn){
                 var selected;
@@ -198,6 +209,12 @@ var cTip = Vue.extend({
                             <div class="glyphicon glyphicon-triangle-bottom tip__vote-icon" ></div>\
                         </div>\
                     </div><div class="clearfix"></div>\
+                    <div class="tip__share" v-if="showingShare">\
+                                <div class="tip__share-block" @click="shareFacebook"><i class="fa fa-facebook"></i></div>\
+                                <div class="tip__share-block" @click="shareVk"><i class="fa fa-vk"></i></div>\
+                                <div class="tip__share-block" @click="shareTwitter"><i class="fa fa-twitter"></i></div>\
+                                <div class="tip__share-link">Ссылка: <input type="text" size="40" v-model="url"></div>\
+                    </div>\
                     <div class="cmd-bar">\
                         <div class="cmd-bar__left">\
                         <div class="cmd-bar__button" @click="toggleShowShare">\
@@ -228,7 +245,7 @@ var cTip = Vue.extend({
                 </div>\
                 </div>',
 
-    props: ['tags', 'author', 'id', 'fave', 'like', 'dislike', 'comments']
+    props: ['tags', 'author', 'id', 'fave', 'like', 'dislike', 'comments', 'url']
 }); 
 
 Vue.component('c-tip', cTip);
@@ -353,6 +370,7 @@ var place = new Vue({
                                 :fave="tip.favorite" \
                                 :like="tip.like" \
                                 :dislike="tip.dislike" \
+                                :url="tip.url" \
                                 :comments="tip.comments">\
                             {{tip.showThis}}\
                             {{tip.text}}\

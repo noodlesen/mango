@@ -61,7 +61,8 @@ def places(us):
                     'favorite':favorite,
                     'like':like,
                     'dislike':dislike,
-                    'comments': comments
+                    'comments': comments,
+                    'url': url_for('geo.single_tip', tid=t.id, _external = True)
                     }
             for tag in t.tags:
                 tip['tags'].append({"id": tag.id,
@@ -90,7 +91,11 @@ def places(us):
 
         print (jd['related_users'])
 
-        return render_template('place.html', place=p, json_data=json.dumps(jd), signed=current_user.is_authenticated)
+        return render_template('place.html', 
+                                place=p, 
+                                json_data=json.dumps(jd), 
+                                signed=current_user.is_authenticated
+                                )
 
     else:
         abort(404)
@@ -179,6 +184,8 @@ def json_tip():
             elif q['selected']=="disagree":
                 tip.remove_dislike(current_user)
                 tip.set_like(current_user)
+            res['upvoted']=tip.chd_upvoted
+            res['downvoted']=tip.chd_downvoted
 
         elif q['cmd']=='clickDisagree':
             tip = Tip.query.get(q['id'])
@@ -189,6 +196,8 @@ def json_tip():
             elif q['selected']=="agree":
                 tip.remove_like(current_user)
                 tip.set_dislike(current_user)
+            res['upvoted']=tip.chd_upvoted
+            res['downvoted']=tip.chd_downvoted
 
         elif q['cmd']=='addComment':
             tip = Tip.query.get(q['id'])

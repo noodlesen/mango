@@ -76,6 +76,8 @@ class Tip(db.Model):
     comments = db.Column(db.Text)
     tags = db.relationship('Tag', secondary=tags2tips, backref=db.backref('tips', lazy='dynamic'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    chd_upvoted = db.Column(db.Integer)
+    chd_downvoted = db.Column(db.Integer)
 
     #temp
     taglines = db.Column(db.Text)
@@ -96,18 +98,22 @@ class Tip(db.Model):
 
     def set_like(self, u):
         TipRelation.add(u.id, self.id, "L")
+        self.chd_upvoted+=u.power
 
     def remove_like(self, u):
         TipRelation.remove(u.id, self.id, "L")
+        self.chd_upvoted-=u.power
 
     def disliked_by(u):
         return TipRelation.get(u.id, "D")
 
     def set_dislike(self, u):
         TipRelation.add(u.id, self.id, "D")
+        self.chd_dovnvoted+=u.power
 
     def remove_dislike(self, u):
         TipRelation.remove(u.id, self.id, "D")
+        self.chd_dovnvoted-=u.power
 
 
 

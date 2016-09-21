@@ -640,16 +640,17 @@ h1 {
 
 /* line 297, scss/place.scss */
 .comments {
-  width: 90%;
+  width: 88%;
   margin-left: 10%;
   margin-top: 10px;
+  margin-right: 2%;
 }
-/* line 301, scss/place.scss */
+/* line 302, scss/place.scss */
 .comments .add-comment__button {
   width: 100%;
 }
 
-/* line 306, scss/place.scss */
+/* line 307, scss/place.scss */
 .comment {
   background-color: white;
   border-width: 0 0 0 7px;
@@ -658,18 +659,18 @@ h1 {
   padding: 12px 12px 2px 25px;
   margin-bottom: 5px;
 }
-/* line 314, scss/place.scss */
+/* line 315, scss/place.scss */
 .comment .comment__text {
   font-size: 14px;
   line-height: 1.3em;
   font-weight: 400;
   margin-bottom: 5px;
 }
-/* line 319, scss/place.scss */
+/* line 320, scss/place.scss */
 .comment .comment__text:first-letter {
   font-size: 1.2em;
 }
-/* line 323, scss/place.scss */
+/* line 324, scss/place.scss */
 .comment .comment__meta {
   font-size: 12px;
   width: 100%;
@@ -677,23 +678,23 @@ h1 {
   color: #878787;
 }
 
-/* line 331, scss/place.scss */
+/* line 332, scss/place.scss */
 .comment-link {
   color: #0088cc;
 }
 
-/* line 338, scss/place.scss */
+/* line 339, scss/place.scss */
 .modal {
   margin-top: 10%;
   text-align: center;
 }
 
-/* line 342, scss/place.scss */
+/* line 343, scss/place.scss */
 .modal-footer {
   text-align: center;
 }
 
-/* line 346, scss/place.scss */
+/* line 347, scss/place.scss */
 .si-facebook, .si-google, .si-vk {
   display: block;
   min-width: 240px;
@@ -706,34 +707,77 @@ h1 {
   margin: 0 auto 8px;
   text-decoration: none;
 }
-/* line 357, scss/place.scss */
+/* line 358, scss/place.scss */
 .si-facebook span, .si-google span, .si-vk span {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 361, scss/place.scss */
+/* line 362, scss/place.scss */
 .si-facebook:hover, .si-google:hover, .si-vk:hover {
   color: white;
   text-decoration: none;
 }
 
-/* line 367, scss/place.scss */
+/* line 368, scss/place.scss */
 .si-icon {
   font-size: 250%;
   margin-right: .5em;
 }
 
-/* line 372, scss/place.scss */
+/* line 373, scss/place.scss */
 .si-facebook {
   background-color: #3b5998;
 }
 
-/* line 377, scss/place.scss */
+/* line 378, scss/place.scss */
 .si-google {
   background-color: #3367d6;
 }
 
-/* line 381, scss/place.scss */
+/* line 382, scss/place.scss */
 .si-vk {
   background-color: #507299;
+}
+
+/* line 387, scss/place.scss */
+.tip__share {
+  padding: 5px 6px;
+  background-color: #d5eaf3;
+  color: #0088cc;
+}
+/* line 391, scss/place.scss */
+.tip__share i {
+  font-size: 20px;
+}
+/* line 394, scss/place.scss */
+.tip__share input {
+  padding: 0.1em 0.5em;
+  border: 0.1em solid #0088cc;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* line 402, scss/place.scss */
+.tip__share-block {
+  height: 30px;
+  min-width: 30px;
+  padding-top: 4px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #0088cc;
+  display: inline-block;
+  background-color: white;
+  line-height: 0;
+  cursor: pointer;
+}
+/* line 414, scss/place.scss */
+.tip__share-block:active {
+  background-color: #0088cc;
+  color: white;
+}
+
+/* line 420, scss/place.scss */
+.tip__share-link {
+  display: inline-block;
+  margin-left: 1em;
 }

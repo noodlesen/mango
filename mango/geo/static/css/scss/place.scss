@@ -295,9 +295,10 @@ h1 {
 }
 
 .comments{
-    width:90%;
+    width:88%;
     margin-left: 10%;
     margin-top: 10px;
+    margin-right: 2%;
     .add-comment__button{
         width:100%;
     }
@@ -381,6 +382,44 @@ h1 {
 .si-vk{
     @extend %si-btn;
     background-color: $c-vk;
+}
+
+.tip__share{
+    padding: 5px 6px;
+    background-color: $pale-blue;
+    color: $blue;
+    i{
+        font-size: 20px;
+    }
+    input{
+            padding: 0.1em 0.5em;
+            border: 0.1em solid $blue;
+            border-radius: 6px;
+            display: inline-block;   
+        }
+}
+
+.tip__share-block{
+    //font-size: 20px;
+    height: 30px;
+    min-width: 30px;
+    padding-top:4px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid $blue;
+    display: inline-block;  
+    background-color: white;
+    line-height: 0;
+    cursor: pointer;
+    &:active{
+        background-color: $blue;
+        color:white;
+    }
+}
+
+.tip__share-link{
+    display: inline-block;
+    margin-left: 1em;
 }
 
 
