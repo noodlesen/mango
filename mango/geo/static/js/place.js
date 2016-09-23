@@ -14,10 +14,10 @@ $(document).ready(function(){
 var cTip = Vue.extend({
     data: function(){
         return { 
-            disagreed: 16,
-            agreed: 34,
-            agree: false,
-            disagree:false,
+            //downVoted: 16,
+            //upVoted: 34,
+            upVote: false,
+            downVote:false,
             outdated: false,
             favorite: false,
             showingComments: false,
@@ -30,10 +30,10 @@ var cTip = Vue.extend({
         this.signedIn = signedIn;
         console.log(this.id+'>   '+this.fave);
         this.favorite = this.fave;
-        if (this.like){
-            this.agree=true;
-        } else if (this.dislike){
-            this.disagree = true;
+        if (this.upvote){
+            this.upVote=true;
+        } else if (this.downvote){
+            this.downVote = true;
         }
     },
     computed: {
@@ -53,38 +53,40 @@ var cTip = Vue.extend({
         shareTwitter: function(){
             Share.twitter(this.url, 'Полезный совет');
         },
-        clickAgree: function(){
+        clickUpVote: function(){
             if (signedIn){
                 var selected;
-                if (!this.agree && !this.disagree){
+                if (!this.upVote && !this.downVote){
                 
                     selected="none";
-                } else if (this.agree){
+                } else if (this.upVote){
                  
-                    selected ="agree"
-                } else if (this.disagree){
+                    selected ="upVote"
+                } else if (this.downVote){
 
-                    selected = "disagree"
+                    selected = "downVote"
                 }
                 var self = this;
-                getResults('/json/tip', 'json', {cmd: 'clickAgree', selected: selected, id: this.id}, function(res){
+                getResults('/json/tip', 'json', {cmd: 'clickUpVote', selected: selected, id: this.id}, function(res){
                     if (res.status=='ok'){
                         switch (selected){
                             case "none":
-                                self.agreed++;
-                                self.agree = true;
+                                //self.upVoted++;
+                                self.upVote = true;
                                 break;
-                            case "agree":
-                                self.agreed--;
-                                self.agree=false;
+                            case "upVote":
+                                //self.upVoted--;
+                                self.upVote=false;
                                 break;
-                            case "disagree":
-                                self.disagreed--;
-                                self.disagree=false;
-                                self.agreed++;
-                                self.agree=true;
+                            case "downVote":
+                                //self.downVoted--;
+                                self.downVote=false;
+                                //self.upVoted++;
+                                self.upVote=true;
                                 break;
                         }
+                        self.upvoted = res.upvoted;
+                        self.downvoted = res.downvoted;
                     }
                 });
             } else {
@@ -93,35 +95,37 @@ var cTip = Vue.extend({
 
         },        
 
-        clickDisagree: function(){
+        clickDownVote: function(){
             if (signedIn){
                 var selected;
-                if (!this.agree && !this.disagree){
+                if (!this.upVote && !this.downVote){
                     selected="none";
-                } else if (this.agree){
-                    selected ="agree"
-                } else if (this.disagree){
-                    selected = "disagree"
+                } else if (this.upVote){
+                    selected ="upVote"
+                } else if (this.downVote){
+                    selected = "downVote"
                 }
                 var self = this;
-                getResults('/json/tip', 'json', {cmd: 'clickDisagree', selected: selected, id: this.id}, function(res){
+                getResults('/json/tip', 'json', {cmd: 'clickDownVote', selected: selected, id: this.id}, function(res){
                     if (res.status=='ok'){
                         switch (selected){
                             case "none":
-                                self.disagreed++;
-                                self.disagree = true;
+                                //self.downVoted++;
+                                self.downVote = true;
                                 break;
-                            case "disagree":
-                                self.disagreed--;
-                                self.disagree=false;
+                            case "downVote":
+                                //self.downVoted--;
+                                self.downVote=false;
                                 break;
-                            case "agree":
-                                self.agreed--;
-                                self.agree=false;
-                                self.disagreed++;
-                                self.disagree=true;
+                            case "upVote":
+                                //self.upVoted--;
+                                self.upVote=false;
+                                //self.downVoted++;
+                                self.downVote=true;
                                 break;
                         }
+                        self.upvoted = res.upvoted;
+                        self.downvoted = res.downvoted;
                     }
                 });
             } else {
@@ -182,7 +186,7 @@ var cTip = Vue.extend({
 
     template: '<div>\
                 <div class="item-block tip has-cmd-bar" >\
-                    <div class="item-block__body" :class="{\'tip-agreed\':agree, \'tip-disagreed\':disagree}" >\
+                    <div class="item-block__body" :class="{\'tip-upVoted\':upVote, \'tip-downVoted\':downVote}" >\
                             <div class="tip__top">\
                               <div class="tip__tags">\
                                     <span v-for="t in tags" class="tip__tag" :class="\'back-\'+t.style" @click="filterByTag(t.name)">{{t.name}}</span>\
@@ -200,12 +204,12 @@ var cTip = Vue.extend({
                         </div>\
                     </div>\
                     <div class="item-block__sidebar">\
-                        <div class="tip__vote-up" @click="clickAgree" :class="{\'tip__vote-up--active\':agree}">\
+                        <div class="tip__vote-up" @click="clickUpVote" :class="{\'tip__vote-up--active\':upVote}">\
                             <div class="glyphicon glyphicon-triangle-top tip__vote-icon" ></div>\
-                            <div class="tip__vote-number">32</div>\
+                            <div class="tip__vote-number">{{upvoted}}</div>\
                         </div>\
-                        <div class="tip__vote-dn"  @click="clickDisagree" :class="{\'tip__vote-dn--active\':disagree}">\
-                            <div class="tip__vote-number">23</div>\
+                        <div class="tip__vote-dn"  @click="clickDownVote" :class="{\'tip__vote-dn--active\':downVote}">\
+                            <div class="tip__vote-number">{{downvoted}}</div>\
                             <div class="glyphicon glyphicon-triangle-bottom tip__vote-icon" ></div>\
                         </div>\
                     </div><div class="clearfix"></div>\
@@ -245,7 +249,7 @@ var cTip = Vue.extend({
                 </div>\
                 </div>',
 
-    props: ['tags', 'author', 'id', 'fave', 'like', 'dislike', 'comments', 'url']
+    props: ['tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url']
 }); 
 
 Vue.component('c-tip', cTip);
@@ -368,8 +372,10 @@ var place = new Vue({
                                 :author="tip.author"\
                                 :id="tip.id" \
                                 :fave="tip.favorite" \
-                                :like="tip.like" \
-                                :dislike="tip.dislike" \
+                                :upvote="tip.like" \
+                                :downvote="tip.dislike" \
+                                :upvoted="tip.upvoted" \
+                                :downvoted="tip.downvoted" \
                                 :url="tip.url" \
                                 :comments="tip.comments">\
                             {{tip.showThis}}\
@@ -440,8 +446,8 @@ var place = new Vue({
                                         favorite: false,
                                         like: false,
                                         dislike: false,
-                                        agreed:0,
-                                        disagreed:0,
+                                        upvoted:0,
+                                        downvoted:0,
                                         text: self.newTipForm.tipText,
                                         tags: self.newTipForm.addedTags,
                                         author: {id: res.tip_data.author_id, name: res.tip_data.author_name},

@@ -68,6 +68,7 @@ class User (UserMixin, db.Model):
 
     # MANGO EXTRAS ===============================
     tips = db.relationship('Tip', backref='user', lazy='dynamic', foreign_keys='Tip.user_id') 
+    power = db.Column(db.Integer)
     #=============================================
 
     def set_password(self, password):

@@ -39,6 +39,7 @@ class Place(db.Model):
     image = db.Column(db.String(50))
     tips = db.relationship('Tip', backref='place', lazy='dynamic')
     active = db.Column(db.Boolean, default=False)
+    chd_places_nearby = db.Column(db.Text)
 
 
 class GeoAlias(db.Model):
@@ -76,8 +77,8 @@ class Tip(db.Model):
     comments = db.Column(db.Text)
     tags = db.relationship('Tag', secondary=tags2tips, backref=db.backref('tips', lazy='dynamic'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    chd_upvoted = db.Column(db.Integer)
-    chd_downvoted = db.Column(db.Integer)
+    chd_upvoted = db.Column(db.Integer, default=0)
+    chd_downvoted = db.Column(db.Integer, default=0)
 
     #temp
     taglines = db.Column(db.Text)
@@ -99,21 +100,29 @@ class Tip(db.Model):
     def set_like(self, u):
         TipRelation.add(u.id, self.id, "L")
         self.chd_upvoted+=u.power
+        db.session.add(self)
+        db.session.commit()
 
     def remove_like(self, u):
         TipRelation.remove(u.id, self.id, "L")
         self.chd_upvoted-=u.power
+        db.session.add(self)
+        db.session.commit()
 
     def disliked_by(u):
         return TipRelation.get(u.id, "D")
 
     def set_dislike(self, u):
         TipRelation.add(u.id, self.id, "D")
-        self.chd_dovnvoted+=u.power
+        self.chd_downvoted+=u.power
+        db.session.add(self)
+        db.session.commit()
 
     def remove_dislike(self, u):
         TipRelation.remove(u.id, self.id, "D")
-        self.chd_dovnvoted-=u.power
+        self.chd_downvoted-=u.power
+        db.session.add(self)
+        db.session.commit()
 
 
 

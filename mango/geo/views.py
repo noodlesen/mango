@@ -62,6 +62,8 @@ def places(us):
                     'like':like,
                     'dislike':dislike,
                     'comments': comments,
+                    'upvoted': t.chd_upvoted,
+                    'downvoted': t.chd_downvoted,
                     'url': url_for('geo.single_tip', tid=t.id, _external = True)
                     }
             for tag in t.tags:
@@ -175,25 +177,25 @@ def json_tip():
                 tip.remove_favorite(current_user)
 
 
-        elif q['cmd']=='clickAgree':
+        elif q['cmd']=='clickUpVote':
             tip = Tip.query.get(q['id'])
             if q['selected']=="none":
                 tip.set_like(current_user)
-            elif q['selected']=="agree":
+            elif q['selected']=="upVote":
                 tip.remove_like(current_user)
-            elif q['selected']=="disagree":
+            elif q['selected']=="downVote":
                 tip.remove_dislike(current_user)
                 tip.set_like(current_user)
             res['upvoted']=tip.chd_upvoted
             res['downvoted']=tip.chd_downvoted
 
-        elif q['cmd']=='clickDisagree':
+        elif q['cmd']=='clickDownVote':
             tip = Tip.query.get(q['id'])
             if q['selected']=="none":
                 tip.set_dislike(current_user)
-            elif q['selected']=="disagree":
+            elif q['selected']=="downVote":
                 tip.remove_dislike(current_user)
-            elif q['selected']=="agree":
+            elif q['selected']=="upVote":
                 tip.remove_like(current_user)
                 tip.set_dislike(current_user)
             res['upvoted']=tip.chd_upvoted

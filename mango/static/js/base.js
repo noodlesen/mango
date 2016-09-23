@@ -2,21 +2,16 @@
 var ev = new Event('eNotificationsUpdated');
 
 function refreshIndicators(){
-    console.log('refreshing');
     
     if (serverHasMessages){
-        console.log('showing');
-        $('.serverMsgCount').html(serverHasMessages);
+        $('.serverMsgCount').html('<span class="glyphicon glyphicon-envelope"></span>'+serverHasMessages);
         $('.serverMsgIndicator').show();
     } else {
-        console.log('hiding');
         $('.serverMsgIndicator').hide();
     }
 
-    
-
     if (serverHasNotifications){
-        $('.serverNotsCount').html(serverHasNotifications);
+        $('.serverNotsCount').html('<span class="glyphicon glyphicon-bell"></span>'+serverHasNotifications);
         $('.serverNotsIndicator').show();
     }
     else {
@@ -30,7 +25,6 @@ function checkNotifications(){
             serverHasMessages = res.messages;
             serverHasNotifications = res.notifications;
             refreshIndicators();
-            //$('#messenger').dispatchEvent(ev);
             $('#messenger').trigger('eNotificationsUpdated');
             
         }

@@ -1,6 +1,8 @@
 import hashlib
 from datetime import datetime
 from flask import render_template, current_app, request,session
+from math import pi, cos, sin, sqrt, atan2
+
 
 def get_hash(s):
     hsh = hashlib.md5()
@@ -10,12 +12,8 @@ def get_hash(s):
 
 def create_marker(req):
 
-    #print (req.remote_addr)
     ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
     base = ip+"|"+req.headers.get("User-Agent")+"|"+datetime.now().strftime('%y%m%d%H%M%S')
-    #hsh = hashlib.md5()
-    #hsh.update(base.encode("utf-8"))
-    #return hsh.hexdigest()
     return base
 
 
@@ -25,16 +23,6 @@ def copysome(objfrom, objto, names):
             v = getattr(objfrom, n)
             setattr(objto, n, v);
 
-# def mark_newcomer(entry, label=''):
-#     session['entry']=entry
-#     session['label'] = label
-    
-#     if 'marker' not in session.keys():
-#         marker = create_marker(request)
-#         session['marker']=marker
-#         LandingLog.write('new')
-#     else:
-#         LandingLog.write('int')
 
 def russian_plurals(word, num, **kwargs):
 
@@ -95,5 +83,30 @@ def how_long_ago(old_date):
 
     elif td.days==0 and td.seconds<60 and td.seconds:
         return 'Только что'
+
+
+
+
+def get_distance (ltA, lnA, ltB, lnB):
+    
+    lat1 = ltA * pi / 180
+    lat2 = ltB * pi / 180
+    long1 = lnA * pi / 180
+    long2 = lnB * pi /180
+
+    cl1 = cos(lat1)
+    cl2 = cos(lat2)
+    sl1 = sin(lat1)
+    sl2 = sin(lat2)
+    delta = long2 - long1
+    cdelta = cos(delta)
+    sdelta = sin(delta)
+
+    y = sqrt((cl2*sdelta)**2 + (cl1*sl2-sl1*cl2*cdelta)**2)
+    x = sl1 * sl2 + cl1 * cl2 * cdelta
+    ad = atan2(y, x)
+    dist = ad * 6372795
+
+    return int(dist/1000)
 
 
