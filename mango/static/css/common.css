@@ -433,17 +433,48 @@ a, .plink {
   text-align: center;
 }
 
-/* line 114, scss/common.scss */
+/* section{
+    border-width: 1px;
+    border-radius: 6px;
+    border-style: solid;
+    border-color: $gray5;
+    padding: 40px 40px;
+    background-color: white;
+} */
+/* line 124, scss/common.scss */
 section {
   border-width: 1px;
   border-radius: 6px;
   border-style: solid;
   border-color: #efefef;
-  padding: 40px 40px;
   background-color: white;
+  margin-bottom: 8px;
 }
 
-/* line 123, scss/common.scss */
+/* line 133, scss/common.scss */
+.section-header {
+  border-radius: 6px 6px 0 0;
+  background-color: #0088cc;
+  color: white;
+  padding: 2px 7px;
+}
+/* line 138, scss/common.scss */
+.section-header h2 {
+  margin-bottom: 0px;
+  font-size: 22px;
+  padding: 5px;
+}
+/* line 143, scss/common.scss */
+.section-header:hover .help-sign {
+  display: inline;
+}
+
+/* line 148, scss/common.scss */
+.section-body {
+  padding: 15px;
+}
+
+/* line 152, scss/common.scss */
 .divider {
   width: 100%;
   height: 1px;
@@ -452,50 +483,50 @@ section {
   margin-bottom: 15px;
 }
 
-/* line 131, scss/common.scss */
+/* line 160, scss/common.scss */
 .form-inline {
   margin-bottom: 15px;
 }
 
-/* line 135, scss/common.scss */
+/* line 164, scss/common.scss */
 .form-label {
   font-weight: 600;
   margin-bottom: 0;
 }
 
-/* line 141, scss/common.scss */
+/* line 170, scss/common.scss */
 .avatar-big {
   border-radius: 6px;
 }
 
-/* line 145, scss/common.scss */
+/* line 174, scss/common.scss */
 .avatar-small {
   border-radius: 3px;
   width: 40px;
   height: 40px;
 }
 
-/* line 151, scss/common.scss */
+/* line 180, scss/common.scss */
 .inline-menu__item {
   display: inline-block;
   padding: 5px;
   margin-right: 10px;
   border-radius: 3px;
 }
-/* line 156, scss/common.scss */
+/* line 185, scss/common.scss */
 .inline-menu__item:hover {
   background-color: #c6c6c6;
   color: white;
 }
 @media screen and (max-width: 486px) {
-  /* line 151, scss/common.scss */
+  /* line 180, scss/common.scss */
   .inline-menu__item {
     display: block;
     width: 100%;
   }
 }
 
-/* line 166, scss/common.scss */
+/* line 195, scss/common.scss */
 .inline-menu__item--selected {
   background-color: #0088cc;
   color: white;

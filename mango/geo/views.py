@@ -1,23 +1,25 @@
+import json
+from datetime import datetime
+from operator import itemgetter
+
 from flask import session, request, url_for, redirect, render_template, flash, abort
+from flask.ext.login import login_user, login_required, logout_user, current_user
+from sqlalchemy.sql import or_, and_
+from sqlalchemy import desc
+from . .cache import cache
+
 from . import geo
 from .models import Place, Tip, Tag
-from flask.ext.login import login_user, login_required, logout_user, current_user
 from . .social.models import User
-
 from . .config import GOOGLE_ID, GOOGLE_SECRET, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET
 from . .path import ROOT_DIR, UPLOAD_DIR
 from . .toolbox import get_hash, how_long_ago
 from . .mailer import Mailer
 from . .db import db
 
-from sqlalchemy.sql import or_, and_
-from sqlalchemy import desc
-from datetime import datetime
-import json
 
-from . .cache import cache
 
-from operator import itemgetter
+
 
 
 
@@ -25,7 +27,6 @@ from operator import itemgetter
 def old_places(pid):
     p = Place.query.filter_by(fpid=pid).first()
     if p:
-        #return render_template('place.html', place=p)
         return redirect(url_for('geo.places', us=p.url_string))
     else:
         abort(404)
@@ -96,6 +97,7 @@ def places(us):
         return render_template('place.html', 
                                 place=p, 
                                 json_data=json.dumps(jd), 
+                                airports=p.get_airports(),
                                 signed=current_user.is_authenticated
                                 )
 

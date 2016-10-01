@@ -39,10 +39,32 @@
         <div class="col-lg-5 place__info">
 
             <h1>{{place.rus_name}}</h1>
+            <h2>{{place.country.rus_name}}</h2>
             <div id="main-picture">
                 {% if place.image %}
                 <img class="img img-responsive" src="{{ url_for('geo.static', filename='images/places/'+place.image+'_big.jpg') }}" />
                 {% endif %}
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    {% if place.city_code %}
+                    <div id="city-code-card"><div id="city-code">{{place.city_code}}</div></div>
+                    {% endif %}
+                    <section id="airports-section"></section>
+                </div>
+                <div class="col-lg-6">
+                    {% set places_nearby = place.get_places_nearby() %}
+                    {% if places_nearby['count']>0 %}
+                    <section id="places-nearby">
+                        <div class="section-header"><h2>Места поблизости</h2></div>
+                        <div class="section-body">
+                            {% for pn in places_nearby['list'] %}
+                                <a href="{{pn['url']}}">{{pn['place']}} - {{pn['distance']}}км</a>
+                            {% endfor %}
+                        </div>
+                    </section>
+                    {% endif %}
+                </div>
             </div>
 
         </div>
@@ -76,6 +98,7 @@
 {% block scripts %}
     {{ super() }}
     <script type="text/javascript">
+        var airports = {{airports|tojson|safe}};
         var place_id = {{place.id}};
         var jsonData = {{json_data|tojson|safe}};
         var signedIn = {{signed|lower}};

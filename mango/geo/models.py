@@ -1,3 +1,5 @@
+import json
+
 from . .db import db
 
 
@@ -40,6 +42,26 @@ class Place(db.Model):
     tips = db.relationship('Tip', backref='place', lazy='dynamic')
     active = db.Column(db.Boolean, default=False)
     chd_places_nearby = db.Column(db.Text)
+    chd_airports = db.Column(db.Text)
+    tp_rus_name = db.Column(db.String(50))
+    tp_eng_name = db.Column(db.String(50))
+    city_code = db.Column(db.String(3))
+
+    def get_places_nearby(self):
+        pn_json = self.chd_places_nearby
+        if pn_json:
+            pn_list = json.loads(pn_json)
+        else:
+            pn_list = []
+        return {"list": pn_list, "count": len(pn_list)}
+
+    def get_airports(self):
+        ap_json = self.chd_airports
+        if ap_json:
+            ap_list = json.loads(ap_json)
+        else:
+            ap_list = []
+        return {"list": ap_list, "count": len(ap_list)}
 
 
 class GeoAlias(db.Model):

@@ -24,6 +24,7 @@
 
         <div class="col-lg-8 col-lg-offset-2" style="text-align:center">
             <section id="userinfo">
+              <div class="section-body">
               <img class="avatar-big" id="avatar__image" src="{{u.get_avatar()}}"/>
                 <h1 id="nickname__title">{{u.nickname}}</h1>
                 <div class="divider"></div>
@@ -42,7 +43,7 @@
                   <div id="private-message__status" class="alert alert-success">Ваше сообщение успешно отправлено!<br/>Всю переписку вы можете посмотреть в вашем профиле, в разделе <a href="{{url_for('social.messenger')}}"> "Личные сообщения"</a></div>
                 </div>
                 {% endif %}
-                
+                </div>
             </section>
         </div>
       </div>

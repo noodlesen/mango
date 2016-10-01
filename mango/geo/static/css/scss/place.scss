@@ -34,6 +34,25 @@ h1 {
     padding: 5px 15px 5px 15px;
 }
 
+#add-tip-btn{
+    background-color: $light-green;
+    color: white;
+    font-size: 24px;
+    border-radius: 6px 6px 0 0;
+    padding: 4px 8px;
+    text-align: center;
+    cursor: pointer;
+    span {
+        vertical-align: middle;
+    }
+    &:hover{
+        background-color: $green;
+    }
+    &:active{
+        background-color: $dark-green;
+    }
+}
+
 #tip__add-new-form{
 
     background-color: $gray5;
@@ -41,6 +60,7 @@ h1 {
     border-radius: 6px;
 
 }
+
 #addTipForm__header{
     float: left;
 }
@@ -422,5 +442,31 @@ h1 {
     margin-left: 1em;
 }
 
+#places-nearby a {
+    display: block;
+    margin-bottom: 3px;
+    padding: 3px 5px;
+    &:hover{
+        background-color: $c-prim;
+        color: white;
+        text-decoration: none;
+        
+        border-radius: 3px;
+    }
+}
 
+#city-code-card {
+    background-color: $blue;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    color:white;
+    min-height: 10em;
+
+}
+
+#city-code{
+    width:100%;
+    text-align: center;
+    font-size: 5em;
+}
 

@@ -111,13 +111,42 @@ a {
     text-align: center;
 }
 
-section{
+/* section{
     border-width: 1px;
     border-radius: 6px;
     border-style: solid;
     border-color: $gray5;
     padding: 40px 40px;
     background-color: white;
+} */
+
+
+section{
+    border-width: 1px;
+    border-radius: 6px;
+    border-style: solid;
+    border-color: $gray5;
+    background-color: white;
+    margin-bottom: 8px;
+}
+
+.section-header{
+    border-radius: 6px 6px 0 0;
+    background-color: $c-prim;
+    color:white;
+    padding: 2px 7px;
+    h2{
+        margin-bottom: 0px;
+        font-size: 22px;
+        padding: 5px;
+    }
+    &:hover .help-sign{
+        display: inline;
+    }
+}
+
+.section-body{
+    padding: 15px;
 }
 
 .divider{

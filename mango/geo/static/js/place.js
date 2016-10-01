@@ -319,7 +319,10 @@ var place = new Vue({
                     <!-- ==== TIPS COLUMN ==== -->\
                     \
                     <div id="tips">\
-                        <div v-show="!addTipFormShowing"><span class="plink" @click="showAddTipForm">Добавьте свой совет!</span></div>\
+                        <div v-show="!addTipFormShowing" id="add-tip-btn" @click="showAddTipForm">\
+                            <span class="glyphicon glyphicon-plus-sign"></span>\
+                            <span>Добавьте свой совет!</span>\
+                        </div>\
                         <div v-if="addTipFormShowing" id="tip__add-new-form">\
                             <div id="addTipForm__header"><h2>Добавьте свой совет</h2></div>\
                             <div @click="closeAddTipForm" id="addTipForm__close"><span class="glyphicon glyphicon-remove"></span></div>\
@@ -664,3 +667,25 @@ var place = new Vue({
         } 
 
 });
+
+
+// AIRPORTS INSTANCE ========================================
+
+var airports = new Vue({
+    el: '#airports-section',
+    data:{
+        airports:[]
+    },
+    ready:function(){
+        this.airports = airports.list;
+    },
+    template:'<section>\
+                <div class="section-header"><h2>Аэропорты</h2></div>\
+                <div class="section-body">\
+                    <div v-for="a in airports">{{a.name}} - {{a.distance}}</div>\
+                </div>\
+                </section>'
+});
+
+
+
