@@ -14,8 +14,6 @@ $(document).ready(function(){
 var cTip = Vue.extend({
     data: function(){
         return { 
-            //downVoted: 16,
-            //upVoted: 34,
             upVote: false,
             downVote:false,
             outdated: false,
@@ -71,22 +69,19 @@ var cTip = Vue.extend({
                     if (res.status=='ok'){
                         switch (selected){
                             case "none":
-                                //self.upVoted++;
                                 self.upVote = true;
                                 break;
                             case "upVote":
-                                //self.upVoted--;
                                 self.upVote=false;
                                 break;
                             case "downVote":
-                                //self.downVoted--;
                                 self.downVote=false;
-                                //self.upVoted++;
                                 self.upVote=true;
                                 break;
                         }
                         self.upvoted = res.upvoted;
                         self.downvoted = res.downvoted;
+                        self.$dispatch('eCheckTipsOrder', {id: self.id, upvoted: self.upvoted, downvoted: self.downvoted});
                     }
                 });
             } else {
@@ -126,6 +121,7 @@ var cTip = Vue.extend({
                         }
                         self.upvoted = res.upvoted;
                         self.downvoted = res.downvoted;
+                        self.$dispatch('eCheckTipsOrder', {id: self.id, upvoted: self.upvoted, downvoted: self.downvoted});
                     }
                 });
             } else {
@@ -186,7 +182,7 @@ var cTip = Vue.extend({
 
     template: '<div>\
                 <div class="item-block tip has-cmd-bar" >\
-                    <div class="item-block__body" :class="{\'tip-upVoted\':upVote, \'tip-downVoted\':downVote}" >\
+                    <div class="tip-block__body" :class="{\'tip-upVoted\':upVote, \'tip-downVoted\':downVote}" >\
                             <div class="tip__top">\
                               <div class="tip__tags">\
                                     <span v-for="t in tags" class="tip__tag" :class="\'back-\'+t.style" @click="filterByTag(t.name)">{{t.name}}</span>\
@@ -203,7 +199,7 @@ var cTip = Vue.extend({
                         <div class="tip__bottom">\
                         </div>\
                     </div>\
-                    <div class="item-block__sidebar">\
+                    <div class="tip-block__sidebar">\
                         <div class="tip__vote-up" @click="clickUpVote" :class="{\'tip__vote-up--active\':upVote}">\
                             <div class="glyphicon glyphicon-triangle-top tip__vote-icon" ></div>\
                             <div class="tip__vote-number">{{upvoted}}</div>\
@@ -421,11 +417,27 @@ var place = new Vue({
             searchActive: function(){
                 return this.newTipForm.tagsText!='';
             }
+      /*      sorted_tips: function(){
+                var srtd = this.shown_tips;
+                srtd.sort(function(a,b){
+                    var rating = function(t){ return t.upvoted - t.downvoted }
+                    return rating(b) - rating(a);
+                    //return (rating(a) === rating(b) ? 0 : rating(a) > rating(b) ? 1 : -1);
+                });
+                return srtd;
+            }*/
         },
 
         // METHODS **************************************************
 
         methods:{
+
+            sortTips: function(){
+               this.shown_tips.sort(function(a,b){
+                    var rating = function(t){ return t.upvoted - t.downvoted }
+                    return rating(b) - rating(a);
+                }); 
+            },
 
             submitAddTipForm: function(){
                 var self=this;
@@ -596,6 +608,7 @@ var place = new Vue({
             
             self.all_tips=jd.tips;
             self.shown_tips=jd.tips;
+            self.sortTips();
             self.tagsFilter.placeTags=jd.place_tags;
             self.newTipForm.allTags=jd.all_tags;
             self.newTipForm.popularTags = jd.all_tags.slice(0, 12);
@@ -663,6 +676,27 @@ var place = new Vue({
                 this.tagsFilter.selectedTags[e.name]=true;
                 this.filterTips();
                 this.$broadcast('eSwitchFilterOn',{name: e.name});
+            },
+
+            'eCheckTipsOrder': function(e){
+                this.shown_tips.every(function(el, i){
+                    if (el.id == e.id) {
+                        el.upvoted = e.upvoted;
+                        el.downvoted = e.downvoted;
+                        return false;
+                    }
+                    else return true;
+                });
+                this.all_tips.every(function(el, i){
+                    if (el.id == e.id) {
+                        el.upvoted = e.upvoted;
+                        el.downvoted = e.downvoted;
+                        return false;
+                    }
+                    else return true;
+                });
+                console.log(JSON.stringify(this.shown_tips));
+                this.sortTips();
             }
         } 
 

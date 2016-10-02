@@ -1,6 +1,10 @@
 {% macro inline_menu(page) %}
     <div class="row" id="profile__menu">
         <div class="col-lg-12">
+            <a class="inline-menu__item 
+                {% if page=='favorites' %}
+                inline-menu__item--selected
+                {% endif %}" href="{{url_for('social.favorites')}}">Избранное</a>
             <a class="inline-menu__item
                 {% if page=='events' %}
                 inline-menu__item--selected

@@ -38,10 +38,11 @@
                 Профиль пользователя
               </a>
             </div>
+
             {% else %}
               <div class="item-block__body">
-              {{n.message}}
-            </div>
+                {{n.message}}zz
+              </div>
             {% endif %}
 
 
@@ -50,19 +51,19 @@
 
         {% for h in nots_history %}
           <div class="item-block notification notification-old has-cmd-bar">
-            <div class="item-block__body">
+            <div class="item-block__body" >
               {{h.message}}
             </div>
           </div>
         {% endfor %}
 
 
-      </div>
-    </div>
+      </div> <!-- col -->
+    </div> <!-- row -->
 
 
 
-</div>
+</div> <!-- container -->
 
 {% endblock %}
 

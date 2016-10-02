@@ -482,6 +482,14 @@ def public_profile(uid):
     else:
         abort(404)
 
+# FAVORITES
+#=============================================================
+@login_required
+@social.route('/favorites')
+def favorites():
+    f = current_user.get_favorites()
+    return render_template('favorites.html', favorites=f)
+
 
 # NOTIFIER
 #=============================================================

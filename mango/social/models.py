@@ -69,6 +69,15 @@ class User (UserMixin, db.Model):
     # MANGO EXTRAS ===============================
     tips = db.relationship('Tip', backref='user', lazy='dynamic', foreign_keys='Tip.user_id') 
     power = db.Column(db.Integer)
+
+    def get_favorites(self):
+        faves = db.engine.execute('SELECT u.tip_id, t.text FROM users2tips AS u INNER JOIN tips AS t ON t.id = u.tip_id WHERE u.user_id=%d AND u.type="F"' % self.id)
+        results=[]
+        if faves:
+            for f in faves:
+                results.append(f[1])
+        return results
+
     #=============================================
 
     def set_password(self, password):
