@@ -17,17 +17,6 @@ manager = Manager(app)
 
 
 @manager.command
-def mail_test():
-    Mailer.welcome_mail()
-
-
-@manager.command
-def test_russian_plurals():
-    for n in range(0, 125):
-        print ("%d %s назад" % (n, russian_plurals('секунда', n, ago=True)))
-
-
-@manager.command
 def check_tags():
     """ tries to predict if there should be some tag based on relevant keywords
 
@@ -66,37 +55,6 @@ def check_tags():
 
 
 @manager.command
-def get_length():
-    tips = Tip.query.all()
-    tmax = 0
-    tmin = 10000
-    tsum = 0
-    tcount = 0
-    p300 = 0
-    p400 = 0
-    p500 = 0
-    for t in tips:
-        print (tcount)
-        tcount += 1
-        l = len(t.text)
-        tsum += l
-        if l < tmin:
-            tmin = l
-        if l > tmax:
-            tmax = l
-        if l > 300:
-            p300 += 1
-        if l > 400:
-            p400 += 1
-        if l > 500:
-            p500 += 1
-    tavg = round(tsum / tcount)
-    print ("MIN :%d MAX :%d AVG :%d" % (tmin, tmax, tavg))
-    print('TOTAL %d' % tcount)
-    print (">300 :%d >400 :%d >500 :%d" % (p300, p400, p500))
-
-
-@manager.command
 def calculate_places_nearby():
     """ calculates distances between places with tips assigned
 
@@ -127,10 +85,10 @@ def calculate_places_nearby():
 
     places_nearby = {}
     for r in results:
-        place_query = list(db.engine.execute('SELECT rus_name, url_string FROM G_places WHERE id=%d' % r[1]))[0]
+        place_query = list(db.engine.execute('SELECT p.rus_name, p.url_string , c.code FROM G_places AS p INNER JOIN G_countries AS c ON p.country_id = c.id WHERE p.id=%d' % r[1]))[0]
         place_name = place_query[0]
-        place_url = url_for('geo.places', us = place_query[1])
-        place_obj = {"place": place_name, "id": r[1], "distance": r[2], "url":place_url}
+        place_url = url_for('geo.places', us=place_query[1])
+        place_obj = {"place": place_name, "id": r[1], "distance": r[2], "url": place_url, "flag_url": url_for('geo.static', filename="images/flags/small/"+place_query[2].lower()+".gif")}
         if r[0] in places_nearby.keys():
             places_nearby[r[0]].append(place_obj)
         else:
@@ -140,12 +98,22 @@ def calculate_places_nearby():
         print ('%d - %r' % (k, v))
         print()
         place = Place.query.get(k)
+        try:
+            v = sorted(v, key=itemgetter("distance"))
+        except KeyError:
+            pass
         place.chd_places_nearby = json.dumps(v)
         db.session.add(place)
         db.session.commit()
 
+
 @manager.command
 def calculate_airports_nearby():
+    """ calculates nearest airports
+
+        and saves data into chd_airports field of G_places table
+
+    """
     places_res = list(db.engine.execute('SELECT t.place_id, p.lat, p.lng FROM tips AS t INNER JOIN G_places AS p ON p.id=t.place_id GROUP BY t.place_id'))
     airports = list(db.engine.execute('SELECT name, IATA, lat, lng, id, city_code, rating, size FROM airports'))
     results={}
@@ -179,40 +147,83 @@ def calculate_airports_nearby():
         db.session.commit()
 
 
-@manager.command
-def load_tp_cities():
-    fn = 'cities.json'
-    with open(fn, 'r') as f:
-        data = json.loads(f.read())
+# EXPERIMENTAL ============================================================
+
+
+# @manager.command
+# def load_tp_cities():
+#     fn = 'cities.json'
+#     with open(fn, 'r') as f:
+#         data = json.loads(f.read())
         
-        places = Place.query.filter(Place.city_code==None).all()
-        i = 1
-        for c in data:
-            print('#%d' % i)
-            if c['coordinates']:
-                clat = round(c['coordinates']['lat'],0)
-                clng = round(c['coordinates']['lon'],0)
-                for p in places:
-                    if p.lat:
-                        plat = round(p.lat,0)
-                        plng = round(p.lng,0)
-                        if 'ru' in c['name_translations']:
-                            fz = fuzz.partial_ratio(c['name_translations']['ru'],p.rus_name)
-                            if plat ==clat and plng == clng and fz > 70:
-                                print ('MATCH!!!  %s and %s    --- %d' % (c['name_translations']['ru'], p.rus_name, fz))
-                                if 'ru' in  c['name_translations'].keys():
-                                    rus_name = c['name_translations']['ru'] 
-                                else:
-                                    rus_name = ''
-                                db.engine.execute('INSERT INTO tp_cities_match (`code`, `tp_name`, `rus_name`, `place_id`, `match`) VALUES ("%s", "%s", "%s", %d, %d)' % (c["code"], c["name"], rus_name,p.id, fz))
+#         places = Place.query.filter(Place.city_code==None).all()
+#         i = 1
+#         for c in data:
+#             print('#%d' % i)
+#             if c['coordinates']:
+#                 clat = round(c['coordinates']['lat'],0)
+#                 clng = round(c['coordinates']['lon'],0)
+#                 for p in places:
+#                     if p.lat:
+#                         plat = round(p.lat,0)
+#                         plng = round(p.lng,0)
+#                         if 'ru' in c['name_translations']:
+#                             fz = fuzz.partial_ratio(c['name_translations']['ru'],p.rus_name)
+#                             if plat ==clat and plng == clng and fz > 70:
+#                                 print ('MATCH!!!  %s and %s    --- %d' % (c['name_translations']['ru'], p.rus_name, fz))
+#                                 if 'ru' in  c['name_translations'].keys():
+#                                     rus_name = c['name_translations']['ru'] 
+#                                 else:
+#                                     rus_name = ''
+#                                 db.engine.execute('INSERT INTO tp_cities_match (`code`, `tp_name`, `rus_name`, `place_id`, `match`) VALUES ("%s", "%s", "%s", %d, %d)' % (c["code"], c["name"], rus_name,p.id, fz))
 
-            i+=1
+#             i+=1
 
-@manager.command
-def add_place_names():
-    db.engine.execute('UPDATE tp_cities_match INNER JOIN G_places AS p ON place_id = p.id SET place_name = p.eng_name')
+# @manager.command
+# def add_place_names():
+#     db.engine.execute('UPDATE tp_cities_match INNER JOIN G_places AS p ON place_id = p.id SET place_name = p.eng_name')
 
 
+
+# @manager.command
+# def mail_test():
+#     Mailer.welcome_mail()
+
+
+# @manager.command
+# def test_russian_plurals():
+#     for n in range(0, 125):
+#         print ("%d %s назад" % (n, russian_plurals('секунда', n, ago=True)))
+
+# @manager.command
+# def get_length():
+#     tips = Tip.query.all()
+#     tmax = 0
+#     tmin = 10000
+#     tsum = 0
+#     tcount = 0
+#     p300 = 0
+#     p400 = 0
+#     p500 = 0
+#     for t in tips:
+#         print (tcount)
+#         tcount += 1
+#         l = len(t.text)
+#         tsum += l
+#         if l < tmin:
+#             tmin = l
+#         if l > tmax:
+#             tmax = l
+#         if l > 300:
+#             p300 += 1
+#         if l > 400:
+#             p400 += 1
+#         if l > 500:
+#             p500 += 1
+#     tavg = round(tsum / tcount)
+#     print ("MIN :%d MAX :%d AVG :%d" % (tmin, tmax, tavg))
+#     print('TOTAL %d' % tcount)
+#     print (">300 :%d >400 :%d >500 :%d" % (p300, p400, p500))
 
 
 

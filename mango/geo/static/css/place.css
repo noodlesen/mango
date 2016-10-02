@@ -826,11 +826,31 @@ h1 {
   margin-bottom: 10px;
   color: white;
   min-height: 10em;
+  padding-top: 1em;
 }
 
-/* line 467, scss/place.scss */
+/* line 468, scss/place.scss */
 #city-code {
   width: 100%;
   text-align: center;
-  font-size: 5em;
+  font-size: 4em;
+}
+
+/* line 474, scss/place.scss */
+.flag {
+  vertical-align: middle;
+}
+
+/* line 478, scss/place.scss */
+.airport-card {
+  color: #0088cc;
+  border: 1px solid #0088cc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+/* line 486, scss/place.scss */
+.airport-card-code {
+  font-size: 200%;
 }
