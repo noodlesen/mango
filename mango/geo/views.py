@@ -36,6 +36,7 @@ def places(us):
     if p:
         jd ={}
         jd['tips']=[]
+        #=====
         related_users_ids = []
         if current_user.is_authenticated:
             faves = Tip.favorited_by(current_user)
@@ -78,19 +79,17 @@ def places(us):
             for tag in t['tags']:
                 if tag not in place_tags:
                     place_tags.append(tag)
-        all_tags = Tag.query.order_by(desc(Tag.count)).all()
+        jd['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
 
+        all_tags = Tag.query.order_by(desc(Tag.count)).all()
         jd['all_tags']=[]
         for t in all_tags:
             jd['all_tags'].append({"name":t.name, "style":t.style, "count":t.count})
-        jd['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
 
         jd['related_users']=[]
         ru = User.query.filter(User.id.in_(related_users_ids)).all()
         for u in ru:
             jd['related_users'].append({"id":u.id, "nickname":u.nickname})
-
-        print (jd['related_users'])
 
         return render_template('place.html', 
                                 place=p, 

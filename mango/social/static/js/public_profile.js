@@ -42,7 +42,7 @@ var pp = new Vue({
         canSendPm: true,
         showingMessageForm:false,
         messageText:'',
-        showingActionStatus: false
+        messageSuccess: false
     },
     methods: {
         subscribe: function(){
@@ -71,11 +71,8 @@ var pp = new Vue({
                     if (res.status=='ok'){
                         self.messageText='';
                         self.showingMessageForm=false;
-                        //$('#private-message__status').show(300);
-                        self.showingActionStatus = true;
+                        self.messageSuccess = true;
                     }
-                    
-
                 });
             }
         }
