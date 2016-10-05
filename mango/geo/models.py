@@ -101,6 +101,8 @@ class Tip(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     chd_upvoted = db.Column(db.Integer, default=0)
     chd_downvoted = db.Column(db.Integer, default=0)
+    chd_rating = db.Column(db.Integer, default=0)
+    chd_data = db.Column(db.Text)
 
     #temp
     taglines = db.Column(db.Text)
@@ -143,6 +145,25 @@ class Tip(db.Model):
     def remove_dislike(self, u):
         TipRelation.remove(u.id, self.id, "D")
         self.chd_downvoted-=u.power
+        db.session.add(self)
+        db.session.commit()
+
+    def cache_it(self):
+        cache = {
+                "author":{'id':self.user.id, 'name':self.user.nickname},
+                "tags":[]
+                }
+
+        for tag in self.tags:
+            cache['tags'].append({"id": tag.id,
+                                "name": tag.name,
+                                "style": tag.style,
+                                "count": tag.count
+                })
+
+        self.chd_rating = self.chd_upvoted - self.chd_downvoted
+        self.chd_data = json.dumps(cache)
+
         db.session.add(self)
         db.session.commit()
 

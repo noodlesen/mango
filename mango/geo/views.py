@@ -18,6 +18,119 @@ from . .mailer import Mailer
 from . .db import db
 
 
+# def get_tips_data(obj):
+#     # NON CACHED
+#     td = {}
+#     td['tips']=[]
+#     related_users_ids = []
+#     if current_user.is_authenticated:
+#         faves = Tip.favorited_by(current_user)
+#         likes = Tip.liked_by(current_user)
+#         dislikes = Tip.disliked_by(current_user)
+#     else:
+#         faves = []
+#         likes = []
+#         dislikes = []
+#     for t in obj.tips:
+#         favorite = True if t.id in faves else False
+#         like = True if t.id in likes else False
+#         dislike = True if t.id in dislikes else False
+#         comments = json.loads(t.comments) if t.comments else []
+#         for c in comments:
+#             related_users_ids.append(c['author_id'])
+#         tip = {"text":t.text, 
+#                 "tags":[],
+#                 "author":{'id':t.user.id, 'name':t.user.nickname},
+#                 'id':t.id,
+#                 'favorite':favorite,
+#                 'like':like,
+#                 'dislike':dislike,
+#                 'comments': comments,
+#                 'upvoted': t.chd_upvoted,
+#                 'downvoted': t.chd_downvoted,
+#                 'url': url_for('geo.single_tip', tid=t.id, _external = True)
+#                 }
+                
+#         for tag in t.tags:
+#             tip['tags'].append({"id": tag.id,
+#                                 "name": tag.name,
+#                                 "style": tag.style,
+#                                 "count": tag.count
+#                 })
+#         td['tips'].append(tip)
+    
+#     place_tags=[]
+#     for t in td['tips']:
+#         for tag in t['tags']:
+#             if tag not in place_tags:
+#                 place_tags.append(tag)
+#     td['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
+
+#     td['related_users']=[]
+#     ru = User.query.filter(User.id.in_(related_users_ids)).all()
+#     for u in ru:
+#         td['related_users'].append({"id": u.id, "nickname": u.nickname})
+
+#     return td
+
+def get_tips_data(obj):
+    # CACHED
+    td = {}
+    td['tips']=[]
+    related_users_ids = []
+    if current_user.is_authenticated:
+        faves = Tip.favorited_by(current_user)
+        likes = Tip.liked_by(current_user)
+        dislikes = Tip.disliked_by(current_user)
+    else:
+        faves = []
+        likes = []
+        dislikes = []
+    for t in obj.tips:
+        favorite = True if t.id in faves else False
+        like = True if t.id in likes else False
+        dislike = True if t.id in dislikes else False
+        comments = json.loads(t.comments) if t.comments else []
+        cached_data = json.loads(t.chd_data)
+        for c in comments:
+            related_users_ids.append(c['author_id'])
+        tip = {"text":t.text, 
+                "tags":[],
+                "author":{'id':cached_data['author']['id'], 'name':cached_data['author']['name']},
+                'id':t.id,
+                'favorite':favorite,
+                'like':like,
+                'dislike':dislike,
+                'comments': comments,
+                'upvoted': t.chd_upvoted,
+                'downvoted': t.chd_downvoted,
+                'url': url_for('geo.single_tip', tid=t.id, _external = True)
+                }
+                
+        # for tag in t.tags:
+        #     tip['tags'].append({"id": tag.id,
+        #                         "name": tag.name,
+        #                         "style": tag.style,
+        #                         "count": tag.count
+        #         })
+        tip['tags'] = cached_data['tags']
+        td['tips'].append(tip)
+    
+    place_tags=[]
+    for t in td['tips']:
+        for tag in t['tags']:
+            if tag not in place_tags:
+                place_tags.append(tag)
+    td['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
+
+    td['related_users']=[]
+    ru = User.query.filter(User.id.in_(related_users_ids)).all()
+    for u in ru:
+        td['related_users'].append({"id": u.id, "nickname": u.nickname})
+
+    return td
+
+
 #  PLACE ROUTES =========================================================
 
 @geo.route('/places/id/<pid>', methods=['GET'])
@@ -35,61 +148,20 @@ def places(us):
     p = Place.query.filter_by(url_string=us).first()
     if p:
         jd ={}
-        jd['tips']=[]
-        #=====
-        related_users_ids = []
-        if current_user.is_authenticated:
-            faves = Tip.favorited_by(current_user)
-            likes = Tip.liked_by(current_user)
-            dislikes = Tip.disliked_by(current_user)
-        else:
-            faves = []
-            likes = []
-            dislikes = []
-        for t in p.tips:
-            favorite = True if t.id in faves else False
-            like = True if t.id in likes else False
-            dislike = True if t.id in dislikes else False
-            comments = json.loads(t.comments) if t.comments else []
-            for c in comments:
-                related_users_ids.append(c['author_id'])
-                print (related_users_ids)
-            tip = {"text":t.text, 
-                    "tags":[],
-                    "author":{'id':t.user.id, 'name':t.user.nickname},
-                    'id':t.id,
-                    'favorite':favorite,
-                    'like':like,
-                    'dislike':dislike,
-                    'comments': comments,
-                    'upvoted': t.chd_upvoted,
-                    'downvoted': t.chd_downvoted,
-                    'url': url_for('geo.single_tip', tid=t.id, _external = True)
-                    }
-            for tag in t.tags:
-                tip['tags'].append({"id": tag.id,
-                                    "name": tag.name,
-                                    "style": tag.style,
-                                    "count": tag.count
-                    })
-            jd['tips'].append(tip)
         
-        place_tags=[]
-        for t in jd['tips']:
-            for tag in t['tags']:
-                if tag not in place_tags:
-                    place_tags.append(tag)
-        jd['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
+        td = get_tips_data(p)
+
+        jd.update(td)
 
         all_tags = Tag.query.order_by(desc(Tag.count)).all()
         jd['all_tags']=[]
         for t in all_tags:
             jd['all_tags'].append({"name":t.name, "style":t.style, "count":t.count})
 
-        jd['related_users']=[]
-        ru = User.query.filter(User.id.in_(related_users_ids)).all()
-        for u in ru:
-            jd['related_users'].append({"id":u.id, "nickname":u.nickname})
+
+        jd['mode'] = 'place'
+
+        
 
         return render_template('place.html', 
                                 place=p, 

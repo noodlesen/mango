@@ -1,0 +1,405 @@
+@import "../../../../static/css/scss/_config";
+
+#tips-list{
+    text-align: left;
+}
+
+#filters{
+    float: left;
+    width:24%;
+    margin-right:2%;
+
+    h2{
+        text-align: right;
+    }
+    .tags__list{
+        border-width: 0 1px 0 0px;
+        border-color: $gray4;
+        border-style: solid;
+        padding:10px 4px 20px 0;
+    }
+}
+
+#tips{
+    
+    @include respond-to(xs) { width: 100% ;}
+}
+
+.tips-narrow{
+    float: left;
+    width:74%;
+}
+
+/* #tips-full{
+    float: none;
+    width: 100%;
+} */
+
+#tips__info{
+    border-radius: 6px 6px 0 0 ;
+    margin-top: 20px;
+    width: 100%;
+    background-color: $pale-blue;
+    padding: 5px 15px 5px 15px;
+}
+
+#add-tip-btn{
+    background-color: $light-green;
+    color: white;
+    font-size: 24px;
+    border-radius: 6px 6px 0 0;
+    padding: 4px 8px;
+    text-align: center;
+    cursor: pointer;
+    span {
+        vertical-align: middle;
+    }
+    &:hover{
+        background-color: $green;
+    }
+    &:active{
+        background-color: $dark-green;
+    }
+}
+
+#tip__add-new-form{
+
+    background-color: $gray5;
+    padding: 15px;
+    border-radius: 6px;
+
+}
+
+#addTipForm__header{
+    float: left;
+}
+
+#addTipForm__close{
+    float: right;
+    cursor: pointer;
+}
+#add-new-form__textarea{
+    height:6em;
+    width:100%;
+    resize:vertical;
+    padding:.5em;
+    border: 0.1em solid $green;
+    border-radius: 6px 6px 0 0;
+}
+
+#add-new-form__added-tags{
+    margin-top: -10px;
+    border-radius:  0 0 6px 6px;
+    background-color: $gray6;
+    border: 0.1em solid $green;
+    padding: 7px;
+}
+
+#add-new-form__tags{
+    text-align:center;
+    margin-top: 10px;
+}
+
+#add-new-form__search-tags{
+    text-align:center;
+    margin-top: 20px;
+    padding: 10px
+}
+
+.search-active{
+    background-color: $gray6;
+    border-radius: 5px;
+
+}
+
+
+#add-new-form__tags-ta{
+    height: 2em;
+    width:95%;
+    resize:vertical;
+    padding:0.1em 0.5em;
+    border: 0.1em solid $green;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+#filter-message{
+    border-radius: 6px;
+    background-color: white;
+    padding: 5px 10px 7px;
+}
+
+.tip{
+    background-color: white;
+}
+
+.tip-agreed{
+    background-color: $pale-green;
+}
+.tip-disagreed{
+    background-color:$pale-red;
+}
+
+.filter-item{
+    padding: 1px 7px;
+    border-radius:5px 0 0 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.filter-item-inactive{
+    background-color:$gray5;
+    color:$gray4;
+    border: 1px solid $gray4;
+    
+    &:hover{
+        border: 1px solid $gray3;
+        color: $gray3;
+    }
+}
+
+
+.tip__main-text {
+    font-size: 14px;
+    line-height: 1.3em;
+    font-weight: 400;
+    padding-left: 35px;
+    padding-right: 4px;
+    padding-top: 4px;
+    &:first-letter{
+        font-size: 1.2em;
+    }
+}
+
+%tag__common{
+    display: inline-block;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer; 
+}
+
+.tip__tag {
+    @extend %tag__common;
+    font-size: 12px;
+    border-radius: 2px;
+    padding: 0 3px;
+    margin-right: 1px;
+}
+
+.form__tag {
+    @extend %tag__common;
+    font-size: 14px;
+    border-radius: 3px;
+    padding: 0 4px;
+    margin-right: 3px;
+    line-height: 1.3em;
+}
+
+.form__main-tag {
+    @extend %tag__common;
+    display: block;
+    float:left;
+    width:32%;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 3px;
+    padding: 3px 4px;
+    margin-left: 1%;
+    margin-bottom: 3px;
+    line-height: 1.3em;
+}
+
+.form__added-tag{
+    @extend %tag__common;
+    font-size: 14px;
+    border-radius: 3px;
+    padding: 0 4px;
+    margin-right: 3px;
+    line-height: 1.3em;
+    .added-tag__remove-sign{
+        display: none;
+    }
+    &:hover .added-tag__remove-sign{
+        display: inline;
+    }
+}
+
+.tip__tags {
+    float: left;
+    width:96%;
+
+}
+
+.tip__favorite{
+    float:right;
+    width:4%;
+    font-size: 1.3em;
+    color: $orange;
+    cursor: pointer;
+    &:hover{
+        color:$dark-orange;
+    }
+    margin-top: -3px;
+}
+
+
+.tip__vote-icon{
+    font-size: 120%;
+}
+
+.tip__vote-number{
+    font-size: 75%;
+}
+
+
+.tip__vote-up{
+    cursor: pointer;
+    color: $pale-green;
+    &:hover{
+        color:$light-green;
+    }
+    &:active{
+        color: $dark-green;
+    }
+    margin-bottom: .7em;
+}
+
+
+
+.tip__vote-dn{
+    cursor: pointer;
+    color: $pale-red;
+    &:hover{
+        color:$light-red;
+    }
+}
+
+.tip__vote-up--active{
+    color: $green;
+    &:hover{
+        color:$dark-green;
+    }
+}
+
+.tip__vote-dn--active{
+    color: $red;
+    &:hover{
+        color:$dark-red;
+    }
+}
+
+.tip__author{
+    font-weight: bolder;
+}
+
+
+
+// COMMENTS
+
+.addCommentForm__ta{
+    width:100%;
+    resize:vertical;
+    padding:0.1em 0.5em;
+    border: 0.1em solid $green;
+    border-radius: 6px;
+}
+
+.comments{
+    width:88%;
+    margin-left: 10%;
+    margin-top: 10px;
+    margin-right: 2%;
+    .add-comment__button{
+        width:100%;
+    }
+}
+
+.comment{
+    background-color: white;
+    //border-radius: 6px;
+    border-width: 0 0 0 7px;
+    border-color: $blue;
+    border-style: solid;
+    padding: 12px 12px 2px 25px;
+    margin-bottom: 5px;
+    .comment__text{
+        font-size: 14px;
+        line-height: 1.3em;
+        font-weight: 400;
+        margin-bottom: 5px;
+        &:first-letter{
+            font-size: 1.2em;
+        }
+    }
+    .comment__meta{
+        font-size: 12px;
+        width: 100%;
+        text-align: right;
+        color: $gray3;
+    }
+}
+
+.comment-link{
+    color:$blue;
+}
+
+
+.tip__share{
+    padding: 5px 6px;
+    background-color: $pale-blue;
+    color: $blue;
+    i{
+        font-size: 20px;
+    }
+    input{
+            padding: 0.1em 0.5em;
+            border: 0.1em solid $blue;
+            border-radius: 6px;
+            display: inline-block;   
+        }
+}
+
+.tip-block__body{
+    padding-bottom: 12px;
+    width:93%;
+    float: left;
+    border-width: 0 1px 0 0;
+    border-color: $gray4;
+    border-style: dotted;
+    min-height: 110px;
+}
+
+.tip-block__sidebar{
+    padding-bottom: 12px;
+    width:7%;
+    float: right;
+    font-weight: bolder;
+    //padding-left: 2px;
+    font-size: 1.6em;
+    text-align: center;
+    line-height: .5em;
+}
+
+.tip__share-block{
+    //font-size: 20px;
+    height: 30px;
+    min-width: 30px;
+    padding-top:4px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid $blue;
+    display: inline-block;  
+    background-color: white;
+    line-height: 0;
+    cursor: pointer;
+    &:active{
+        background-color: $blue;
+        color:white;
+    }
+}
+
+.tip__share-link{
+    display: inline-block;
+    margin-left: 1em;
+}

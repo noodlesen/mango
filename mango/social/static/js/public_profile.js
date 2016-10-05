@@ -37,7 +37,7 @@ var pp = new Vue({
     el:'#userinfo',
     data:{
         userId: null,
-        loggedIn: false,
+        signedIn: false,
         subscribed: false,
         canSendPm: true,
         showingMessageForm:false,
@@ -66,7 +66,7 @@ var pp = new Vue({
         },
         sendPrivateMessage: function(){
             var self = this;
-            if (this.loggedIn && this.messageText!=''){
+            if (this.signedIn && this.messageText!=''){
                 getResults('/post-messenger', 'json', {text: this.messageText, cmd:'sendMessage', uid: this.userId}, function(res){
                     if (res.status=='ok'){
                         self.messageText='';
@@ -80,7 +80,7 @@ var pp = new Vue({
     ready: function(){
         this.subscribed = subscribed == "True" ? true : false;
         this.canSendPm = canSendPm == "True" ? true : false;
-        this.loggedIn = loggedIn == "True" ? true : false;
+        this.signedIn = signedIn == "True" ? true : false;
         this.userId = userId;
     }
 });

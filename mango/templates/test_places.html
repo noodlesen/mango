@@ -14,7 +14,7 @@
         <div class="col-lg-6 col-lg-offset-3">
             <h1>Места</h1>
             {% for p in places %}
-            {% if p.tips.count() > 0 %}
+            {% if p.active > 0 %}
             <div class="user-block item-block" style="padding:5px">
                 <h3><a href="{{url_for('geo.places', us=p.url_string)}}">{{p.rus_name}}</a></h3>
                 <div class="clearfix"></div>

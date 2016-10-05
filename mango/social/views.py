@@ -21,6 +21,9 @@ from sqlalchemy import desc
 
 import requests
 
+from . .geo.views import get_tips_data
+
+
 
 def welcome_procedure():
     Notification.add(current_user.id, 'personal', 'Добро пожаловать в органы, сынок! (Пример приветственного сообщения) Параллельно должно прийти письмо на почту')
@@ -471,6 +474,8 @@ def post_messenger():
 def public_profile(uid):
 
     u = User.query.get(uid)
+    td = get_tips_data(u)
+    td['mode'] = 'user'
     cuia = current_user.is_authenticated
     if cuia:
         notifications = Notification.count(current_user)
@@ -488,11 +493,12 @@ def public_profile(uid):
             subscribed = False
             can_send_pm = True
         return render_template('public_profile.html', u=u,
+                            json_data=json.dumps(td),
                             notifications_count=notifications['other'],
                             messages_count=notifications['messages'],
                             subscribed=subscribed,
                             can_send_pm=can_send_pm,
-                            logged_in=cuia)
+                            signed_in=cuia)
     else:
         abort(404)
 

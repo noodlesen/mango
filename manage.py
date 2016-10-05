@@ -225,6 +225,14 @@ def calculate_airports_nearby():
 #     print('TOTAL %d' % tcount)
 #     print (">300 :%d >400 :%d >500 :%d" % (p300, p400, p500))
 
+@manager.command
+def cache_all_tips():
+    tips = Tip.query.all()
+    for t in tips:
+        print(t.id)
+        t.cache_it()
+
+
 
 
 
