@@ -471,14 +471,28 @@ def post_messenger():
 def public_profile(uid):
 
     u = User.query.get(uid)
-    if current_user.is_authenticated:
+    cuia = current_user.is_authenticated
+    if cuia:
         notifications = Notification.count(current_user)
     else:
         notifications = {'other': 0, 'messages':0}
     if u:
+        if cuia:
+            ur = UsersRelationship.query.filter_by(user1=current_user.id, user2=u.id).first()
+            subscribed = True if ur and ur.follows is True else False
+            if (ur and ur.can_send_pm_to) or not ur:
+                can_send_pm = True
+            else:
+                can_send_pm = False
+        else:
+            subscribed = False
+            can_send_pm = True
         return render_template('public_profile.html', u=u,
                             notifications_count=notifications['other'],
-                            messages_count=notifications['messages'])
+                            messages_count=notifications['messages'],
+                            subscribed=subscribed,
+                            can_send_pm=can_send_pm,
+                            logged_in=cuia)
     else:
         abort(404)
 
@@ -504,9 +518,34 @@ def notifier():
                                 'notifications': notifications['other'],
                                 'status':'ok'})
         else:
-            return json.dumps({'staus':'not logged in'})
+            return json.dumps({'status':'not logged in'})
 
 
+# USER SUBSCRIBE
+#=============================================================
+@social.route('/user-subscribe', methods=['POST'])
+def user_subscribe():
+    res = {"status":"ok"}
+    print(request.json)
+    uid = request.json['uid']
+    bval = True if request.json['cmd']=="subscribe" else False
+    if current_user.is_authenticated:
+        ur = UsersRelationship.query.filter_by(user1=current_user.id, user2=uid).first()
+        if not ur:
+            ur = UsersRelationship()
+            ur.user1 = current_user.id
+            ur.user2 = uid
+            ur.follows = bval
+        else:
+            if ur.follows is bval:
+                res['status'] = "Already (un)subscribed"
+            else:
+                ur.follows = bval
+
+        db.session.add(ur)
+        db.session.commit()
+
+    return json.dumps(res)
 
 
 

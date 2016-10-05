@@ -14,7 +14,7 @@
     <div class="row">
    
         
-        <div class="col-lg-7" id = "place-tips">
+        <div class="col-lg-7 col-xs-12" id = "place-tips">
             <div id="filters" class="hidden-xs">
                 <div class="tags__list">
                     <h2>Метки</h2>
@@ -36,7 +36,7 @@
             <div class="clearfix"></div>
         </div>
 
-        <div class="col-lg-5 place__info">
+        <div class="col-lg-5 col-xs-12 place__info">
 
             <h1>{{place.rus_name}}</h1>
             <h2><img src="{{ url_for('geo.static', filename='images/flags/big/'+place.country.code|lower+'.png')}}" /> {{place.country.rus_name}}</h2>

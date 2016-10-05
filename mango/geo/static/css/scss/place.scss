@@ -24,6 +24,8 @@ h1 {
     float: left;
     width:74%;
     border-color: #08c;
+    
+    @include respond-to(xs) { width: 100% ;}
 }
 
 #tips__info{

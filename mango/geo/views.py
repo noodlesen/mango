@@ -18,10 +18,7 @@ from . .mailer import Mailer
 from . .db import db
 
 
-
-
-
-
+#  PLACE ROUTES =========================================================
 
 @geo.route('/places/id/<pid>', methods=['GET'])
 def old_places(pid):
@@ -30,6 +27,7 @@ def old_places(pid):
         return redirect(url_for('geo.places', us=p.url_string))
     else:
         abort(404)
+
 
 #@cache.cached(50)
 @geo.route('/place/<us>', methods=['GET'])
@@ -104,6 +102,12 @@ def places(us):
     else:
         abort(404)
 
+
+@geo.route('/place-subscribe', methods=['POST'])
+def place_subscribe():
+    pass
+
+
 # @login_required
 # @geo.route('/json/place', methods=['POST'])
 # def json_place():
@@ -156,6 +160,9 @@ def places(us):
 
 #     return json.dumps(res)
 
+
+#  TIP ROUTES =========================================================
+
 @geo.route('/tip/<tid>', methods=['GET'])
 def single_tip(tid):
     tip = Tip.query.get(tid)
@@ -164,9 +171,11 @@ def single_tip(tid):
     else:
         abort(404)
 
+
 @login_required
 @geo.route('/json/tip', methods=['POST'])
 def json_tip():
+    
     q = request.json
     res={"status":"ok"}
 
@@ -177,7 +186,6 @@ def json_tip():
                 tip.set_as_favorite(current_user)
             else:
                 tip.remove_favorite(current_user)
-
 
         elif q['cmd']=='clickUpVote':
             tip = Tip.query.get(q['id'])

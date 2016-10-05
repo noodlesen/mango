@@ -1,3 +1,35 @@
+// MEDIA
+
+//screen-xs <768px
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
+
+@mixin respond-to($media) {
+  @if $media == xs {
+    @media only screen and (max-width: $screen-sm - 1px) { @content; }
+  }
+  @else if $media == sm {
+    @media only screen and (min-width: $screen-sm) and (max-width: $screen-md - 1) { @content; }
+  }
+  @else if $media == md {
+    @media only screen and (min-width: $screen-md) and(max-width: $screen-lg - 1) { @content; }
+  }
+  @else if $media == lg {
+    @media only screen and (min-width: $screen-lg) { @content; }
+  }
+}
+/*  EXAMPLE
+.block {
+  float: left;
+  width: 250px;
+  @include respond-to(handhelds) { width: 100% ;}
+  @include respond-to(medium-screens) { width: 125px; }
+  @include respond-to(wide-screens) { float: none; }
+}​ */
+
+
 
 // COLORS
 
