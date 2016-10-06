@@ -13,6 +13,7 @@ from sqlalchemy.sql import or_
 # import os
 # from . .path import ROOT_DIR, UPLOAD_FOLDER, AVATAR_FOLDER
 from . .logger import StrangersLog
+import json
 
 
 
@@ -178,6 +179,10 @@ class NotificationMixin():
     #unread = db.Column(db.Boolean, default=True)
     message = db.Column(db.Text)
     data = db.Column(db.Text)
+    extra = db.Column(db.Text)
+
+    def get_extras(self):
+        return json.loads(self.extra)
 
 
 class NotificationHistory(db.Model, NotificationMixin):
@@ -204,6 +209,11 @@ class Notification(db.Model, NotificationMixin):
             self.data = kwargs['data']
         else:
             self.data=''
+
+        if 'extra' in kwargs:
+            self.extra = json.dumps(kwargs['extra'])
+        else:
+            self.extra=None
 
         if 'user_from' in kwargs:
             self.user_from = kwargs['user_from']
@@ -265,6 +275,9 @@ class Notification(db.Model, NotificationMixin):
             nots.delete()
 
             db.session.commit()
+
+    
+
 
 
 

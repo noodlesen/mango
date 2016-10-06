@@ -320,7 +320,14 @@ def json_tip():
 
             subscribed_users = UsersRelationship.query.filter_by(user2=current_user.id, follows=True)
             for su in subscribed_users:
-                Notification.add(su.user1, 'NP', 'Новый пост от '+current_user.nickname, data=tip.text[:100]+"...", user_from=current_user.id)
+                Notification.add(
+                                su.user1, 
+                                'NP', 
+                                'Новый пост от '+current_user.nickname, 
+                                data=tip.text[:100]+"...", 
+                                user_from=current_user.id,
+                                extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
+                                )
 
 
 

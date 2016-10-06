@@ -46,7 +46,7 @@
                 {{n.data}}
               </div>
               <div class="cmd-bar">
-              <a href="{{url_for('social.messenger')}}?user={{n.user_from}}">
+              <a href="{{n.get_extras()['tip_url']}}">
                   <span class="glyphicon glyphicon-envelope"></span>
                   Читать
               </a>
