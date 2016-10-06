@@ -39,10 +39,23 @@
               </a>
             </div>
 
-            {% else %}
+            {% elif n.ntype == 'NP' %}
               <div class="item-block__body">
-                {{n.message}}zz
+                {{n.message}}
+                <div class="divider"></div>
+                {{n.data}}
               </div>
+              <div class="cmd-bar">
+              <a href="{{url_for('social.messenger')}}?user={{n.user_from}}">
+                  <span class="glyphicon glyphicon-envelope"></span>
+                  Читать
+              </a>
+                <a 
+                href="{{url_for('social.public_profile', uid=n.user_from)}}">
+                <span class="glyphicon glyphicon-user"></span>
+                Профиль пользователя
+              </a>
+            </div>
             {% endif %}
 
 
@@ -53,6 +66,8 @@
           <div class="item-block notification notification-old has-cmd-bar">
             <div class="item-block__body" >
               {{h.message}}
+              <div class="divider"></div>
+                {{h.data}}
             </div>
           </div>
         {% endfor %}

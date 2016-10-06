@@ -10,7 +10,7 @@ from . .cache import cache
 
 from . import geo
 from .models import Place, Tip, Tag
-from . .social.models import User
+from . .social.models import User, UsersRelationship, Notification
 from . .config import GOOGLE_ID, GOOGLE_SECRET, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET
 from . .path import ROOT_DIR, UPLOAD_DIR
 from . .toolbox import get_hash, how_long_ago
@@ -91,7 +91,11 @@ def get_tips_data(obj):
         like = True if t.id in likes else False
         dislike = True if t.id in dislikes else False
         comments = json.loads(t.comments) if t.comments else []
-        cached_data = json.loads(t.chd_data)
+        chd_data = t.chd_data
+        if not chd_data:
+            t.cache_it()
+            chd_data = t.chd_data
+        cached_data = json.loads(chd_data)
         for c in comments:
             related_users_ids.append(c['author_id'])
         tip = {"text":t.text, 
@@ -107,12 +111,6 @@ def get_tips_data(obj):
                 'url': url_for('geo.single_tip', tid=t.id, _external = True)
                 }
                 
-        # for tag in t.tags:
-        #     tip['tags'].append({"id": tag.id,
-        #                         "name": tag.name,
-        #                         "style": tag.style,
-        #                         "count": tag.count
-        #         })
         tip['tags'] = cached_data['tags']
         td['tips'].append(tip)
     
@@ -318,6 +316,11 @@ def json_tip():
                 db.session.add(tip)
                 db.session.commit()
                 res['tip_data']={'author_name': current_user.nickname, 'author_id':current_user.id, 'tip_id': tip.id}
+
+
+            subscribed_users = UsersRelationship.query.filter_by(user2=current_user.id, follows=True)
+            for su in subscribed_users:
+                Notification.add(su.user1, 'NP', 'Новый пост от '+current_user.nickname, data=tip.text[:100]+"...", user_from=current_user.id)
 
 
 
