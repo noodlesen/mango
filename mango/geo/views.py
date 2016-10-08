@@ -10,7 +10,7 @@ from . .cache import cache
 
 from . import geo
 from .models import Place, Tip, Tag
-from . .social.models import User, UsersRelationship, Notification
+from . .social.models import User, UsersRelationship, Notification, UserToPlaceRelationship
 from . .config import GOOGLE_ID, GOOGLE_SECRET, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET
 from . .path import ROOT_DIR, UPLOAD_DIR
 from . .toolbox import get_hash, how_long_ago
@@ -131,6 +131,7 @@ def get_tips_data(obj):
 
 #  PLACE ROUTES =========================================================
 
+# LEGACY URLS SUPPORT
 @geo.route('/places/id/<pid>', methods=['GET'])
 def old_places(pid):
     p = Place.query.filter_by(fpid=pid).first()
@@ -159,13 +160,18 @@ def places(us):
 
         jd['mode'] = 'place'
 
-        
+        subscribed = False
+        if current_user.is_authenticated:
+            u2p = UserToPlaceRelationship.query.filter_by(user_id=current_user.id, place_id=p.id).first()
+            if u2p:
+                subscribed = True
 
         return render_template('place.html', 
                                 place=p, 
                                 json_data=json.dumps(jd), 
                                 airports=p.get_airports(),
-                                signed=current_user.is_authenticated
+                                signed=current_user.is_authenticated,
+                                subscribed=subscribed
                                 )
 
     else:
@@ -174,7 +180,28 @@ def places(us):
 
 @geo.route('/place-subscribe', methods=['POST'])
 def place_subscribe():
-    pass
+    q = request.json
+    pid = q['pid']
+    res = {}
+    if current_user.is_authenticated:
+        u2p = UserToPlaceRelationship.query.filter_by(user_id=current_user.id, place_id=pid).first()
+        if q['cmd'] == 'subscribe' and not u2p:
+            u2p = UserToPlaceRelationship()
+            u2p.user_id = current_user.id
+            u2p.place_id = pid
+            u2p.type = 'S'
+            db.session.add(u2p)
+            db.session.commit()
+            res['status'] = 'ok'
+        elif q['cmd'] == 'unsubscribe' and u2p:
+            db.session.delete(u2p)
+            db.session.commit()
+            res['status'] = 'ok'
+
+    return json.dumps(res)
+
+
+
 
 
 # @login_required

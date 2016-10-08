@@ -40,7 +40,16 @@
         <div class="col-lg-5 col-xs-12 place__info">
 
             <h1>{{place.rus_name}}</h1>
-            <h2><img src="{{ url_for('geo.static', filename='images/flags/big/'+place.country.code|lower+'.png')}}" /> {{place.country.rus_name}}</h2>
+            <h2>
+                <img src="{{ url_for('geo.static', filename='images/flags/big/'+place.country.code|lower+'.png')}}" />
+                {{place.country.rus_name}}
+            </h2>
+
+            <div id="place-subscribe" :class="{subscribed:subscribed}" @click="toggle">                
+                <span class="glyphicon glyphicon-map-marker"></span>
+                <span v-text="msg"></span>
+            </div>
+
             <div id="main-picture">
                 {% if place.image %}
                 <img class="img img-responsive" src="{{ url_for('geo.static', filename='images/places/'+place.image+'_big.jpg') }}" />
@@ -103,6 +112,7 @@
         var place_id = {{place.id}};
         var jsonData = {{json_data|tojson|safe}};
         var signedIn = {{signed|lower}};
+        var subscribed = {{subscribed}}
     </script>
     <script src ="{{ url_for('static', filename="lib/moment-with-locales.min.js") }}" type="text/javascript"></script>
     <script src ="{{ url_for('static', filename="lib/sharer.js") }}" type="text/javascript"></script>

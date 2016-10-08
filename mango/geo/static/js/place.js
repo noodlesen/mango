@@ -24,4 +24,33 @@ var airports = new Vue({
 });
 
 
+// SUBSCRIBE 2 PLACE
 
+var placeSubscribe = new Vue({
+    el: '#place-subscribe',
+    data: {
+        subscribed: false,
+        placeId: 0
+    },
+    methods: {
+        toggle: function(){
+            var self = this;
+            var action = this.subscribed ? 'unsubscribe' : 'subscribe';
+            getResults('/place-subscribe', 'json', {cmd: action, pid: this.placeId}, function(res){
+                if (res.status=='ok'){
+                    self.subscribed = !self.subscribed;        
+                }
+            });
+            
+        }
+    },
+    computed:{
+        msg: function(){
+            return this.subscribed ? 'Вы подписаны на обновления по этому месту':'Подписаться на обновления по этому месту';
+        }
+    },
+    ready: function(){
+        this.subscribed = subscribed=='True' ? true : false;
+        this.placeId = place_id;
+    }
+});

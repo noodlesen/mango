@@ -31,6 +31,14 @@ class PrivateMessage(db.Model):
         self.user_to = user_to
 
 
+class UserToPlaceRelationship(db.Model):
+    __tablename__ = 'users2places'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.ForeignKey('users.id'))
+    place_id = db.Column(db.ForeignKey('G_places.id'))
+    type = db.Column(db.String(1))
+
+
 
 class UsersRelationship(db.Model):
 
@@ -65,10 +73,17 @@ class User (UserMixin, db.Model):
     private_messages_to = db.relationship('PrivateMessage', backref='recipient', lazy='dynamic', foreign_keys='PrivateMessage.user_to')
     users_relationships = db.relationship('UsersRelationship', backref='user', lazy='dynamic', foreign_keys='UsersRelationship.user1')
     notifications = db.relationship('Notification', backref='recipient', lazy='dynamic', foreign_keys='Notification.user_to')
+    
 
 
     # MANGO EXTRAS ===============================
     tips = db.relationship('Tip', backref='user', lazy='dynamic', foreign_keys='Tip.user_id') 
+    subscribed_places = db.relationship(
+                                        'UserToPlaceRelationship', 
+                                        backref='subscriber', 
+                                        lazy='dynamic', 
+                                        foreign_keys='UserToPlaceRelationship.user_id'
+                                        )
     power = db.Column(db.Integer)
 
     def get_favorites(self):
