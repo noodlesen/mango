@@ -350,7 +350,18 @@ def json_tip():
                 Notification.add(
                                 su.user1, 
                                 'NP', 
-                                'Новый пост от '+current_user.nickname, 
+                                'Новый совет от '+current_user.nickname, 
+                                data=tip.text[:100]+"...", 
+                                user_from=current_user.id,
+                                extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
+                                )
+
+            subscribed_users = UserToPlaceRelationship.query.filter_by(place_id=tip.place_id)
+            for su in subscribed_users:
+                Notification.add(
+                                su.user_id, 
+                                'NP', 
+                                tip.place.rus_name+': добавлен новый совет', 
                                 data=tip.text[:100]+"...", 
                                 user_from=current_user.id,
                                 extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
