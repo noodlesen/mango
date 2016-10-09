@@ -7,7 +7,10 @@ $(document).ready(function(){
 });
 
 
-// TIP COMPONENT =========================================
+
+
+// TIP COMPONENT 
+// ==================================================================================
 
 var cTip = Vue.extend({
     data: function(){
@@ -24,7 +27,7 @@ var cTip = Vue.extend({
     },
     ready:function(){
         this.signedIn = signedIn;
-        console.log(this.id+'>   '+this.fave);
+        //console.log(this.id+'>   '+this.fave);
         this.favorite = this.fave;
         if (this.upvote){
             this.upVote=true;
@@ -249,13 +252,14 @@ var cTip = Vue.extend({
 Vue.component('c-tip', cTip);
 
 
-// FILTER TAG COMPONENT =========================================
+
+
+
+
+// FILTER TAG COMPONENT 
+// ==================================================================================
 
 var tag = Vue.extend({
-    template:'<div class="filter-item" :class="[tag_class]" @click="toggle">\
-                        <span class="glyphicon glyphicon-tag" :class="[act_color]" style="font-size:75%" ></span>\
-                        <span>{{name}}</span>\
-            </div>',
     data: function(){
         return {
         }
@@ -294,14 +298,348 @@ var tag = Vue.extend({
         'eResetAllFilters' : function(){
             this.active = false;
         }
-    }
+    },
+    template:'<div class="filter-item" :class="[tag_class]" @click="toggle">\
+                        <span class="glyphicon glyphicon-tag" :class="[act_color]" style="font-size:75%" ></span>\
+                        <span>{{name}}</span>\
+            </div>'
 });
 
 Vue.component('tag', tag);
 
-// VUE INSTANCE ========================================
 
-var place = new Vue({
+
+
+
+
+
+
+
+// ================================================================================
+//                                                                               //
+//                      TIPFLOW VUE INSTANCE                                     //
+//                                                                               //
+// ================================================================================
+
+var tipFlow = new Vue({
+        
+        el: '#tipsflow',
+
+        data: {
+            tagsFilter:{
+                placeTags:[],
+                selectedTags:{},
+                message:''
+            },
+
+            newTipForm:{
+                allTags:[],
+                acTags:[],
+                popularTags:[],
+                tagsText:'',
+                addedTags:[],
+                moreTags:[],
+                tipText:''
+            },
+
+            all_tips:[],
+            shown_tips:[],
+
+            // CONFIG / STATE
+            showAll: true,
+            siModalShowing:true,
+            signedIn:false,
+            mode:'',
+            showingAddTipForm: false,
+            showingMoreTags: false,
+            allowAddTip: true,
+            allowFilters: true
+        },
+
+        computed:{
+            searchActive: function(){
+                return this.newTipForm.tagsText!='';
+            }
+        },
+
+
+        // READY
+        //............................
+        ready: function(){
+            
+            var self = this;
+            var jd = JSON.parse(jsonData);
+
+            self.allowFilters = jd.config.allowFilters ? true : false;
+            self.allowAddTip = jd.config.allowAddNewTip ? true : false;
+
+            
+            //self.mode = jd.mode;
+            self.all_tips=jd.tips;
+            self.shown_tips=jd.tips;
+            self.sortTips();
+
+            self.tagsFilter.placeTags=jd.place_tags;
+
+            /*if (self.mode=='place'){
+                self.newTipForm.allTags=jd.all_tags;
+            } else {
+                self.newTipForm.allTags =[];
+            }*/
+            self.newTipForm.allTags=jd.all_tags;
+
+
+            self.newTipForm.popularTags = self.newTipForm.allTags.slice(0, 12);
+            self.newTipForm.moreTags = self.newTipForm.allTags.slice(12, 64);
+            self.tagsFilter.placeTags.forEach(function(t){
+                self.tagsFilter.selectedTags[t.name]=false;
+            });
+            relatedUsers=jd.related_users;
+
+            /*if (self.mode == 'user'){
+                self.allowAddTip = false;
+                self.allowFilters = false;
+            }*/
+
+            
+
+
+
+            this.signedIn = signedIn;
+        },
+
+        // METHODS
+        //............................
+        methods:{
+
+            sortTips: function(){
+               this.shown_tips.sort(function(a,b){
+                    var rating = function(t){ return t.upvoted - t.downvoted }
+                    return rating(b) - rating(a);
+                }); 
+            },
+
+            submitAddTipForm: function(){
+                var self=this;
+                getResults('/json/tip', 
+                            'json', 
+                            {
+                                cmd:'addNew', 
+                                tags: this.newTipForm.addedTags, 
+                                text:this.newTipForm.tipText, 
+                                placeID: place_id
+                            },
+                            function(res){
+                                if (res.status=='ok'){
+                                    self.showingAddTipForm = false;
+                                    self.newTipForm.addedTags.forEach(function(t){
+                                        if (self.tagsFilter.placeTags.find(function(pt){return pt.name == t.name }) == undefined){
+                                            self.tagsFilter.placeTags.push(t);
+                                        }
+                                    });
+                                    newTip = {
+                                        favorite: false,
+                                        like: false,
+                                        dislike: false,
+                                        upvoted:0,
+                                        downvoted:0,
+                                        text: self.newTipForm.tipText,
+                                        tags: self.newTipForm.addedTags,
+                                        author: {id: res.tip_data.author_id, name: res.tip_data.author_name},
+                                        id: res.tip_data.tip_id
+                                    };
+                                    self.all_tips.push(newTip);
+                                    self.shown_tips.push(newTip);
+                                    self.resetNewTipForm();
+                                } else {
+                                    alert('error');
+                                }
+                            });
+            },
+
+            closeAddTipForm: function(){
+                this.showingAddTipForm = false;
+                this.resetNewTipForm();
+            },
+
+            resetNewTipForm: function(){
+                var popularTagsTemp = this.newTipForm.popularTags;
+                this.newTipForm = {
+                    allTags:[],
+                    acTags:[],
+                    tagsText:'',
+                    addedTags:[],
+                    moreTags:[],
+                    tipText:''
+                }
+                this.newTipForm.popularTags = popularTagsTemp;
+            },
+
+
+            // ADD NEW TIP / TAGS METHODS
+            //............................
+            showMoreTags: function(){
+                this.showingMoreTags = !this.showingMoreTags;
+            },
+
+            createTag: function(){
+                var name = this.newTipForm.tagsText;
+                if(this.newTipForm.addedTags.filter(function(t){return t.name==name}).length==0){
+                    var newTag = {name: name, style:'color-none', count:0};
+                    this.newTipForm.addedTags.push(newTag); 
+                    //this.newTipForm.createdTags.push(newTag); 
+                    this.newTipForm.allTags.push(newTag); 
+                    this.newTipForm.tagsText = '';
+                }
+            },
+
+            addTag: function(src, i){
+                console.log('addtag');
+                var self = this;
+                var target;
+                if (src=='ac'){
+                    console.log('ac');
+                    target = this.newTipForm.acTags;
+                } else if (src=='popular'){
+                    target = this.newTipForm.popularTags;
+                } else if (src=='more'){
+                    target = this.newTipForm.moreTags;
+                    console.log('more');
+                }
+
+                if(this.newTipForm.addedTags.filter(function(t){return t.name==target[i].name}).length==0){
+                       this.newTipForm.addedTags.push(target[i]); 
+                       console.log(JSON.stringify(this.newTipForm.addedTags));
+                }
+            },
+            removeAddedTag: function(i){
+                console.log(i);
+                this.newTipForm.addedTags.splice(i,1);
+            },
+            tagsTextChanged:function(){
+                    
+                    var self = this;
+                    var textTags = this.newTipForm.tagsText.split(',');
+                    var needle = textTags[textTags.length-1].trim();
+                    this.newTipForm.acTags = this.newTipForm.allTags.filter(function(t){
+                        return (t.name.lastIndexOf(needle, 0 ) == 0 &&  needle.trim()!='');
+                    });
+                    console.log(JSON.stringify(this.newTipForm.acTags));
+                    
+
+            },
+
+            showAddTipForm: function(){
+                if (signedIn){
+                    this.showingAddTipForm = true;
+                } else {
+                    $('#si-modal').modal('show');
+                }
+                
+            },
+
+            // FILTER METHODS
+            //............................
+            resetFilters : function(){
+                this.selectedTags = {};
+                this.showAll = true;
+                this.shown_tips = this.all_tips;
+                this.$broadcast('eResetAllFilters');
+            },
+            
+
+            filterTips: function(){
+                var self = this;
+
+                self.tagsFilter.message = "";
+                Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
+                    console.log(t);
+                    if (self.tagsFilter.selectedTags[t]){
+                        var style='';
+                        self.tagsFilter.placeTags.forEach(function(f){
+                            if (f.name==t){
+                                style=f.style;
+                            }
+                        });
+                        if (style != ''){
+                            style='back-'+style;
+                        }
+                        self.tagsFilter.message += '<span class="tip__tag '+style+'">'+t+"</span>";
+                    }
+                    
+                });
+
+                this.shown_tips=[];
+                    this.all_tips.forEach(function(tip){
+                        tip.tags.forEach(function(tag){
+                            if (self.tagsFilter.selectedTags[tag.name]){
+                                self.shown_tips.push(tip);
+                            }
+                        });
+                    });
+            }
+        },
+
+        // EVENTS
+        //............................
+        events: {
+            'eFilterChanged': function(e){
+                var self = this;
+                this.tagsFilter.selectedTags[e.name] = e.value;
+
+                var hasSelected = false;
+
+                Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
+                    if (self.tagsFilter.selectedTags[t]){
+                        hasSelected = true;
+                    }
+                });
+
+                this.showAll = hasSelected ? false : true;
+
+                if (!this.showAll){
+                    this.filterTips();
+
+                } else {
+                    this.shown_tips = this.all_tips;
+                }
+                console.log (JSON.stringify(this.tips));
+            },
+
+            'eFilterOnly': function(e){
+                console.log(e);
+                var self = this;
+                this.showAll = false;
+                Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
+                    self.tagsFilter.selectedTags[t]=false;
+                });
+                this.tagsFilter.selectedTags[e.name]=true;
+                this.filterTips();
+                this.$broadcast('eSwitchFilterOn',{name: e.name});
+            },
+
+            'eCheckTipsOrder': function(e){
+                this.shown_tips.every(function(el, i){
+                    if (el.id == e.id) {
+                        el.upvoted = e.upvoted;
+                        el.downvoted = e.downvoted;
+                        return false;
+                    }
+                    else return true;
+                });
+                this.all_tips.every(function(el, i){
+                    if (el.id == e.id) {
+                        el.upvoted = e.upvoted;
+                        el.downvoted = e.downvoted;
+                        return false;
+                    }
+                    else return true;
+                });
+                console.log(JSON.stringify(this.shown_tips));
+                this.sortTips();
+            }
+        },
+
         template: '<div>\
                     <div id="filters" class="hidden-xs" v-if="allowFilters">\
                         <div class="tags__list">\
@@ -313,11 +651,11 @@ var place = new Vue({
                     <!-- ==== TIPS COLUMN ==== -->\
                     \
                     <div id="tips" :class="{\'tips-narrow\': allowFilters}">\
-                        <div v-show="!addTipFormShowing&&allowAddTip" id="add-tip-btn" @click="showAddTipForm">\
+                        <div v-show="!showingAddTipForm&&allowAddTip" id="add-tip-btn" @click="showAddTipForm">\
                             <span class="glyphicon glyphicon-plus-sign"></span>\
                             <span>Добавьте свой совет!</span>\
                         </div>\
-                        <div v-if="addTipFormShowing" id="tip__add-new-form">\
+                        <div v-if="showingAddTipForm" id="tip__add-new-form">\
                             <div id="addTipForm__header"><h2>Добавьте свой совет</h2></div>\
                             <div @click="closeAddTipForm" id="addTipForm__close"><span class="glyphicon glyphicon-remove"></span></div>\
                             <div class="clearfix"></div>\
@@ -381,323 +719,7 @@ var place = new Vue({
                         </div>\
                     </div>\
                     <div class="clearfix"></div>\
-                    </div>',
-
-        el: '#tips-list',
-
-        data: {
-            tagsFilter:{
-                placeTags:[],
-                selectedTags:{},
-                message:''
-            },
-
-            newTipForm:{
-                allTags:[],
-                acTags:[],
-                popularTags:[],
-                tagsText:'',
-                addedTags:[],
-                moreTags:[],
-                tipText:''
-            },
-
-            all_tips:[],
-            shown_tips:[],
-            showAll: true,
-            addTipFormShowing: false,
-            showingMoreTags: false,
-            siModalShowing:true,
-            signedIn:false,
-            mode:'',
-            allowAddTip: true,
-            allowFilters: true
-        },
-
-        computed:{
-            searchActive: function(){
-                return this.newTipForm.tagsText!='';
-            }
-        },
-
-        // METHODS **************************************************
-
-        methods:{
-
-            sortTips: function(){
-               this.shown_tips.sort(function(a,b){
-                    var rating = function(t){ return t.upvoted - t.downvoted }
-                    return rating(b) - rating(a);
-                }); 
-            },
-
-            submitAddTipForm: function(){
-                var self=this;
-                getResults('/json/tip', 
-                            'json', 
-                            {
-                                cmd:'addNew', 
-                                tags: this.newTipForm.addedTags, 
-                                text:this.newTipForm.tipText, 
-                                placeID: place_id
-                            },
-                            function(res){
-                                if (res.status=='ok'){
-                                    self.addTipFormShowing = false;
-                                    self.newTipForm.addedTags.forEach(function(t){
-                                        if (self.tagsFilter.placeTags.find(function(pt){return pt.name == t.name }) == undefined){
-                                            self.tagsFilter.placeTags.push(t);
-                                        }
-                                    });
-                                    newTip = {
-                                        favorite: false,
-                                        like: false,
-                                        dislike: false,
-                                        upvoted:0,
-                                        downvoted:0,
-                                        text: self.newTipForm.tipText,
-                                        tags: self.newTipForm.addedTags,
-                                        author: {id: res.tip_data.author_id, name: res.tip_data.author_name},
-                                        id: res.tip_data.tip_id
-                                    };
-                                    self.all_tips.push(newTip);
-                                    self.shown_tips.push(newTip);
-                                    self.resetNewTipForm();
-                                } else {
-                                    alert('error');
-                                }
-                            });
-            },
-
-            closeAddTipForm: function(){
-                this.addTipFormShowing = false;
-                this.resetNewTipForm();
-            },
-
-            resetNewTipForm: function(){
-                var popularTagsTemp = this.newTipForm.popularTags;
-                this.newTipForm = {
-                    allTags:[],
-                    acTags:[],
-                    tagsText:'',
-                    addedTags:[],
-                    moreTags:[],
-                    tipText:''
-                }
-                this.newTipForm.popularTags = popularTagsTemp;
-            },
-
-
-            // ADD NEW TIP / TAGS ============================================
-
-            showMoreTags: function(){
-                this.showingMoreTags = !this.showingMoreTags;
-            },
-
-            createTag: function(){
-                var name = this.newTipForm.tagsText;
-                if(this.newTipForm.addedTags.filter(function(t){return t.name==name}).length==0){
-                    var newTag = {name: name, style:'color-none', count:0};
-                    this.newTipForm.addedTags.push(newTag); 
-                    //this.newTipForm.createdTags.push(newTag); 
-                    this.newTipForm.allTags.push(newTag); 
-                    this.newTipForm.tagsText = '';
-                }
-            },
-
-            addTag: function(src, i){
-                console.log('addtag');
-                var self = this;
-                var target;
-                if (src=='ac'){
-                    console.log('ac');
-                    target = this.newTipForm.acTags;
-                } else if (src=='popular'){
-                    target = this.newTipForm.popularTags;
-                } else if (src=='more'){
-                    target = this.newTipForm.moreTags;
-                    console.log('more');
-                }
-
-                if(this.newTipForm.addedTags.filter(function(t){return t.name==target[i].name}).length==0){
-                       this.newTipForm.addedTags.push(target[i]); 
-                       console.log(JSON.stringify(this.newTipForm.addedTags));
-                }
-            },
-            removeAddedTag: function(i){
-                console.log(i);
-                this.newTipForm.addedTags.splice(i,1);
-            },
-            tagsTextChanged:function(){
-                    
-                    var self = this;
-                    var textTags = this.newTipForm.tagsText.split(',');
-                    var needle = textTags[textTags.length-1].trim();
-                    this.newTipForm.acTags = this.newTipForm.allTags.filter(function(t){
-                        return (t.name.lastIndexOf(needle, 0 ) == 0 &&  needle.trim()!='');
-                    });
-                    console.log(JSON.stringify(this.newTipForm.acTags));
-                    
-
-            },
-
-            showAddTipForm: function(){
-                if (signedIn){
-                    this.addTipFormShowing = true;
-                } else {
-                    $('#si-modal').modal('show');
-                }
-                
-            },
-
-            // FILTER METHODS =========================================================
-
-            resetFilters : function(){
-                this.selectedTags = {};
-                this.showAll = true;
-                this.shown_tips = this.all_tips;
-                this.$broadcast('eResetAllFilters');
-            },
-            
-
-            filterTips: function(){
-                var self = this;
-
-                self.tagsFilter.message = "";
-                Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
-                    console.log(t);
-                    if (self.tagsFilter.selectedTags[t]){
-                        var style='';
-                        self.tagsFilter.placeTags.forEach(function(f){
-                            if (f.name==t){
-                                style=f.style;
-                            }
-                        });
-                        if (style != ''){
-                            style='back-'+style;
-                        }
-                        self.tagsFilter.message += '<span class="tip__tag '+style+'">'+t+"</span>";
-                    }
-                    
-                });
-
-                this.shown_tips=[];
-                    this.all_tips.forEach(function(tip){
-                        tip.tags.forEach(function(tag){
-                            if (self.tagsFilter.selectedTags[tag.name]){
-                                self.shown_tips.push(tip);
-                            }
-                        });
-                    });
-            }
-        },
-
-        // READY ********************************************************
-
-        ready: function(){
-            var self = this;
-            var jd = JSON.parse(jsonData);
-            
-            self.mode = jd.mode;
-            self.all_tips=jd.tips;
-            self.shown_tips=jd.tips;
-            self.sortTips();
-            self.tagsFilter.placeTags=jd.place_tags;
-            if (self.mode=='place'){
-                self.newTipForm.allTags=jd.all_tags;
-            } else {
-                self.newTipForm.allTags =[];
-            }
-            
-            self.newTipForm.popularTags = self.newTipForm.allTags.slice(0, 12);
-            self.newTipForm.moreTags = self.newTipForm.allTags.slice(12, 64);
-            self.tagsFilter.placeTags.forEach(function(t){
-                self.tagsFilter.selectedTags[t.name]=false;
-            });
-            relatedUsers=jd.related_users;
-            console.log (JSON.stringify(this.all_tips[0]));
-            if (jd.mode == 'user'){
-                self.allowAddTip = false;
-                self.allowFilters = false;
-            }
-
-            this.signedIn = signedIn;
-
-            /*            getResults('/json/place', 'json', {place_id: place_id}, function(res){
-                if (res.status=='ok' || res.status=='not logged in'){
-                    
-                    self.all_tips=res.tips;
-                    self.shown_tips=res.tips;
-                    self.tagsFilter.placeTags=res.place_tags;
-                    self.newTipForm.allTags=res.all_tags;
-                    self.newTipForm.popularTags = res.all_tags.slice(0, 12);
-                    self.newTipForm.moreTags = res.all_tags.slice(12, 64);
-                    self.tagsFilter.placeTags.forEach(function(t){
-                        self.tagsFilter.selectedTags[t.name]=false;
-                    });
-                    console.log (JSON.stringify(res));
-                }
-            });*/
-        },
-
-        // EVENTS ********************************************************
-
-        events: {
-            'eFilterChanged': function(e){
-                var self = this;
-                this.tagsFilter.selectedTags[e.name] = e.value;
-
-                var hasSelected = false;
-
-                Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
-                    if (self.tagsFilter.selectedTags[t]){
-                        hasSelected = true;
-                    }
-                });
-
-                this.showAll = hasSelected ? false : true;
-
-                if (!this.showAll){
-                    this.filterTips();
-
-                } else {
-                    this.shown_tips = this.all_tips;
-                }
-                console.log (JSON.stringify(this.tips));
-            },
-
-            'eFilterOnly': function(e){
-                console.log(e);
-                var self = this;
-                this.showAll = false;
-                Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
-                    self.tagsFilter.selectedTags[t]=false;
-                });
-                this.tagsFilter.selectedTags[e.name]=true;
-                this.filterTips();
-                this.$broadcast('eSwitchFilterOn',{name: e.name});
-            },
-
-            'eCheckTipsOrder': function(e){
-                this.shown_tips.every(function(el, i){
-                    if (el.id == e.id) {
-                        el.upvoted = e.upvoted;
-                        el.downvoted = e.downvoted;
-                        return false;
-                    }
-                    else return true;
-                });
-                this.all_tips.every(function(el, i){
-                    if (el.id == e.id) {
-                        el.upvoted = e.upvoted;
-                        el.downvoted = e.downvoted;
-                        return false;
-                    }
-                    else return true;
-                });
-                console.log(JSON.stringify(this.shown_tips));
-                this.sortTips();
-            }
-        } 
+                    </div>'
+ 
 
 });

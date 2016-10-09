@@ -358,7 +358,7 @@ def user_events():
 @login_required
 @social.route('/my-tips', methods=['GET'])
 def my_tips():
-    tips = get_tips_data(current_user)
+    tips = get_tips_data(current_user.tips)
     print(tips)
     return render_template('my_tips.html', tips=tips)
 
@@ -483,8 +483,15 @@ def post_messenger():
 def public_profile(uid):
 
     u = User.query.get(uid)
-    td = get_tips_data(u)
-    td['mode'] = 'user'
+    td = get_tips_data(u.tips)
+    #td['mode'] = 'user'
+
+    td['config'] = {
+                        'page': 'public_profile',
+                        'allowFilters': False,
+                        'allowAddNewTip': False
+        }
+
     cuia = current_user.is_authenticated
     if cuia:
         notifications = Notification.count(current_user)
@@ -518,6 +525,14 @@ def public_profile(uid):
 def favorites():
     f = current_user.get_favorites()
     return render_template('favorites.html', favorites=f)
+
+
+# SUBSCRIPTIONS
+#=============================================================
+@login_required
+@social.route('/subscriptions')
+def subscriptions():
+    return render_template('subscriptions.html')
 
 
 # NOTIFIER

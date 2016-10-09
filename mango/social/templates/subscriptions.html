@@ -13,18 +13,12 @@
 {% block page_content %}
 <div class="container">
 
-    {{inline_menu('favorites')}}
+    {{inline_menu('subscriptions')}}
 
     <div class="row" id ="profile__main">
       <div class="col-lg-6 col-lg-offset-3">
 
-        {% for f in favorites %}
-          <div class="item-block notification notification-old has-cmd-bar">
-            <div class="item-block__body" >
-              {{f}}
-            </div>
-          </div>
-        {% endfor %}
+        subscr
 
 
       </div> <!-- col -->
@@ -39,6 +33,5 @@
 {% block scripts %}
     {{ super() }}
     <script src ="{{ url_for('static', filename="js/common.js") }}" type="text/javascript"></script>
-    <script src ="{{ url_for('geo.static', filename="js/tipsflow.js") }}" type="text/javascript"></script>
-    <script src ="{{ url_for('social.static', filename="js/favorites.js") }}" type="text/javascript"></script>
+    <script src ="{{ url_for('social.static', filename="js/subscriptions.js") }}" type="text/javascript"></script>
 {% endblock %}

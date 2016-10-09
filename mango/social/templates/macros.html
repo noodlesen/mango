@@ -14,6 +14,10 @@
                 inline-menu__item--selected
                 {% endif %}" href="{{url_for('social.user_events')}}">События <span class="badge serverNotsCount"></span></a>
             <a class="inline-menu__item 
+                {% if page=='subscriptions' %}
+                inline-menu__item--selected
+                {% endif %}" href="{{url_for('social.subscriptions')}}">Подписки</a>
+            <a class="inline-menu__item 
                 {% if page=='profile' %}
                 inline-menu__item--selected
                 {% endif %}" href="{{url_for('social.profile')}}">Профиль</a>

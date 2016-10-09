@@ -18,62 +18,15 @@ from . .mailer import Mailer
 from . .db import db
 
 
-# def get_tips_data(obj):
-#     # NON CACHED
-#     td = {}
-#     td['tips']=[]
-#     related_users_ids = []
-#     if current_user.is_authenticated:
-#         faves = Tip.favorited_by(current_user)
-#         likes = Tip.liked_by(current_user)
-#         dislikes = Tip.disliked_by(current_user)
-#     else:
-#         faves = []
-#         likes = []
-#         dislikes = []
-#     for t in obj.tips:
-#         favorite = True if t.id in faves else False
-#         like = True if t.id in likes else False
-#         dislike = True if t.id in dislikes else False
-#         comments = json.loads(t.comments) if t.comments else []
-#         for c in comments:
-#             related_users_ids.append(c['author_id'])
-#         tip = {"text":t.text, 
-#                 "tags":[],
-#                 "author":{'id':t.user.id, 'name':t.user.nickname},
-#                 'id':t.id,
-#                 'favorite':favorite,
-#                 'like':like,
-#                 'dislike':dislike,
-#                 'comments': comments,
-#                 'upvoted': t.chd_upvoted,
-#                 'downvoted': t.chd_downvoted,
-#                 'url': url_for('geo.single_tip', tid=t.id, _external = True)
-#                 }
-                
-#         for tag in t.tags:
-#             tip['tags'].append({"id": tag.id,
-#                                 "name": tag.name,
-#                                 "style": tag.style,
-#                                 "count": tag.count
-#                 })
-#         td['tips'].append(tip)
-    
-#     place_tags=[]
-#     for t in td['tips']:
-#         for tag in t['tags']:
-#             if tag not in place_tags:
-#                 place_tags.append(tag)
-#     td['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
 
-#     td['related_users']=[]
-#     ru = User.query.filter(User.id.in_(related_users_ids)).all()
-#     for u in ru:
-#         td['related_users'].append({"id": u.id, "nickname": u.nickname})
 
-#     return td
 
-def get_tips_data(obj):
+
+
+
+
+
+def get_tips_data(tips_list):
     # CACHED
     td = {}
     td['tips']=[]
@@ -86,7 +39,7 @@ def get_tips_data(obj):
         faves = []
         likes = []
         dislikes = []
-    for t in obj.tips:
+    for t in tips_list:
         favorite = True if t.id in faves else False
         like = True if t.id in likes else False
         dislike = True if t.id in dislikes else False
@@ -129,7 +82,15 @@ def get_tips_data(obj):
     return td
 
 
+
+
+
+
+
+
+
 #  PLACE ROUTES =========================================================
+
 
 # LEGACY URLS SUPPORT
 @geo.route('/places/id/<pid>', methods=['GET'])
@@ -148,7 +109,7 @@ def places(us):
     if p:
         jd ={}
         
-        td = get_tips_data(p)
+        td = get_tips_data(p.tips)
 
         jd.update(td)
 
@@ -158,7 +119,13 @@ def places(us):
             jd['all_tags'].append({"name":t.name, "style":t.style, "count":t.count})
 
 
-        jd['mode'] = 'place'
+        #jd['mode'] = 'place'
+
+        jd['config'] = {
+                        'page': 'place',
+                        'allowFilters': True,
+                        'allowAddNewTip': True
+        }
 
         subscribed = False
         if current_user.is_authenticated:
@@ -204,57 +171,6 @@ def place_subscribe():
 
 
 
-# @login_required
-# @geo.route('/json/place', methods=['POST'])
-# def json_place():
-#     res={}
-#     q = request.json
-#     place_id = q['place_id']
-#     p = Place.query.get(place_id)
-#     res['tips']=[]
-#     if current_user.is_authenticated:
-#         faves = Tip.favorited_by(current_user)
-#         likes = Tip.liked_by(current_user)
-#         dislikes = Tip.disliked_by(current_user)
-#     else:
-#         faves = []
-#         likes = []
-#         dislikes = []
-#     for t in p.tips:
-#         favorite = True if t.id in faves else False
-#         like = True if t.id in likes else False
-#         dislike = True if t.id in dislikes else False
-#         comments = json.loads(t.comments) if t.comments else []
-#         tip = {"text":t.text, 
-#                 "tags":[],
-#                 "author":{'id':t.user.id, 'name':t.user.nickname},
-#                 'id':t.id,
-#                 'favorite':favorite,
-#                 'like':like,
-#                 'dislike':dislike,
-#                 'comments': comments
-#                 }
-#         for tag in t.tags:
-#             tip['tags'].append({"id": tag.id,
-#                                 "name": tag.name,
-#                                 "style": tag.style,
-#                                 "count": tag.count
-#                 })
-#         res['tips'].append(tip)
-    
-#     place_tags=[]
-#     for t in res['tips']:
-#         for tag in t['tags']:
-#             if tag not in place_tags:
-#                 place_tags.append(tag)
-#     all_tags = Tag.query.order_by(desc(Tag.count)).all()
-#     res['all_tags']=[]
-#     for t in all_tags:
-#         res['all_tags'].append({"name":t.name, "style":t.style, "count":t.count})
-#     res['place_tags'] = sorted(place_tags, key=itemgetter('count'), reverse=True)
-#     res['status']='ok'
-
-#     return json.dumps(res)
 
 
 #  TIP ROUTES =========================================================
