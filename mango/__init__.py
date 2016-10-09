@@ -151,9 +151,9 @@ def page_not_found(e):
 def error413(e):
     return "Your error page for 413 status code", 413
 
-@app.route('/csrf-test', methods=['POST'])
-def csrf_test():
-    return ('okk')
+# @app.route('/csrf-test', methods=['POST'])
+# def csrf_test():
+#     return ('okk')
 
 
 

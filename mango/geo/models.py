@@ -12,6 +12,11 @@ class Direction(db.Model):
     countries = db.relationship('Country', backref='direction', lazy='dynamic')
 
 
+
+
+
+
+
 class Country(db.Model):
     __tablename__ = 'G_countries'
     id = db.Column(db.Integer, primary_key=True)
@@ -21,6 +26,11 @@ class Country(db.Model):
     direction_id = db.Column(db.Integer, db.ForeignKey('G_directions.id'))
     places = db.relationship('Place', backref='country', lazy='dynamic')
     old_kdb_id = db.Column(db.Integer)
+
+
+
+
+
 
 
 class Place(db.Model):
@@ -64,6 +74,11 @@ class Place(db.Model):
         return {"list": ap_list, "count": len(ap_list)}
 
 
+
+
+
+
+
 class GeoAlias(db.Model):
     __tablename__='G_aliases'
     id = db.Column(db.Integer, primary_key = True)
@@ -71,11 +86,21 @@ class GeoAlias(db.Model):
     location_id = db.Column(db.Integer, db.ForeignKey('G_places.id'))
 
 
+
+
+
+
+
 tags2tips = db.Table ('tags2tips',
        db.Column('tag_id', db.Integer, db.ForeignKey('tags.id')), 
        db.Column('tip_id', db.Integer, db.ForeignKey('tips.id'))
     )
 
+
+
+
+
+# TIP  RELATION CLASS ======================================================================
 class TipRelation():
 
     def get(user_id, rtype):
@@ -90,6 +115,12 @@ class TipRelation():
 
     def remove(user_id, tip_id, rtype):
         db.engine.execute('DELETE FROM `users2tips` WHERE `user_id`=%d AND `tip_id`=%d AND `type`="%s"' % (user_id, tip_id, rtype))
+
+
+
+
+
+# TIP CLASS ================================================================================
 
 class Tip(db.Model):
     __tablename__ = 'tips'
@@ -169,6 +200,10 @@ class Tip(db.Model):
 
 
 
+
+
+
+# TAG CLASS ==========================================================================================
 
 class Tag(db.Model):
     __tablename__ = 'tags'

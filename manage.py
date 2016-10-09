@@ -54,6 +54,9 @@ def check_tags():
     f.close()
 
 
+
+
+
 @manager.command
 def calculate_places_nearby():
     """ calculates distances between places with tips assigned
@@ -105,6 +108,10 @@ def calculate_places_nearby():
         place.chd_places_nearby = json.dumps(v)
         db.session.add(place)
         db.session.commit()
+
+
+
+
 
 
 @manager.command

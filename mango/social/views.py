@@ -353,6 +353,15 @@ def user_events():
             return (json.dumps({'status':'ok'}))
 
 
+# USER TIPS
+#=============================================================
+@login_required
+@social.route('/my-tips', methods=['GET'])
+def my_tips():
+    tips = get_tips_data(current_user)
+    print(tips)
+    return render_template('my_tips.html', tips=tips)
+
 
 # PRIVATE MESSAGES
 #=============================================================
