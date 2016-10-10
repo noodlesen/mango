@@ -182,6 +182,7 @@ var cTip = Vue.extend({
 
 
     template: '<div>\
+                <div class="tip__extra-top"></div>\
                 <div class="item-block tip has-cmd-bar" >\
                     <div class="tip-block__body" :class="{\'tip-upVoted\':upVote, \'tip-downVoted\':downVote}" >\
                             <div class="tip__top">\
@@ -317,11 +318,11 @@ Vue.component('tag', tag);
 
 // ================================================================================
 //                                                                               //
-//                      TIPFLOW VUE INSTANCE                                     //
+//                      TIPSFLOW VUE INSTANCE                                     //
 //                                                                               //
 // ================================================================================
 
-var tipFlow = new Vue({
+var tipsFlow = new Vue({
         
         el: '#tipsflow',
 
@@ -641,7 +642,7 @@ var tipFlow = new Vue({
         },
 
         template: '<div>\
-                    <div id="filters" class="hidden-xs" v-if="allowFilters">\
+                    <div id="filters" class="hidden-xs tips-sidebar" v-if="allowFilters">\
                         <div class="tags__list">\
                             <h2>Метки</h2>\
                             <div id="tag-list"><tag v-for="t in tagsFilter.placeTags" :name="t.name" :color="t.style" :active="false"></tag></div>\
@@ -650,7 +651,7 @@ var tipFlow = new Vue({
                     \
                     <!-- ==== TIPS COLUMN ==== -->\
                     \
-                    <div id="tips" :class="{\'tips-narrow\': allowFilters}">\
+                    <div id="tips" :class="{\'tips-1sb\': allowFilters}">\
                         <div v-show="!showingAddTipForm&&allowAddTip" id="add-tip-btn" @click="showAddTipForm">\
                             <span class="glyphicon glyphicon-plus-sign"></span>\
                             <span>Добавьте свой совет!</span>\

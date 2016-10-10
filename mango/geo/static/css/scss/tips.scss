@@ -4,10 +4,13 @@
     text-align: left;
 }
 
-#filters{
+.tips-sidebar{
     float: left;
     width:24%;
-    margin-right:2%;
+}
+
+#filters{
+    //margin-right:2%;
 
     h2{
         text-align: right;
@@ -25,15 +28,25 @@
     @include respond-to(xs) { width: 100% ;}
 }
 
-.tips-narrow{
+// legacy
+/* .tips-narrow{
     float: left;
     width:74%;
+} */
+
+.tips-1sb{
+    float: left;
+    width:74%;
+    margin-left: 2%;
 }
 
-/* #tips-full{
-    float: none;
-    width: 100%;
-} */
+.tips-2sb{
+    float: left;
+    width:48%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
 
 #tips__info{
     border-radius: 6px 6px 0 0 ;
