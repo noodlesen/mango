@@ -637,7 +637,7 @@ var tipsFlow = new Vue({
                     else return true;
                 });
                 console.log(JSON.stringify(this.shown_tips));
-                this.sortTips();
+                //this.sortTips();
             }
         },
 
