@@ -101,20 +101,20 @@ tags2tips = db.Table ('tags2tips',
 
 
 # TIP  RELATION CLASS ======================================================================
-class TipRelation():
+# class TipRelation():
 
-    def get(user_id, rtype):
-        sqlres = db.engine.execute('SELECT `tip_id` FROM `users2tips` WHERE `user_id`=%d AND `type`="%s"' % (user_id, rtype))
-        res=[]
-        for r in sqlres:
-            res.append(r[0])
-        return (res)
+#     def get(user_id, rtype):
+#         sqlres = db.engine.execute('SELECT `tip_id` FROM `users2tips` WHERE `user_id`=%d AND `type`="%s"' % (user_id, rtype))
+#         res=[]
+#         for r in sqlres:
+#             res.append(r[0])
+#         return (res)
 
-    def add(user_id, tip_id, rtype):
-        db.engine.execute('INSERT INTO `users2tips` (`user_id`, `tip_id`, `type`) VALUES (%d, %d, "%s")' % (user_id, tip_id, rtype))
+#     def add(user_id, tip_id, rtype):
+#         db.engine.execute('INSERT INTO `users2tips` (`user_id`, `tip_id`, `type`) VALUES (%d, %d, "%s")' % (user_id, tip_id, rtype))
 
-    def remove(user_id, tip_id, rtype):
-        db.engine.execute('DELETE FROM `users2tips` WHERE `user_id`=%d AND `tip_id`=%d AND `type`="%s"' % (user_id, tip_id, rtype))
+#     def remove(user_id, tip_id, rtype):
+#         db.engine.execute('DELETE FROM `users2tips` WHERE `user_id`=%d AND `tip_id`=%d AND `type`="%s"' % (user_id, tip_id, rtype))
 
 
 

@@ -121,12 +121,12 @@ class User (UserMixin, db.Model):
         lazy = 'dynamic')
 
     upvoted = db.relationship('Tip', 
-        secondary = users_favorites, 
+        secondary = users_upvotes, 
         backref = db.backref('upvoted_by', lazy = 'dynamic'), 
         lazy = 'dynamic')
 
     downvoted = db.relationship('Tip', 
-        secondary = users_favorites, 
+        secondary = users_downvotes, 
         backref = db.backref('downvoted_by', lazy = 'dynamic'), 
         lazy = 'dynamic')
 
@@ -146,7 +146,7 @@ class User (UserMixin, db.Model):
             db.session.commit()
 
     def is_upvoted(self, tip):
-        return self.upvoted.filter(users_favorites.c.tip_id == tip.id).count() > 0
+        return self.upvoted.filter(users_upvotes.c.tip_id == tip.id).count() > 0
 
     def upvote(self, tip):
         if not self.is_upvoted(tip):
@@ -167,7 +167,7 @@ class User (UserMixin, db.Model):
             db.session.commit()
 
     def is_downvoted(self, tip):
-        return self.downvoted.filter(users_favorites.c.tip_id == tip.id).count() > 0
+        return self.downvoted.filter(users_downvotes.c.tip_id == tip.id).count() > 0
 
     def downvote(self, tip):
         if not self.is_downvoted(tip):

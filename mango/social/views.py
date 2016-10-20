@@ -528,18 +528,27 @@ def public_profile(uid):
 # FAVORITES
 #=============================================================
 @login_required
-@social.route('/favorites')
+@social.route('/favorites', methods=['GET'])
 def favorites():
-    f = [] #  current_user.get_favorites()
-    return render_template('favorites.html', favorites=f)
+    tips = get_tips_data(current_user.faved)
+    tips['config'] = {
+                        'page': 'favorites',
+                        'allowFilters': False,
+                        'allowAddNewTip': False,
+                        'allowPlacesList':True
+                    }
+    return render_template('favorites.html',
+                            json_data=json.dumps(tips),
+                            signed_in=True
+                            )
 
 
-# SUBSCRIPTIONS
+# SUBSCRIPTIONS ***RESERVED***
 #=============================================================
-@login_required
-@social.route('/subscriptions')
-def subscriptions():
-    return render_template('subscriptions.html')
+# @login_required
+# @social.route('/subscriptions')
+# def subscriptions():
+#     return render_template('subscriptions.html')
 
 
 # NOTIFIER
