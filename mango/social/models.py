@@ -50,6 +50,27 @@ class UsersRelationship(db.Model):
     can_send_pm_to = db.Column(db.Boolean, default=True)
     user2 = db.Column(db.ForeignKey('users.id'))
 
+
+
+users_favorites = db.Table('users_favorites',
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+    db.Column('tip_id', db.Integer, db.ForeignKey('tips.id'))
+    )
+
+users_upvotes = db.Table('users_upvotes',
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+    db.Column('tip_id', db.Integer, db.ForeignKey('tips.id'))
+    )
+
+users_downvotes = db.Table('users_downvotes',
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+    db.Column('tip_id', db.Integer, db.ForeignKey('tips.id'))
+    )
+
+
+
+
+
 class User (UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
@@ -93,6 +114,78 @@ class User (UserMixin, db.Model):
     #         for f in faves:
     #             results.append(f[1])
     #     return results
+
+    faved = db.relationship('Tip', 
+        secondary = users_favorites, 
+        backref = db.backref('faved_by', lazy = 'dynamic'), 
+        lazy = 'dynamic')
+
+    upvoted = db.relationship('Tip', 
+        secondary = users_favorites, 
+        backref = db.backref('upvoted_by', lazy = 'dynamic'), 
+        lazy = 'dynamic')
+
+    downvoted = db.relationship('Tip', 
+        secondary = users_favorites, 
+        backref = db.backref('downvoted_by', lazy = 'dynamic'), 
+        lazy = 'dynamic')
+
+    def is_faved(self, tip):
+        return self.faved.filter(users_favorites.c.tip_id == tip.id).count() > 0
+
+    def fave(self, tip):
+        if not self.is_faved(tip):
+            self.faved.append(tip)
+            db.session.add(self)
+            db.session.commit()
+
+    def remove_fave(self, tip):
+        if self.is_faved(tip):
+            self.faved.remove(tip)
+            db.session.add(self)
+            db.session.commit()
+
+    def is_upvoted(self, tip):
+        return self.upvoted.filter(users_favorites.c.tip_id == tip.id).count() > 0
+
+    def upvote(self, tip):
+        if not self.is_upvoted(tip):
+            self.upvoted.append(tip)
+            tip.chd_upvoted += self.power
+            db.session.add(self)
+            db.session.add(tip)
+            db.session.commit()
+
+    def remove_upvote(self, tip):
+        if self.is_upvoted(tip):
+            self.upvoted.remove(tip)
+            tip.chd_upvoted -= self.power
+            if tip.chd_upvoted <0:
+                tip.chd_upvoted = 0
+            db.session.add(self)
+            db.session.add(tip)
+            db.session.commit()
+
+    def is_downvoted(self, tip):
+        return self.downvoted.filter(users_favorites.c.tip_id == tip.id).count() > 0
+
+    def downvote(self, tip):
+        if not self.is_downvoted(tip):
+            self.downvoted.append(tip)
+            tip.chd_downvoted += self.power
+            db.session.add(self)
+            db.session.add(tip)
+            db.session.commit()
+
+    def remove_downvote(self, tip):
+        if self.is_downvoted(tip):
+            self.downvoted.remove(tip)
+            tip.chd_downvoted -= self.power
+            if tip.chd_downvoted <0:
+                tip.chd_downvoted = 0
+            db.session.add(self)
+            db.session.add(tip)
+            db.session.commit()
 
     #=============================================
 

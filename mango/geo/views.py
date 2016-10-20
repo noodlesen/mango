@@ -31,18 +31,27 @@ def get_tips_data(tips_list):
     td = {}
     td['tips']=[]
     related_users_ids = []
-    if current_user.is_authenticated:
-        faves = Tip.favorited_by(current_user)
-        likes = Tip.liked_by(current_user)
-        dislikes = Tip.disliked_by(current_user)
-    else:
-        faves = []
-        likes = []
-        dislikes = []
+    # if current_user.is_authenticated:
+    #     faves = Tip.favorited_by(current_user)
+    #     likes = Tip.liked_by(current_user)
+    #     dislikes = Tip.disliked_by(current_user)
+    # else:
+    #     faves = []
+    #     likes = []
+    #     dislikes = []
+
     for t in tips_list:
-        favorite = True if t.id in faves else False
-        like = True if t.id in likes else False
-        dislike = True if t.id in dislikes else False
+        # favorite = True if t.id in faves else False
+        # like = True if t.id in likes else False
+        # dislike = True if t.id in dislikes else False
+        if current_user.is_authenticated:
+            favorite = current_user.is_faved(t)
+            like = current_user.is_upvoted(t)
+            dislike = current_user.is_downvoted(t)
+        else:
+            favorite = False
+            like = False
+            dislike = False
         comments = json.loads(t.comments) if t.comments else []
         chd_data = t.chd_data
         if not chd_data:
@@ -195,31 +204,33 @@ def json_tip():
         if q['cmd']=='setFavorite':
             tip = Tip.query.get(q['id'])
             if q['value'] is True:
-                tip.set_as_favorite(current_user)
+                #tip.set_as_favorite(current_user)
+                current_user.fave(tip)
             else:
-                tip.remove_favorite(current_user)
+                current_user.remove_fave(tip)
+                #tip.remove_favorite(current_user)
 
         elif q['cmd']=='clickUpVote':
             tip = Tip.query.get(q['id'])
             if q['selected']=="none":
-                tip.set_like(current_user)
+                current_user.upvote(tip)
             elif q['selected']=="upVote":
-                tip.remove_like(current_user)
+                current_user.remove_upvote(tip)
             elif q['selected']=="downVote":
-                tip.remove_dislike(current_user)
-                tip.set_like(current_user)
+                current_user.remove_downvote(tip)
+                current_user.upvote(tip)
             res['upvoted']=tip.chd_upvoted
             res['downvoted']=tip.chd_downvoted
 
         elif q['cmd']=='clickDownVote':
             tip = Tip.query.get(q['id'])
             if q['selected']=="none":
-                tip.set_dislike(current_user)
+                current_user.downvote(tip)
             elif q['selected']=="downVote":
-                tip.remove_dislike(current_user)
+                current_user.remove_downvote(tip)
             elif q['selected']=="upVote":
-                tip.remove_like(current_user)
-                tip.set_dislike(current_user)
+                current_user.remove_upvote(tip)
+                current_user.downvote(tip)
             res['upvoted']=tip.chd_upvoted
             res['downvoted']=tip.chd_downvoted
 
