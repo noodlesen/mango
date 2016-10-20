@@ -358,9 +358,16 @@ def user_events():
 @login_required
 @social.route('/my-tips', methods=['GET'])
 def my_tips():
-    tips = get_tips_data(current_user.tips)
-    print(tips)
-    return render_template('my_tips.html', tips=tips)
+    if current_user.is_authenticated:
+        tips = get_tips_data(current_user.tips)
+        tips['config'] = {
+                        'page': 'public_profile',
+                        'allowFilters': False,
+                        'allowAddNewTip': False
+                    }
+        return render_template('my_tips.html', json_data=json.dumps(tips), signed_in=True)
+    else:
+        return redirect(url_for('root'))
 
 
 # PRIVATE MESSAGES
@@ -523,7 +530,7 @@ def public_profile(uid):
 @login_required
 @social.route('/favorites')
 def favorites():
-    f = current_user.get_favorites()
+    f = [] #  current_user.get_favorites()
     return render_template('favorites.html', favorites=f)
 
 
