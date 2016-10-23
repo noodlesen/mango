@@ -41,7 +41,7 @@ var cTip = Vue.extend({
     },
     computed: {
         hasComments : function(){
-            return this.comments.length > 0;
+            return this.comments ? this.comments.length>0 : false;
         }
     },
     methods:{
@@ -223,7 +223,7 @@ var cTip = Vue.extend({
                                 <div class="clearfix"></div>\
                             </div>\
                         <div class="tip__main-text">\
-                           <slot></slot> <span class="plink comment-link" v-if="hasComments" @click="toggleShowComments"> <i class="fa fa-comment"></i>{{comments.length}}</span>\
+                           <slot></slot> <span class="plink comment-link" v-if="hasComments" @click="toggleShowComments"> <i class="fa fa-comment"></i>{{comments ? comments.length : 0}}</span>\
                         </div>\
                         <div class="tip__bottom">\
                         </div>\
@@ -250,7 +250,7 @@ var cTip = Vue.extend({
                                 <i class="fa fa-share-alt-square"></i> Поделиться\
                         </div>\
                         <div class="cmd-bar__button" @click="toggleShowComments">\
-                                <i class="fa fa-comment-o"></i> Комментарии\
+                                <i class="fa fa-comment-o"></i> Комментарии: {{comments ? comments.length : 0}}\
                         </div>\
                         </div>\
                         <div class="cmd-bar__right">\
@@ -375,7 +375,9 @@ var tipsFlow = new Vue({
             tagsText:'',
             addedTags:[],
             moreTags:[],
-            tipText:''
+            tipText:'',
+            error: false,
+            errorMessage:''
         },
 
         all_tips:[],
@@ -462,57 +464,72 @@ var tipsFlow = new Vue({
 
         submitTipForm: function(edit){
             var self=this;
-            getResults('/json/tip', 
-                        'json', 
-                        {
-                            cmd: edit ? 'edit' : 'addNew', 
-                            tags: this.newTipForm.addedTags, 
-                            text:this.newTipForm.tipText, 
-                            placeID: edit ? null : place_id,
-                            tipID: this.lastEdited
-                        },
-                        function(res){
-                            if (res.status=='ok'){
-                                self.showingTipForm = false;
-                                self.newTipForm.addedTags.forEach(function(t){
-                                    if (self.tagsFilter.placeTags.find(function(pt){return pt.name == t.name }) == undefined){
-                                        self.tagsFilter.placeTags.push(t);
-                                    }
-                                });
 
-                                if (!edit){
-                                    newTip = {
-                                        favorite: false,
-                                        like: false,
-                                        dislike: false,
-                                        upvoted:0,
-                                        downvoted:0,
-                                        text: self.newTipForm.tipText,
-                                        tags: self.newTipForm.addedTags,
-                                        author: {id: res.tip_data.author_id, name: res.tip_data.author_name},
-                                        id: res.tip_data.tip_id
-                                    };
-                                    self.all_tips.push(newTip);
-                                    self.shown_tips.push(newTip);
-                                } else {
-                                    self.shown_tips.every(function(el, i){
-                                        if (el.id == self.lastEdited){
-                                            alert('found');
-                                            el.text = self.newTipForm.tipText;
-                                            el.tags = self.newTipForm.addedTags;
+
+
+            if (self.newTipForm.addedTags.length==0){
+                self.newTipForm.error=true;
+                self.newTipForm.errorMessage='Добавьте хотя бы одну метку';
+            } else if (self.newTipForm.addedTags.length>5){
+                self.newTipForm.error=true;
+                self.newTipForm.errorMessage='Можно добавить не более пяти меток';
+            } else {
+                self.newTipForm.error=false;
+            }
+
+            console.log(JSON.stringify(self.newTipForm.addedTags));
+            console.log(self.newTipForm.error);
+            console.log(self.newTipForm.errorMessage);
+
+            if (!self.newTipForm.error){
+                getResults('/json/tip', 
+                            'json', 
+                            {
+                                cmd: edit ? 'edit' : 'addNew', 
+                                tags: this.newTipForm.addedTags, 
+                                text:this.newTipForm.tipText, 
+                                placeID: edit ? null : place_id,
+                                tipID: this.lastEdited
+                            },
+                            function(res){
+                                if (res.status=='ok'){
+                                    self.showingTipForm = false;
+                                    self.newTipForm.addedTags.forEach(function(t){
+                                        if (self.tagsFilter.placeTags.find(function(pt){return pt.name == t.name }) == undefined){
+                                            self.tagsFilter.placeTags.push(t);
                                         }
                                     });
+
+                                    if (!edit){
+                                        newTip = {
+                                            favorite: false,
+                                            like: false,
+                                            dislike: false,
+                                            upvoted:0,
+                                            downvoted:0,
+                                            text: self.newTipForm.tipText,
+                                            tags: self.newTipForm.addedTags,
+                                            author: {id: res.tip_data.author_id, name: res.tip_data.author_name},
+                                            id: res.tip_data.tip_id
+                                        };
+                                        self.all_tips.push(newTip);
+                                        self.shown_tips.push(newTip);
+                                    } else {
+                                        self.shown_tips.every(function(el, i){
+                                            if (el.id == self.lastEdited){
+                                                alert('found');
+                                                el.text = self.newTipForm.tipText;
+                                                el.tags = self.newTipForm.addedTags;
+                                            }
+                                        });
+                                    }
+                                    self.resetNewTipForm();
+
+                                } else {
+                                    alert('error');
                                 }
-                                
-
-
-                                self.resetNewTipForm();
-
-
-                            } else {
-                                alert('error');
-                            }
-                        });
+                            });
+            }
         },
 
         closeTipForm: function(){
@@ -522,14 +539,19 @@ var tipsFlow = new Vue({
 
         resetNewTipForm: function(){
             var popularTagsTemp = this.newTipForm.popularTags;
-            this.newTipForm = {
+  /*          this.newTipForm = {
                 allTags:[],
                 acTags:[],
                 tagsText:'',
                 addedTags:[],
                 moreTags:[],
                 tipText:''
-            }
+            }*/
+            this.newTipForm.tipText='';
+            this.newTipForm.addedTags=[];
+            //this.newTipForm.moreTags=[];
+            this.showingMoreTags = false;
+
             this.newTipForm.popularTags = popularTagsTemp;
         },
 
@@ -765,6 +787,7 @@ var tipsFlow = new Vue({
                                 </div>\
                             </div>\
                         </div><div class="divider"></div>\
+                        <div class="alert alert-danger" v-show="newTipForm.error">{{newTipForm.errorMessage}}</div>\
                         <button @click="closeTipForm" class="btn btn-large btn-default" style="width:15%" >Отмена</button>\
                         <button v-if="!allowEdit" @click="submitTipForm(allowEdit)" class="btn btn-large btn-primary" style="width:84%" >Сохранить мой совет</button>\
                         <button v-if="allowEdit" @click="submitTipForm(allowEdit)" class="btn btn-large btn-primary" style="width:84%" >Завершить редактирование</button>\
