@@ -304,6 +304,15 @@ def json_tip():
                                     extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
                                     )
 
+        elif q['cmd'] == "delete":
+            tip = Tip.query.get(q['id'])
+            if tip and tip.user_id == current_user.id:
+                db.session.delete(tip)
+                db.session.commit()
+            else:
+                res['status']='Error deleting the tip'
+
+
 
 
     else:

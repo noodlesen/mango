@@ -91,9 +91,18 @@
           </div>
           <div class="modal-body">
             <p>Всего один клик, и вы сможете сохранять понравившиеся советы в избранное, добавлять свои, комментировать и помогать авторам самых достоверных и полезных советов становиться популярнее!</p>
-            <a class="si-facebook"><span class="si-icon fa fa-facebook"></span>Войти через <strong>Facebook</strong></a>
-            <a class="si-vk"><span class="si-icon fa fa-vk"></span>Войти через <strong>ВКонтакте</strong></a>
-            <a class="si-google"><span class="si-icon fa fa-google"></span>Войти через <strong>Google</strong></a>
+            <a class="si-facebook" href="{{url_for('social.f_login')}}?follow={{request.path}}">
+                <span class="si-icon fa fa-facebook"></span>
+                Войти через <strong>Facebook</strong>
+            </a>
+            <a class="si-vk" href="{{url_for('social.v_login')}}?follow={{request.path}}">
+                <span class="si-icon fa fa-vk"></span>
+                Войти через <strong>ВКонтакте</strong>
+            </a>
+            <a class="si-google" href="{{url_for('social.g_login')}}?follow={{request.path}}">
+                <span class="si-icon fa fa-google"></span>
+                Войти через <strong>Google</strong>
+            </a>
             <p class="subtitle"><span class="glyphicon glyphicon-exclamation-sign"></span>Мы не получаем никакой информации кроме имени пользователя и его e-mail.<br/>И, разумеется, не делаем никаких публикаций от вашего имени.</p>
           </div>
           <div class="modal-footer">

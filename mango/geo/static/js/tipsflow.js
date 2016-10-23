@@ -25,7 +25,8 @@ var cTip = Vue.extend({
             showingComments: false,
             showingShare: false,
             commentText:'',
-            signedIn: false
+            signedIn: false,
+            pendingDelete: false
         }
     },
     ready:function(){
@@ -152,6 +153,25 @@ var cTip = Vue.extend({
             this.$dispatch('eEditTip', {id: this.id});
         },
 
+        askDelete: function(){
+            this.pendingDelete = true;
+        },
+
+        cancelDelete: function(){
+            this.pendingDelete = false;
+        },
+
+        confirmDelete: function(){
+            var self=this;
+            getResults('/json/tip','json',{cmd:'delete', id: this.id}, function(res){
+                console.log(res.status);
+                if (res.status=='ok'){
+                    self.pendingDelete = false;
+                    self.$dispatch('eTipRemoved', {id: self.id})
+                }
+            });
+        },
+
         filterByTag: function(name){
             this.$dispatch('eFilterOnly', {name: name});
             console.log(name);
@@ -240,8 +260,15 @@ var cTip = Vue.extend({
                         <div class="cmd-bar__button tip__edit-btn" v-if="edit" @click="clickEdit">\
                                 Редактировать\
                         </div>\
+                        <div class="cmd-bar__button tip__delete-btn" v-if="edit" @click="askDelete">\
+                            <span class="glyphicon glyphicon-trash"></span>\
+                        </div>\
                         </div>\
                         <div class="clearfix"></div>\
+                    </div>\
+                    <div class="confirm-delete" v-if="pendingDelete">Вы уверены, что хотите это удалить? \
+                        <span class="cmd-bar__button" @click="confirmDelete">Да, удаляем! </span>\
+                        <span class="cmd-bar__button" @click="cancelDelete"> Нет, нет, нет!</span>\
                     </div>\
                 </div>\
                 <div v-if="showingComments" class="comments">\
@@ -681,6 +708,12 @@ var tipsFlow = new Vue({
                     return false;
                 } else return true;
             });
+        },
+
+        'eTipRemoved': function(e){
+            var self = this;
+            this.all_tips = this.all_tips.filter(function(n){return n.id!=e.id});
+            this.shown_tips = this.shown_tips.filter(function(n){return n.id!=e.id});
         }
     },
 

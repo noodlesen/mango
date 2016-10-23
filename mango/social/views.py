@@ -95,7 +95,11 @@ def v_authorized():
     login_user(user)
     if just_registered:
         welcome_procedure()
-    return redirect(url_for('root'))
+    if "follow" in session:
+        next_url = session["follow"]
+    else:
+        next_url = url_for('root')
+    return redirect(next_url)
 
 
 @vk.tokengetter
@@ -157,7 +161,11 @@ def g_authorized():
     login_user(user)
     if just_registered:
         welcome_procedure()
-    return redirect(url_for('root'))
+    if "follow" in session:
+        next_url = session["follow"]
+    else:
+        next_url = url_for('root')
+    return redirect(next_url)
 
 
 @google.tokengetter
@@ -216,7 +224,11 @@ def f_authorized():
     login_user(user)
     if just_registered:
         welcome_procedure()
-    return redirect(url_for('root'))
+    if "follow" in session:
+        next_url = session["follow"]
+    else:
+        next_url = url_for('root')
+    return redirect(next_url)
 
 
 @facebook.tokengetter
