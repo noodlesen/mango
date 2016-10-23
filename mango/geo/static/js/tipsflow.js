@@ -359,11 +359,12 @@ var tipsFlow = new Vue({
         siModalShowing:true,
         signedIn:false,
         mode:'',
-        showingAddTipForm: false,
+        showingTipForm: false,
         showingMoreTags: false,
         allowAddTip: true,
         allowFilters: true,
-        allowEdit: false
+        allowEdit: false,
+        lastEdited: null
     },
 
     computed:{
@@ -432,46 +433,63 @@ var tipsFlow = new Vue({
             }); 
         },
 
-        submitAddTipForm: function(){
+        submitTipForm: function(edit){
             var self=this;
             getResults('/json/tip', 
                         'json', 
                         {
-                            cmd:'addNew', 
+                            cmd: edit ? 'edit' : 'addNew', 
                             tags: this.newTipForm.addedTags, 
                             text:this.newTipForm.tipText, 
-                            placeID: place_id
+                            placeID: edit ? null : place_id,
+                            tipID: this.lastEdited
                         },
                         function(res){
                             if (res.status=='ok'){
-                                self.showingAddTipForm = false;
+                                self.showingTipForm = false;
                                 self.newTipForm.addedTags.forEach(function(t){
                                     if (self.tagsFilter.placeTags.find(function(pt){return pt.name == t.name }) == undefined){
                                         self.tagsFilter.placeTags.push(t);
                                     }
                                 });
-                                newTip = {
-                                    favorite: false,
-                                    like: false,
-                                    dislike: false,
-                                    upvoted:0,
-                                    downvoted:0,
-                                    text: self.newTipForm.tipText,
-                                    tags: self.newTipForm.addedTags,
-                                    author: {id: res.tip_data.author_id, name: res.tip_data.author_name},
-                                    id: res.tip_data.tip_id
-                                };
-                                self.all_tips.push(newTip);
-                                self.shown_tips.push(newTip);
+
+                                if (!edit){
+                                    newTip = {
+                                        favorite: false,
+                                        like: false,
+                                        dislike: false,
+                                        upvoted:0,
+                                        downvoted:0,
+                                        text: self.newTipForm.tipText,
+                                        tags: self.newTipForm.addedTags,
+                                        author: {id: res.tip_data.author_id, name: res.tip_data.author_name},
+                                        id: res.tip_data.tip_id
+                                    };
+                                    self.all_tips.push(newTip);
+                                    self.shown_tips.push(newTip);
+                                } else {
+                                    self.shown_tips.every(function(el, i){
+                                        if (el.id == self.lastEdited){
+                                            alert('found');
+                                            el.text = self.newTipForm.tipText;
+                                            el.tags = self.newTipForm.addedTags;
+                                        }
+                                    });
+                                }
+                                
+
+
                                 self.resetNewTipForm();
+
+
                             } else {
                                 alert('error');
                             }
                         });
         },
 
-        closeAddTipForm: function(){
-            this.showingAddTipForm = false;
+        closeTipForm: function(){
+            this.showingTipForm = false;
             this.resetNewTipForm();
         },
 
@@ -543,9 +561,9 @@ var tipsFlow = new Vue({
         },
 
 
-        showAddTipForm: function(){
+        showTipForm: function(){
             if (signedIn){
-                this.showingAddTipForm = true;
+                this.showingTipForm = true;
             } else {
                 $('#si-modal').modal('show');
             }
@@ -653,13 +671,13 @@ var tipsFlow = new Vue({
         },
 
         'eEditTip': function(e){
-            //alert();
             var self=this;
-            this.showAddTipForm();
+            this.showTipForm();
             this.all_tips.every(function(el,i){
                 if (el.id == e.id){
                     self.newTipForm.tipText=el.text;
                     self.newTipForm.addedTags=el.tags;
+                    self.lastEdited = e.id;
                     return false;
                 } else return true;
             });
@@ -677,13 +695,13 @@ var tipsFlow = new Vue({
                 <!-- ==== TIPS COLUMN ==== -->\
                 \
                 <div id="tips" :class="{\'tips-1sb\': allowFilters}">\
-                    <div v-show="!showingAddTipForm&&allowAddTip" id="add-tip-btn" @click="showAddTipForm">\
+                    <div v-show="!showingTipForm&&allowAddTip" id="add-tip-btn" @click="showTipForm">\
                         <span class="glyphicon glyphicon-plus-sign"></span>\
                         <span>Добавьте свой совет!</span>\
                     </div>\
-                    <div v-if="showingAddTipForm" id="tip__add-new-form">\
+                    <div v-if="showingTipForm" id="tip__add-new-form">\
                         <div id="addTipForm__header"><h2><span v-if="!allowEdit">Добавьте свой</span><span v-if="allowEdit">Редактировать</span> совет</h2></div>\
-                        <div @click="closeAddTipForm" id="addTipForm__close"><span class="glyphicon glyphicon-remove"></span></div>\
+                        <div @click="closeTipForm" id="addTipForm__close"><span class="glyphicon glyphicon-remove"></span></div>\
                         <div class="clearfix"></div>\
                         <textarea v-model="newTipForm.tipText" id = "add-new-form__textarea" placeholder="Напишите здесь свой совет другим путешественникам..."></textarea>\
                         <div id="add-new-form__added-tags">\
@@ -714,8 +732,9 @@ var tipsFlow = new Vue({
                                 </div>\
                             </div>\
                         </div><div class="divider"></div>\
-                        <button @click="closeAddTipForm" class="btn btn-large btn-default" style="width:15%" >Отмена</button>\
-                        <button @click="submitAddTipForm" class="btn btn-large btn-primary" style="width:84%" >Сохранить мой совет</button>\
+                        <button @click="closeTipForm" class="btn btn-large btn-default" style="width:15%" >Отмена</button>\
+                        <button v-if="!allowEdit" @click="submitTipForm(allowEdit)" class="btn btn-large btn-primary" style="width:84%" >Сохранить мой совет</button>\
+                        <button v-if="allowEdit" @click="submitTipForm(allowEdit)" class="btn btn-large btn-primary" style="width:84%" >Завершить редактирование</button>\
                     </div>\
                     <div id="tips__info" v-if="!showAll" >\
                         <div>Показаны советы с метками: </div>\

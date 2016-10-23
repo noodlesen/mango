@@ -245,19 +245,26 @@ def json_tip():
             db.session.commit()
 
 
-        elif q['cmd']=='addNew':
-            tip = Tip()
+        elif q['cmd']=='addNew' or q['cmd']=='edit':
+            if q['cmd']=='addNew':
+                tip = Tip()
+                tip.user_id = current_user.id
+                tip.place_id = q['placeID']
+            else:
+                tip = Tip.query.get(q['tipID'])
+                if not tip or tip.user_id!=current_user.id:
+                    res['status']='Wrong id'
+                    return json.dumps(res)
+
             tip.text = q['text'].strip()
-            tip.user_id = current_user.id
-            tip.place_id = q['placeID']
             tag_names = q['tags']
 
             if tip.text!='' and len(tag_names)>0:
+
                 for tn in tag_names:
                     tag = Tag.query.filter_by(name=tn['name']).first()
                     if tag:
                         tip.tags.append(tag)
-                        
                     else:
                         new_tag = Tag()
                         new_tag.name = tn['name']
@@ -268,30 +275,34 @@ def json_tip():
                         
                 db.session.add(tip)
                 db.session.commit()
+                tip.cache_it()
                 res['tip_data']={'author_name': current_user.nickname, 'author_id':current_user.id, 'tip_id': tip.id}
 
+            if q['cmd'] == 'addNew':
+                msg = 'Новый совет от '+current_user.nickname
+                subscribed_users = UsersRelationship.query.filter_by(user2=current_user.id, follows=True)
+                for su in subscribed_users:
+                    Notification.add(
+                                    su.user1, 
+                                    'NP', 
+                                    msg, 
+                                    data=tip.text[:100]+"...", 
+                                    user_from=current_user.id,
+                                    extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
+                                    )
 
-            subscribed_users = UsersRelationship.query.filter_by(user2=current_user.id, follows=True)
-            for su in subscribed_users:
-                Notification.add(
-                                su.user1, 
-                                'NP', 
-                                'Новый совет от '+current_user.nickname, 
-                                data=tip.text[:100]+"...", 
-                                user_from=current_user.id,
-                                extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
-                                )
+                subscribed_users = UserToPlaceRelationship.query.filter_by(place_id=tip.place_id)
 
-            subscribed_users = UserToPlaceRelationship.query.filter_by(place_id=tip.place_id)
-            for su in subscribed_users:
-                Notification.add(
-                                su.user_id, 
-                                'NP', 
-                                tip.place.rus_name+': добавлен новый совет', 
-                                data=tip.text[:100]+"...", 
-                                user_from=current_user.id,
-                                extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
-                                )
+                msg = tip.place.rus_name+': добавлен новый совет'
+                for su in subscribed_users:
+                    Notification.add(
+                                    su.user_id, 
+                                    'NP', 
+                                    msg, 
+                                    data=tip.text[:100]+"...", 
+                                    user_from=current_user.id,
+                                    extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
+                                    )
 
 
 

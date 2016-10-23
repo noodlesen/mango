@@ -199,6 +199,15 @@ class Tip(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    def resetRating(self):
+        db.session.execute('DELETE FROM users_upvotes WHERE tip_id=%d' % self.id)
+        db.session.execute('DELETE FROM users_downvotes WHERE tip_id=%d' % self.id)
+        self.chd_downvoted = 0
+        self.chd_upvoted = 0
+        self.chd_rating = 0
+        db.session.add(self)
+        db.session.commit()
+
 
 
 
