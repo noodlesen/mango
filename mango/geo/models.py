@@ -134,6 +134,7 @@ class Tip(db.Model):
     chd_downvoted = db.Column(db.Integer, default=0)
     chd_rating = db.Column(db.Integer, default=0)
     chd_data = db.Column(db.Text)
+    timestamp = db.Column(db.Integer)
 
     #temp
     taglines = db.Column(db.Text)

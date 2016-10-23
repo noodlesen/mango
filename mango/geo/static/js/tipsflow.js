@@ -13,6 +13,9 @@ $(document).ready(function(){
 // ==================================================================================
 
 var cTip = Vue.extend({
+
+    props: ['tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit'],
+
     data: function(){
         return { 
             upVote: false,
@@ -145,6 +148,10 @@ var cTip = Vue.extend({
             
         },
 
+        clickEdit: function(){
+            this.$dispatch('eEditTip', {id: this.id});
+        },
+
         filterByTag: function(name){
             this.$dispatch('eFilterOnly', {name: name});
             console.log(name);
@@ -227,8 +234,11 @@ var cTip = Vue.extend({
                         </div>\
                         </div>\
                         <div class="cmd-bar__right">\
-                        <div class="cmd-bar__button tip__author">\
+                        <div class="cmd-bar__button tip__author" v-if="!edit">\
                                 <a href="/user/{{author.id}}" ><span class="glyphicon glyphicon-user"></span> {{author.name}}</a>\
+                        </div>\
+                        <div class="cmd-bar__button tip__edit-btn" v-if="edit" @click="clickEdit">\
+                                Редактировать\
                         </div>\
                         </div>\
                         <div class="clearfix"></div>\
@@ -245,9 +255,7 @@ var cTip = Vue.extend({
                     </div>\
                     <div class="divider"></div>\
                 </div>\
-                </div>',
-
-    props: ['tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url']
+                </div>'
 }); 
 
 Vue.component('c-tip', cTip);
@@ -323,404 +331,421 @@ Vue.component('tag', tag);
 // ================================================================================
 
 var tipsFlow = new Vue({
+    
+    el: '#tipsflow',
+
+    data: {
+        tagsFilter:{
+            placeTags:[],
+            selectedTags:{},
+            message:''
+        },
+
+        newTipForm:{
+            allTags:[],
+            acTags:[],
+            popularTags:[],
+            tagsText:'',
+            addedTags:[],
+            moreTags:[],
+            tipText:''
+        },
+
+        all_tips:[],
+        shown_tips:[],
+
+        // CONFIG / STATE
+        showAll: true,
+        siModalShowing:true,
+        signedIn:false,
+        mode:'',
+        showingAddTipForm: false,
+        showingMoreTags: false,
+        allowAddTip: true,
+        allowFilters: true,
+        allowEdit: false
+    },
+
+    computed:{
+        searchActive: function(){
+            return this.newTipForm.tagsText!='';
+        }
+    },
+
+
+    // READY
+    //............................
+    ready: function(){
         
-        el: '#tipsflow',
+        var self = this;
+        var jd = JSON.parse(jsonData);
 
-        data: {
-            tagsFilter:{
-                placeTags:[],
-                selectedTags:{},
-                message:''
-            },
+        self.allowFilters = jd.config.allowFilters ? true : false;
+        self.allowAddTip = jd.config.allowAddNewTip ? true : false;
+        self.allowEdit = jd.config.allowEdit ? true : false;
 
-            newTipForm:{
+        
+        //self.mode = jd.mode;
+        self.all_tips=jd.tips;
+        self.shown_tips=jd.tips;
+        self.sortTips();
+
+        self.tagsFilter.placeTags=jd.place_tags;
+
+        /*if (self.mode=='place'){
+            self.newTipForm.allTags=jd.all_tags;
+        } else {
+            self.newTipForm.allTags =[];
+        }*/
+        self.newTipForm.allTags=jd.all_tags;
+
+        console.log(JSON.stringify(jd.all_tags));
+
+
+        self.newTipForm.popularTags = self.newTipForm.allTags.slice(0, 12);
+        self.newTipForm.moreTags = self.newTipForm.allTags.slice(12, 64);
+        self.tagsFilter.placeTags.forEach(function(t){
+            self.tagsFilter.selectedTags[t.name]=false;
+        });
+        relatedUsers=jd.related_users;
+
+        /*if (self.mode == 'user'){
+            self.allowAddTip = false;
+            self.allowFilters = false;
+        }*/
+
+        
+
+
+
+        this.signedIn = signedIn;
+    },
+
+    // METHODS
+    //............................
+    methods: {
+
+        sortTips: function(){
+           this.shown_tips.sort(function(a,b){
+                var rating = function(t){ return t.upvoted - t.downvoted }
+                return rating(b) - rating(a);
+            }); 
+        },
+
+        submitAddTipForm: function(){
+            var self=this;
+            getResults('/json/tip', 
+                        'json', 
+                        {
+                            cmd:'addNew', 
+                            tags: this.newTipForm.addedTags, 
+                            text:this.newTipForm.tipText, 
+                            placeID: place_id
+                        },
+                        function(res){
+                            if (res.status=='ok'){
+                                self.showingAddTipForm = false;
+                                self.newTipForm.addedTags.forEach(function(t){
+                                    if (self.tagsFilter.placeTags.find(function(pt){return pt.name == t.name }) == undefined){
+                                        self.tagsFilter.placeTags.push(t);
+                                    }
+                                });
+                                newTip = {
+                                    favorite: false,
+                                    like: false,
+                                    dislike: false,
+                                    upvoted:0,
+                                    downvoted:0,
+                                    text: self.newTipForm.tipText,
+                                    tags: self.newTipForm.addedTags,
+                                    author: {id: res.tip_data.author_id, name: res.tip_data.author_name},
+                                    id: res.tip_data.tip_id
+                                };
+                                self.all_tips.push(newTip);
+                                self.shown_tips.push(newTip);
+                                self.resetNewTipForm();
+                            } else {
+                                alert('error');
+                            }
+                        });
+        },
+
+        closeAddTipForm: function(){
+            this.showingAddTipForm = false;
+            this.resetNewTipForm();
+        },
+
+        resetNewTipForm: function(){
+            var popularTagsTemp = this.newTipForm.popularTags;
+            this.newTipForm = {
                 allTags:[],
                 acTags:[],
-                popularTags:[],
                 tagsText:'',
                 addedTags:[],
                 moreTags:[],
                 tipText:''
-            },
-
-            all_tips:[],
-            shown_tips:[],
-
-            // CONFIG / STATE
-            showAll: true,
-            siModalShowing:true,
-            signedIn:false,
-            mode:'',
-            showingAddTipForm: false,
-            showingMoreTags: false,
-            allowAddTip: true,
-            allowFilters: true
+            }
+            this.newTipForm.popularTags = popularTagsTemp;
         },
 
-        computed:{
-            searchActive: function(){
-                return this.newTipForm.tagsText!='';
+
+        // ADD NEW TIP / TAGS METHODS
+        //............................
+        showMoreTags: function(){
+            this.showingMoreTags = !this.showingMoreTags;
+        },
+
+        createTag: function(){
+            var name = this.newTipForm.tagsText;
+            if(this.newTipForm.addedTags.filter(function(t){return t.name==name}).length==0){
+                var newTag = {name: name, style:'color-none', count:0};
+                this.newTipForm.addedTags.push(newTag); 
+                //this.newTipForm.createdTags.push(newTag); 
+                this.newTipForm.allTags.push(newTag); 
+                this.newTipForm.tagsText = '';
             }
         },
 
-
-        // READY
-        //............................
-        ready: function(){
-            
+        addTag: function(src, i){
+            console.log('addtag');
             var self = this;
-            var jd = JSON.parse(jsonData);
+            var target;
+            if (src=='ac'){
+                console.log('ac');
+                target = this.newTipForm.acTags;
+            } else if (src=='popular'){
+                target = this.newTipForm.popularTags;
+            } else if (src=='more'){
+                target = this.newTipForm.moreTags;
+                console.log('more');
+            }
 
-            self.allowFilters = jd.config.allowFilters ? true : false;
-            self.allowAddTip = jd.config.allowAddNewTip ? true : false;
-
-            
-            //self.mode = jd.mode;
-            self.all_tips=jd.tips;
-            self.shown_tips=jd.tips;
-            self.sortTips();
-
-            self.tagsFilter.placeTags=jd.place_tags;
-
-            /*if (self.mode=='place'){
-                self.newTipForm.allTags=jd.all_tags;
-            } else {
-                self.newTipForm.allTags =[];
-            }*/
-            self.newTipForm.allTags=jd.all_tags;
-
-
-            self.newTipForm.popularTags = self.newTipForm.allTags.slice(0, 12);
-            self.newTipForm.moreTags = self.newTipForm.allTags.slice(12, 64);
-            self.tagsFilter.placeTags.forEach(function(t){
-                self.tagsFilter.selectedTags[t.name]=false;
-            });
-            relatedUsers=jd.related_users;
-
-            /*if (self.mode == 'user'){
-                self.allowAddTip = false;
-                self.allowFilters = false;
-            }*/
-
-            
-
-
-
-            this.signedIn = signedIn;
+            if(this.newTipForm.addedTags.filter(function(t){return t.name==target[i].name}).length==0){
+                   this.newTipForm.addedTags.push(target[i]); 
+                   console.log(JSON.stringify(this.newTipForm.addedTags));
+            }
         },
 
-        // METHODS
-        //............................
-        methods:{
+        removeAddedTag: function(i){
+            console.log(i);
+            this.newTipForm.addedTags.splice(i,1);
+        },
 
-            sortTips: function(){
-               this.shown_tips.sort(function(a,b){
-                    var rating = function(t){ return t.upvoted - t.downvoted }
-                    return rating(b) - rating(a);
-                }); 
-            },
-
-            submitAddTipForm: function(){
-                var self=this;
-                getResults('/json/tip', 
-                            'json', 
-                            {
-                                cmd:'addNew', 
-                                tags: this.newTipForm.addedTags, 
-                                text:this.newTipForm.tipText, 
-                                placeID: place_id
-                            },
-                            function(res){
-                                if (res.status=='ok'){
-                                    self.showingAddTipForm = false;
-                                    self.newTipForm.addedTags.forEach(function(t){
-                                        if (self.tagsFilter.placeTags.find(function(pt){return pt.name == t.name }) == undefined){
-                                            self.tagsFilter.placeTags.push(t);
-                                        }
-                                    });
-                                    newTip = {
-                                        favorite: false,
-                                        like: false,
-                                        dislike: false,
-                                        upvoted:0,
-                                        downvoted:0,
-                                        text: self.newTipForm.tipText,
-                                        tags: self.newTipForm.addedTags,
-                                        author: {id: res.tip_data.author_id, name: res.tip_data.author_name},
-                                        id: res.tip_data.tip_id
-                                    };
-                                    self.all_tips.push(newTip);
-                                    self.shown_tips.push(newTip);
-                                    self.resetNewTipForm();
-                                } else {
-                                    alert('error');
-                                }
-                            });
-            },
-
-            closeAddTipForm: function(){
-                this.showingAddTipForm = false;
-                this.resetNewTipForm();
-            },
-
-            resetNewTipForm: function(){
-                var popularTagsTemp = this.newTipForm.popularTags;
-                this.newTipForm = {
-                    allTags:[],
-                    acTags:[],
-                    tagsText:'',
-                    addedTags:[],
-                    moreTags:[],
-                    tipText:''
-                }
-                this.newTipForm.popularTags = popularTagsTemp;
-            },
-
-
-            // ADD NEW TIP / TAGS METHODS
-            //............................
-            showMoreTags: function(){
-                this.showingMoreTags = !this.showingMoreTags;
-            },
-
-            createTag: function(){
-                var name = this.newTipForm.tagsText;
-                if(this.newTipForm.addedTags.filter(function(t){return t.name==name}).length==0){
-                    var newTag = {name: name, style:'color-none', count:0};
-                    this.newTipForm.addedTags.push(newTag); 
-                    //this.newTipForm.createdTags.push(newTag); 
-                    this.newTipForm.allTags.push(newTag); 
-                    this.newTipForm.tagsText = '';
-                }
-            },
-
-            addTag: function(src, i){
-                console.log('addtag');
+        tagsTextChanged:function(){
+                
                 var self = this;
-                var target;
-                if (src=='ac'){
-                    console.log('ac');
-                    target = this.newTipForm.acTags;
-                } else if (src=='popular'){
-                    target = this.newTipForm.popularTags;
-                } else if (src=='more'){
-                    target = this.newTipForm.moreTags;
-                    console.log('more');
-                }
+                var textTags = this.newTipForm.tagsText.split(',');
+                var needle = textTags[textTags.length-1].trim();
+                this.newTipForm.acTags = this.newTipForm.allTags.filter(function(t){
+                    return (t.name.lastIndexOf(needle, 0 ) == 0 &&  needle.trim()!='');
+                });
+                console.log(JSON.stringify(this.newTipForm.acTags));
+        },
 
-                if(this.newTipForm.addedTags.filter(function(t){return t.name==target[i].name}).length==0){
-                       this.newTipForm.addedTags.push(target[i]); 
-                       console.log(JSON.stringify(this.newTipForm.addedTags));
-                }
-            },
-            removeAddedTag: function(i){
-                console.log(i);
-                this.newTipForm.addedTags.splice(i,1);
-            },
-            tagsTextChanged:function(){
-                    
-                    var self = this;
-                    var textTags = this.newTipForm.tagsText.split(',');
-                    var needle = textTags[textTags.length-1].trim();
-                    this.newTipForm.acTags = this.newTipForm.allTags.filter(function(t){
-                        return (t.name.lastIndexOf(needle, 0 ) == 0 &&  needle.trim()!='');
+
+        showAddTipForm: function(){
+            if (signedIn){
+                this.showingAddTipForm = true;
+            } else {
+                $('#si-modal').modal('show');
+            }
+        },
+
+        // FILTER METHODS
+        //............................
+        resetFilters : function(){
+            this.selectedTags = {};
+            this.showAll = true;
+            this.shown_tips = this.all_tips;
+            this.$broadcast('eResetAllFilters');
+        },
+        
+        filterTips: function(){
+            var self = this;
+
+            self.tagsFilter.message = "";
+            Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
+                console.log(t);
+                if (self.tagsFilter.selectedTags[t]){
+                    var style='';
+                    self.tagsFilter.placeTags.forEach(function(f){
+                        if (f.name==t){
+                            style=f.style;
+                        }
                     });
-                    console.log(JSON.stringify(this.newTipForm.acTags));
-                    
-
-            },
-
-            showAddTipForm: function(){
-                if (signedIn){
-                    this.showingAddTipForm = true;
-                } else {
-                    $('#si-modal').modal('show');
+                    if (style != ''){
+                        style='back-'+style;
+                    }
+                    self.tagsFilter.message += '<span class="tip__tag '+style+'">'+t+"</span>";
                 }
                 
-            },
+            });
 
-            // FILTER METHODS
-            //............................
-            resetFilters : function(){
-                this.selectedTags = {};
-                this.showAll = true;
-                this.shown_tips = this.all_tips;
-                this.$broadcast('eResetAllFilters');
-            },
-            
-
-            filterTips: function(){
-                var self = this;
-
-                self.tagsFilter.message = "";
-                Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
-                    console.log(t);
-                    if (self.tagsFilter.selectedTags[t]){
-                        var style='';
-                        self.tagsFilter.placeTags.forEach(function(f){
-                            if (f.name==t){
-                                style=f.style;
-                            }
-                        });
-                        if (style != ''){
-                            style='back-'+style;
+            this.shown_tips=[];
+                this.all_tips.forEach(function(tip){
+                    tip.tags.forEach(function(tag){
+                        if (self.tagsFilter.selectedTags[tag.name]){
+                            self.shown_tips.push(tip);
                         }
-                        self.tagsFilter.message += '<span class="tip__tag '+style+'">'+t+"</span>";
-                    }
-                    
-                });
-
-                this.shown_tips=[];
-                    this.all_tips.forEach(function(tip){
-                        tip.tags.forEach(function(tag){
-                            if (self.tagsFilter.selectedTags[tag.name]){
-                                self.shown_tips.push(tip);
-                            }
-                        });
                     });
-            }
-        },
-
-        // EVENTS
-        //............................
-        events: {
-            'eFilterChanged': function(e){
-                var self = this;
-                this.tagsFilter.selectedTags[e.name] = e.value;
-
-                var hasSelected = false;
-
-                Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
-                    if (self.tagsFilter.selectedTags[t]){
-                        hasSelected = true;
-                    }
                 });
+        }
 
-                this.showAll = hasSelected ? false : true;
+    },
 
-                if (!this.showAll){
-                    this.filterTips();
+    // EVENTS
+    //............................
+    events: {
+        'eFilterChanged': function(e){
+            var self = this;
+            this.tagsFilter.selectedTags[e.name] = e.value;
 
-                } else {
-                    this.shown_tips = this.all_tips;
+            var hasSelected = false;
+
+            Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
+                if (self.tagsFilter.selectedTags[t]){
+                    hasSelected = true;
                 }
-                console.log (JSON.stringify(this.tips));
-            },
+            });
 
-            'eFilterOnly': function(e){
-                console.log(e);
-                var self = this;
-                this.showAll = false;
-                Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
-                    self.tagsFilter.selectedTags[t]=false;
-                });
-                this.tagsFilter.selectedTags[e.name]=true;
+            this.showAll = hasSelected ? false : true;
+
+            if (!this.showAll){
                 this.filterTips();
-                this.$broadcast('eSwitchFilterOn',{name: e.name});
-            },
 
-            'eCheckTipsOrder': function(e){
-                this.shown_tips.every(function(el, i){
-                    if (el.id == e.id) {
-                        el.upvoted = e.upvoted;
-                        el.downvoted = e.downvoted;
-                        return false;
-                    }
-                    else return true;
-                });
-                this.all_tips.every(function(el, i){
-                    if (el.id == e.id) {
-                        el.upvoted = e.upvoted;
-                        el.downvoted = e.downvoted;
-                        return false;
-                    }
-                    else return true;
-                });
-                console.log(JSON.stringify(this.shown_tips));
-                //this.sortTips();
+            } else {
+                this.shown_tips = this.all_tips;
             }
+            console.log (JSON.stringify(this.tips));
         },
 
-        template: '<div>\
-                    <div id="filters" class="hidden-xs tips-sidebar" v-if="allowFilters">\
-                        <div class="tags__list">\
-                            <h2>Метки</h2>\
-                            <div id="tag-list"><tag v-for="t in tagsFilter.placeTags" :name="t.name" :color="t.style" :active="false"></tag></div>\
-                        </div>\
-                    </div>\
-                    \
-                    <!-- ==== TIPS COLUMN ==== -->\
-                    \
-                    <div id="tips" :class="{\'tips-1sb\': allowFilters}">\
-                        <div v-show="!showingAddTipForm&&allowAddTip" id="add-tip-btn" @click="showAddTipForm">\
-                            <span class="glyphicon glyphicon-plus-sign"></span>\
-                            <span>Добавьте свой совет!</span>\
-                        </div>\
-                        <div v-if="showingAddTipForm" id="tip__add-new-form">\
-                            <div id="addTipForm__header"><h2>Добавьте свой совет</h2></div>\
-                            <div @click="closeAddTipForm" id="addTipForm__close"><span class="glyphicon glyphicon-remove"></span></div>\
-                            <div class="clearfix"></div>\
-                            <textarea v-model="newTipForm.tipText" id = "add-new-form__textarea" placeholder="Напишите здесь свой совет другим путешественникам..."></textarea>\
-                            <div id="add-new-form__added-tags">\
-                                    <span v-show="!newTipForm.addedTags.length">Добавьте от одной до пяти меток</span>\
-                                    <span class="form__added-tag back-{{t.style}}" transition="expand" v-for="t in newTipForm.addedTags"  @click="removeAddedTag($index)">\
-                                    {{t.name}}<span class="added-tag__remove-sign glyphicon glyphicon-remove" style="font-size:80%;"></span>\
-                                    </span>\
-                                </div>\
-                                \
-                            <div id="add-new-form__tags" >\
-                                <div class="add-new-form__popular-tags">\
-                                    <span class="form__main-tag back-{{t.style}}" v-for="t in newTipForm.popularTags" @click="addTag(\'popular\', $index)">\
-                                    {{t.name}}</span>\
-                                </div>\
-                                <div v-show="showingMoreTags" transition="expand">\
-                                    <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.moreTags" @click="addTag(\'more\', $index)">{{t.name}}</span>\
-                                </div>\
-                                <div v-show="showingMoreTags"  transition="expand" ><span class="plink" @click="showMoreTags">Свернуть</span></div>\
-                                <div v-show="!showingMoreTags"  transition="expand"><span class="plink" @click="showMoreTags">Показать больше</span></div>\
-                                <div id="add-new-form__search-tags" :class="{\'search-active\':searchActive}">\
-                                    <span class="glyphicon glyphicon-search"></span>\
-                                    <input placeholder="Найти или создать метку" type="text" id="add-new-form__tags-ta" @keyup="tagsTextChanged" @blur="tagsTextChanged" v-model="newTipForm.tagsText"></input>\
-                                    <div id="add-new-form__tags-ac">\
-                                        <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.acTags" @click="addTag(\'ac\', $index)">{{t.name}}</span>\
-                                    </div>\
-                                    <div v-show="searchActive && newTipForm.tagsText.length>1">\
-                                        <span class="plink" @click="createTag">Создать новую метку "{{newTipForm.tagsText}}"</span>\
-                                    </div>\
-                                </div>\
-                            </div><div class="divider"></div>\
-                            <button @click="closeAddTipForm" class="btn btn-large btn-default" style="width:15%" >Отмена</button>\
-                            <button @click="submitAddTipForm" class="btn btn-large btn-primary" style="width:84%" >Сохранить мой совет</button>\
-                        </div>\
-                        <div id="tips__info" v-if="!showAll" >\
-                            <div>Показаны советы с метками: </div>\
-                            <div id="filter-message" v-html="tagsFilter.message" ></div>\
-                            <div style="text-align:right" @click="resetFilters">\
-                                <span class="glyphicon glyphicon-remove"></span>\
-                                <span class="plink">Снять все фильтры</span></div>\
-                        </div>\
-                        \
-                        <!-- ==== TIPS CONTENT ==== -->\
-                        \
-                        <div id="tips-content">\
-                        <c-tip v-for="tip in shown_tips" \
-                                :tags="tip.tags" \
-                                :author="tip.author"\
-                                :id="tip.id" \
-                                :fave="tip.favorite" \
-                                :upvote="tip.like" \
-                                :downvote="tip.dislike" \
-                                :upvoted="tip.upvoted" \
-                                :downvoted="tip.downvoted" \
-                                :url="tip.url" \
-                                :comments="tip.comments">\
-                            {{tip.showThis}}\
-                            {{tip.text}}\
-                        </c-tip>\
-                        </div>\
-                    </div>\
-                    <div class="clearfix"></div>\
-                    </div>'
- 
+        'eFilterOnly': function(e){
+            console.log(e);
+            var self = this;
+            this.showAll = false;
+            Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
+                self.tagsFilter.selectedTags[t]=false;
+            });
+            this.tagsFilter.selectedTags[e.name]=true;
+            this.filterTips();
+            this.$broadcast('eSwitchFilterOn',{name: e.name});
+        },
 
+        'eCheckTipsOrder': function(e){
+            this.shown_tips.every(function(el, i){
+                if (el.id == e.id) {
+                    el.upvoted = e.upvoted;
+                    el.downvoted = e.downvoted;
+                    return false;
+                }
+                else return true;
+            });
+            this.all_tips.every(function(el, i){
+                if (el.id == e.id) {
+                    el.upvoted = e.upvoted;
+                    el.downvoted = e.downvoted;
+                    return false;
+                }
+                else return true;
+            });
+            console.log(JSON.stringify(this.shown_tips));
+            //this.sortTips();
+        },
+
+        'eEditTip': function(e){
+            //alert();
+            var self=this;
+            this.showAddTipForm();
+            this.all_tips.every(function(el,i){
+                if (el.id == e.id){
+                    self.newTipForm.tipText=el.text;
+                    self.newTipForm.addedTags=el.tags;
+                    return false;
+                } else return true;
+            });
+        }
+    },
+
+    template: '<div>\
+                <div id="filters" class="hidden-xs tips-sidebar" v-if="allowFilters">\
+                    <div class="tags__list">\
+                        <h2>Метки</h2>\
+                        <div id="tag-list"><tag v-for="t in tagsFilter.placeTags" :name="t.name" :color="t.style" :active="false"></tag></div>\
+                    </div>\
+                </div>\
+                \
+                <!-- ==== TIPS COLUMN ==== -->\
+                \
+                <div id="tips" :class="{\'tips-1sb\': allowFilters}">\
+                    <div v-show="!showingAddTipForm&&allowAddTip" id="add-tip-btn" @click="showAddTipForm">\
+                        <span class="glyphicon glyphicon-plus-sign"></span>\
+                        <span>Добавьте свой совет!</span>\
+                    </div>\
+                    <div v-if="showingAddTipForm" id="tip__add-new-form">\
+                        <div id="addTipForm__header"><h2><span v-if="!allowEdit">Добавьте свой</span><span v-if="allowEdit">Редактировать</span> совет</h2></div>\
+                        <div @click="closeAddTipForm" id="addTipForm__close"><span class="glyphicon glyphicon-remove"></span></div>\
+                        <div class="clearfix"></div>\
+                        <textarea v-model="newTipForm.tipText" id = "add-new-form__textarea" placeholder="Напишите здесь свой совет другим путешественникам..."></textarea>\
+                        <div id="add-new-form__added-tags">\
+                                <span v-show="!newTipForm.addedTags.length">Добавьте от одной до пяти меток</span>\
+                                <span class="form__added-tag back-{{t.style}}" transition="expand" v-for="t in newTipForm.addedTags"  @click="removeAddedTag($index)">\
+                                {{t.name}}<span class="added-tag__remove-sign glyphicon glyphicon-remove" style="font-size:80%;"></span>\
+                                </span>\
+                            </div>\
+                            \
+                        <div id="add-new-form__tags" >\
+                            <div class="add-new-form__popular-tags">\
+                                <span class="form__main-tag back-{{t.style}}" v-for="t in newTipForm.popularTags" @click="addTag(\'popular\', $index)">\
+                                {{t.name}}</span>\
+                            </div>\
+                            <div v-show="showingMoreTags" transition="expand">\
+                                <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.moreTags" @click="addTag(\'more\', $index)">{{t.name}}</span>\
+                            </div>\
+                            <div v-show="showingMoreTags"  transition="expand" ><span class="plink" @click="showMoreTags">Свернуть</span></div>\
+                            <div v-show="!showingMoreTags"  transition="expand"><span class="plink" @click="showMoreTags">Показать больше</span></div>\
+                            <div id="add-new-form__search-tags" :class="{\'search-active\':searchActive}">\
+                                <span class="glyphicon glyphicon-search"></span>\
+                                <input placeholder="Найти или создать метку" type="text" id="add-new-form__tags-ta" @keyup="tagsTextChanged" @blur="tagsTextChanged" v-model="newTipForm.tagsText"></input>\
+                                <div id="add-new-form__tags-ac">\
+                                    <span class="form__tag back-{{t.style}}" v-for="t in newTipForm.acTags" @click="addTag(\'ac\', $index)">{{t.name}}</span>\
+                                </div>\
+                                <div v-show="searchActive && newTipForm.tagsText.length>1">\
+                                    <span class="plink" @click="createTag">Создать новую метку "{{newTipForm.tagsText}}"</span>\
+                                </div>\
+                            </div>\
+                        </div><div class="divider"></div>\
+                        <button @click="closeAddTipForm" class="btn btn-large btn-default" style="width:15%" >Отмена</button>\
+                        <button @click="submitAddTipForm" class="btn btn-large btn-primary" style="width:84%" >Сохранить мой совет</button>\
+                    </div>\
+                    <div id="tips__info" v-if="!showAll" >\
+                        <div>Показаны советы с метками: </div>\
+                        <div id="filter-message" v-html="tagsFilter.message" ></div>\
+                        <div style="text-align:right" @click="resetFilters">\
+                            <span class="glyphicon glyphicon-remove"></span>\
+                            <span class="plink">Снять все фильтры</span></div>\
+                    </div>\
+                    \
+                    <!-- ==== TIPS CONTENT ==== -->\
+                    \
+                    <div id="tips-content">\
+                    <c-tip v-for="tip in shown_tips" \
+                            :tags="tip.tags" \
+                            :author="tip.author"\
+                            :id="tip.id" \
+                            :fave="tip.favorite" \
+                            :upvote="tip.like" \
+                            :downvote="tip.dislike" \
+                            :upvoted="tip.upvoted" \
+                            :downvoted="tip.downvoted" \
+                            :url="tip.url" \
+                            :edit="allowEdit"\
+                            :comments="tip.comments">\
+                        {{tip.showThis}}\
+                        {{tip.text}}\
+                    </c-tip>\
+                    </div>\
+                </div>\
+                <div class="clearfix"></div>\
+                </div>'
+ 
 });

@@ -187,6 +187,14 @@ class User (UserMixin, db.Model):
             db.session.add(tip)
             db.session.commit()
 
+    def get_place_actions(self, pid):
+        res={}
+        query = "SELECT f.tip_id, t.text FROM %s as f JOIN tips as t ON t.id=f.tip_id AND t.place_id=%d WHERE f.user_id=%d"
+        res['favorites'] = [n[0] for n in db.session.execute(query % ("users_favorites", pid, self.id))]
+        res['likes'] = [n[0] for n in db.session.execute(query % ("users_upvotes", pid, self.id))]
+        res['dislikes'] = [n[0] for n in db.session.execute(query % ("users_downvotes", pid, self.id))]
+        return res
+
     #=============================================
 
     def set_password(self, password):

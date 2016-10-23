@@ -21,7 +21,8 @@ from sqlalchemy import desc
 
 import requests
 
-from . .geo.views import get_tips_data
+from . .geo.views import get_tips_data, get_all_tags
+from . .geo.models import Tip
 
 
 
@@ -359,12 +360,15 @@ def user_events():
 @social.route('/my-tips', methods=['GET'])
 def my_tips():
     if current_user.is_authenticated:
+        #tips = get_tips_data(Tip.query.filter(Tip.user_id==current_user.id).limit(10))
         tips = get_tips_data(current_user.tips)
         tips['config'] = {
                         'page': 'public_profile',
                         'allowFilters': False,
-                        'allowAddNewTip': False
+                        'allowAddNewTip': False,
+                        'allowEdit': True
                     }
+        tips['all_tags'] = get_all_tags()
         return render_template('my_tips.html', json_data=json.dumps(tips), signed_in=True)
     else:
         return redirect(url_for('root'))
@@ -491,13 +495,15 @@ def public_profile(uid):
 
     u = User.query.get(uid)
     td = get_tips_data(u.tips)
+    #td = get_tips_data(Tip.query.filter(Tip.user_id==u.id).limit(10))
     #td['mode'] = 'user'
 
     td['config'] = {
                         'page': 'public_profile',
                         'allowFilters': False,
-                        'allowAddNewTip': False
+                        'allowAddNewTip': True
         }
+
 
     cuia = current_user.is_authenticated
     if cuia:

@@ -26,32 +26,30 @@ from . .db import db
 
 
 
-def get_tips_data(tips_list):
+def get_tips_data(tips_list, **kwargs):
     # CACHED
     td = {}
     td['tips']=[]
     related_users_ids = []
-    # if current_user.is_authenticated:
-    #     faves = Tip.favorited_by(current_user)
-    #     likes = Tip.liked_by(current_user)
-    #     dislikes = Tip.disliked_by(current_user)
-    # else:
-    #     faves = []
-    #     likes = []
-    #     dislikes = []
 
+    if current_user.is_authenticated and "place_id" in kwargs:
+        print()
+        print(kwargs["place_id"])
+        pa = current_user.get_place_actions(kwargs["place_id"])
+    else:
+        pa = {"favorites":[], "likes":[], "dislikes":[]}
     for t in tips_list:
-        # favorite = True if t.id in faves else False
-        # like = True if t.id in likes else False
-        # dislike = True if t.id in dislikes else False
-        if current_user.is_authenticated:
-            favorite = current_user.is_faved(t)
-            like = current_user.is_upvoted(t)
-            dislike = current_user.is_downvoted(t)
-        else:
-            favorite = False
-            like = False
-            dislike = False
+        favorite = True if t.id in pa["favorites"] else False
+        like = True if t.id in pa["likes"] else False
+        dislike = True if t.id in pa["dislikes"] else False
+        # if current_user.is_authenticated:
+        #     favorite = current_user.is_faved(t)
+        #     like = current_user.is_upvoted(t)
+        #     dislike = current_user.is_downvoted(t)
+        # else:
+        #     favorite = False
+        #     like = False
+        #     dislike = False
         comments = json.loads(t.comments) if t.comments else []
         chd_data = t.chd_data
         if not chd_data:
@@ -91,10 +89,12 @@ def get_tips_data(tips_list):
     return td
 
 
-
-
-
-
+def get_all_tags():
+    all_tags = Tag.query.order_by(desc(Tag.count)).all()
+    res=[]
+    for t in all_tags:
+        res.append({"name":t.name, "style":t.style, "count":t.count})
+    return res
 
 
 
@@ -118,17 +118,16 @@ def places(us):
     if p:
         jd ={}
         
-        td = get_tips_data(p.tips)
+        td = get_tips_data(p.tips, place_id=p.id)
 
         jd.update(td)
 
-        all_tags = Tag.query.order_by(desc(Tag.count)).all()
-        jd['all_tags']=[]
-        for t in all_tags:
-            jd['all_tags'].append({"name":t.name, "style":t.style, "count":t.count})
+        # all_tags = Tag.query.order_by(desc(Tag.count)).all()
+        # jd['all_tags']=[]
+        # for t in all_tags:
+        #     jd['all_tags'].append({"name":t.name, "style":t.style, "count":t.count})
 
-
-        #jd['mode'] = 'place'
+        jd['all_tags'] = get_all_tags()        
 
         jd['config'] = {
                         'page': 'place',
