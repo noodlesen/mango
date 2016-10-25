@@ -27,7 +27,6 @@ from . .db import db
 
 
 def get_tips_data(tips_list, **kwargs):
-    # CACHED
     td = {}
     td['tips']=[]
     related_users_ids = []
@@ -42,14 +41,6 @@ def get_tips_data(tips_list, **kwargs):
         favorite = True if t.id in pa["favorites"] else False
         like = True if t.id in pa["likes"] else False
         dislike = True if t.id in pa["dislikes"] else False
-        # if current_user.is_authenticated:
-        #     favorite = current_user.is_faved(t)
-        #     like = current_user.is_upvoted(t)
-        #     dislike = current_user.is_downvoted(t)
-        # else:
-        #     favorite = False
-        #     like = False
-        #     dislike = False
         comments = json.loads(t.comments) if t.comments else []
         chd_data = t.chd_data
         if not chd_data:
@@ -122,11 +113,6 @@ def places(us):
 
         jd.update(td)
 
-        # all_tags = Tag.query.order_by(desc(Tag.count)).all()
-        # jd['all_tags']=[]
-        # for t in all_tags:
-        #     jd['all_tags'].append({"name":t.name, "style":t.style, "count":t.count})
-
         jd['all_tags'] = get_all_tags()        
 
         jd['config'] = {
@@ -141,13 +127,13 @@ def places(us):
             if u2p:
                 subscribed = True
 
-        return render_template('place.html', 
-                                place=p, 
-                                json_data=json.dumps(jd), 
-                                airports=p.get_airports(),
-                                signed=current_user.is_authenticated,
-                                subscribed=subscribed
-                                )
+        return render_template('place.html',
+                               place=p,
+                               json_data=json.dumps(jd),
+                               airports=p.get_airports(),
+                               signed=current_user.is_authenticated,
+                               subscribed=subscribed
+                               )
 
     else:
         abort(404)
@@ -203,11 +189,9 @@ def json_tip():
         if q['cmd']=='setFavorite':
             tip = Tip.query.get(q['id'])
             if q['value'] is True:
-                #tip.set_as_favorite(current_user)
                 current_user.fave(tip)
             else:
                 current_user.remove_fave(tip)
-                #tip.remove_favorite(current_user)
 
         elif q['cmd']=='clickUpVote':
             tip = Tip.query.get(q['id'])

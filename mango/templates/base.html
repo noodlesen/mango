@@ -29,64 +29,64 @@
     
     <div id="navbar">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-5 col-xs-6" id="navbar__logo">
+
+                <div id="navbar__logo">
                     <a href="{{url_for('root')}}">
                         <img src="{{url_for('static', filename='images/kdb_logo_1x.png')}}" />
                     </a>
                 </div>
-                <div class="col-lg-5 col-md-5 col-sm-1" id="navbar__middle"></div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6" id="navbar__user">
 
-                    <div id="user__nickname">
-                    {% if current_user.is_authenticated %}
-                    
-                        <table><tr>
-
-                        
-                        <td class="user__alert serverNotsIndicator">
-                            <a href="{{url_for('social.user_events')}}" style="color:red">
-                                <span style="font-weight:bolder" class="serverNotsCount"></span>
-                            </a>
-                        </td>
-
-
-
-                        <td class="user__alert serverMsgIndicator">
-                            <a href="{{url_for('social.messenger')}}" style="color:red">
-                                <span style="font-weight:bolder" class="serverMsgCount">
-                                    
-                                </span>
-                            </a>
-                        </td>
-                        
-                        
-                        <td>
-                                <img style="float:left" 
-                                    src="{{current_user.get_avatar()}}" 
-                                    class="img img-responsive avatar-small" />
-                        </td>
-                        <td>
-                                <a class="hidden-xs" id="user__nickname-link" 
-                                    href="{{url_for('social.profile')}}">
-                                    {{current_user.nickname }}
-                                </a>
-                        </td>
-                        
-                        
-                        </tr></table>
-                    
-
-                    {% else %}
-                        Войдите с 
-                        <a href="{{url_for('social.g_login')}}"><span class="fa fa-google"></span></a>
-                        , <a href="{{url_for('social.f_login')}}"><span class="fa fa-facebook"></a>
-                         или <a href="{{url_for('social.v_login')}}"><span class="fa fa-vk"></a>
-                    {% endif %}
-                    </div>
+                <div class="divider visible-xs"></div>
+                
+                <div id="navbar__search">
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                    <input type="text" class="form-control" placeholder="Поиск мест">
                 </div>
 
-            </div>
+                
+                <div class="divider visible-xs"></div>
+                <div  id="navbar__user">
+                    <div id="user__nickname">
+                        {% if current_user.is_authenticated %}
+                            <table>
+                                <tr>
+                                    <td class="user__alert serverNotsIndicator">
+                                        <a href="{{url_for('social.user_events')}}" style="color:red">
+                                            <span style="font-weight:bolder" class="serverNotsCount"></span>
+                                        </a>
+                                    </td>
+                                    <td class="user__alert serverMsgIndicator">
+                                        <a href="{{url_for('social.messenger')}}" style="color:red">
+                                            <span style="font-weight:bolder" class="serverMsgCount"></span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <img style="float:left" 
+                                            src="{{current_user.get_avatar()}}" 
+                                            class="img img-responsive avatar-small" />
+                                    </td>
+                                    <td>
+                                        <a id="user__nickname-link" 
+                                            href="{{url_for('social.profile')}}">
+                                            {{current_user.nickname }}
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        {% else %}
+                            Войдите с 
+                                <a href="{{url_for('social.g_login')}}"><span class="fa fa-google"></span></a>
+                                , <a href="{{url_for('social.f_login')}}"><span class="fa fa-facebook"></a>
+                                 или <a href="{{url_for('social.v_login')}}"><span class="fa fa-vk"></a>
+                        {% endif %}
+                    </div><div class="clearfix"></div>
+
+                </div>
+                
+
+
+                <div class="clearfix"></div>
+
         </div>
     </div>
 

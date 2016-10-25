@@ -67,7 +67,6 @@ def v_authorized():
     ac_token  = resp['access_token']
     session['vk_token'] = (resp['access_token'], '')
 
-    #me = vk.get('userinfo', token=session['vk_token'])
     user_info = json.loads(
                     requests.get('https://api.vk.com/method/users.get?user_ids=%s&access_token=%s' % (resp['user_id'], ac_token))
                     .text)
@@ -87,9 +86,7 @@ def v_authorized():
         else:
             user.vk_id = uid
             user.vk_username = username
-            #user.image = me.data['image']
     user.last_login = datetime.utcnow()
-    #user.image = me.data['picture']
     db.session.add(user)
     db.session.commit()
     login_user(user)
@@ -153,9 +150,7 @@ def g_authorized():
         else:
             user.google_id = me.data['id']
             user.g_username = me.data['name']
-            #user.image = me.data['image']
     user.last_login = datetime.utcnow()
-    #user.image = me.data['picture']
     db.session.add(user)
     db.session.commit()
     login_user(user)
@@ -217,7 +212,6 @@ def f_authorized():
             user.facebook_id = me.data['id']
             user.f_username = me.data['name']
     user.last_login = datetime.utcnow()
-    #user.image = me.data['picture']['data']['url']
     print(me.data)
     db.session.add(user)
     db.session.commit()
@@ -261,10 +255,6 @@ def logout():
 @login_required
 def profile():
     u = current_user
-    # notifications = Notification.count(current_user)
-    # return render_template('profile.html', u=u,
-    #                         notifications_count=notifications['other'],
-    #                         messages_count=notifications['messages'])
     return render_template('profile.html', u=u)
 
 
@@ -357,13 +347,7 @@ def user_events():
     if request.method == 'GET':
         nots = Notification.get(current_user).order_by(desc(Notification.id))
         nots_history = NotificationHistory.query.filter_by(user_to=current_user.id).order_by(desc(NotificationHistory.id))
-        # notifications = Notification.count(current_user)
         return render_template('user_events.html', nots=nots, nots_history=nots_history)
-
-        # notifications = Notification.count(current_user)
-        # return render_template('user_events.html', nots=nots, nots_history=nots_history,
-        #                         notifications_count=notifications['other'],
-        #                         messages_count=notifications['messages'])
 
     elif request.method == 'POST':
         q = request.json
@@ -378,7 +362,6 @@ def user_events():
 @social.route('/my-tips', methods=['GET'])
 def my_tips():
     if current_user.is_authenticated:
-        #tips = get_tips_data(Tip.query.filter(Tip.user_id==current_user.id).limit(10))
         tips = get_tips_data(current_user.tips)
         tips['config'] = {
                         'page': 'public_profile',
@@ -399,7 +382,6 @@ def my_tips():
 def messenger():
     sel = request.args.get('user')
     u = current_user
-    #notifications = Notification.count(current_user)
     return render_template('messenger.html', u=u, sel=sel)
 
 
@@ -511,9 +493,6 @@ def public_profile(uid):
 
     u = User.query.get(uid)
     td = get_tips_data(u.tips)
-    #td = get_tips_data(Tip.query.filter(Tip.user_id==u.id).limit(10))
-    #td['mode'] = 'user'
-
     td['config'] = {
                         'page': 'public_profile',
                         'allowFilters': False,
@@ -522,10 +501,6 @@ def public_profile(uid):
 
 
     cuia = current_user.is_authenticated
-    # if cuia:
-    #     notifications = Notification.count(current_user)
-    # else:
-    #     notifications = {'other': 0, 'messages':0}
     if u:
         if cuia:
             ur = UsersRelationship.query.filter_by(user1=current_user.id, user2=u.id).first()
@@ -539,8 +514,6 @@ def public_profile(uid):
             can_send_pm = True
         return render_template('public_profile.html', u=u,
                             json_data=json.dumps(td),
-                            # notifications_count=notifications['other'],
-                            # messages_count=notifications['messages'],
                             subscribed=subscribed,
                             can_send_pm=can_send_pm,
                             signed_in=cuia)
