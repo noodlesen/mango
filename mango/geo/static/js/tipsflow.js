@@ -399,6 +399,10 @@ var tipsFlow = new Vue({
     computed:{
         searchActive: function(){
             return this.newTipForm.tagsText!='';
+        },
+
+        limitError: function(){
+            return this.newTipForm.tipText.length>600;
         }
     },
 
@@ -473,6 +477,9 @@ var tipsFlow = new Vue({
             } else if (self.newTipForm.addedTags.length>5){
                 self.newTipForm.error=true;
                 self.newTipForm.errorMessage='Можно добавить не более пяти меток';
+            } else if (self.limitError){
+                self.newTipForm.error=true;
+                self.newTipForm.errorMessage='Совет должен быть не более 600 символов';
             } else {
                 self.newTipForm.error=false;
             }
@@ -758,7 +765,8 @@ var tipsFlow = new Vue({
                         <div id="addTipForm__header"><h2><span v-if="!allowEdit">Добавьте свой</span><span v-if="allowEdit">Редактировать</span> совет</h2></div>\
                         <div @click="closeTipForm" id="addTipForm__close"><span class="glyphicon glyphicon-remove"></span></div>\
                         <div class="clearfix"></div>\
-                        <textarea v-model="newTipForm.tipText" id = "add-new-form__textarea" placeholder="Напишите здесь свой совет другим путешественникам..."></textarea>\
+                        <div style="text-align:right" :class="{\'error-text\':limitError}">{{newTipForm.tipText.length}}/600</div>\
+                        <textarea v-model="newTipForm.tipText" id = "add-new-form__textarea" :class="{\'error-text\':limitError}" placeholder="Напишите здесь свой совет другим путешественникам..."></textarea>\
                         <div id="add-new-form__added-tags">\
                                 <span v-show="!newTipForm.addedTags.length">Добавьте от одной до пяти меток</span>\
                                 <span class="form__added-tag back-{{t.style}}" transition="expand" v-for="t in newTipForm.addedTags"  @click="removeAddedTag($index)">\

@@ -136,6 +136,10 @@
     display: inline-block;
 }
 
+.error-text{
+    color: $dark-red;
+}
+
 #filter-message{
     border-radius: 6px;
     background-color: white;

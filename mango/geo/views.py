@@ -244,6 +244,17 @@ def json_tip():
             db.session.add(tip)
             db.session.commit()
 
+            msg = 'К вашему совету добавлен новый комментарий от пользователя '+current_user.nickname
+            Notification.add(
+                tip.user_id,
+                'NC',
+                msg,
+                data=q['text'][:100]+"...",
+                user_from=current_user.id,
+                extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
+            )
+
+
 
         elif q['cmd']=='addNew' or q['cmd']=='edit':
             if q['cmd']=='addNew':

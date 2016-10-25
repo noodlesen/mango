@@ -56,6 +56,24 @@
                 Профиль пользователя
               </a>
             </div>
+
+            {% elif n.ntype == 'NC' %}
+              <div class="item-block__body">
+                {{n.message}}
+                <div class="divider"></div>
+                {{n.data}}
+              </div>
+              <div class="cmd-bar">
+              <a href="{{n.get_extras()['tip_url']}}">
+                  <span class="glyphicon glyphicon-envelope"></span>
+                  Читать
+              </a>
+                <a 
+                href="{{url_for('social.public_profile', uid=n.user_from)}}">
+                <span class="glyphicon glyphicon-user"></span>
+                Профиль пользователя
+              </a>
+            </div>
             {% endif %}
 
 
