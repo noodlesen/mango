@@ -1,6 +1,9 @@
 
 var ev = new Event('eNotificationsUpdated');
 
+var serverHasMessages = 0;
+var serverHasNotifications = 0;
+
 function refreshIndicators(){
     
     if (serverHasMessages){
@@ -20,6 +23,7 @@ function refreshIndicators(){
 }
 
 function checkNotifications(){
+    console.log('checking');
     getResults('/notifier', 'json', {cmd:'checkNotifications'}, function(res){
         if (res.status=='ok'){
             serverHasMessages = res.messages;
@@ -32,7 +36,7 @@ function checkNotifications(){
 }
 
 $(document).ready(function(){
-    
-    refreshIndicators();
+    checkNotifications();
+    //refreshIndicators();
     setInterval(checkNotifications,20000);
 });

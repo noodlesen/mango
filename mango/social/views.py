@@ -253,16 +253,19 @@ def logout():
     return redirect(url_for('root'))
 
 
+
+
 # USER PROFILE
 #=============================================================
 @social.route('/profile')
 @login_required
 def profile():
     u = current_user
-    notifications = Notification.count(current_user)
-    return render_template('profile.html', u=u,
-                            notifications_count=notifications['other'],
-                            messages_count=notifications['messages'])
+    # notifications = Notification.count(current_user)
+    # return render_template('profile.html', u=u,
+    #                         notifications_count=notifications['other'],
+    #                         messages_count=notifications['messages'])
+    return render_template('profile.html', u=u)
 
 
 @social.route('/check-nick', methods=['POST'])
@@ -354,10 +357,13 @@ def user_events():
     if request.method == 'GET':
         nots = Notification.get(current_user).order_by(desc(Notification.id))
         nots_history = NotificationHistory.query.filter_by(user_to=current_user.id).order_by(desc(NotificationHistory.id))
-        notifications = Notification.count(current_user)
-        return render_template('user_events.html', nots=nots, nots_history=nots_history,
-                                notifications_count=notifications['other'],
-                                messages_count=notifications['messages'])
+        # notifications = Notification.count(current_user)
+        return render_template('user_events.html', nots=nots, nots_history=nots_history)
+
+        # notifications = Notification.count(current_user)
+        # return render_template('user_events.html', nots=nots, nots_history=nots_history,
+        #                         notifications_count=notifications['other'],
+        #                         messages_count=notifications['messages'])
 
     elif request.method == 'POST':
         q = request.json
@@ -393,10 +399,8 @@ def my_tips():
 def messenger():
     sel = request.args.get('user')
     u = current_user
-    notifications = Notification.count(current_user)
-    return render_template('messenger.html', u=u, sel=sel,
-                            notifications_count=notifications['other'],
-                            messages_count=notifications['messages'])
+    #notifications = Notification.count(current_user)
+    return render_template('messenger.html', u=u, sel=sel)
 
 
 @login_required
@@ -518,10 +522,10 @@ def public_profile(uid):
 
 
     cuia = current_user.is_authenticated
-    if cuia:
-        notifications = Notification.count(current_user)
-    else:
-        notifications = {'other': 0, 'messages':0}
+    # if cuia:
+    #     notifications = Notification.count(current_user)
+    # else:
+    #     notifications = {'other': 0, 'messages':0}
     if u:
         if cuia:
             ur = UsersRelationship.query.filter_by(user1=current_user.id, user2=u.id).first()
@@ -535,8 +539,8 @@ def public_profile(uid):
             can_send_pm = True
         return render_template('public_profile.html', u=u,
                             json_data=json.dumps(td),
-                            notifications_count=notifications['other'],
-                            messages_count=notifications['messages'],
+                            # notifications_count=notifications['other'],
+                            # messages_count=notifications['messages'],
                             subscribed=subscribed,
                             can_send_pm=can_send_pm,
                             signed_in=cuia)

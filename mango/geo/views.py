@@ -306,14 +306,15 @@ def json_tip():
 
                 msg = tip.place.rus_name+': добавлен новый совет'
                 for su in subscribed_users:
-                    Notification.add(
-                                    su.user_id, 
-                                    'NP', 
-                                    msg, 
-                                    data=tip.text[:100]+"...", 
-                                    user_from=current_user.id,
-                                    extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
-                                    )
+                    if su.user_id != current_user.id:
+                        Notification.add(
+                                        su.user_id, 
+                                        'NP', 
+                                        msg, 
+                                        data=tip.text[:100]+"...", 
+                                        user_from=current_user.id,
+                                        extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
+                                        )
 
         elif q['cmd'] == "delete":
             tip = Tip.query.get(q['id'])
