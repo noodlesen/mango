@@ -1,6 +1,7 @@
 import json
 from datetime import datetime
 from operator import itemgetter
+from alphabet_detector import AlphabetDetector
 
 from flask import session, request, url_for, redirect, render_template, flash, abort
 from flask.ext.login import login_user, login_required, logout_user, current_user
@@ -18,10 +19,7 @@ from . .mailer import Mailer
 from . .db import db
 
 
-
-
-
-
+ad = AlphabetDetector()
 
 
 
@@ -165,30 +163,21 @@ def place_subscribe():
 @geo.route('/json/place-search', methods=['POST'])
 def place_search():
     def get_places(field, needle):
+        urlbase = url_for('geo.places', us='')
         places = []
-        sql = "SELECT id, %s, `number` FROM G_places WHERE %s LIKE '%s%%'  ORDER BY `number` DESC LIMIT 25" % (field, field, needle)
+        sql = "SELECT id, %s, `number`, url_string FROM G_places WHERE %s LIKE '%s%%'  ORDER BY `number` DESC LIMIT 25" % (field, field, needle)
         print(sql)
         results = db.session.execute(sql)
         for r in results:
-            print (r[1])
-            places.append({"id": r[0], "name": r[1], "number": r[2]})
+            places.append({"id": r[0], "name": r[1], "number": r[2], "url": urlbase+r[3]})
         return places
 
     q = request.json
     res={"status":"ok", "places":[]}
-    res['places'] = get_places('rus_name', q['needle'])
-    if len(res['places'])<10:
+    if ad.is_cyrillic(q['needle']):
+        res['places'] = get_places('rus_name', q['needle'])
+    else:
         res['places'].extend(get_places('eng_name', q['needle']))
-    #needle = q['needle']
-    #sql = "SELECT id, rus_name, `number` FROM G_places WHERE rus_name LIKE '%s%%'  ORDER BY `number` DESC LIMIT 25" % q['needle'] 
-    #rus_places = db.session.execute(sql)
-    # for rp in rus_places:
-    #     res['places'].append({"id": rp[0], "name": rp[1], "number": rp[2]})
-    # if not res['places']:
-    #     sql = "SELECT id, eng_name, `number` FROM G_places WHERE eng_name LIKE '%s%%'  ORDER BY `number` DESC LIMIT 25" % q['needle'] 
-    #     eng_places = db.session.execute(sql)
-    #     for ep in eng_places:
-    #         res['places'].append({"id": ep[0], "name": ep[1], "number": ep[2]})
 
     return json.dumps(res)
 

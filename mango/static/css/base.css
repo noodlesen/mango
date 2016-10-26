@@ -468,13 +468,15 @@ body {
   color: white;
 }
 /* line 123, scss/base.scss */
-#search-results span {
+#search-results a {
+  color: white;
+  text-decoration: none;
   cursor: pointer;
   border-radius: 5px;
   border: 2px solid #0088cc;
 }
-/* line 127, scss/base.scss */
-#search-results span:hover {
+/* line 129, scss/base.scss */
+#search-results a:hover {
   border-color: white;
 }
 
