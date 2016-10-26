@@ -1,0 +1,2029 @@
+23121 | Blåvand   (6857 Blåvand, Дания, Дания ) | 
+54854 | Ubud   (Ubud, Ubud, Ubud, Gianyar, Bali, Индонезия, Индонезия ) | 
+23194 | Ebeltoft   (8400 Ebeltoft, Дания, Дания ) | 
+26076 | Calp   (Calp, Alicante, Испания, Испания ) | 
+23353 | Henne Strand   (Henne Strand, 6854 Henne, Дания, Дания ) | 
+52868 | Medulin   (Medulin, Хорватия, Хорватия ) | 
+23173 | Bøtø By   (Bøtø By, 4873 Væggerløse, Дания, Дания ) | 
+23640 | Rømø Kirkeby   (Rømø Kirkeby, 6792 Rømø, Дания, Дания ) | 
+6942 | Gramado   (Gramado, Gramado - RS, Бразилия, Бразилия ) | 
+64148 | Trapani   (91100 Trapani TP, Италия, Италия ) | 
+27688 | Xàbia   (03730 Xàbia, Alicante, Испания, Испания ) | 
+25682 | Benidorm   (Benidorm, Alicante, Испания, Испания ) | 
+23129 | Bolilmark   (6792 Bolilmark, Дания, Дания ) | 
+60007 | Gallipoli   (73014 Gallipoli LE, Италия, Италия ) | 
+23754 | Søndervig   (6950 Søndervig, Дания, Дания ) | 
+52536 | Fažana   (Fažana, Хорватия, Хорватия ) | 
+28243 | Lloret de Mar   (17310 Lloret de Mar, Girona, Испания, Испания ) | 
+53028 | Podstrana   (Podstrana, Хорватия, Хорватия ) | 
+52941 | Okrug Gornji   (Okrug Gornji, Хорватия, Хорватия ) | 
+85910 | Alanya   (Alanya, Alanya/Antalya, Турция, Турция ) | 
+23511 | Lønstrup   (9800 Lønstrup, Дания, Дания ) | 
+68151 | Kotor   (Kotor, Черногория, Черногория ) | 
+60527 | Lignano Sabbiadoro   (33054 Lignano Sabbiadoro UD, Италия, Италия ) | 
+23509 | Løkken   (9480 Løkken, Дания, Дания ) | 
+23116 | Bjerregård   (Bjerregård, 6960 Hvide Sande, Дания, Дания ) | 
+52952 | Orebić   (Orebić, Хорватия, Хорватия ) | 
+29892 | Salou   (43840 Salou, Tarragona, Испания, Испания ) | 
+58811 | Castellammare del Golfo   (91014 Castellammare del Golfo TP, Италия, Италия ) | 
+63887 | Taormina   (98039 Taormina ME, Италия, Италия ) | 
+52332 | Baška   (Baška, Хорватия, Хорватия ) | 
+7422 | Paraty   (Paraty, Paraty - RJ, Бразилия, Бразилия ) | 
+23340 | Hejls   (6094 Hejls, Дания, Дания ) | 
+63733 | Sorrento   (80067 Sorrento, Metropolitan City of Naples, Италия, Италия ) | 
+30424 | Sitges   (08870 Sitges, Barcelona, Испания, Испания ) | 
+54583 | Kuta   (Kuta, Kuta, Badung Regency, Bali, Индонезия, Индонезия ) | 
+25702 | Benissa   (03720 Benissa, Alicante, Испания, Испания ) | 
+59003 | Cefalù   (90015 Cefalù PA, Италия, Италия ) | 
+62970 | San Gimignano   (53037 San Gimignano, Province of Siena, Италия, Италия ) | 
+29403 | Pollença   (07460 Pollença, Illes Balears, Испания, Испания ) | 
+54437 | Canggu   (Canggu, North Kuta, Badung Regency, Bali, Индонезия, Индонезия ) | 
+96503 | tp. Hội An   (tp. Hội An, Quảng Nam, Вьетнам, Вьетнам ) | 
+53132 | Rogoznica   (Rogoznica, Хорватия, Хорватия ) | 
+52507 | Dramalj   (Dramalj, Хорватия, Хорватия ) | 
+57970 | Bibione   (Bibione VE, Италия, Италия ) | 
+68140 | HN   (Херцег - Нови, Черногория, Черногория ) | 
+23594 | Oksbøl   (6840 Oksbøl, Дания, Дания ) | 
+68228 | UL   (Улцинь, Черногория, Черногория ) | 
+23222 | Falen   (Falen, 6893 Hemmet, Дания, Дания ) | 
+63215 | San Vito Lo Capo   (91010 San Vito Lo Capo TP, Италия, Италия ) | 
+60909 | Matera   (75100 Matera, Province of Matera, Италия, Италия ) | 
+53370 | Vir   (23234, Vir, Хорватия, Хорватия ) | 
+62580 | Riccione   (47838 Riccione RN, Италия, Италия ) | 
+23351 | Hemmet   (6893 Hemmet, Дания, Дания ) | 
+84940 | Ao Nang Beach   (Ao Nang Beach, Ao Nang, Mueang Krabi District, Krabi 81180, Таиланд, Таиланд ) | 
+78477 | Vilamoura   (Vilamoura, 8125-507 Quarteira, Португалия, Португалия ) | 
+29797 | Roses   (Roses, Girona, Испания, Испания ) | 
+23122 | Blokhus   (9492 Blokhus, Дания, Дания ) | 
+63193 | San Teodoro   (08020 San Teodoro OT, Италия, Италия ) | 
+61724 | Ostuni   (72017 Ostuni BR, Италия, Италия ) | 
+58474 | Caorle   (30021 Caorle VE, Италия, Италия ) | 
+7551 | Porto de Galinhas   (Porto de Galinhas, Ipojuca - PE, Бразилия, Бразилия ) | 
+86175 | Fethiye   (Fethiye, Fethiye/Muğla, Турция, Турция ) | 
+85494 | Jomtien Beach   (Jomtien Beach, Chon Buri, Таиланд, Таиланд ) | 
+60849 | Marsala   (91025 Marsala TP, Италия, Италия ) | 
+26097 | Cambrils   (Cambrils, Tarragona, Испания, Испания ) | 
+52346 | Bibinje   (Bibinje, Хорватия, Хорватия ) | 
+86432 | Marmaris   (Marmaris, Marmaris/Muğla, Турция, Турция ) | 
+53176 | Šilo   (Šilo, Хорватия, Хорватия ) | 
+62778 | Rosolina Mare   (45010 Rosolina Mare RO, Италия, Италия ) | 
+61567 | Noto   (96017 Noto SR, Италия, Италия ) | 
+6674 | Campos do Jordão   (Campos do Jordão, Campos do Jordão - SP, Бразилия, Бразилия ) | 
+23301 | Grønhøj   (7470 Grønhøj, Дания, Дания ) | 
+68104 | Bar   (Bar, Черногория, Черногория ) | 
+60818 | Marina di Ragusa   (Marina di Ragusa, Province of Ragusa, Италия, Италия ) | 
+54499 | Gili Trawangan   (Gili Trawangan, Gili Indah, Pemenang, North Lombok Regency, West Nusa Tenggara, Индонезия, Индонезия ) | 
+71674 | Zandvoort   (Zandvoort, Нидерланды, Нидерланды ) | 
+12219 | Da Li Gu Cheng   (Da Li Gu Cheng, Dali Shi, Dali Baizuzizhizhou, Китай, Китай ) | 
+59472 | Cortona   (52044 Cortona, Province of Arezzo, Италия, Италия ) | 
+60090 | Giardini Naxos   (98035 Giardini Naxos ME, Италия, Италия ) | 
+23678 | Skovby   (8464 Skovby, Дания, Дания ) | 
+23322 | Harboøre   (7673 Harboøre, Дания, Дания ) | 
+52807 | Ližnjan   (Ližnjan, Хорватия, Хорватия ) | 
+6684 | Canela   (Canela, Canela - RS, Бразилия, Бразилия ) | 
+53074 | Privlaka   (Privlaka, Хорватия, Хорватия ) | 
+59361 | Como   (22100 Como CO, Италия, Италия ) | 
+23864 | Væggerløse   (4873 Væggerløse, Дания, Дания ) | 
+60266 | Imperia   (18100 Imperia IM, Италия, Италия ) | 
+7488 | Pipa Beach   (Pipa Beach, Tibau do Sul - State of Rio Grande do Norte, Бразилия, Бразилия ) | 
+52320 | Banjol   (51280, Banjol, Хорватия, Хорватия ) | 
+23393 | Humble   (5932 Humble, Дания, Дания ) | 
+27012 | Empuriabrava   (17487 Empuriabrava, Girona, Испания, Испания ) | 
+23510 | Lønne Hede   (Lønne Hede, 6830 Nørre Nebel, Дания, Дания ) | 
+60490 | Levanto   (19015 Levanto SP, Италия, Италия ) | 
+23225 | Fanø Vesterhavsbad   (Fanø Vesterhavsbad, 6720 Fanø, Дания, Дания ) | 
+62629 | Riva del Garda   (38066 Riva del Garda TN, Италия, Италия ) | 
+60157 | Grado   (34073 Grado GO, Италия, Италия ) | 
+86358 | Kemer   (Kemer, Kemer/Antalya, Турция, Турция ) | 
+66715 | Mirissa   (Mirissa, Шри-Ланка, Шри-Ланка ) | 
+66566 | Galle   (Galle, Шри-Ланка, Шри-Ланка ) | 
+70363 | Bergen   (Bergen, Нидерланды, Нидерланды ) | 
+62311 | Porto Cesareo   (73010 Porto Cesareo LE, Италия, Италия ) | 
+85962 | Ayvalık   (Ayvalık, 10400 Ayvalık/Balıkesir, Турция, Турция ) | 
+75366 | Kościelisko   (Kościelisko, Польша, Польша ) | 
+53161 | Selca   (Selca, Хорватия, Хорватия ) | 
+86009 | Bodrum   (Bodrum, Bodrum/Muğla Province, Турция, Турция ) | 
+58894 | Castelsardo   (07031 Castelsardo SS, Италия, Италия ) | 
+6901 | Foz do Iguaçu   (Foz do Iguaçu, Foz do Iguaçu - PR, Бразилия, Бразилия ) | 
+7017 | Ilhabela   (Ilhabela, Ilhabela - SP, Бразилия, Бразилия ) | 
+52659 | Jelsa   (Jelsa, Хорватия, Хорватия ) | 
+53236 | Starigrad   (Starigrad, Хорватия, Хорватия ) | 
+57451 | Agrigento   (92100 Agrigento AG, Италия, Италия ) | 
+61053 | Modica   (97015 Modica RG, Италия, Италия ) | 
+59102 | Cesenatico   (47042 Cesenatico FC, Италия, Италия ) | 
+23450 | Klegod   (Klegod, 6950 Ringkobing, Дания, Дания ) | 
+51397 | Chora   (Chora 840 08, Греция, Греция ) | 
+23275 | Gilleleje   (3250 Gilleleje, Дания, Дания ) | 
+53240 | Štinjan   (52100, Štinjan, Хорватия, Хорватия ) | 
+62194 | Polignano A Mare   (70044 Polignano A Mare BA, Италия, Италия ) | 
+23318 | Hals   (9370 Hals, Дания, Дания ) | 
+7310 | Morro de São Paulo   (Morro de São Paulo, Cairu - State of Bahia, Бразилия, Бразилия ) | 
+52395 | Brodarica   (22000, Brodarica, Хорватия, Хорватия ) | 
+61122 | Monopoli   (70043 Monopoli BA, Италия, Италия ) | 
+78856 | Eforie Nord   (Eforie Nord, Румыния, Румыния ) | 
+86069 | Çeşme   (Çeşme, Çeşme/İzmir, Турция, Турция ) | 
+27723 | L'Escala   (17130 L'Escala, Girona, Испания, Испания ) | 
+52325 | Barbat   (Barbat, Хорватия, Хорватия ) | 
+60440 | Lazise   (37017 Lazise VR, Италия, Италия ) | 
+57726 | Avola   (96012 Avola SR, Италия, Италия ) | 
+62354 | Positano   (84017 Positano SA, Италия, Италия ) | 
+57906 | Bellaria-Igea Marina   (Bellaria-Igea Marina, 47814 Bellaria RN, Италия, Италия ) | 
+52820 | Lovran   (Lovran, Хорватия, Хорватия ) | 
+53255 | Sukošan   (Sukošan, Хорватия, Хорватия ) | 
+57482 | Alberobello   (70011 Alberobello BA, Италия, Италия ) | 
+61141 | Montaione   (50050 Montaione FI, Италия, Италия ) | 
+29433 | Port de Pollença   (Port de Pollença, Illes Balears, Испания, Испания ) | 
+51463 | Oia   (Oia 847 02, Греция, Греция ) | 
+30759 | Tossa de Mar   (17320 Tossa de Mar, Girona, Испания, Испания ) | 
+62514 | Ragusa   (97100 Ragusa RG, Италия, Италия ) | 
+96490 | Hạ Long   (Hạ Long, Vân Đồn, Quảng Ninh, Вьетнам, Вьетнам ) | 
+85509 | Kata Beach   (Kata Beach, Karon, Mueang Phuket District, Phuket 83100, Таиланд, Таиланд ) | 
+60893 | Massa Lubrense   (80061 Massa Lubrense NA, Италия, Италия ) | 
+23403 | Hvide Sande   (6960 Hvide Sande, Дания, Дания ) | 
+23239 | Fjand Gårde   (Fjand Gårde, 6990 Ulfborg, Дания, Дания ) | 
+53569 | Balatonmáriafürdő   (Balatonmáriafürdő, Венгрия, Венгрия ) | 
+58962 | Cattolica   (47841 Cattolica RN, Италия, Италия ) | 
+63836 | Stresa   (28838 Stresa VB, Италия, Италия ) | 
+60546 | Lipari   (98050 Lipari, Province of Messina, Италия, Италия ) | 
+51395 | Naousa   (Naousa 592 00, Греция, Греция ) | 
+53071 | Primošten   (Primošten, Хорватия, Хорватия ) | 
+6447 | Arraial d'Ajuda   (Arraial d'Ajuda, Porto Seguro - BA, Бразилия, Бразилия ) | 
+85636 | Pai District   (Pai District, Mae Hong Son, Таиланд, Таиланд ) | 
+23051 | Ålbæk   (9982 Ålbæk, Дания, Дания ) | 
+63512 | Sciacca   (92019 Sciacca AG, Италия, Италия ) | 
+77418 | Ericeira   (2655 Ericeira, Португалия, Португалия ) | 
+52644 | Jadranovo   (Jadranovo, Хорватия, Хорватия ) | 
+85688 | Kata Beach   (Kata Beach, Karon, Mueang Phuket District, Phuket 83100, Таиланд, Таиланд ) | 
+85508 | Karon Beach   (Karon Beach, Karon, Mueang Phuket District, Phuket 83100, Таиланд, Таиланд ) | 
+23055 | Allinge   (3770 Allinge, Дания, Дания ) | 
+85572 | Lamai Beach   (Lamai Beach, Surat Thani, Таиланд, Таиланд ) | 
+53298 | Tribunj   (Tribunj, Хорватия, Хорватия ) | 
+61725 | Otranto   (73028 Otranto LE, Италия, Италия ) | 
+64616 | Villasimius   (09049 Villasimius CA, Италия, Италия ) | 
+63666 | Sirmione   (25019 Sirmione BS, Италия, Италия ) | 
+52926 | Njivice   (Njivice, Хорватия, Хорватия ) | 
+59585 | Desenzano del Garda   (25015 Desenzano del Garda BS, Италия, Италия ) | 
+30270 | Santiago de Compostela   (Santiago de Compostela, A Coruña, Испания, Испания ) | 
+61950 | Peschiera del Garda   (37019 Peschiera del Garda VR, Италия, Италия ) | 
+60673 | Madonna di Campiglio   (38086 Madonna di Campiglio TN, Италия, Италия ) | 
+23314 | Hadsund   (9560 Hadsund, Дания, Дания ) | 
+53365 | Vinišće   (Vinišće, Хорватия, Хорватия ) | 
+52832 | Lumbarda   (Lumbarda, Хорватия, Хорватия ) | 
+57634 | Arezzo   (52100 Arezzo, Province of Arezzo, Италия, Италия ) | 
+53567 | Balatonlelle   (Balatonlelle, 8638 Венгрия, Венгрия ) | 
+23469 | Kramnitse   (Kramnitse, 4970 Rødby, Дания, Дания ) | 
+85431 | Bo Put   (Международный аэропорт Самуи, Bo Put, Ko Samui District, Сураттхани 84320, Таиланд, Таиланд ) | 
+64482 | Viareggio   (55049 Viareggio LU, Италия, Италия ) | 
+96484 | Phu Quoc   (Зыонгдонг, Dương Tơ, Phu Quoc, Phú Quốc Kiên Giang, Вьетнам, Вьетнам ) | 
+63556 | Selva   (39048 Selva di Val Gardena BZ, Италия, Италия ) | 
+52333 | Baška Voda   (Baška Voda, Хорватия, Хорватия ) | 
+7300 | Monte Verde   (Monte Verde, Camanducaia - MG, Бразилия, Бразилия ) | 
+85424 | Bang Tao Beach   (Bang Tao Beach, Phuket 83110, Таиланд, Таиланд ) | 
+23599 | Otterup   (5450 Otterup, Дания, Дания ) | 
+53048 | Postira   (Postira, Хорватия, Хорватия ) | 
+6974 | Guarujá   (Guarujá, Guarujá - SP, Бразилия, Бразилия ) | 
+57546 | Amalfi   (84011 Amalfi SA, Италия, Италия ) | 
+23270 | Gedser   (4874 Gedser, Дания, Дания ) | 
+23822 | Vejers Strand   (6853 Vejers Strand, Дания, Дания ) | 
+53062 | Premantura   (Premantura, Хорватия, Хорватия ) | 
+136 | Ksamil   (Ksamil 9706, Албания, Албания ) | 
+61227 | Montecatini Terme   (51016 Montecatini Terme, Province of Pistoia, Италия, Италия ) | 
+53159 | Seget Vranjica   (Seget Vranjica, Хорватия, Хорватия ) | 
+57837 | Bardolino   (37011 Bardolino VR, Италия, Италия ) | 
+53192 | Slatine   (Slatine, Хорватия, Хорватия ) | 
+23753 | Sønderho   (6720 Sønderho, Дания, Дания ) | 
+57801 | Balestrate   (90041 Balestrate PA, Италия, Италия ) | 
+85460 | Choeng Mon Beach   (Choeng Mon Beach, Таиланд ) | 
+61187 | Costa Rei   (09043 Costa Rei, Province of Cagliari, Италия, Италия ) | 
+52999 | Petrčane   (Petrčane, Хорватия, Хорватия ) | 
+54596 | Lembongan   (Lembongan, Индонезия, Индонезия ) | 
+63240 | Сан-Pемо   (18038 Сан-Pемо, Империя, Италия, Италия ) | 
+60863 | Martina Franca   (74015 Martina Franca TA, Италия, Италия ) | 
+7953 | Trancoso   (Trancoso, Porto Seguro - State of Bahia, Бразилия, Бразилия ) | 
+53287 | Tisno   (Tisno, Хорватия, Хорватия ) | 
+61319 | Montepulciano   (53045 Montepulciano SI, Италия, Италия ) | 
+63826 | Stintino   (07040 Stintino SS, Италия, Италия ) | 
+53335 | Vela Luka   (Vela Luka, Хорватия, Хорватия ) | 
+51835 | Skiathos   (Skiathos 370 02, Греция, Греция ) | 
+53116 | Ražanj   (Ražanj, Хорватия, Хорватия ) | 
+7587 | Praia do Rosa   (Praia do Rosa, Santa Catarina, Бразилия, Бразилия ) | 
+7937 | Tiradentes   (Tiradentes, Tiradentes - MG, Бразилия, Бразилия ) | 
+53024 | Podgora   (Podgora, Хорватия, Хорватия ) | 
+61011 | Milano Marittima   (48015 Milano Marittima RA, Италия, Италия ) | 
+58425 | Canazei   (Canazei TN, Италия, Италия ) | 
+23371 | Ho   (Ho, 6857 Varde, Дания, Дания ) | 
+6572 | Bombinhas   (Bombinhas, Bombinhas - SC, Бразилия, Бразилия ) | 
+60711 | Malcesine   (37018 Malcesine VR, Италия, Италия ) | 
+28214 | Llançà   (17490 Llançà, Girona, Испания, Испания ) | 
+23423 | Jerup   (9981 Jerup, Дания, Дания ) | 
+58323 | Camaiore   (55041 Camaiore LU, Италия, Италия ) | 
+64235 | Tropea   (89861 Tropea VV, Италия, Италия ) | 
+60951 | Menaggio   (22017 Menaggio CO, Италия, Италия ) | 
+63513 | Scicli   (97018 Scicli RG, Италия, Италия ) | 
+23648 | Saltum   (9493 Saltum, Дания, Дания ) | 
+52321 | Banjole   (Banjole, Хорватия, Хорватия ) | 
+64430 | Verbania   (28922 Verbania VB, Италия, Италия ) | 
+71111 | Noordwijk aan Zee   (Noordwijk aan Zee, 2202 Noordwijk, Нидерланды, Нидерланды ) | 
+85514 | Khao Lak   (Khao Lak ตำบล ลำแก่น อำเภอ ท้ายเหมือง พังงา 82210, Таиланд, Таиланд ) | 
+64089 | Torre San Giovanni   (73059 Torre San Giovanni LE, Италия, Италия ) | 
+68220 | Sveti Stefan   (Sveti Stefan, Черногория, Черногория ) | 
+57901 | Bellagio   (22021 Bellagio CO, Италия, Италия ) | 
+23352 | Henne   (6854 Henne, Дания, Дания ) | 
+53055 | Povljana   (23249, Povljana, Хорватия, Хорватия ) | 
+23415 | Idestrup   (4872 Idestrup, Дания, Дания ) | 
+53413 | Žaborić   (Žaborić, Хорватия, Хорватия ) | 
+62888 | San Benedetto del Tronto   (63074 San Benedetto del Tronto AP, Италия, Италия ) | 
+23820 | Vejby   (3210 Vejby, Дания, Дания ) | 
+52606 | Grebaštica   (Grebaštica, Хорватия, Хорватия ) | 
+7049 | Itacaré   (Itacaré, Itacaré - BA, Бразилия, Бразилия ) | 
+83923 | Municipality of Bohinj   (Municipality of Bohinj, Словения, Словения ) | 
+25060 | Alcúdia   (07400 Alcúdia, Illes Balears, Испания, Испания ) | 
+61491 | Nardò   (Nardò LE, Италия, Италия ) | 
+53087 | Punat   (Punat, Хорватия, Хорватия ) | 
+53395 | Vrboska   (Vrboska, Хорватия, Хорватия ) | 
+52630 | Ičići   (51414, Ičići, Хорватия, Хорватия ) | 
+61621 | Olbia   (07026 Olbia OT, Италия, Италия ) | 
+13815 | Xitangzhen   (Xitangzhen, Jiashan, Jiaxing, Zhejiang, Китай, 314102, Китай ) | 
+85500 | Kamala Beach   (Kamala Beach, Kammala, Kathu District, Phuket 83120, Таиланд, Таиланд ) | 
+62761 | Rosapineta   (45010 Rosapineta RO, Италия, Италия ) | 
+51214 | Loutra Edipsou   (Loutra Edipsou 343 00, Греция, Греция ) | 
+50760 | Imerovigli   (Imerovigli 847 00, Греция, Греция ) | 
+62281 | Ponza   (04027 Ponza LT, Италия, Италия ) | 
+86633 | Ürgüp   (Ürgüp, Ürgüp/Nevşehir, Турция, Турция ) | 
+96885 | Bloubergstrand   (Bloubergstrand, Cape Town, 7441, Южная Африка, ЮАР ) | 
+26073 | Calonge   (17251 Calonge, Girona, Испания, Испания ) | 
+60190 | Greve in Chianti   (50022 Greve in Chianti FI, Италия, Италия ) | 
+7014 | Ilha Grande   (Ilha Grande, Ilha Grande - PI, Бразилия, Бразилия ) | 
+62340 | Portoferraio   (57037 Portoferraio LI, Италия, Италия ) | 
+86011 | Boğaziçi   (Boğaziçi, 81620 Boğaziçi/Düzce Merkez/Düzce, Турция, Турция ) | 
+53261 | Supetarska Draga   (Supetarska Draga, Хорватия, Хорватия ) | 
+63506 | Scena   (39017 Scena BZ, Италия, Италия ) | 
+64337 | Valledoria   (07039 Valledoria SS, Италия, Италия ) | 
+59735 | Favignana   (91023 Favignana TP, Италия, Италия ) | 
+23835 | Øster Sømarken   (3720 Øster Sømarken, Дания, Дания ) | 
+23839 | Vestervig   (7770 Vestervig, Дания, Дания ) | 
+91257 | IVGID   (Инклайн Виллидж, Невада 89451, США, США ) | 
+75175 | Jastrzębia Góra   (Jastrzębia Góra, Władysławowo, Польша, Польша ) | 
+86024 | Tenedos   (Tenedos, 17680 Tenedos/Çanakkale, Турция, Турция ) | 
+53566 | Balatonkeresztúr   (Balatonkeresztúr, 8648 Венгрия, Венгрия ) | 
+52525 | Duće   (21310, Duće, Хорватия, Хорватия ) | 
+63322 | Santa Teresa Gallura   (07028 Santa Teresa Gallura OT, Италия, Италия ) | 
+52855 | Marina   (Marina, Хорватия, Хорватия ) | 
+86219 | Gümbet   (Gümbet, 48400 Bodrum/Muğla, Турция, Турция ) | 
+7463 | Penha   (Penha, Penha - SC, Бразилия, Бразилия ) | 
+86843 | Ji’an Township   (Ji’an Township, Hualien County, Тайвань 973, Тайвань ) | 
+57453 | Agropoli   (84043 Agropoli SA, Италия, Италия ) | 
+16244 | Rokytnice nad Jizerou   (Rokytnice nad Jizerou, Чехия, Чехия ) | 
+53405 | Vrsar   (Vrsar, Хорватия, Хорватия ) | 
+23491 | Lem   (6940 Lem, Дания, Дания ) | 
+61687 | Ortisei   (39046 Ortisei BZ, Италия, Италия ) | 
+53406 | Vrsi   (Vrsi, Хорватия, Хорватия ) | 
+60454 | Ledro   (Ledro, Province of Trento, Италия, Италия ) | 
+59974 | Gaeta   (04024 Gaeta LT, Италия, Италия ) | 
+51840 | Skopelos   (Skopelos, Греция, Греция ) | 
+51842 | Skopelos   (Skopelos, Греция, Греция ) | 
+64649 | Viterbo   (01100 Viterbo VT, Италия, Италия ) | 
+59089 | Cervia   (48015 Cervia RA, Италия, Италия ) | 
+59895 | Forte dei Marmi   (55042 Forte dei Marmi LU, Италия, Италия ) | 
+60959 | Merano   (Merano BZ, Италия, Италия ) | 
+63524 | Scopello   (13028 Scopello, Province of Vercelli, Италия, Италия ) | 
+14931 | Coral Bay   (Coral Bay, Peyia, Кипр, Кипр ) | 
+60507 | Lido di Camaiore   (55041 Lido di Camaiore LU, Италия, Италия ) | 
+58500 | Capoliveri   (57031 Capoliveri LI, Италия, Италия ) | 
+61101 | Mondello   (90151 Mondello, Province of Palermo, Италия, Италия ) | 
+54497 | Gili Air   (Gili Air, Gili Indah, Pemenang, North Lombok Regency, West Nusa Tenggara, Индонезия, Индонезия ) | 
+52814 | Lopar   (Lopar, Хорватия, Хорватия ) | 
+58809 | Castellabate   (84048 Castellabate SA, Италия, Италия ) | 
+23696 | Spidsegård   (Spidsegård, Дания ) | 
+50168 | Adamantas   (Adamantas, Греция, Греция ) | 
+6408 | Aquiraz   (Aquiraz, Aquiraz - CE, Бразилия, Бразилия ) | 
+57619 | Arco   (38062 Arco TN, Италия, Италия ) | 
+23693 | Snogebæk   (Snogebæk, 3730 Bornholm, Дания, Дания ) | 
+23241 | Fjellerup Strand   (Fjellerup Strand, 8585 Glesborg, Дания, Дания ) | 
+30212 | Santa Eulària des Riu   (Santa Eulària des Riu, Balearic Islands, Испания, Испания ) | 
+59469 | Cortina d'Ampezzo   (32043 Cortina d'Ampezzo BL, Италия, Италия ) | 
+13146 | Panyu   (Panyu, Guangzhou, Guangdong, Китай, Китай ) | 
+52878 | Mimice   (21318, Mimice, Хорватия, Хорватия ) | 
+62367 | Pozzallo   (97016 Pozzallo RG, Италия, Италия ) | 
+58870 | Castelnuovo Berardenga   (53019 Castelnuovo Berardenga SI, Италия, Италия ) | 
+23555 | Nordost   (Nordost, 9300 Sæby, Дания, Дания ) | 
+53764 | Fonyód   (Fonyód, 8640 Венгрия, Венгрия ) | 
+23328 | Hasle   (3790 Hasle, Дания, Дания ) | 
+52461 | Diklo   (Diklo, Хорватия, Хорватия ) | 
+59216 | Cisternino   (72014 Cisternino BR, Италия, Италия ) | 
+62571 | Rho   (Rho MI, Италия, Италия ) | 
+23151 | Brovst   (9460 Brovst, Дания, Дания ) | 
+51583 | Perissa   (Perissa 847 03, Греция, Греция ) | 
+59129 | Chianciano Terme   (53042 Chianciano Terme SI, Италия, Италия ) | 
+21275 | Reit im Winkl   (83242 Райт, Германия, Германия ) | 
+53308 | Tučepi   (Tučepi, Хорватия, Хорватия ) | 
+6474 | Balneário Camboriú   (Balneário Camboriú, Balneário Camboriú - SC, Бразилия, Бразилия ) | 
+51129 | Laganas   (Laganas, Греция, Греция ) | 
+23240 | Fjellerup   (8585 Fjellerup, Дания, Дания ) | 
+63204 | San Vincenzo   (57027 San Vincenzo LI, Италия, Италия ) | 
+61693 | Orvieto   (05018 Orvieto TR, Италия, Италия ) | 
+23699 | Spodsbjerg   (5900 Spodsbjerg, Дания, Дания ) | 
+85437 | Cha-am   (Cha-am, Cha-am District, Phetchaburi, Таиланд, Таиланд ) | 
+58088 | Bormio   (23032 Bormio SO, Италия, Италия ) | 
+23788 | Trend   (9670 Trend, Дания, Дания ) | 
+51245 | Malia   (Malia 700 07, Греция, Греция ) | 
+17466 | BN   (Бонн, Германия, Германия ) | 
+85445 | ต.ฉลอง   (Чалонг, Столичный ампхе Пхукет, Пхукет, Таиланд, Таиланд ) | 
+7373 | Olímpia   (Olímpia, Olímpia - SP, Бразилия, Бразилия ) | 
+78800 | Costinești   (Costinești 907090, Румыния, Румыния ) | 
+78317 | Tavira   (8800 Tavira, Португалия, Португалия ) | 
+29431 | Port d'Alcúdia   (Port d'Alcúdia, Illes Balears, Испания, Испания ) | 
+23548 | Nordborg   (6430 Nordborg, Дания, Дания ) | 
+59809 | Fiumicino   (00054 Fiumicino RM, Италия, Италия ) | 
+53170 | Sevid   (Sevid, Хорватия, Хорватия ) | 
+62158 | Poggibonsi   (53036 Poggibonsi SI, Италия, Италия ) | 
+52765 | Krnica   (Krnica, Хорватия, Хорватия ) | 
+62546 | Reggello   (50066 Reggello FI, Италия, Италия ) | 
+52875 | Milna   (Milna, Хорватия, Хорватия ) | 
+86197 | Göcek   (Göcek, Göcek/Fethiye/Muğla, Турция, Турция ) | 
+26142 | Can Picafort   (07458 Can Picafort, Illes Balears, Испания, Испания ) | 
+52359 | Blato   (20225, Blato, Хорватия, Хорватия ) | 
+25783 | Blanes   (17300 Blanes, Girona, Испания, Испания ) | 
+59848 | Fontane Bianche   (96100 Fontane Bianche SR, Италия, Италия ) | 
+78045 | Quarteira   (Quarteira, Португалия, Португалия ) | 
+53242 | Stobreč   (Stobreč, Хорватия, Хорватия ) | 
+64031 | Torbole   (38069 Torbole TN, Италия, Италия ) | 
+58916 | Castiglione del Lago   (06061 Castiglione del Lago PG, Италия, Италия ) | 
+6448 | Arraial do Cabo   (Arraial do Cabo, Arraial do Cabo - RJ, Бразилия, Бразилия ) | 
+62524 | Rapallo   (16035 Rapallo GE, Италия, Италия ) | 
+12388 | Fenghuang   (Fenghuang, Xiangxi, Hunan, Китай, Китай ) | 
+63360 | Sant'Agata sui Due Golfi   (80061 Sant'Agata sui Due Golfi, Metropolitan City of Naples, Италия, Италия ) | 
+60814 | Marina di Pietrasanta   (55045 Marina di Pietrasanta LU, Италия, Италия ) | 
+23455 | Knebel   (8420 Knebel, Дания, Дания ) | 
+23583 | Vorupør   (Vorupør, 7700 Thisted Municipality, Дания, Дания ) | 
+53559 | Balatonfenyves   (Balatonfenyves, Венгрия, Венгрия ) | 
+50762 | Ios Chora   (Ios Chora, Греция ) | 
+52811 | Lokva Rogoznica   (Lokva Rogoznica, Хорватия, Хорватия ) | 
+85591 | Hat Mae Nam   (Hat Mae Nam ตำบล แม่น้ำ อำเภอ เกาะสมุย สุราษฎร์ธานี 84330, Таиланд, Таиланд ) | 
+59487 | Costa Paradiso   (07038 Costa Paradiso OT, Италия, Италия ) | 
+77945 | Peniche   (2520 Peniche, Португалия, Португалия ) | 
+69814 | PJ   (Петалинг-Джая, Селангор, Малайзия, Малайзия ) | 
+68544 | St Julian's   (St Julian's, Мальта, Мальта ) | 
+77006 | Alvor   (8500 Alvor, Португалия, Португалия ) | 
+58830 | Castellina in Chianti   (53011 Castellina in Chianti SI, Италия, Италия ) | 
+25056 | Alcossebre   (12579 Alcossebre, Castelló, Испания, Испания ) | 
+74469 | Panglao   (Panglao, Bohol, Филиппины, Филиппины ) | 
+58203 | Budoni   (08020 Budoni OT, Италия, Италия ) | 
+52847 | Mandre   (Mandre, Хорватия, Хорватия ) | 
+85662 | Phi Phi Islands   (Phi Phi Islands, Krabi, Таиланд, Таиланд ) | 
+77823 | Nazaré   (2450 Nazaré, Португалия, Португалия ) | 
+53020 | Podaca   (Podaca, Хорватия, Хорватия ) | 
+62534 | Ravello   (84010 Ravello, Province of Salerno, Италия, Италия ) | 
+68229 | Utjeha-Bušat   (Utjeha-Bušat, Черногория, Черногория ) | 
+56486 | Kovalam   (Kovalam, Индия ) | 
+69804 | Pantai Cenang   (Pantai Cenang, 07000, Kedah, Малайзия, Малайзия ) | 
+52662 | Jezera   (Jezera, Хорватия, Хорватия ) | 
+62134 | Pitigliano   (58017 Pitigliano GR, Италия, Италия ) | 
+51925 | Tinos   (Tinos, Греция, Греция ) | 
+23845 | Vig   (4560 Vig, Дания, Дания ) | 
+52528 | Dugi Rat   (Dugi Rat, Хорватия, Хорватия ) | 
+52738 | Kožino   (Kožino, Хорватия, Хорватия ) | 
+52494 | Seget Donji   (21220, Seget Donji, Хорватия, Хорватия ) | 
+96567 | hồ Sa Pa   (hồ Sa Pa, tt. Sa Pa, Sa Pa, Lào Cai, Вьетнам, Вьетнам ) | 
+60027 | Garda   (37016 Garda VR, Италия, Италия ) | 
+16092 | Pec pod Sněžkou   (542 21 Pec pod Sněžkou, Чехия, Чехия ) | 
+53265 | Sutivan   (Sutivan, Хорватия, Хорватия ) | 
+23126 | Bogense   (5400 Bogense, Дания, Дания ) | 
+57467 | Alassio   (17021 Alassio SV, Италия, Италия ) | 
+74646 | B-stok   (Белосток, Польша, Польша ) | 
+23454 | Klitmøller   (7700 Klitmøller, Дания, Дания ) | 
+29361 | Platja d'Aro   (Platja d'Aro, Girona, Испания, Испания ) | 
+7614 | Recreio dos Bandeirantes   (Recreio dos Bandeirantes, Rio de Janeiro - State of Rio de Janeiro, Бразилия, Бразилия ) | 
+53231 | Stara Novalja   (Stara Novalja, Хорватия, Хорватия ) | 
+57884 | Baveno   (28831 Baveno VB, Италия, Италия ) | 
+53791 | Gyenesdiás   (Gyenesdiás, Венгрия, Венгрия ) | 
+56969 | Thekkadi   (Thekkadi, Tamil Nadu 685509, Индия, Индия ) | 
+25998 | Cala D'or   (Cala D'or, Illes Balears, Испания, Испания ) | 
+62865 | Salò   (25087 Salò BS, Италия, Италия ) | 
+63202 | San Vigilio di Marebbe   (39030 San Vigilio di Marebbe BZ, Италия, Италия ) | 
+86520 | Safranbolu   (Safranbolu, 78600 Safranbolu/Karabük, Турция, Турция ) | 
+23048 | Aakirkeby   (3720 Aakirkeby, Дания, Дания ) | 
+53004 | Pirovac   (22213, Pirovac, Хорватия, Хорватия ) | 
+23851 | Vinderup   (7830 Vinderup, Дания, Дания ) | 
+71484 | Valkenburg   (6301 Valkenburg, Нидерланды, Нидерланды ) | 
+57404 | Acireale   (95024 Acireale CT, Италия, Италия ) | 
+60506 | Lido delle Nazioni   (44022 Lido delle Nazioni FE, Италия, Италия ) | 
+64683 | Volterra   (56048 Volterra, Province of Pisa, Италия, Италия ) | 
+52694 | Kaštel Štafilić   (Kaštel Štafilić, Хорватия, Хорватия ) | 
+60954 | Menfi   (92013 Menfi AG, Италия, Италия ) | 
+60477 | Lerici   (19032 Lerici SP, Италия, Италия ) | 
+23641 | Rønde   (8410 Rønde, Дания, Дания ) | 
+59561 | Custonaci   (91015 Custonaci TP, Италия, Италия ) | 
+84657 | Tatranská Lomnica   (059 60 Vysoké Tatry-Tatranská Lomnica, Словакия, Словакия ) | 
+60915 | Mazara del Vallo   (91026 Mazara del Vallo TP, Италия, Италия ) | 
+52981 | Pakoštane   (Pakoštane, Хорватия, Хорватия ) | 
+86262 | İçmeler   (İçmeler, İçmeler/Marmaris/Muğla, Турция, Турция ) | 
+86550 | Selçuk   (Selçuk, Selçuk/İzmir, Турция, Турция ) | 
+66345 | Vang Vieng   (Vang Vieng, Лаос, Лаос ) | 
+53554 | Balatonberény   (Balatonberény, Венгрия, Венгрия ) | 
+50248 | Ag. Nikolaos   (Ag. Nikolaos, Греция, Греция ) | 
+51024 | Kissamos   (Kissamos 734 00, Греция, Греция ) | 
+8035 | Visconde de Mauá   (Visconde de Mauá, Resende - State of Rio de Janeiro, Бразилия, Бразилия ) | 
+64109 | Torri del Benaco   (37010 Torri del Benaco VR, Италия, Италия ) | 
+23406 | Højby   (4573 Højby, Дания, Дания ) | 
+53115 | Ražanac   (23248, Ražanac, Хорватия, Хорватия ) | 
+64185 | TN   (Тренто, Италия, Италия ) | 
+29370 | Platja de Palma   (Platja de Palma, Palma, Illes Balears, Испания, Испания ) | 
+52421 | Čara   (Čara, Хорватия, Хорватия ) | 
+60874 | Mascali   (95016 Mascali CT, Италия, Италия ) | 
+59620 | Donnalucata   (97018 Donnalucata, Province of Ragusa, Италия, Италия ) | 
+23578 | Nørre Lyngvig   (Nørre Lyngvig, 6960 Hvide Sande, Дания, Дания ) | 
+7247 | Maresias   (Maresias, São Sebastião - State of São Paulo, Бразилия, Бразилия ) | 
+61057 | Moena   (38035 Moena TN, Италия, Италия ) | 
+52885 | Mokošica   (20236, Mokošica, Хорватия, Хорватия ) | 
+77991 | Pte. de Lima   (4990 Pte. de Lima, Португалия, Португалия ) | 
+80063 | Innokentyevsky   (Innokentyevsky, Россия ) | 
+6687 | Canoa Quebrada   (Canoa Quebrada, Aracati - State of Ceará, Бразилия, Бразилия ) | 
+58148 | Brenzone sul Garda   (37010 Brenzone sul Garda VR, Италия, Италия ) | 
+58917 | Castiglione della Pescaia   (58043 Castiglione della Pescaia GR, Италия, Италия ) | 
+23686 | Skødshoved Strand   (Skødshoved Strand, 8420 Knebel, Дания, Дания ) | 
+52378 | Brela   (Brela, Хорватия, Хорватия ) | 
+50198 | Agia Marina   (Agia Marina, Греция, Греция ) | 
+59673 | Erice   (91016 Erice TP, Италия, Италия ) | 
+58909 | Castiglion Fiorentino   (52043 Castiglion Fiorentino AR, Италия, Италия ) | 
+63776 | Spoleto   (06049 Spoleto PG, Италия, Италия ) | 
+51503 | Palaiokastritsa   (Palaiokastritsa 490 83, Греция, Греция ) | 
+59985 | Gaiole In Chianti   (53013 Gaiole In Chianti SI, Италия, Италия ) | 
+52323 | Barban   (52207, Barban, Хорватия, Хорватия ) | 
+86118 | Didim   (Didim, Didim/Aydın, Турция, Турция ) | 
+23180 | Dannemare   (4983 Dannemare, Дания, Дания ) | 
+59791 | Finale Ligure   (17024 Finale Ligure SV, Италия, Италия ) | 
+7584 | Praia do Forte   (Praia do Forte, Mata de São João - BA, Бразилия, Бразилия ) | 
+70594 | Egmond aan Zee   (1931 Egmond aan Zee, Нидерланды, Нидерланды ) | 
+52692 | Kaštel Lukšić   (Kaštel Lukšić, Хорватия, Хорватия ) | 
+85480 | Hat Rin   (Hat Rin ตำบล บ้านใต้ อำเภอ เกาะพะงัน สุราษฎร์ธานี 84280, Таиланд, Таиланд ) | 
+64494 | Vico Equense   (Vico Equense NA, Италия, Италия ) | 
+17903 | DO   (Дортмунд, Германия, Германия ) | 
+66808 | Tissamaharama   (Tissamaharama, Шри-Ланка, Шри-Ланка ) | 
+53005 | Pisak   (Pisak, Хорватия, Хорватия ) | 
+50205 | Ag. Pelagia   (Ag. Pelagia, Греция, Греция ) | 
+53095 | Račišće   (Račišće, Хорватия, Хорватия ) | 
+21100 | P   (Потсдам, Германия, Германия ) | 
+128 | Himarë   (Himarë 9425, Албания, Албания ) | 
+78276 | Sesimbra   (2970 Sesimbra, Португалия, Португалия ) | 
+23242 | Fjerritslev   (9690 Fjerritslev, Дания, Дания ) | 
+60705 | Maiori   (84010 Maiori SA, Италия, Италия ) | 
+68149 | KL   (Колашин, Черногория, Черногория ) | 
+53394 | Vrbnik   (Vrbnik, Хорватия, Хорватия ) | 
+58265 | Cala Gonone   (08022 Cala Gonone NU, Италия, Италия ) | 
+61082 | Molveno   (38018 Molveno TN, Италия, Италия ) | 
+60338 | La Maddalena   (07024 La Maddalena OT, Италия, Италия ) | 
+85954 | Avsallar   (Avsallar, 07410 Avsallar/Alanya/Antalya, Турция, Турция ) | 
+52691 | Kaštel Kambelovac   (Kaštel Kambelovac, Хорватия, Хорватия ) | 
+69590 | Batu Feringgi   (Batu Feringgi, 11100 Tanjung Bungah, Pulau Pinang, Малайзия, Малайзия ) | 
+50944 | Kato Galatas   (Kato Galatas, Galatas 731 00, Греция, Греция ) | 
+52556 | Gdinj   (Gdinj, Хорватия, Хорватия ) | 
+51825 | Skála Potamiás   (Skála Potamiás, Греция ) | 
+61042 | Misano Adriatico   (47843 Misano Adriatico RN, Италия, Италия ) | 
+46708 | Yarmouth   (Грейт-Ярмут, Грейт-Йармут, Норфолк, Великобритания, Великобритания ) | 
+59006 | Ceglie Messapica   (72013 Ceglie Messapica BR, Италия, Италия ) | 
+60799 | Marina di Campo   (57034 Marina di Campo LI, Италия, Италия ) | 
+69764 | Kuah   (Kuah, 07000 Langkawi, Kedah, Малайзия, Малайзия ) | 
+60808 | Marina di Massa   (54100 Marina di Massa MS, Италия, Италия ) | 
+53137 | Rovinjsko Selo   (Rovinjsko Selo, Хорватия, Хорватия ) | 
+62387 | Praiano   (84010 Praiano SA, Италия, Италия ) | 
+53429 | Zaton   (Zaton, Хорватия, Хорватия ) | 
+26056 | Calella   (Calella, Barcelona, Испания, Испания ) | 
+51178 | Limenaria   (Limenaria 640 02, Греция, Греция ) | 
+64000 | Tirolo   (39019 Tirolo BZ, Италия, Италия ) | 
+53272 | Sveti Filip i Jakov   (Sveti Filip i Jakov, Хорватия, Хорватия ) | 
+23589 | Odde   (9560 Odde, Дания, Дания ) | 
+60742 | Manerba del Garda   (Manerba del Garda, 25080 Solarolo BS, Италия, Италия ) | 
+90448 | SF   (Сан-Франциско, Калифорния, США, США ) | 
+58454 | Cannobio   (28822 Cannobio VB, Италия, Италия ) | 
+62310 | Porto Cervo   (07021 Porto Cervo OT, Италия, Италия ) | 
+86652 | Yalıkavak   (Yalıkavak, 48990 Yalıkavak/Bodrum/Muğla, Турция, Турция ) | 
+64385 | Varenna   (23829 Varenna LC, Италия, Италия ) | 
+77443 | Estoril   (2765 Estoril, Португалия, Португалия ) | 
+64144 | Trani   (76125 Trani BT, Италия, Италия ) | 
+54700 | Pemuteran   (Pemuteran, Gerokgak, Buleleng Regency, Bali, Индонезия, Индонезия ) | 
+6573 | Bonito   (Bonito, Bonito - PE, Бразилия, Бразилия ) | 
+51644 | Platanias   (Platanias 730 14, Греция, Греция ) | 
+23745 | Sønder Nissum   (6990 Sønder Nissum, Дания, Дания ) | 
+52678 | Kampor   (Kampor, Хорватия, Хорватия ) | 
+54756 | Senggigi   (Senggigi, Batu Layar, West Lombok Regency, West Nusa Tenggara, Индонезия, Индонезия ) | 
+25607 | Begur   (17255 Begur, Girona, Испания, Испания ) | 
+62222 | Pompeii   (80045 Pompeii, Metropolitan City of Naples, Италия, Италия ) | 
+23063 | Ansager   (6823 Ansager, Дания, Дания ) | 
+78626 | Băile Felix   (Băile Felix 417500, Румыния, Румыния ) | 
+54329 | Vonyarcvashegy   (Vonyarcvashegy, 8314 Венгрия, Венгрия ) | 
+60487 | Leuca   (73040 Leuca LE, Италия, Италия ) | 
+59475 | Corvara In Badia   (39033 Corvara In Badia BZ, Италия, Италия ) | 
+57469 | Alba   (12051 Alba CN, Италия, Италия ) | 
+64150 | Trappeto   (90040 Trappeto PA, Италия, Италия ) | 
+52893 | Mošćenička Draga   (Mošćenička Draga, Хорватия, Хорватия ) | 
+66484 | Arugam Bay   (Arugam Bay, Шри-Ланка, Шри-Ланка ) | 
+31180 | La Vila Joiosa/Villajoyosa   (03570 La Vila Joiosa/Villajoyosa, Alicante, Испания, Испания ) | 
+29163 | Pals   (17256 Pals, Girona, Испания, Испания ) | 
+51954 | Tsilivi   (Tsilivi, Planos 291 00, Греция, Греция ) | 
+62451 | Pula   (09010 Pula CA, Италия, Италия ) | 
+23295 | Grenaa   (8500 Grenaa, Дания, Дания ) | 
+6703 | Caraguatatuba   (Caraguatatuba, Caraguatatuba - SP, Бразилия, Бразилия ) | 
+64307 | Valderice   (91019 Valderice TP, Италия, Италия ) | 
+61012 | Milazzo   (98057 Milazzo ME, Италия, Италия ) | 
+58711 | Casole d'Elsa   (53031 Casole d'Elsa SI, Италия, Италия ) | 
+62046 | Pienza   (53026 Pienza SI, Италия, Италия ) | 
+85611 | Hat Nai Yang   (Hat Nai Yang 83110, Таиланд, Таиланд ) | 
+6509 | Barra Grande   (Barra Grande, Maraú - BA, Бразилия, Бразилия ) | 
+21429 | Rothenburg ob der Tauber   (Rothenburg ob der Tauber, Германия, Германия ) | 
+52675 | Kali   (Kali, Хорватия, Хорватия ) | 
+59591 | Diano Marina   (18013 Diano Marina IM, Италия, Италия ) | 
+30716 | Torredembarra   (Torredembarra, Tarragona, Испания, Испания ) | 
+58891 | Castelrotto   (39040 Castelrotto BZ, Италия, Италия ) | 
+63755 | Sperlonga   (04029 Sperlonga LT, Италия, Италия ) | 
+53278 | Sveti Petar   (23205, Sveti Petar, Хорватия, Хорватия ) | 
+57379 | Abano Terme   (35031 Abano Terme PD, Италия, Италия ) | 
+64077 | Torre Lapillo   (73010 Torre Lapillo LE, Италия, Италия ) | 
+75612 | Mielno   (Mielno, Польша, Польша ) | 
+14691 | Cantón de Aguirre, Puntarenas   (Национальный парк Мануэль Антонио, Cantón de Aguirre, Puntarenas, Коста-Рика, Коста-Рика ) | 
+62307 | Porto Azzurro   (57036 Porto Azzurro LI, Италия, Италия ) | 
+59501 | Courmayeur   (11013 Courmayeur AO, Италия, Италия ) | 
+52866 | Matulji   (Matulji, Хорватия, Хорватия ) | 
+57495 | Alcamo Marina   (91011 Alcamo Marina TP, Италия, Италия ) | 
+24764 | Ain Sokhna   (Ain Sokhna, Ataqah, Suez Governorate, Египет, Египет ) | 
+86982 | Wujie Township   (Wujie Township, Yilan County, Тайвань 268, Тайвань ) | 
+23763 | Thorsminde   (6990 Thorsminde, Дания, Дания ) | 
+51929 | Tolo   (Tolo, Греция, Греция ) | 
+65756 | Yufuin   (Yufuin, Япония ) | 
+52707 | Klenovica   (Klenovica, Хорватия, Хорватия ) | 
+53224 | Srima   (Srima, Хорватия, Хорватия ) | 
+50671 | Thira   (Firostefani Bus Station, ギリシャ, Thira 847 00, Греция, Греция ) | 
+77054 | Armação de Pêra   (8365 Armação de Pêra, Португалия, Португалия ) | 
+60680 | Magione   (06063 Magione PG, Италия, Италия ) | 
+29242 | Pego   (03780 Pego, Alicante, Испания, Испания ) | 
+58942 | Castro   (73030 Castro LE, Италия, Италия ) | 
+86099 | Datça   (Datça, 48900 Datça/Muğla, Турция, Турция ) | 
+7009 | Ilha de Boipeba   (Ilha de Boipeba, Кайру - Баия, Бразилия, Бразилия ) | 
+51556 | Patitiri   (Patitiri, Греция, Греция ) | 
+63622 | Sestri Levante   (16039 Sestri Levante GE, Италия, Италия ) | 
+77467 | Fátima   (2495 Fátima, Португалия, Португалия ) | 
+26017 | Cala Ratjada   (07590 Cala Ratjada, Illes Balears, Испания, Испания ) | 
+58813 | Castellana Grotte   (70013 Castellana Grotte BA, Италия, Италия ) | 
+59082 | Certaldo   (50052 Certaldo FI, Италия, Италия ) | 
+53456 | Žrnovo   (Žrnovo, Хорватия, Хорватия ) | 
+51157 | Lefkada   (Lefkada 311 00, Греция, Греция ) | 
+60914 | Mattinata   (71030 Mattinata FG, Италия, Италия ) | 
+86006 | Bitez   (Bitez, 48470 Bitez/Bodrum/Muğla Province, Турция, Турция ) | 
+51983 | Vasiliki   (Vasiliki, Греция, Греция ) | 
+63248 | Sant'Agnello   (80065 Sant'Agnello NA, Италия, Италия ) | 
+50969 | Kavos   (Kavos, Греция, Греция ) | 
+23093 | 8561 DK   (8561 DK Beam, Нидерланды, Дания ) | 
+53075 | Prižba   (20271, Prižba, Хорватия, Хорватия ) | 
+23389 | Hou   (8300 Hou, Дания, Дания ) | 
+84331 | Donovaly   (Donovaly, Словакия, Словакия ) | 
+22640 | WE   (Веймар, Германия, Германия ) | 
+62327 | Porto Rotondo   (07026 Porto Rotondo OT, Италия, Италия ) | 
+78457 | Vila Nova de Gaia   (Vila Nova de Gaia, Португалия, Португалия ) | 
+85902 | Akyaka   (Akyaka, 36780 Akyaka/Kars, Турция, Турция ) | 
+23705 | Stege   (4780 Stege, Дания, Дания ) | 
+23198 | Egeskov   (7000 Egeskov, Дания, Дания ) | 
+61348 | Montespertoli   (50025 Montespertoli FI, Италия, Италия ) | 
+15811 | Lipno nad Vltavou   (382 78 Lipno nad Vltavou, Чехия, Чехия ) | 
+4816 | De Haan   (De Haan, Бельгия, Бельгия ) | 
+23784 | Torup Strand   (Torup Strand, 9690 Fjerritslev, Дания, Дания ) | 
+23786 | Trans   (7620 Trans, Дания, Дания ) | 
+24323 | Haapsalu   (Haapsalu, Lääne County, Эстония, Эстония ) | 
+23304 | Gudhjem   (3760 Gudhjem, Дания, Дания ) | 
+74761 | Bukowina Tatrzańska   (Bukowina Tatrzańska, Польша, Польша ) | 
+17176 | BA   (Бамберг, Германия, Германия ) | 
+58910 | Castiglioncello   (57016 Castiglioncello LI, Италия, Италия ) | 
+23871 | Øksenmølle   (Øksenmølle, 8400 Ebeltoft, Дания, Дания ) | 
+60493 | Levico Terme   (38056 Levico Terme TN, Италия, Италия ) | 
+27726 | L'Ametlla de Mar   (L'Ametlla de Mar, Tarragona, Испания, Испания ) | 
+27727 | L'Ampolla   (43895 L'Ampolla, Tarragona, Испания, Испания ) | 
+53368 | Vinkuran   (52100, Vinkuran, Хорватия, Хорватия ) | 
+23424 | Juelsminde   (Juelsminde, Дания, Дания ) | 
+60807 | Marina di Mancaversa   (73057 Marina di Mancaversa LE, Италия, Италия ) | 
+23442 | Kelstrup Strand   (Kelstrup Strand, 6100 Haderslev, Дания, Дания ) | 
+60567 | Locorotondo   (70010 Locorotondo BA, Италия, Италия ) | 
+26012 | Cala Millor   (07560 Cala Millor, Balearic Islands, Испания, Испания ) | 
+63905 | Tavarnelle   (50028 Tavarnelle FI, Италия, Италия ) | 
+57004 | TVM   (Тхируванантхапурам, Керала 695001, Индия, Индия ) | 
+86208 | Göltürkbükü   (Göltürkbükü, Göltürkbükü/Bodrum/Muğla Province, Турция, Турция ) | 
+61146 | Montalcino   (53024 Montalcino SI, Италия, Италия ) | 
+57563 | Andalo   (38010 Andalo TN, Италия, Италия ) | 
+51179 | Limenas   (Limenas, Греция, Греция ) | 
+77557 | Gerês   (Gerês, 4845-075, Португалия, Португалия ) | 
+53245 | Stomorska   (21432, Stomorska, Хорватия, Хорватия ) | 
+58375 | Campitello di Fassa   (38031 Campitello di Fassa TN, Италия, Италия ) | 
+77854 | Olhão   (Olhão, Португалия, Португалия ) | 
+59972 | Gabicce Mare   (61011 Gabicce Mare PU, Италия, Италия ) | 
+53066 | Pridraga   (Pridraga, Хорватия, Хорватия ) | 
+62051 | Pietra Ligure   (17027 Pietra Ligure SV, Италия, Италия ) | 
+85613 | Hat Nai Yang   (Hat Nai Yang 83110, Таиланд, Таиланд ) | 
+62063 | Pietrasanta   (55045 Pietrasanta LU, Италия, Италия ) | 
+60810 | Marina di Modica   (Marina di Modica RG, Италия, Италия ) | 
+23440 | Kegnæshøj   (6470 Kegnæshøj, Дания, Дания ) | 
+61332 | Monterosso al Mare   (19016 Monterosso al Mare SP, Италия, Италия ) | 
+23196 | Egense   (9280 Egense, Дания, Дания ) | 
+27305 | Gandia   (Gandia, Valencia, Испания, Испания ) | 
+52917 | Nečujam   (Nečujam, Хорватия, Хорватия ) | 
+62901 | San Casciano in Val di Pesa   (50026 San Casciano in Val di Pesa FI, Италия, Италия ) | 
+61673 | Orosei   (08028 Orosei NU, Италия, Италия ) | 
+74258 | AC   (Анхелес, Пампанга, Филиппины, Филиппины ) | 
+51479 | Ornos   (Ornos 846 00, Греция, Греция ) | 
+71195 | Ouddorp   (3253 Ouddorp, Нидерланды, Нидерланды ) | 
+51264 | Marathokampos   (Marathokampos 831 02, Греция, Греция ) | 
+52546 | Funtana   (Funtana, Хорватия, Хорватия ) | 
+50255 | Agios Prokopios   (Agios Prokopios 843 00, Греция, Греция ) | 
+52316 | Bale   (Bale, Хорватия, Хорватия ) | 
+86621 | Turgutreis   (Turgutreis, Bahçelievler, 48960 Turgutreis/Bodrum/Muğla Province, Турция, Турция ) | 
+25704 | El Poble Nou de Benitatxell   (03726 El Poble Nou de Benitatxell, Alicante, Испания, Испания ) | 
+52861 | Maslenica   (Maslenica, Jasenice, Хорватия, Хорватия ) | 
+64640 | Vinci   (50059 Vinci FI, Италия, Италия ) | 
+62130 | Pistoia   (51100 Pistoia PT, Италия, Италия ) | 
+60600 | Loro Ciuffenna   (52024 Loro Ciuffenna AR, Италия, Италия ) | 
+23777 | Toftum   (6792 Toftum, Дания, Дания ) | 
+54258 | Tihany   (Tihany, Венгрия, Венгрия ) | 
+52724 | Korenica   (53230, Korenica, Хорватия, Хорватия ) | 
+51984 | Vasilikos   (Vasilikos 291 00, Греция, Греция ) | 
+52511 | Drenje   (Drenje, Хорватия, Хорватия ) | 
+52775 | Kukljica   (Kukljica, Хорватия, Хорватия ) | 
+7469 | Petrópolis   (Petrópolis, Petrópolis - RJ, Бразилия, Бразилия ) | 
+61759 | Paestum   (84047 Paestum SA, Италия, Италия ) | 
+85579 | Lat Krabang   (Lat Krabang, Bangkok, Таиланд, Таиланд ) | 
+61772 | Palau   (07020 Palau OT, Италия, Италия ) | 
+70482 | De Koog   (1796 De Koog, Нидерланды, Нидерланды ) | 
+53332 | Vantačići   (51511, Vantačići, Хорватия, Хорватия ) | 
+62610 | Riomaggiore   (19017 Riomaggiore SP, Италия, Италия ) | 
+63892 | Tarquinia   (01016 Tarquinia VT, Италия, Италия ) | 
+62902 | San Cassiano   (73020 San Cassiano LE, Италия, Италия ) | 
+23226 | Fårevejle   (4540 Fårevejle, Дания, Дания ) | 
+52693 | Kaštel Novi   (Kaštel Novi, Хорватия, Хорватия ) | 
+52695 | Kaštel Stari   (Kaštel Stari, Хорватия, Хорватия ) | 
+63964 | Terrasini Favarotta   (Terrasini Favarotta, Италия ) | 
+51731 | Pythagóreion   (Pythagóreion, Греция ) | 
+23068 | Arrild   (6520 Arrild, Дания, Дания ) | 
+54563 | Kerobokan   (Kerobokan, North Kuta, Badung Regency, Bali, Индонезия, Индонезия ) | 
+30258 | Santa Ponça   (Santa Ponça, Illes Balears, Испания, Испания ) | 
+6965 | Guarapari   (Guarapari, Guarapari - ES, Бразилия, Бразилия ) | 
+29757 | Riumar   (43580 Riumar, Tarragona, Испания, Испания ) | 
+62525 | Rapolano Terme   (53040 Rapolano Terme SI, Италия, Италия ) | 
+23103 | Bedegård   (Bedegård, Дания ) | 
+57684 | Ascea   (84046 Ascea SA, Италия, Италия ) | 
+52579 | Gornji Karin   (Gornji Karin, 23450, Karin Gornji, Хорватия, Хорватия ) | 
+62366 | Pozza di Fassa   (38036 Pozza di Fassa TN, Италия, Италия ) | 
+51366 | Monemvasia   (Monemvasia, Греция, Греция ) | 
+52690 | Kaštel Gomilica   (Kaštel Gomilica, Хорватия, Хорватия ) | 
+53257 | Sumartin   (21425, Sumartin, Хорватия, Хорватия ) | 
+53047 | Posedarje   (Posedarje, Хорватия, Хорватия ) | 
+62577 | Ricadi   (89866 Ricadi VV, Италия, Италия ) | 
+23669 | Skattebølle   (Skattebølle, 5953 Tranekær, Дания, Дания ) | 
+60536 | Limone Sul Garda   (25010 Limone Sul Garda BS, Италия, Италия ) | 
+60028 | Gardone Riviera   (25083 Gardone Riviera BS, Италия, Италия ) | 
+45186 | Betws-y-Coed   (Betws-y-Coed, Betws-y-Coed, Conwy LL24, Великобритания, Великобритания ) | 
+85419 | Bang Rak   (Bang Rak, Bangkok, Таиланд, Таиланд ) | 
+85427 | Bangrak Beach   (Bangrak Beach, Таиланд ) | 
+51891 | Ano Symi   (Ano Symi 856 00, Греция, Греция ) | 
+84664 | Terchová   (013 06 Terchová, Словакия, Словакия ) | 
+31946 | Ruka   (93825 Ruka, Финляндия, Финляндия ) | 
+52696 | Kaštel Sućurac   (Kaštel Sućurac, Хорватия, Хорватия ) | 
+58854 | Castelluzzo   (91010 Castelluzzo TP, Италия, Италия ) | 
+60138 | Golfo Aranci   (07020 Golfo Aranci OT, Италия, Италия ) | 
+64013 | Todi   (06059 Todi PG, Италия, Италия ) | 
+62482 | Quartu Sant'Elena   (09045 Quartu Sant'Elena CA, Италия, Италия ) | 
+26134 | Campos   (07630 Campos, Illes Balears, Испания, Испания ) | 
+86553 | Selimiye   (Selimiye, 48710 Selimiye/Marmaris/Muğla Province, Турция, Турция ) | 
+58395 | Campofelice di Roccella   (90010 Campofelice di Roccella PA, Италия, Италия ) | 
+76060 | Rewal   (Rewal, Польша, Польша ) | 
+60484 | Letojanni   (98037 Letojanni ME, Италия, Италия ) | 
+52305 | Arbanija   (Arbanija, Хорватия, Хорватия ) | 
+61326 | Monteriggioni   (53035 Monteriggioni SI, Италия, Италия ) | 
+29123 | Peguera   (07160 Peguera, Illes Balears, Испания, Испания ) | 
+53721 | Egerszalók   (Egerszalók, 3394 Венгрия, Венгрия ) | 
+51450 | Nikiana   (Nikiana, Греция, Греция ) | 
+85505 | Kanchanaburi City   (Kanchanaburi City, Таиланд ) | 
+64518 | Vigo di Fassa   (38039 Vigo di Fassa TN, Италия, Италия ) | 
+52489 | Donji Okrug   (51317, Donji Okrug, Хорватия, Хорватия ) | 
+86800 | Dongshan District   (Dongshan District, Tainan City, Тайвань 733, Тайвань ) | 
+77593 | Guimaraes   (Guimaraes, Португалия, Португалия ) | 
+53288 | Tkon   (Tkon, Хорватия, Хорватия ) | 
+84274 | Bešeňová   (034 83 Bešeňová, Словакия, Словакия ) | 
+77669 | Luz   (8600 Luz, Португалия, Португалия ) | 
+23401 | Hvalpsund   (9640 Hvalpsund, Дания, Дания ) | 
+60267 | Impruneta   (50023 Impruneta FI, Италия, Италия ) | 
+78458 | Vila Nova de Milfontes   (Vila Nova de Milfontes, Португалия, Португалия ) | 
+57740 | Badesi   (07030 Badesi OT, Италия, Италия ) | 
+6809 | Cumbuco   (Cumbuco, Caucaia - State of Ceará, Бразилия, Бразилия ) | 
+53457 | Zubovići   (Zubovići, Хорватия, Хорватия ) | 
+50692 | Gaios   (Gaios, Греция, Греция ) | 
+31764 | Levi   (Levi, 99130 Kittilä, Финляндия, Финляндия ) | 
+62508 | Radda in Chianti   (53017 Radda in Chianti SI, Италия, Италия ) | 
+86845 | Jiaoxi Township   (Jiaoxi Township, Yilan County, Тайвань 262, Тайвань ) | 
+53314 | Turanj   (23207, Turanj, Хорватия, Хорватия ) | 
+52343 | Betina   (Betina, Хорватия, Хорватия ) | 
+58495 | Capo Vaticano   (89866 Capo Vaticano, Province of Vibo Valentia, Италия, Италия ) | 
+14977 | Kouklia   (Kouklia, Кипр, Кипр ) | 
+64399 | Vasto   (66054 Vasto CH, Италия, Италия ) | 
+53142 | Rukavac   (Rukavac, Хорватия, Хорватия ) | 
+62623 | Riposto   (95018 Riposto CT, Италия, Италия ) | 
+19620 | KO   (Кобленц, Германия, Германия ) | 
+28345 | Casa de los Tomases   (Casa de los Tomases, 14440 Villanueva de Córdoba, Córdoba, Испания, Испания ) | 
+23743 | Sønder Bjert   (6091 Sønder Bjert, Дания, Дания ) | 
+52680 | Kanfanar   (Kanfanar, Хорватия, Хорватия ) | 
+60894 | Massa Marittima   (58024 Massa Marittima GR, Италия, Италия ) | 
+62213 | Pomarance   (56045 Pomarance PI, Италия, Италия ) | 
+7188 | Lençóis   (Lençóis, Lençóis - BA, Бразилия, Бразилия ) | 
+63267 | Santa Croce Camerina   (97017 Santa Croce Camerina RG, Италия, Италия ) | 
+53060 | Preko   (Preko, Хорватия, Хорватия ) | 
+58200 | Bucine   (52021 Bucine AR, Италия, Италия ) | 
+57695 | Asti   (14100 Asti AT, Италия, Италия ) | 
+57968 | Bibbona   (57020 Bibbona LI, Италия, Италия ) | 
+60031 | Gargnano   (25084 Gargnano BS, Италия, Италия ) | 
+23434 | Kare   (8950 Kare, Дания, Дания ) | 
+59286 | Colfosco   (Colfosco TV, Италия, Италия ) | 
+62105 | Pineto   (64025 Pineto TE, Италия, Италия ) | 
+61850 | Passignano Sul Trasimeno   (06065 Passignano Sul Trasimeno PG, Италия, Италия ) | 
+71338 | Schoorl   (1871 Schoorl, Нидерланды, Нидерланды ) | 
+13554 | Tianzhu   (Tianzhu, Qiandongnan, Guizhou, Китай, Китай ) | 
+64499 | Vietri Sul Mare   (84019 Vietri Sul Mare SA, Италия, Италия ) | 
+86531 | Sapanca   (Sapanca, 54600 Sapanca/Sakarya, Турция, Турция ) | 
+29451 | Portonovo   (36970 Portonovo, Pontevedra, Испания, Испания ) | 
+77076 | Aveiro   (Aveiro, Португалия, Португалия ) | 
+53304 | Trpanj   (Trpanj, Хорватия, Хорватия ) | 
+53564 | Balatongyörök   (Balatongyörök, 8313 Венгрия, Венгрия ) | 
+78918 | Hațeg   (Hațeg, Румыния, Румыния ) | 
+16971 | A   (Аугсбург, Германия, Германия ) | 
+53106 | Rakovica   (47245, Rakovica, Хорватия, Хорватия ) | 
+75917 | Pobierowo   (Pobierowo, Польша, Польша ) | 
+51873 | Stalos   (Stalos 731 00, Греция, Греция ) | 
+62898 | San Candido   (39038 San Candido BZ, Италия, Италия ) | 
+7867 | Serra Negra   (Serra Negra, Serra Negra - SP, Бразилия, Бразилия ) | 
+53438 | Ždrelac   (23263, Ždrelac, Хорватия, Хорватия ) | 
+84943 | Ban Tai   (Ban Tai, Mueang Kanchanaburi District, Kanchanaburi 71000, Таиланд, Таиланд ) | 
+52944 | Omišalj   (51513, Omišalj, Хорватия, Хорватия ) | 
+58579 | Carovigno   (72012 Carovigno BR, Италия, Италия ) | 
+63446 | Sarteano   (53047 Sarteano SI, Италия, Италия ) | 
+51690 | Potos   (Potos 640 02, Греция, Греция ) | 
+59883 | Formia   (04023 Formia LT, Италия, Италия ) | 
+7927 | Teresópolis   (Teresópolis, Teresópolis - RJ, Бразилия, Бразилия ) | 
+84743 | Ždiar   (Ždiar, Словакия, Словакия ) | 
+63497 | Scarlino   (58020 Scarlino GR, Италия, Италия ) | 
+61202 | Monte San Savino   (52048 Monte San Savino AR, Италия, Италия ) | 
+52503 | Drage   (23211, Drage, Хорватия, Хорватия ) | 
+53561 | Balatonföldvár   (Balatonföldvár, Венгрия, Венгрия ) | 
+50753 | Idra   (Idra 180 40, Греция, Греция ) | 
+53102 | Rakalj   (Rakalj, Хорватия, Хорватия ) | 
+50802 | Kalabaka   (Kalabaka 422 00, Греция, Греция ) | 
+52851 | Marčana   (Marčana, Хорватия, Хорватия ) | 
+52597 | Gradac   (Gradac, Хорватия, Хорватия ) | 
+53883 | Kehidakustány   (Kehidakustány, 8784 Венгрия, Венгрия ) | 
+63616 | Sesto   (39030 Sesto BZ, Италия, Италия ) | 
+23689 | Slettestrand   (Slettestrand, 9690 Fjerritslev, Дания, Дания ) | 
+25999 | Cala en Blanes   (07769 Cala en Blanes, Illes Balears, Испания, Испания ) | 
+7824 | São Miguel do Gostoso   (São Miguel do Gostoso, São Miguel do Gostoso - RN, Бразилия, Бразилия ) | 
+50329 | Ammoudara   (Ammoudara, Ag. Dimitrios 714 14, Греция, Греция ) | 
+60114 | Gioiosa Marea   (98063 Gioiosa Marea ME, Италия, Италия ) | 
+63958 | Terracina   (04019 Terracina LT, Италия, Италия ) | 
+61683 | Orta San Giulio   (28016 Orta San Giulio NO, Италия, Италия ) | 
+52728 | Kornić   (Kornić, Хорватия, Хорватия ) | 
+50951 | Kato Loutraki   (Kato Loutraki 715 00, Греция, Греция ) | 
+58186 | Bruneck   (39031 Bruneck, Province of Bolzano - South Tyrol, Италия, Италия ) | 
+23637 | Rødhus   (Rødhus, 9490 Pandrup, Дания, Дания ) | 
+57685 | Asciano   (53041 Asciano SI, Италия, Италия ) | 
+57686 | Ascoli Piceno   (63100 Ascoli Piceno AP, Италия, Италия ) | 
+85875 | Adrasan   (Adrasan, 07350 Adrasan/Kumluca/Antalya, Турция, Турция ) | 
+64381 | Varazze   (17019 Varazze SV, Италия, Италия ) | 
+70539 | Domburg   (4357 Domburg, Нидерланды, Нидерланды ) | 
+23188 | Dronningmølle   (3120 Dronningmølle, Дания, Дания ) | 
+18588 | GS   (Гослар, Германия, Германия ) | 
+52389 | Brna   (20272, Brna, Хорватия, Хорватия ) | 
+25002 | L'Albir   (03581 L'Albir, Alicante, Испания, Испания ) | 
+58289 | Caldaro   (39052 Caldaro BZ, Италия, Италия ) | 
+59834 | Foligno   (06034 Foligno PG, Италия, Италия ) | 
+50882 | Kardamena   (Kardamena, Греция, Греция ) | 
+23502 | Lumsås   (4500 Lumsås, Дания, Дания ) | 
+50161 | Acharavi   (Acharavi 491 00, Греция, Греция ) | 
+97268 | Marloth Park   (Marloth Park, Южная Африка, ЮАР ) | 
+64244 | Tuoro Sul Trasimeno   (06069 Tuoro Sul Trasimeno PG, Италия, Италия ) | 
+63990 | Tignale   (25080 Tignale BS, Италия, Италия ) | 
+6399 | Angra dos Reis   (Angra dos Reis, Angra dos Reis - State of Rio de Janeiro, Бразилия, Бразилия ) | 
+64006 | Tivoli   (Tivoli RM, Италия, Италия ) | 
+53015 | Plitvička Jezera   (53231, Plitvička Jezera, Хорватия, Хорватия ) | 
+7462 | Penedo   (Penedo, Itatiaia - State of Rio de Janeiro, Бразилия, Бразилия ) | 
+63287 | Santa Margherita Ligure   (16038 Santa Margherita Ligure GE, Италия, Италия ) | 
+60733 | Manciano   (58014 Manciano GR, Италия, Италия ) | 
+57679 | Arzachena   (07021 Arzachena OT, Италия, Италия ) | 
+78425 | Viana do Castelo   (Viana do Castelo, Португалия, Португалия ) | 
+59001 | Cecina   (57023 Cecina LI, Италия, Италия ) | 
+85882 | Ağva Merkez   (Ağva Merkez, Ağva Merkez, 34990 Şile/İstanbul, Турция, Турция ) | 
+4759 | Bredene   (Bredene, Бельгия, Бельгия ) | 
+62103 | Pinarella   (48015 Pinarella, Province of Ravenna, Италия, Италия ) | 
+30105 | Sant Carles de la Ràpita   (Sant Carles de la Ràpita, Tarragona, Испания, Испания ) | 
+62874 | Salve   (73050 Salve LE, Италия, Италия ) | 
+23219 | Faaborg   (5600 Faaborg, Дания, Дания ) | 
+60358 | La Villa   (La Villa BZ, Италия, Италия ) | 
+23765 | Thyboron   (7680 Thyboron, Дания, Дания ) | 
+51467 | Olympiaki Akti   (Olympiaki Akti 601 00, Греция, Греция ) | 
+50705 | Gennadi   (Gennadi 851 09, Греция, Греция ) | 
+50731 | Teriakhi   (Teriakhi, Farres 250 08, Греция, Греция ) | 
+30260 | Santa Susanna   (08398 Santa Susanna, Barcelona, Испания, Испания ) | 
+62029 | Piazza Armerina   (94015 Piazza Armerina EN, Италия, Италия ) | 
+59726 | Fasano   (72015 Fasano BR, Италия, Италия ) | 
+58450 | Cannigione   (07021 Cannigione OT, Италия, Италия ) | 
+58972 | Cavalese   (38033 Cavalese TN, Италия, Италия ) | 
+51042 | Kokkari   (Kokkari 831 00, Греция, Греция ) | 
+59237 | Civitanova Marche   (62012 Civitanova Marche, Province of Macerata, Италия, Италия ) | 
+23149 | Broager   (6310 Broager, Дания, Дания ) | 
+58736 | Castagneto Carducci   (57022 Castagneto Carducci LI, Италия, Италия ) | 
+86387 | Konaklı   (Konaklı, 07491 Konaklı/Alanya/Antalya, Турция, Турция ) | 
+60798 | Marina di Camerota   (Marina di Camerota, Province of Salerno, Италия, Италия ) | 
+58266 | Cala Liberotto   (08028 Cala Liberotto NU, Италия, Италия ) | 
+75951 | Poronin   (Poronin, Польша, Польша ) | 
+20145 | MA   (Мангейм, Германия, Германия ) | 
+50905 | Karpathos   (Karpathos 857 00, Греция, Греция ) | 
+52706 | Klek mountain   (Klek mountain, 47300, Potok Musulinski, Хорватия, Хорватия ) | 
+54498 | Gili Meno   (Gili Meno, Gili Indah, Pemenang, North Lombok Regency, West Nusa Tenggara, Индонезия, Индонезия ) | 
+63719 | Sorano   (58010 Sorano GR, Италия, Италия ) | 
+27626 | Inca   (07300 Inca, Illes Balears, Испания, Испания ) | 
+61191 | Monte Petrosu   (Monte Petrosu OT, Италия, Италия ) | 
+60181 | Gravedona   (22015 Gravedona CO, Италия, Италия ) | 
+59163 | Chiusi   (53043 Chiusi SI, Италия, Италия ) | 
+60453 | Lecco   (23900 Lecco LC, Италия, Италия ) | 
+58153 | Breuil-Cervinia   (Breuil-Cervinia AO, Италия, Италия ) | 
+25387 | Arrieta   (48114 Arrieta, Bizkaia, Испания, Испания ) | 
+50989 | Kerion   (Kerion, Laganas 290 92, Греция, Греция ) | 
+58672 | Casarano   (73042 Casarano LE, Италия, Италия ) | 
+7745 | Santo Antônio do Pinhal   (Santo Antônio do Pinhal, Santo Antônio do Pinhal - SP, Бразилия, Бразилия ) | 
+12616 | Huadu   (Huadu, Guangzhou, Guangdong, Китай, Китай ) | 
+29003 | Oliva   (46780 Oliva, Valencia, Испания, Испания ) | 
+53081 | Pučišća   (Pučišća, Хорватия, Хорватия ) | 
+7012 | Ilha do Mel   (Ilha do Mel, Paranaguá - PR, Бразилия, Бразилия ) | 
+59239 | Civitavecchia   (00053 Civitavecchia, Metropolitan City of Rome, Италия, Италия ) | 
+63868 | Suvereto   (57028 Suvereto LI, Италия, Италия ) | 
+58244 | Cabras   (09072 Cabras OR, Италия, Италия ) | 
+61832 | Parghelia   (89861 Parghelia VV, Италия, Италия ) | 
+62139 | Pizzo   (89812 Pizzo VV, Италия, Италия ) | 
+96956 | Constantia   (Constantia, Южная Африка, ЮАР ) | 
+59836 | Follonica   (58022 Follonica GR, Италия, Италия ) | 
+62944 | San Felice del Benaco   (25010 San Felice del Benaco BS, Италия, Италия ) | 
+60899 | Massarosa   (55054 Massarosa LU, Италия, Италия ) | 
+63485 | Scalea   (87029 Scalea CS, Италия, Италия ) | 
+77839 | Óbidos Municipality   (2510 Óbidos Municipality, Португалия, Португалия ) | 
+50196 | Agia Marina   (Agia Marina, Греция, Греция ) | 
+59925 | Frascati   (00044 Frascati RM, Италия, Италия ) | 
+59218 | Città della Pieve   (06062 Città della Pieve PG, Италия, Италия ) | 
+60243 | Gubbio   (06024 Gubbio PG, Италия, Италия ) | 
+62296 | Porlezza   (22018 Porlezza CO, Италия, Италия ) | 
+13658 | Wutaishan   (Wutaishan, Jianyang, Ziyang, Китай, Китай ) | 
+63069 | San Martino di Castrozza   (38054 San Martino di Castrozza, Province of Trento, Италия, Италия ) | 
+50822 | Kallithea   (Kallithea 630 77, Греция, Греция ) | 
+62603 | Rio Marina   (57038 Rio Marina LI, Италия, Италия ) | 
+25996 | Cala Sant Vicenç   (Cala Sant Vicenç, Balearic Islands, Испания, Испания ) | 
+30102 | Sant Antoni de Calonge   (Sant Antoni de Calonge, Province of Girona, Испания, Испания ) | 
+61598 | Numana   (60026 Numana AN, Италия, Италия ) | 
+53151 | Sali   (Sali, Хорватия, Хорватия ) | 
+60832 | Marinella   (Marinella OT, Италия, Италия ) | 
+59301 | Colle di Val d'Elsa   (53034 Colle di Val d'Elsa SI, Италия, Италия ) | 
+64426 | Venturina   (57021 Venturina LI, Италия, Италия ) | 
+64427 | Venturina Terme   (57021 Venturina Terme LI, Италия, Италия ) | 
+52669 | Juršići   (52342, Juršići, Хорватия, Хорватия ) | 
+61119 | Moniga del Garda   (25080 Moniga del Garda BS, Италия, Италия ) | 
+60374 | Lagundo   (39022 Lagundo BZ, Италия, Италия ) | 
+63963 | Terranuova Bracciolini   (52028 Terranuova Bracciolini AR, Италия, Италия ) | 
+51677 | Poros   (Poros, Греция, Греция ) | 
+69879 | Tanah Rata   (Tanah Rata, Pahang, Малайзия, Малайзия ) | 
+63746 | Sovicille   (53018 Sovicille SI, Италия, Италия ) | 
+6921 | Garopaba   (Garopaba, Garopaba - SC, Бразилия, Бразилия ) | 
+23565 | Nymindegab   (6830 Nymindegab, Дания, Дания ) | 
+52497 | Drače   (20246, Drače, Хорватия, Хорватия ) | 
+72212 | Hemsedal   (Hemsedal, Норвегия, Норвегия ) | 
+63540 | Seggiano   (58038 Seggiano GR, Италия, Италия ) | 
+64314 | Valeggio Sul Mincio   (37067 Valeggio Sul Mincio VR, Италия, Италия ) | 
+63037 | San Leone   (San Leone AG, Италия, Италия ) | 
+62539 | Realmonte   (92010 Realmonte AG, Италия, Италия ) | 
+25678 | Benicàssim   (12560 Benicàssim, Castelló, Испания, Испания ) | 
+76625 | Chłapowo   (Chłapowo, Władysławowo, Польша, Польша ) | 
+66401 | Jounieh   (Jounieh, Ливан, Ливан ) | 
+57955 | Bevagna   (06031 Bevagna PG, Италия, Италия ) | 
+50284 | Akrotiri   (Akrotiri 847 00, Греция, Греция ) | 
+61297 | Montelupo Fiorentino   (50056 Montelupo Fiorentino FI, Италия, Италия ) | 
+71283 | Roggel   (6088 Roggel, Нидерланды, Нидерланды ) | 
+58490 | Capo d'Orlando   (98071 Capo d'Orlando ME, Италия, Италия ) | 
+124 | Golem   (Golem 2504, Албания, Албания ) | 
+58505 | Capoterra   (09012 Capoterra CA, Италия, Италия ) | 
+70795 | Hollum   (9161 Hollum, Нидерланды, Нидерланды ) | 
+51864 | Spetses   (Spetses, Греция, Греция ) | 
+51356 | Mithimna   (Mithimna, Греция, Греция ) | 
+7585 | Praia do Francês   (Praia do Francês, Mal. Deodoro - AL, Бразилия, Бразилия ) | 
+63394 | Sant'Antioco   (09017 Sant'Antioco CI, Италия, Италия ) | 
+77489 | Figueira da Foz   (Figueira da Foz, Португалия, Португалия ) | 
+77237 | Caniço   (Caniço, Португалия, Португалия ) | 
+59831 | Folgaria   (38064 Folgaria TN, Италия, Италия ) | 
+63162 | San Quirico d'Orcia   (53027 San Quirico d'Orcia SI, Италия, Италия ) | 
+12734 | Jichangzhen   (Jichangzhen, Qinglong, Qianxinan, Guizhou, Китай, Китай ) | 
+57792 | Baja Sardinia   (07021 Baja Sardinia OT, Италия, Италия ) | 
+59074 | Cerreto Guidi   (50050 Cerreto Guidi FI, Италия, Италия ) | 
+23494 | Lild Strand   (Lild Strand, 7741 Frøstrup, Дания, Дания ) | 
+53454 | Žminj   (52341, Žminj, Хорватия, Хорватия ) | 
+29152 | Palmanova   (07181 Palmanova, Illes Balears, Испания, Испания ) | 
+58097 | Bosa   (08013 Bosa OR, Италия, Италия ) | 
+62460 | Punta Prosciutto   (73010 Punta Prosciutto LE, Италия, Италия ) | 
+23567 | Nysted   (4880 Nysted, Дания, Дания ) | 
+23843 | Vibøge   (6470 Vibøge, Дания, Дания ) | 
+23091 | Bagenkop   (5935 Bagenkop, Дания, Дания ) | 
+50752 | Ialysos   (Ialysos 851 01, Греция, Греция ) | 
+84548 | Podhájska   (Podhájska, Словакия, Словакия ) | 
+61253 | Montefalco   (06036 Montefalco PG, Италия, Италия ) | 
+61529 | Nicolosi   (95030 Nicolosi CT, Италия, Италия ) | 
+60768 | Maratea   (85046 Maratea PZ, Италия, Италия ) | 
+52833 | Lun   (Lun, Хорватия, Хорватия ) | 
+86882 | Luodong Township   (Luodong Township, Yilan County, Тайвань 265, Тайвань ) | 
+31074 | Vielha   (25530 Vielha, Lleida, Испания, Испания ) | 
+52863 | Mastrinka   (21220, Mastrinka, Хорватия, Хорватия ) | 
+59778 | Figline Valdarno   (50063 Figline Valdarno FI, Италия, Италия ) | 
+23184 | Diernæs   (5600 Diernæs, Дания, Дания ) | 
+30362 | Selva   (07313 Selva, Illes Balears, Испания, Испания ) | 
+61345 | Montesilvano   (65015 Montesilvano PE, Италия, Италия ) | 
+63655 | Silvi Marina   (Silvi Marina, 64028 Silvi TE, Италия, Италия ) | 
+63914 | Taviano   (73057 Taviano LE, Италия, Италия ) | 
+23260 | Fæbæk   (5953 Fæbæk, Дания, Дания ) | 
+53218 | Splitska   (Splitska, Хорватия, Хорватия ) | 
+30445 | Sóller   (07100 Sóller, Illes Balears, Испания, Испания ) | 
+66810 | Uda Walawe Reservoir   (Uda Walawe Reservoir, Шри-Ланка, Шри-Ланка ) | 
+59130 | Chianni   (56034 Chianni PI, Италия, Италия ) | 
+49923 | Mkinvartsveri   (Mkinvartsveri, Грузия, Грузия ) | 
+59400 | Conversano   (70014 Conversano BA, Италия, Италия ) | 
+58125 | Bracciano   (00062 Bracciano RM, Италия, Италия ) | 
+29968 | Sa Talaiassa   (Sa Talaiassa, 07830, Balearic Islands, Испания, Испания ) | 
+27156 | Finestrat   (03509 Finestrat, Alicante, Испания, Испания ) | 
+53286 | Tinjan   (Tinjan, Хорватия, Хорватия ) | 
+84528 | Oščadnica   (023 01 Oščadnica, Словакия, Словакия ) | 
+60212 | Grottammare   (63066 Grottammare AP, Италия, Италия ) | 
+63286 | Santa Margherita di Pula   (09010 Santa Margherita di Pula CA, Италия, Италия ) | 
+23866 | Yderby   (Yderby, 4583 Sjællands Odde, Дания, Дания ) | 
+64065 | Torre Dell'orso   (73026 Torre Dell'orso LE, Италия, Италия ) | 
+53573 | Balatonszárszó   (Balatonszárszó, 8624 Венгрия, Венгрия ) | 
+64094 | Torre Suda   (73055 Torre Suda LE, Италия, Италия ) | 
+114 | Dhërmi   (Dhërmi 9422, Албания, Албания ) | 
+60797 | Marina di Bibbona   (57020 Marina di Bibbona LI, Италия, Италия ) | 
+52871 | Metajna   (Metajna, Хорватия, Хорватия ) | 
+67991 | Taghazout   (Taghazout, Марокко, Марокко ) | 
+78232 | São Martinho do Porto   (2460 São Martinho do Porto, Португалия, Португалия ) | 
+22937 | WÜ   (Вюрцбург, Германия, Германия ) | 
+51616 | Pireas   (Pireas, Греция, Греция ) | 
+20131 | MZ   (Майнц, Германия, Германия ) | 
+61105 | Moneglia   (16030 Moneglia GE, Италия, Италия ) | 
+52918 | Nedešćina   (52231, Nedešćina, Хорватия, Хорватия ) | 
+53433 | Zavala   (Zavala, Хорватия, Хорватия ) | 
+30140 | Sant Josep de sa Talaia   (07830 Sant Josep de sa Talaia, Balearic Islands, Испания, Испания ) | 
+60619 | Lucignano   (52046 Lucignano AR, Италия, Италия ) | 
+51150 | Lassi   (Lassi, Argostoli 281 00, Греция, Греция ) | 
+29135 | Palamós   (Palamós, Girona, Испания, Испания ) | 
+50383 | Antiparos   (Antiparos 840 07, Греция, Греция ) | 
+59600 | Dobbiaco   (39034 Dobbiaco BZ, Италия, Италия ) | 
+63448 | Sarzana   (19038 Sarzana SP, Италия, Италия ) | 
+85988 | Beldibi   (Beldibi, 07900 Şahinler/Gazipaşa/Antalya, Турция, Турция ) | 
+63734 | Sorso   (07037 Sorso SS, Италия, Италия ) | 
+26361 | Castelldefels   (Castelldefels, Barcelona, Испания, Испания ) | 
+58369 | Campiglia Marittima   (57021 Campiglia Marittima LI, Италия, Италия ) | 
+60934 | Meina   (28046 Meina NO, Италия, Италия ) | 
+63754 | Spello   (06038 Spello PG, Италия, Италия ) | 
+62771 | Roseto degli Abruzzi   (64026 Roseto degli Abruzzi TE, Италия, Италия ) | 
+64308 | Valdidentro   (23038 Valdidentro SO, Италия, Италия ) | 
+63308 | Santa Maria Navarrese   (08040 Santa Maria Navarrese, Province of Ogliastra, Италия, Италия ) | 
+50509 | Batsi   (Batsi 189 00, Греция, Греция ) | 
+60494 | Lezzeno   (22025 Lezzeno CO, Италия, Италия ) | 
+30307 | Sanxenxo   (Sanxenxo, Pontevedra, Испания, Испания ) | 
+84079 | Moravske Toplice   (9226 Moravske Toplice, Словения, Словения ) | 
+50546 | Dassia   (Dassia 490 83, Греция, Греция ) | 
+25974 | Cadaqués   (Cadaqués, Girona, Испания, Испания ) | 
+6522 | Barreirinhas   (Barreirinhas, Barreirinhas - MA, Бразилия, Бразилия ) | 
+23168 | Bønnerup   (8585 Bønnerup, Дания, Дания ) | 
+7056 | Itaipava   (Itaipava, Itapemirim - ES, Бразилия, Бразилия ) | 
+65943 | Phum Chambok   (Phum Chambok, Камбоджа, Камбоджа ) | 
+23720 | Strandby   (Strandby, Дания, Дания ) | 
+23748 | Sønder Vorupør   (Sønder Vorupør, 7700 Thisted, Дания, Дания ) | 
+58571 | Carloforte   (09014 Carloforte CI, Италия, Италия ) | 
+51931 | Toroni   (Toroni 630 72, Греция, Греция ) | 
+7649 | Rio das Ostras   (Rio das Ostras, Rio das Ostras - RJ, Бразилия, Бразилия ) | 
+87009 | Yuchi Township   (Yuchi Township, Nantou County, Тайвань 555, Тайвань ) | 
+60911 | Matino   (73046 Matino LE, Италия, Италия ) | 
+54009 | Miskolctapolca   (Miskolc, Miskolctapolca, 3519 Венгрия, Венгрия ) | 
+51453 | Νικήτη   (Νικήτη 630 88, Греция, Греция ) | 
+28426 | Malgrat de Mar   (08380 Malgrat de Mar, Barcelona, Испания, Испания ) | 
+63521 | Scoglitti   (97019 Scoglitti, Province of Ragusa, Италия, Италия ) | 
+64061 | Torre Colimena   (74024 Torre Colimena TA, Италия, Италия ) | 
+53054 | Povlja   (Povlja, Хорватия, Хорватия ) | 
+59966 | Furore   (84010 Furore SA, Италия, Италия ) | 
+63296 | Santa Maria del Focallo   (97014 Santa Maria del Focallo RG, Италия, Италия ) | 
+23127 | Bogø By   (4793 Bogø By, Дания, Дания ) | 
+51562 | Pefki   (Pefki, Греция, Греция ) | 
+23148 | Bro   (6440 Bro, Дания, Дания ) | 
+23413 | Høruphav   (6470 Høruphav, Дания, Дания ) | 
+53369 | Vintijan   (52100, Vintijan, Хорватия, Хорватия ) | 
+57470 | Alba Adriatica   (64011 Alba Adriatica TE, Италия, Италия ) | 
+62349 | Portovenere   (Portovenere SP, Италия, Италия ) | 
+57742 | Badia   (39036 Badia BZ, Италия, Италия ) | 
+60303 | Isola Rossa   (07038 Isola Rossa OT, Италия, Италия ) | 
+28822 | Muro   (07440 Muro, Illes Balears, Испания, Испания ) | 
+84637 | Štrbské Pleso   (059 85 Vysoké Tatry-Štrbské Pleso, Словакия, Словакия ) | 
+30117 | Sant Feliu de Guíxols   (17220 Sant Feliu de Guíxols, Girona, Испания, Испания ) | 
+52905 | Mundanije   (51280, Mundanije, Хорватия, Хорватия ) | 
+64688 | Zafferana Etnea   (95019 Zafferana Etnea CT, Италия, Италия ) | 
+64449 | Vernazza   (19018 Vernazza, Province of La Spezia, Италия, Италия ) | 
+78280 | Setúbal Municipality   (Setúbal Municipality, Португалия, Португалия ) | 
+64201 | Trevignano Romano   (00069 Trevignano Romano RM, Италия, Италия ) | 
+76491 | Ustronie Morskie   (Ustronie Morskie, Польша, Польша ) | 
+23772 | Tisvilde   (3220 Tisvilde, Дания, Дания ) | 
+24551 | Otepää   (Otepää, Valga maakond, Эстония, Эстония ) | 
+27136 | Felanitx   (07200 Felanitx, Illes Balears, Испания, Испания ) | 
+52995 | Peroj   (Peroj, Хорватия, Хорватия ) | 
+17936 | DU   (Дуйсбург, Германия, Германия ) | 
+28436 | Manacor   (07500 Manacor, Illes Balears, Испания, Испания ) | 
+14872 | Sal Rei   (Sal Rei, Кабо-Верде, Кабо-Верде ) | 
+59169 | Ciampino   (00043 Ciampino RM, Италия, Италия ) | 
+57903 | Bellano   (23822 Bellano LC, Италия, Италия ) | 
+60976 | Mesagne   (72023 Mesagne BR, Италия, Италия ) | 
+86331 | Kargıcak   (Kargıcak, Kargıcak/Alanya/Antalya, Турция, Турция ) | 
+59197 | Cinisi   (90045 Cinisi PA, Италия, Италия ) | 
+15424 | Frymburk   (Frymburk, Чехия, Чехия ) | 
+23874 | Ørby   (8305 Ørby, Дания, Дания ) | 
+63044 | San Lorenzo di Sebato   (39030 San Lorenzo di Sebato BZ, Италия, Италия ) | 
+23109 | Bindslev   (9881 Bindslev, Дания, Дания ) | 
+7240 | Maragogi   (Maragogi, Maragogi - AL, Бразилия, Бразилия ) | 
+13652 | Wulingyuan   (Wulingyuan, Zhangjiajie, Hunan, Китай, Китай ) | 
+86615 | Torba   (Torba, Torba, 48400 Bodrum/Muğla, Турция, Турция ) | 
+86626 | Uçhisar   (Uçhisar, Tekelli, 50240 Uçhisar/Nevşehir Merkez/Nevşehir, Турция, Турция ) | 
+60520 | Lido di Spina   (Lido di Spina FE, Италия, Италия ) | 
+53374 | Višnjan   (52463, Višnjan, Хорватия, Хорватия ) | 
+23167 | Bøjden   (5600 Bøjden, Дания, Дания ) | 
+52607 | Grižane-Belgrad   (Grižane-Belgrad, Хорватия, Хорватия ) | 
+59775 | Fiesole   (50014 Fiesole FI, Италия, Италия ) | 
+29334 | Pineda de Mar   (08397 Pineda de Mar, Barcelona, Испания, Испания ) | 
+86173 | Fethiye   (S CAMP FARALYA, Uzunyurt Köyü Orta Mahalle Fethiye Muğla, 48300 Uzunyurt/Fethiye/Muğla, Турция, Турция ) | 
+23197 | Egernsund   (6320 Egernsund, Дания, Дания ) | 
+52637 | Ivan Dolac   (Ivan Dolac, Хорватия, Хорватия ) | 
+76969 | Aljezur   (8670 Aljezur, Португалия, Португалия ) | 
+86443 | Mesudiye   (Mesudiye, Merkez, 52900 Mesudiye/Ordu, Турция, Турция ) | 
+53164 | Selište Drežničko   (Selište Drežničko, Хорватия, Хорватия ) | 
+57773 | Bagno A Ripoli   (50012 Bagno A Ripoli FI, Италия, Италия ) | 
+61869 | Patti   (98066 Patti ME, Италия, Италия ) | 
+51631 | Plaka   (Plaka 848 00, Греция, Греция ) | 
+23230 | Fårvang   (8882 Fårvang, Дания, Дания ) | 
+83398 | Simrishamn   (Simrishamn, Швеция, Швеция ) | 
+19654 | KN   (Констанц, Германия, Германия ) | 
+86485 | Ortakent   (Ortakent, Ortakent, 48420 Ortakentyahşi/Bodrum/Muğla, Турция, Турция ) | 
+50906 | Karpenissi   (Karpenissi 361 00, Греция, Греция ) | 
+50907 | Karterados   (Karterados 847 00, Греция, Греция ) | 
+57827 | Barberino Val D'elsa   (50021 Barberino Val D'elsa FI, Италия, Италия ) | 
+57591 | Apecchio   (61042 Apecchio PU, Италия, Италия ) | 
+16638 | Vrchlabí   (Vrchlabí, Чехия, Чехия ) | 
+57606 | Arabba   (32020 Arabba BL, Италия, Италия ) | 
+78857 | Eforie Sud   (Eforie Sud, Румыния, Румыния ) | 
+59916 | Francavilla al Mare   (66023 Francavilla al Mare CH, Италия, Италия ) | 
+17431 | BO   (Бохум, Германия, Германия ) | 
+53275 | Sveti Juraj   (Sveti Juraj, Хорватия, Хорватия ) | 
+6945 | Gravatá   (Gravatá, Gravatá - PE, Бразилия, Бразилия ) | 
+70959 | Lochem   (Lochem, Нидерланды, Нидерланды ) | 
+61745 | Padenghe Sul Garda   (25080 Padenghe Sul Garda BS, Италия, Италия ) | 
+60982 | Meta   (80062 Meta NA, Италия, Италия ) | 
+57400 | Aci Castello   (95021 Aci Castello CT, Италия, Италия ) | 
+78393 | Vale do Lobo   (Vale do Lobo, 3750-064, Португалия, Португалия ) | 
+63291 | Santa Maria al Bagno   (73050 Santa Maria al Bagno, Province of Lecce, Италия, Италия ) | 
+61771 | Palaia   (56036 Palaia PI, Италия, Италия ) | 
+23382 | Hornsved   (Hornsved, 3630 Jægerspris, Дания, Дания ) | 
+62318 | Porto Garibaldi   (Porto Garibaldi FE, Италия, Италия ) | 
+60791 | Margherita di Savoia   (76016 Margherita di Savoia BT, Италия, Италия ) | 
+62589 | Rignano sull'Arno   (50067 Rignano sull'Arno FI, Италия, Италия ) | 
+70784 | Hippolytushoef   (1777 Hippolytushoef, Нидерланды, Нидерланды ) | 
+59275 | Cogne   (11012 Cogne AO, Италия, Италия ) | 
+62353 | Posada   (08020 Posada NU, Италия, Италия ) | 
+57501 | Alezio   (73011 Alezio LE, Италия, Италия ) | 
+62110 | Pinzolo   (38086 Pinzolo TN, Италия, Италия ) | 
+63667 | Sirolo   (60020 Sirolo AN, Италия, Италия ) | 
+79032 | Neptun   (Neptun, Румыния, Румыния ) | 
+53183 | Šišan   (Šišan, Хорватия, Хорватия ) | 
+23244 | Flovt   (6100 Flovt, Дания, Дания ) | 
+57552 | Ameglia   (19031 Ameglia SP, Италия, Италия ) | 
+18132 | ERH   (Эрланген, Германия, Германия ) | 
+51679 | Portaria   (Portaria 370 11, Греция, Греция ) | 
+61935 | Pero   (20016 Pero MI, Италия, Италия ) | 
+97045 | Gansbaai   (Gansbaai, Gansbaai, 7220, Южная Африка, ЮАР ) | 
+23840 | Vesterø Havn   (9940 Vesterø Havn, Дания, Дания ) | 
+50464 | Ayía Evfimía   (Ayía Evfimía, Erisos 280 81, Греция, Греция ) | 
+53281 | Svetvinčenat   (52342, Svetvinčenat, Хорватия, Хорватия ) | 
+57636 | Argegno   (22010 Argegno CO, Италия, Италия ) | 
+12593 | Hong Jia Lou   (Hong Jia Lou, Dongguan Shi, Guangdong Sheng, Китай, Китай ) | 
+50743 | Githio   (Githio, Греция, Греция ) | 
+60984 | Mezzana   (38020 Mezzana TN, Италия, Италия ) | 
+50491 | Akra Agios Nikitas   (Akra Agios Nikitas, Греция, Греция ) | 
+62016 | Piano di Sorrento   (80063 Piano di Sorrento NA, Италия, Италия ) | 
+53068 | Prigradica   (20271, Prigradica, Хорватия, Хорватия ) | 
+53330 | Valtura   (Valtura, Хорватия, Хорватия ) | 
+53077 | Promajna   (Promajna, Хорватия, Хорватия ) | 
+59990 | Galatone   (73044 Galatone LE, Италия, Италия ) | 
+64091 | Torre Santa Sabina   (72012 Torre Santa Sabina BR, Италия, Италия ) | 
+30317 | Sarria   (27600 Sarria, Lugo, Испания, Испания ) | 
+86911 | Ren’ai Township   (Ren’ai Township, Nantou County, Тайвань 546, Тайвань ) | 
+51590 | Paralia Perivolos   (Paralia Perivolos, 847 03, Греция, Греция ) | 
+60806 | Marina di Grosseto   (58100 Marina di Grosseto, Province of Grosseto, Италия, Италия ) | 
+60043 | Gatteo A Mare   (47043 Gatteo A Mare FC, Италия, Италия ) | 
+71059 | Nes   (9163 Nes, Нидерланды, Нидерланды ) | 
+59287 | Colico   (23823 Colico LC, Италия, Италия ) | 
+66465 | Aluthgama   (Aluthgama, Шри-Ланка, Шри-Ланка ) | 
+85681 | Pran Buri District   (Pran Buri District, Prachuap Khiri Khan, Таиланд, Таиланд ) | 
+52660 | Jesenice   (Jesenice, Хорватия, Хорватия ) | 
+51641 | Platanes   (Platanes 740 53, Греция, Греция ) | 
+60093 | Giarre   (95014 Giarre CT, Италия, Италия ) | 
+85450 | Chaweng Noi Beach   (Chaweng Noi Beach, Таиланд ) | 
+63950 | Termoli   (86039 Termoli CB, Италия, Италия ) | 
+51667 | Pollonia   (Pollonia 848 00, Греция, Греция ) | 
+23773 | Tjorneholm   (Tjorneholm, 4894 Øster Ulslev, Дания, Дания ) | 
+50397 | Archangelos   (Archangelos 851 02, Греция, Греция ) | 
+26847 | El Campello   (El Campello, Alicante, Испания, Испания ) | 
+69601 | Brinchang   (Brinchang, 39000 Brinchang, Pahang, Малайзия, Малайзия ) | 
+70116 | Ikeja   (Ikeja, Нигерия, Нигерия ) | 
+50404 | Argostolion   (Argostolion 281 00, Греция, Греция ) | 
+63468 | Sauze d'Oulx   (10050 Sauze d'Oulx TO, Италия, Италия ) | 
+23793 | Tørresø   (Tørresø, 5450 Otterup, Дания, Дания ) | 
+52467 | Dobrinj   (Dobrinj, Хорватия, Хорватия ) | 
+63752 | Specchia   (73040 Specchia LE, Италия, Италия ) | 
+84749 | Zuberec   (027 32 Zuberec, Словакия, Словакия ) | 
+58907 | Castiadas   (09040 Castiadas CA, Италия, Италия ) | 
+23590 | Odder   (8300 Odder, Дания, Дания ) | 
+23079 | Assens   (5610 Assens, Дания, Дания ) | 
+97065 | Gordons Bay   (Gordons Bay, Cape Town, Южная Африка, ЮАР ) | 
+53041 | Pomer   (Pomer, Хорватия, Хорватия ) | 
+60466 | Lenno   (22016 Lenno CO, Италия, Италия ) | 
+50230 | Agios Gordios   (Agios Gordios 490 84, Греция, Греция ) | 
+67901 | Mhamid   (Mhamid, Марокко, Марокко ) | 
+23869 | Øby   (6990 Øby, Дания, Дания ) | 
+54595 | Lembang   (Lembang, Lembang, West Bandung Regency, West Java, Индонезия, Индонезия ) | 
+85573 | จ.ลำปาง   (Лампанг, Таиланд, Таиланд ) | 
+23880 | Øster Hurup   (9560 Øster Hurup, Дания, Дания ) | 
+61257 | Montefiascone   (01027 Montefiascone VT, Италия, Италия ) | 
+63310 | Santa Marina Salina   (98050 Santa Marina Salina ME, Италия, Италия ) | 
+60522 | Lido Marini   (Lido Marini LE, Италия, Италия ) | 
+54637 | Munduk   (Munduk, Banjar, Buleleng Regency, Bali, Индонезия, Индонезия ) | 
+50296 | Aliki   (Aliki 844 00, Греция, Греция ) | 
+52091 | Ipsos   (Ipsos, Греция, Греция ) | 
+64125 | Tortoreto   (64018 Tortoreto TE, Италия, Италия ) | 
+15504 | Horní Planá   (Horní Planá, Чехия, Чехия ) | 
+65944 | ឃុំ ជីផាត   (ឃុំ ជីផាត, Камбоджа, Камбоджа ) | 
+52894 | Motovun   (Motovun, Хорватия, Хорватия ) | 
+27561 | L'Hospitalet de Llobregat   (L'Hospitalet de Llobregat, Barcelona, Испания, Испания ) | 
+27051 | Es Pujols   (07871 Es Pujols, Illes Balears, Испания, Испания ) | 
+58800 | Castelfiorentino   (50051 Castelfiorentino FI, Италия, Италия ) | 
+85426 | เขาบางนา   (เขาบางนา ตำบล บางใหญ่ อำเภอ กระบุรี ระนอง 85110, Таиланд, Таиланд ) | 
+59830 | Foiano della Chiana   (52045 Foiano della Chiana AR, Италия, Италия ) | 
+85945 | Assos   (Assos, 17860 Behram/Ayvacık/Çanakkale, Турция, Турция ) | 
+60865 | Martinsicuro   (64014 Martinsicuro TE, Италия, Италия ) | 
+52683 | Karigador   (Karigador, Хорватия, Хорватия ) | 
+52684 | Karlobag   (Karlobag, Хорватия, Хорватия ) | 
+7374 | Olinda   (Olinda, Olinda - PE, Бразилия, Бразилия ) | 
+23758 | Tårup   (5871 Tårup, Дания, Дания ) | 
+85734 | Surin Beach   (Surin Beach, Choeng Thale, Thalang District, Phuket 83110, Таиланд, Таиланд ) | 
+79344 | Vama Veche   (Vama Veche 907163, Румыния, Румыния ) | 
+54264 | Tiszafüred   (Tiszafüred, Венгрия, Венгрия ) | 
+28409 | Magaluf   (07181 Magaluf, Illes Balears, Испания, Испания ) | 
+61946 | Pescasseroli   (67032 Pescasseroli AQ, Италия, Италия ) | 
+6403 | Aparecida   (Aparecida, Aparecida - SP, Бразилия, Бразилия ) | 
+27151 | Figueres   (17600 Figueres, Girona, Испания, Испания ) | 
+58384 | Campo Tures   (39032 Campo Tures BZ, Италия, Италия ) | 
+60176 | Grassina   (50012 Grassina FI, Италия, Италия ) | 
+64279 | Ustica   (Ustica, Италия, Италия ) | 
+63262 | Santa Cesarea Terme   (73020 Santa Cesarea Terme LE, Италия, Италия ) | 
+23080 | Asserballeskov   (6440 Asserballeskov, Дания, Дания ) | 
+63274 | Santa Flavia   (90017 Santa Flavia PA, Италия, Италия ) | 
+77099 | Baleal   (Baleal, 2520-008 Ferrel, Португалия, Португалия ) | 
+58155 | Brezzo   (21010 Brezzo VA, Италия, Италия ) | 
+51502 | Palekastro   (Palekastro 723 00, Греция, Греция ) | 
+59454 | Corsanico-Bargecchia   (Corsanico-Bargecchia, 55040 Corsanico LU, Италия, Италия ) | 
+53574 | Balatonszemes   (Balatonszemes, Венгрия, Венгрия ) | 
+59977 | Gagliano del Capo   (73034 Gagliano del Capo LE, Италия, Италия ) | 
+58703 | Caserta   (81100 Caserta CE, Италия, Италия ) | 
+23634 | Rødbyhavn   (4970 Rødbyhavn, Дания, Дания ) | 
+59495 | Costermano   (37010 Costermano VR, Италия, Италия ) | 
+58482 | Capannori   (Capannori LU, Италия, Италия ) | 
+50547 | Delphi   (Delphi, Греция, Греция ) | 
+53114 | Ravni   (Ravni, Хорватия, Хорватия ) | 
+62331 | Porto Santo Stefano   (58019 Porto Santo Stefano, Province of Grosseto, Италия, Италия ) | 
+63102 | San Miniato   (56028 San Miniato PI, Италия, Италия ) | 
+26000 | Cala en Bosc   (Cala en Bosc, Illes Balears, Испания, Испания ) | 
+77203 | Estreito da Calheta   (9370 Estreito da Calheta, Португалия, Португалия ) | 
+84636 | Štrba   (Štrba, Словакия, Словакия ) | 
+57758 | Bagheria   (90011 Bagheria PA, Италия, Италия ) | 
+53157 | Savudrija   (52475, Savudrija, Хорватия, Хорватия ) | 
+53160 | Selca   (Selca, Хорватия, Хорватия ) | 
+79541 | Soko Banja   (Soko Banja, Сербия ) | 
+61123 | Monreale   (90046 Monreale PA, Италия, Италия ) | 
+64210 | Tricase   (73039 Tricase LE, Италия, Италия ) | 
+52950 | Orašac   (Orašac, Хорватия, Хорватия ) | 
+84444 | Liptovský Ján   (032 03 Liptovský Ján, Словакия, Словакия ) | 
+59612 | Domaso   (22013 Domaso CO, Италия, Италия ) | 
+60125 | Giulianova   (64021 Giulianova TE, Италия, Италия ) | 
+61153 | Montalto di Castro   (01014 Montalto di Castro VT, Италия, Италия ) | 
+57572 | Anghiari   (52031 Anghiari AR, Италия, Италия ) | 
+86501 | Patara   (Patara 681 00, Греция, Турция ) | 
+62441 | Procida   (80079 Procida NA, Италия, Италия ) | 
+60395 | Lamporecchio   (51035 Lamporecchio PT, Италия, Италия ) | 
+57587 | Anzio   (00042 Anzio RM, Италия, Италия ) | 
+62457 | Punta Ala   (58043 Punta Ala, Province of Grosseto, Италия, Италия ) | 
+62716 | Rodi   (Rodi FG, Италия, Италия ) | 
+63241 | Sansepolcro   (52037 Sansepolcro AR, Италия, Италия ) | 
+53002 | Pinezići   (Pinezići, Хорватия, Хорватия ) | 
+64268 | Urbino   (61029 Urbino PU, Италия, Италия ) | 
+59667 | Eraclea Mare   (30020 Eraclea Mare VE, Италия, Италия ) | 
+26141 | Can Pastilla   (Can Pastilla, Illes Balears, Испания, Испания ) | 
+23077 | Asnæs   (4550 Asnæs, Дания, Дания ) | 
+50733 | Gouvia   (Gouvia 491 00, Греция, Греция ) | 
+61744 | Paciano   (06060 Paciano PG, Италия, Италия ) | 
+23602 | Outrup   (6855 Outrup, Дания, Дания ) | 
+78137 | Sagres   (8650 Sagres, Португалия, Португалия ) | 
+84808 | Saly Portudal   (Saly Portudal, Сенегал ) | 
+52808 | Ljubač   (Ljubač, Хорватия, Хорватия ) | 
+53325 | Vabriga   (Vabriga, Хорватия, Хорватия ) | 
+60498 | Licata   (92027 Licata AG, Италия, Италия ) | 
+61025 | Minori   (84010 Minori SA, Италия, Италия ) | 
+50786 | Kalamaki   (Kalamaki 400 03, Греция, Греция ) | 
+53362 | Viganj   (Viganj, Хорватия, Хорватия ) | 
+62326 | Porto Recanati   (Porto Recanati MC, Италия, Италия ) | 
+62329 | Porto San Paolo   (07020 Porto San Paolo OT, Италия, Италия ) | 
+62332 | Porto Sant'Elpidio   (Porto Sant'Elpidio FM, Италия, Италия ) | 
+63620 | Sesto San Giovanni   (20099 Sesto San Giovanni MI, Италия, Италия ) | 
+29835 | Sa Ràpita   (07639 Sa Ràpita, Illes Balears, Испания, Испания ) | 
+85645 | Panwa Beach   (Panwa Beach, Таиланд ) | 
+63658 | Sinalunga   (53048 Sinalunga SI, Италия, Италия ) | 
+53421 | Zambratija   (Zambratija, Хорватия, Хорватия ) | 
+23730 | Svaneke   (3740 Svaneke, Дания, Дания ) | 
+58038 | Bordighera   (18012 Bordighera IM, Италия, Италия ) | 
+57785 | Bagnoregio   (01022 Bagnoregio VT, Италия, Италия ) | 
+85700 | Sam Roi Yot   (Sam Roi Yot, Sam Roi Yot District, Prachuap Khiri Khan, Таиланд, Таиланд ) | 
+59593 | Dicomano   (50062 Dicomano FI, Италия, Италия ) | 
+59088 | Cerveteri   (00052 Cerveteri RM, Италия, Италия ) | 
+6353 | Águas de Lindóia   (Águas de Lindóia, Águas de Lindóia - SP, Бразилия, Бразилия ) | 
+84697 | Veľká Lomnica   (059 52 Veľká Lomnica, Словакия, Словакия ) | 
+69594 | Bayan Lepas   (Bayan Lepas, Penang, Малайзия, Малайзия ) | 
+70364 | Bergen aan Zee   (1865 Bergen aan Zee, Нидерланды, Нидерланды ) | 
+59101 | Cesena   (Cesena FC, Италия, Италия ) | 
+84446 | Liptovský Trnovec   (031 01 Liptovský Trnovec, Словакия, Словакия ) | 
+6376 | Alto Paraíso de Goiás   (Alto Paraíso de Goiás, Alto Paraíso de Goiás - GO, Бразилия, Бразилия ) | 
+59626 | Dorgali   (08022 Dorgali, Province of Nuoro, Италия, Италия ) | 
+51950 | Tsagkarada   (Tsagkarada 370 12, Греция, Греция ) | 
+27123 | Fanadix   (03720 Fanadix, Alicante, Испания, Испания ) | 
+58873 | Castelnuovo del Garda   (37014 Castelnuovo del Garda VR, Италия, Италия ) | 
+23292 | Gråsten   (6300 Gråsten, Дания, Дания ) | 
+61951 | Pescia   (51017 Pescia PT, Италия, Италия ) | 
+53254 | Sućuraj   (Sućuraj, Хорватия, Хорватия ) | 
+59142 | Chiavari   (16043 Chiavari GE, Италия, Италия ) | 
+57631 | Arenella   (96100 Arenella SR, Италия, Италия ) | 
+23074 | Årøsund   (6100 Årøsund, Дания, Дания ) | 
+63270 | Santa Domenica   (89866 Santa Domenica VV, Италия, Италия ) | 
+59695 | Fai della Paganella   (38010 Fai della Paganella TN, Италия, Италия ) | 
+64310 | Valdisotto   (23030 Valdisotto SO, Италия, Италия ) | 
+23883 | Østerby   (8310 Østerby, Дания, Дания ) | 
+61516 | Nesso   (22020 Nesso CO, Италия, Италия ) | 
+57423 | Acqui Terme   (15011 Acqui Terme, Province of Alessandria, Италия, Италия ) | 
+85842 | Sousse   (Sousse, Тунис, Тунис ) | 
+28249 | Llucmajor   (07620 Llucmajor, Illes Balears, Испания, Испания ) | 
+57953 | Bettona   (06084 Bettona PG, Италия, Италия ) | 
+59751 | Fermo   (63900 Fermo FM, Италия, Италия ) | 
+51050 | Kolimvárion   (Kolimvárion 730 06, Греция, Греция ) | 
+62316 | Porto Empedocle   (92014 Porto Empedocle AG, Италия, Италия ) | 
+51827 | Skala Rachoniou   (Skala Rachoniou 640 10, Греция, Греция ) | 
+58486 | Capitana   (09045 Capitana CA, Италия, Италия ) | 
+52350 | Bilice   (Bilice, Хорватия, Хорватия ) | 
+25991 | Cala Blanca   (Cala Blanca, Illes Balears, Испания, Испания ) | 
+62867 | Salsomaggiore Terme   (43039 Salsomaggiore Terme PR, Италия, Италия ) | 
+12194 | Dabohezhai   (Dabohezhai, Китай ) | 
+30626 | Teulada   (03725 Teulada, Alicante, Испания, Испания ) | 
+82102 | Borgholm   (Borgholm, Швеция, Швеция ) | 
+52663 | Jezerce   (53231, Jezerce, Хорватия, Хорватия ) | 
+59067 | Cernobbio   (22012 Cernobbio CO, Италия, Италия ) | 
+86223 | Gümüşlük   (Gümüşlük, Karakaya, 48970 Gümüşlük/Bodrum/Muğla, Турция, Турция ) | 
+86995 | Xitun District   (Xitun District, Taichung City, Тайвань 407, Тайвань ) | 
+30164 | Sant Rafel   (07816 Sant Rafel, Illes Balears, Испания, Испания ) | 
+50393 | Arachova   (Arachova 320 04, Греция, Греция ) | 
+7903 | Tamandaré   (Tamandaré, Tamandaré - PE, Бразилия, Бразилия ) | 
+50169 | Adelianos Kampos   (Adelianos Kampos 741 00, Греция, Греция ) | 
+57853 | Barletta   (76121 Barletta BT, Италия, Италия ) | 
+62461 | Punta Secca   (97017 Punta Secca, Province of Ragusa, Италия, Италия ) | 
+85512 | Khanom District   (Khanom District, Nakhon Si Thammarat, Таиланд, Таиланд ) | 
+10 | El Tarter   (AD100 El Tarter, Андорра, Андорра ) | 
+57612 | Arbatax   (08048 Arbatax OG, Италия, Италия ) | 
+50706 | Georgioupoli   (Georgioupoli, Греция, Греция ) | 
+70449 | Burgh-Haamstede   (4328 Burgh-Haamstede, Нидерланды, Нидерланды ) | 
+29233 | Pedreguer   (03750 Pedreguer, Alicante, Испания, Испания ) | 
+61492 | Narni   (05035 Narni TR, Италия, Италия ) | 
+54584 | Kuta   (Kuta, Pujut, Central Lombok Regency, West Nusa Tenggara, Индонезия, Индонезия ) | 
+61497 | Naturno   (39025 Naturno BZ, Италия, Италия ) | 
+53053 | Povile   (Povile, Хорватия, Хорватия ) | 
+60989 | Mezzegra   (22010 Mezzegra CO, Италия, Италия ) | 
+64066 | Torre Delle Stelle (Maracalagonis)   (Torre Delle Stelle (Maracalagonis) CA, Италия, Италия ) | 
+86347 | Kayaköy   (Kayaköy, Kuyubaşı, 48300 Kayaköy/Fethiye/Muğla Province, Турция, Турция ) | 
+13134 | Niutouya   (Niutouya, Nanjiang, Bazhong, Китай, Китай ) | 
+59219 | Città di Castello   (06012 Città di Castello PG, Италия, Италия ) | 
+59989 | Galatina   (73013 Galatina LE, Италия, Италия ) | 
+63325 | Santa Venerina   (95010 Santa Venerina CT, Италия, Италия ) | 
+60535 | Limone Piemonte   (12015 Limone Piemonte CN, Италия, Италия ) | 
+61571 | Nova Levante   (39056 Nova Levante BZ, Италия, Италия ) | 
+23172 | Bøstrup   (7840 Bøstrup, Дания, Дания ) | 
+52357 | Blace   (Blace, Хорватия, Хорватия ) | 
+29833 | Sa Coma   (07560 Sa Coma, Illes Balears, Испания, Испания ) | 
+29834 | Sa Pobla   (07420 Sa Pobla, Illes Balears, Испания, Испания ) | 
+23179 | Danland Løjt   (Danland Løjt, Дания ) | 
+62604 | Rio Nell'elba   (57039 Rio Nell'elba LI, Италия, Италия ) | 
+23447 | Kirke Hyllinge   (4070 Kirke Hyllinge, Дания, Дания ) | 
+58020 | Bolsena   (01023 Bolsena VT, Италия, Италия ) | 
+62885 | San Bartolomeo Al Mare   (18016 San Bartolomeo Al Mare IM, Италия, Италия ) | 
+51878 | Stavros   (Stavros 570 14, Греция, Греция ) | 
+63142 | San Pietro In Bevagna   (74024 San Pietro In Bevagna TA, Италия, Италия ) | 
+60327 | La Caletta   (08020 La Caletta NU, Италия, Италия ) | 
+72104 | Geilo   (Geilo, Норвегия, Норвегия ) | 
+27048 | Es Cubells   (07839 Es Cubells, Illes Balears, Испания, Испания ) | 
+77996 | Porches   (8400 Porches, Португалия, Португалия ) | 
+85423 | Moo 2   (Bang Sa-Re Condominium, Moo 2 ตำบล บางเสร่ อำเภอ สัตหีบ ชลบุรี 20250, Таиланд ) | 
+76976 | Almancil   (8135-117 Almancil, Португалия, Португалия ) | 
+67761 | Cabo Negro   (Cabo Negro, Марокко, Марокко ) | 
+61630 | Oliena   (08025 Oliena NU, Италия, Италия ) | 
+85953 | Avsa Adasi   (Avsa Adasi, Balıkesir, Турция, Турция ) | 
+52929 | Nova Vas   (Nova Vas, Хорватия, Хорватия ) | 
+7882 | Socorro   (Socorro, Socorro - SP, Бразилия, Бразилия ) | 
+62411 | Predazzo   (38037 Predazzo TN, Италия, Италия ) | 
+23766 | Thyholm   (7790 Thyholm, Дания, Дания ) | 
+61654 | Orbetello   (58015 Orbetello GR, Италия, Италия ) | 
+52697 | Kaštelir   (Kaštelir, Хорватия, Хорватия ) | 
+64218 | Trinità d'Agultu e Vignola   (07038 Trinità d'Agultu e Vignola OT, Италия, Италия ) | 
+62434 | Principina a Mare   (58100 Principina a Mare, Province of Grosseto, Италия, Италия ) | 
+1007 | Annaberg im Lammertal   (5524 Annaberg im Lammertal, Австрия, Австрия ) | 
+57839 | Bardonecchia   (10052 Bardonecchia TO, Италия, Италия ) | 
+7665 | Rio Quente   (Rio Quente, Rio Quente - GO, Бразилия, Бразилия ) | 
+77041 | Arcos de Valdevez   (4970 Arcos de Valdevez, Португалия, Португалия ) | 
+69882 | Tanjung Bungah   (Tanjung Bungah, Pulau Pinang, Малайзия, Малайзия ) | 
+63740 | Sottomarina   (30015 Sottomarina VE, Италия, Италия ) | 
+64257 | Uggiano La Chiesa   (73020 Uggiano La Chiesa LE, Италия, Италия ) | 
+23571 | Norager   (9610 Norager, Дания, Дания ) | 
+70420 | Breskens   (4511 Breskens, Нидерланды, Нидерланды ) | 
+59413 | Corciano   (06073 Corciano PG, Италия, Италия ) | 
+52767 | Kršan   (Kršan, Хорватия, Хорватия ) | 
+61228 | Montecatini Val di Cecina   (56040 Montecatini Val di Cecina PI, Италия, Италия ) | 
+61743 | Pachino   (96018 Pachino SR, Италия, Италия ) | 
+59698 | Falcade   (32020 Falcade BL, Италия, Италия ) | 
+7987 | Urubici   (Urubici, Urubici - SC, Бразилия, Бразилия ) | 
+59712 | Fanusa   (96100 Fanusa SR, Италия, Италия ) | 
+62287 | Poppi   (52014 Poppi AR, Италия, Италия ) | 
+68182 | Perast   (Perast, Черногория, Черногория ) | 
+75094 | Grzybowo   (Grzybowo, Польша, Польша ) | 
+60504 | Lido degli Estensi   (Lido degli Estensi FE, Италия, Италия ) | 
+71257 | Renesse   (4325 Renesse, Нидерланды, Нидерланды ) | 
+85594 | Mae Rim District   (Mae Rim District, Chiang Mai, Таиланд, Таиланд ) | 
+23390 | Hovborg   (6682 Hovborg, Дания, Дания ) | 
+86624 | Turunç   (Turunç, Merkez, Turunç/Marmaris/Muğla, Турция, Турция ) | 
+69734 | Kampung Padang Mat Sirat   (Kampung Padang Mat Sirat, 07000 Langkawi, Kedah, Малайзия, Малайзия ) | 
+57446 | Agnone Bagni   (96011 Agnone Bagni SR, Италия, Италия ) | 
+63847 | Subbiano   (52010 Subbiano AR, Италия, Италия ) | 
+63852 | Sulmona   (67039 Sulmona AQ, Италия, Италия ) | 
+23661 | Sindrup   (7760 Sindrup, Дания, Дания ) | 
+61549 | Noci   (70015 Noci BA, Италия, Италия ) | 
+59758 | Fertilia   (07041 Fertilia SS, Италия, Италия ) | 
+68207 | Risan   (Risan, Черногория, Черногория ) | 
+20348 | MG   (Мёнхенгладбах, Германия, Германия ) | 
+62336 | Porto Valtravaglia   (21010 Porto Valtravaglia VA, Италия, Италия ) | 
+70793 | Hoge Hexel   (7645 Hoge Hexel, Нидерланды, Нидерланды ) | 
+50837 | Kalyves   (Kalyves, Греция, Греция ) | 
+59802 | Fiuggi   (03014 Fiuggi FR, Италия, Италия ) | 
+23710 | Stokkebro   (8500 Stokkebro, Дания, Дания ) | 
+23456 | Knubbeløkke   (4900 Knubbeløkke, Дания, Дания ) | 
+79010 | Moieciu de Jos   (Moieciu de Jos 507135, Румыния, Румыния ) | 
+58274 | Calasetta   (Calasetta CI, Италия, Италия ) | 
+52646 | Jadrija   (22211, Jadrija, Хорватия, Хорватия ) | 
+27560 | L'Hospitalet de l'Infant   (L'Hospitalet de l'Infant, Tarragona, Испания, Испания ) | 
+57515 | Alliste   (73040 Alliste LE, Италия, Италия ) | 
+51890 | Svoronata   (Svoronata 281 00, Греция, Греция ) | 
+64690 | Zambrone   (89868 Zambrone VV, Италия, Италия ) | 
+23733 | Svendborg   (5700 Svendborg, Дания, Дания ) | 
+86198 | Imbros   (Imbros, 17760 Imbros/Çanakkale, Турция, Турция ) | 
+51654 | Platis Gialos   (Platis Gialos, Греция, Греция ) | 
+18384 | FÜ   (Фюрт, Германия, Германия ) | 
+30160 | Sant Pere Pescador   (17470 Sant Pere Pescador, Girona, Испания, Испания ) | 
+51152 | Lavrion   (Lavrion 195 00, Греция, Греция ) | 
+57553 | Amelia   (05022 Amelia TR, Италия, Италия ) | 
+5330 | Oostduinkerke   (Oostduinkerke, 8670 Koksijde, Бельгия, Бельгия ) | 
+78034 | Praia D'el Rey   (Praia D'el Rey, 2510-451 Amoreira, Португалия, Португалия ) | 
+63188 | San Siro   (35023 San Siro PD, Италия, Италия ) | 
+52440 | Čižići   (Čižići, Хорватия, Хорватия ) | 
+77785 | Monte Gordo   (8900 Monte Gordo, Португалия, Португалия ) | 
+60379 | Laion   (39040 Laion BZ, Италия, Италия ) | 
+61404 | Morciano di Leuca   (73040 Morciano di Leuca LE, Италия, Италия ) | 
+59360 | Commezzadura   (38020 Commezzadura TN, Италия, Италия ) | 
+61666 | Oristano   (09170 Oristano OR, Италия, Италия ) | 
+52452 | Ćunski   (51564, Ćunski, Хорватия, Хорватия ) | 
+13541 | Tengchong   (Tengchong, Baoshan, Yunnan, Китай, Китай ) | 
+64488 | Vicchio   (50039 Vicchio FI, Италия, Италия ) | 
+58347 | Camogli   (16032 Camogli GE, Италия, Италия ) | 
+30961 | Valldemossa   (07170 Valldemossa, Illes Balears, Испания, Испания ) | 
+23284 | Glesborg   (8585 Glesborg, Дания, Дания ) | 
+6653 | Camboriú   (Camboriú, Camboriú - SC, Бразилия, Бразилия ) | 
+64001 | Tirrenia   (56128 Tirrenia, Province of Pisa, Италия, Италия ) | 
+85515 | Khao Sok   (Khao Sok, Nong Yai District, Chon Buri, Таиланд, Таиланд ) | 
+23563 | Nykøbing Sjælland   (4500 Nykøbing Sjælland, Дания, Дания ) | 
+51211 | Lourdháta   (Lourdháta, Греция ) | 
+58636 | Casal Palocco   (Casal Palocco, 00124 Roma RM, Италия, Италия ) | 
+58637 | Casal Velino   (84040 Casal Velino SA, Италия, Италия ) | 
+85525 | Klong Muang Beach   (Klong Muang Beach, Таиланд ) | 
+96534 | Mỹ Thọ   (Mỹ Thọ, Cao Lãnh, Đồng Tháp, Вьетнам, Вьетнам ) | 
+28956 | O Grove   (O Grove, Pontevedra, Испания, Испания ) | 
+63517 | Scilla   (89058 Scilla RC, Италия, Италия ) | 
+76074 | Rowy   (Rowy, Польша, Польша ) | 
+62509 | Radicofani   (53040 Radicofani SI, Италия, Италия ) | 
+10298 | Brissago   (Brissago, Швейцария, Швейцария ) | 
+53051 | Potirna   (20272, Potirna, Хорватия, Хорватия ) | 
+50237 | Pilion   (Pilion, Portaria 370 11, Греция, Греция ) | 
+64062 | Torre dei Corsari   (09031 Torre dei Corsari VS, Италия, Италия ) | 
+23615 | Reersø   (4281 Reersø, Дания, Дания ) | 
+63554 | Selva di Fasano   (72015 Selva di Fasano BR, Италия, Италия ) | 
+68419 | NPD   (Нейпьидо, Мьянма (Бирма), Мьянма ) | 
+60741 | Manduria   (74024 Manduria TA, Италия, Италия ) | 
+64841 | وادي موسى   (وادي موسى، Иордания, Иордания ) | 
+62042 | Piedimonte Etneo   (95017 Piedimonte Etneo CT, Италия, Италия ) | 
+62810 | Rufina   (50068 Rufina FI, Италия, Италия ) | 
+53340 | Veli Lošinj   (Veli Lošinj, Хорватия, Хорватия ) | 
+51805 | Sitia   (Sitia 723 00, Греция, Греция ) | 
+50782 | Alimos   (Alimos, Греция, Греция ) | 
+85607 | Mu Si   (Mu Si, Pak Chong District, Nakhon Ratchasima 30130, Таиланд, Таиланд ) | 
+50536 | Chrisi Ammoudia   (Chrisi Ammoudia 640 04, Греция, Греция ) | 
+58477 | Capalbio   (58011 Capalbio GR, Италия, Италия ) | 
+31350 | Vinaròs   (12500 Vinaròs, Castelló, Испания, Испания ) | 
+61305 | Montemerano   (58014 Montemerano, Province of Grosseto, Италия, Италия ) | 
+63362 | Sant'Alessio Siculo   (98030 Sant'Alessio Siculo ME, Италия, Италия ) | 
+64642 | Vipiteno   (39049 Vipiteno BZ, Италия, Италия ) | 
+52611 | Grožnjan   (52429, Grožnjan, Хорватия, Хорватия ) | 
+84625 | Stará Lesná   (059 52 Stará Lesná, Словакия, Словакия ) | 
+15251 | Černý Důl   (Černý Důl, Чехия, Чехия ) | 
+86932 | Shoufeng Township   (Shoufeng Township, Hualien County, Тайвань 974, Тайвань ) | 
+50841 | Kamares   (Kamares 700 02, Греция, Греция ) | 
+62620 | Riparbella   (56046 Riparbella PI, Италия, Италия ) | 
+157 | Radhimë   (Radhimë, Албания, Албания ) | 
+2207 | St. Lorenzen ob Murau   (8861 St. Lorenzen ob Murau, Австрия, Австрия ) | 
+62376 | Pozzuoli   (80078 Pozzuoli NA, Италия, Италия ) | 
+60343 | La Morra   (12064 La Morra CN, Италия, Италия ) | 
+52920 | Nerezine   (51554, Nerezine, Хорватия, Хорватия ) | 
+15034 | Perivolia   (Perivolia, Кипр, Кипр ) | 
+51387 | Milopotas   (Milopotas 840 01, Греция, Греция ) | 
+85948 | Avanos   (Avanos, Avanos/Nevşehir, Турция, Турция ) | 
+77761 | Monchique   (8550 Monchique, Португалия, Португалия ) | 
+60870 | Marzamemi   (96018 Marzamemi SR, Италия, Италия ) | 
+63690 | Solda   (39029 Solda BZ, Италия, Италия ) | 
+53458 | Žuljana   (Žuljana, Хорватия, Хорватия ) | 
+4567 | Saint James   (Saint James, Барбадос, Барбадос ) | 
+60631 | Luino   (21016 Luino VA, Италия, Италия ) | 
+51932 | Tourlos   (Tourlos, Греция, Греция ) | 
+50912 | Kassiopi   (Kassiopi, Греция, Греция ) | 
+15074 | Oroklini   (Oroklini, Кипр, Кипр ) | 
+57826 | Barberino di Mugello   (50031 Barberino di Mugello FI, Италия, Италия ) | 
+59110 | Cetona   (53040 Cetona SI, Италия, Италия ) | 
+62695 | Roccastrada   (58036 Roccastrada GR, Италия, Италия ) | 
+59369 | Conca dei Marini   (84010 Conca dei Marini SA, Италия, Италия ) | 
+60396 | Lana   (39011 Lana BZ, Италия, Италия ) | 
+50672 | Fiskardo   (Fiskardo, Греция, Греция ) | 
+7163 | Juqueí   (Juqueí, São Sebastião - State of São Paulo, Бразилия, Бразилия ) | 
+60414 | Lascari   (90010 Lascari PA, Италия, Италия ) | 
+63488 | Scandicci   (50018 Scandicci FI, Италия, Италия ) | 
+63490 | Scanno   (67038 Scanno AQ, Италия, Италия ) | 
+21002 | PA   (Пассау, Германия, Германия ) | 
+15115 | Benecko   (Benecko, Чехия, Чехия ) | 
+12815 | Kaifeng   (Kaifeng, Henan, Китай, Китай ) | 
+7184 | Lauro de Freitas   (Lauro de Freitas, Lauro de Freitas - BA, Бразилия, Бразилия ) | 
+61713 | Ossuccio   (22010 Ossuccio CO, Италия, Италия ) | 
+84512 | Nová Lesná   (Nová Lesná, Словакия, Словакия ) | 
+52768 | Kruševo   (Kruševo, Хорватия, Хорватия ) | 
+52773 | Kućište   (Kućište, Хорватия, Хорватия ) | 
+25895 | Búger   (07311 Búger, Illes Balears, Испания, Испания ) | 
+53037 | Poljica   (51511, Poljica, Хорватия, Хорватия ) | 
+50224 | Agios Georgios   (Agios Georgios 490 81, Греция, Греция ) | 
+62005 | Pianello del Lario   (22010 Pianello del Lario CO, Италия, Италия ) | 
+54585 | Labuan Bajo   (Labuan Bajo, Komodo, West Manggarai Regency, East Nusa Tenggara, Индонезия, Индонезия ) | 
+23868 | Ærøskøbing   (5970 Ærøskøbing, Дания, Дания ) | 
+14912 | Argaka   (Argaka, Кипр, Кипр ) | 
+52551 | Galižana   (Galižana, Хорватия, Хорватия ) | 
+51039 | Nisis Koinira   (Nisis Koinira, Греция ) | 
+13668 | Wuzhenzhen   (Wuzhenzhen, Tongxiang, Jiaxing, Zhejiang, Китай, 314501, Китай ) | 
+61029 | Mira   (30034 Mira VE, Италия, Италия ) | 
+61807 | Panarea   (98050 Panarea ME, Италия, Италия ) | 
+62321 | Porto Palo   (92013 Porto Palo AG, Италия, Италия ) | 
+82804 | Köpingsvik   (387 50 Köpingsvik, Швеция, Швеция ) | 
+86397 | Küçukkuyu   (Küçukkuyu, 17980 Küçükçetmi/Ayvacık/Çanakkale, Турция, Турция ) | 
+26765 | Deltebre   (43580 Deltebre, Tarragona, Испания, Испания ) | 
+60313 | Ispica   (97014 Ispica RG, Италия, Италия ) | 
+61853 | Passo del Tonale   (38029 Passo del Tonale TN, Италия, Италия ) | 
+52382 | Bribir   (Bribir, Хорватия, Хорватия ) | 
+13219 | Qibaozhen   (Qibaozhen, Minhang, Shanghai, Китай, 201615, Китай ) | 
+23206 | Emmerlev   (6280 Emmerlev, Дания, Дания ) | 
+51112 | Kriopigi   (Kriopigi 630 77, Греция, Греция ) | 
+64169 | Trecastagni   (95039 Trecastagni CT, Италия, Италия ) | 
+65962 | Koh Rong   (Koh Rong, Krong Preah Sihanouk, Камбоджа, Камбоджа ) | 
+53162 | Seline   (Seline, Хорватия, Хорватия ) | 
+21935 | SP   (67346 Шпайер, Германия, Германия ) | 
+62386 | Praia A Mare   (87028 Praia A Mare CS, Италия, Италия ) | 
+68540 | Apartment Qawra   (Apartment Qawra, Triq Il-Luzzu, St Paul's Bay, Мальта, Мальта ) | 
+63933 | Tenno   (38060 Tenno TN, Италия, Италия ) | 
+59582 | Dervio   (23824 Dervio LC, Италия, Италия ) | 
+59839 | Fondachello   (98040 Fondachello ME, Италия, Италия ) | 
+86213 | Göynük   (Göynük, 14780 Göynük/Bolu, Турция, Турция ) | 
+51653 | Platis Gialos   (Platis Gialos 846 00, Греция, Греция ) | 
+86470 | Okurcalar   (Okurcalar, 07415 Okurcalar/Alanya/Antalya, Турция, Турция ) | 
+54222 | Szilvásvárad   (Szilvásvárad, Венгрия, Венгрия ) | 
+51922 | Tigkaki   (Tigkaki 853 00, Греция, Греция ) | 
+62933 | San Donato   (50028 San Donato FI, Италия, Италия ) | 
+54768 | Sidemen   (Sidemen, Karangasem Regency, Bali, Индонезия, Индонезия ) | 
+68594 | Mont Laporte   (Mont Laporte, о. Маврикий, Маврикий ) | 
+30453 | Son Bou   (07730 Son Bou, Balearic Islands, Испания, Испания ) | 
+71166 | Oostkapelle   (4356 Oostkapelle, Нидерланды, Нидерланды ) | 
+5 | Arinsal   (AD400 Arinsal, Андорра, Андорра ) | 
+62219 | Pomezia   (00040 Pomezia RM, Италия, Италия ) | 
+57875 | Bastia Umbra   (06083 Bastia Umbra PG, Италия, Италия ) | 
+51228 | Lygia   (Lygia 270 50, Греция, Греция ) | 
+53276 | Sveti Lovreč Pazenatički   (Sveti Lovreč Pazenatički, Хорватия ) | 
+24867 | A Lanzada   (36990 A Lanzada, Pontevedra, Испания, Испания ) | 
+23078 | Asperup   (5466 Asperup, Дания, Дания ) | 
+6704 | Caraíva   (Caraíva, Porto Seguro - BA, Бразилия, Бразилия ) | 
+53044 | Porat   (Porat, Хорватия, Хорватия ) | 
+51765 | Sami   (Sami, Греция, Греция ) | 
+50239 | Ag. Kirikos   (Ag. Kirikos 833 00, Греция, Греция ) | 
+25408 | Artà   (07570 Artà, Illes Balears, Испания, Испания ) | 
+62530 | Rasun di Sopra   (39030 Rasun di Sopra BZ, Италия, Италия ) | 
+70472 | Dalfsen   (Dalfsen, Нидерланды, Нидерланды ) | 
+7752 | São Bento do Sapucaí   (São Bento do Sapucaí, São Bento do Sapucaí - SP, Бразилия, Бразилия ) | 
+87115 | Paje   (Paje, Танзания, Танзания ) | 
+58443 | Cannero Riviera   (28821 Cannero Riviera VB, Италия, Италия ) | 
+64350 | Valmontone   (00038 Valmontone RM, Италия, Италия ) | 
+23392 | Hulsig   (9990 Hulsig, Дания, Дания ) | 
+57440 | Aglientu   (07020 Aglientu OT, Италия, Италия ) | 
+51049 | Vrachonisida Kolympia   (Vrachonisida Kolympia, Греция, Греция ) | 
+59763 | Fiano Romano   (00065 Fiano Romano RM, Италия, Италия ) | 
+64119 | Torrita di Siena   (53049 Torrita di Siena SI, Италия, Италия ) | 
+60801 | Marina di Castagneto Carducci   (57022 Marina di Castagneto Carducci LI, Италия, Италия ) | 
+60290 | Iseo   (25049 Iseo BS, Италия, Италия ) | 
+52879 | Mirca   (Mirca, Хорватия, Хорватия ) | 
+7826 | São Miguel dos Milagres   (São Miguel dos Milagres, São Miguel dos Milagres - AL, Бразилия, Бразилия ) | 
+22933 | West   (Вупперталь, Германия, Германия ) | 
+20118 | MD   (Магдебург, Германия, Германия ) | 
+57494 | Alcamo   (91011 Alcamo TP, Италия, Италия ) | 
+50590 | Drios   (Drios 844 00, Греция, Греция ) | 
+68523 | Marsaskala   (Marsaskala, Мальта, Мальта ) | 
+61356 | Monteverdi Marittimo   (56040 Monteverdi Marittimo PI, Италия, Италия ) | 
+58030 | Bonassola   (19011 Bonassola SP, Италия, Италия ) | 
+61616 | Oggebbio   (28824 Oggebbio VB, Италия, Италия ) | 
+7865 | Serra do Cipó   (Serra do Cipó, Santana do Riacho - MG, Бразилия, Бразилия ) | 
+57529 | Altamura   (70022 Altamura BA, Италия, Италия ) | 
+70847 | Julianadorp   (Julianadorp, Нидерланды, Нидерланды ) | 
+67013 | Neringa   (Neringa, Nida 93123, Литва, Литва ) | 
+29382 | Platja de Migjorn   (Platja de Migjorn, Illes Balears, Испания, Испания ) | 
+78288 | Silves   (Silves, Португалия, Португалия ) | 
+69845 | Sepang   (Sepang, Selangor, Малайзия, Малайзия ) | 
+69848 | Seri Kembangan   (Seri Kembangan, Selangor, Малайзия, Малайзия ) | 
+51425 | Neo Klima   (Neo Klima, Греция, Греция ) | 
+62946 | San Feliciano   (06063 San Feliciano PG, Италия, Италия ) | 
+23779 | Togeholt   (4720 Togeholt, Дания, Дания ) | 
+52708 | Klimno   (Klimno, Хорватия, Хорватия ) | 
+57574 | Anguillara Sabazia   (00061 Anguillara Sabazia RM, Италия, Италия ) | 
+50921 | Kastoria   (Kastoria 521 00, Греция, Греция ) | 
+63212 | San Vito dei Normanni   (72019 San Vito dei Normanni BR, Италия, Италия ) | 
+78063 | Quinta   (Quinta, 4700-855, Португалия, Португалия ) | 
+63728 | Sorico   (22010 Sorico CO, Италия, Италия ) | 
+31482 | Äkäslompolo   (95970 Äkäslompolo, Финляндия, Финляндия ) | 
+52986 | Pašman   (Pašman, Хорватия, Хорватия ) | 
+7933 | Tibau do Sul   (Tibau do Sul, Tibau do Sul - RN, Бразилия, Бразилия ) | 
+50686 | Frangokástellon   (Frangokástellon, Греция ) | 
+64256 | Ugento   (73059 Ugento LE, Италия, Италия ) | 
+51201 | Livadia   (Livadia 321 00, Греция, Греция ) | 
+50696 | Galissas   (Galissas 841 00, Греция, Греция ) | 
+59661 | Empoli   (50053 Empoli FI, Италия, Италия ) | 
+79123 | Rânca   (Rânca 215300, Румыния, Румыния ) | 
+50709 | Yerakini   (Yerakini 631 00, Греция, Греция ) | 
+62501 | Rabbi   (38020 Rabbi TN, Италия, Италия ) | 
+58411 | Camporgiano   (55031 Camporgiano LU, Италия, Италия ) | 
+62510 | Radicondoli   (53030 Radicondoli SI, Италия, Италия ) | 
+11056 | Piazzogna   (Piazzogna, Gambarogno, Швейцария, Швейцария ) | 
+70456 | Callantsoog   (1759 Callantsoog, Нидерланды, Нидерланды ) | 
+58682 | Casciana Terme   (56034 Casciana Terme PI, Италия, Италия ) | 
+64064 | Torre del Lago   (55049 Torre del Lago, Province of Lucca, Италия, Италия ) | 
+67668 | Aït Ben Haddou   (Aït Ben Haddou, Марокко, Марокко ) | 
+26198 | Canyamel   (07589 Canyamel, Illes Balears, Испания, Испания ) | 
+58966 | Cava D'aliga   (97018 Cava D'aliga RG, Италия, Италия ) | 
+57687 | Asiago   (36012 Asiago VI, Италия, Италия ) | 
+82267 | Falkenberg   (Falkenberg, Швеция, Швеция ) | 
+50779 | Kala Nera   (Kala Nera 370 10, Греция, Греция ) | 
+13662 | Wuyang   (Wuyang, Luohe, Henan, Китай, Китай ) | 
+61280 | Montegrotto Terme   (35036 Montegrotto Terme PD, Италия, Италия ) | 
+60518 | Lido di Savio   (48125 Lido di Savio RA, Италия, Италия ) | 
+29545 | Portocolom   (07670 Portocolom, Illes Balears, Испания, Испания ) | 
+50810 | Kalavrita   (Kalavrita 250 01, Греция, Греция ) | 
+61818 | Panzano   (41013 Panzano MO, Италия, Италия ) | 
+61563 | Norcia   (06046 Norcia PG, Италия, Италия ) | 
+62335 | Porto Torres   (07046 Porto Torres SS, Италия, Италия ) | 
+63871 | Tabiano   (43039 Tabiano PR, Италия, Италия ) | 
+85635 | จ.นนทบุรี   (Нонтхабури, Таиланд, Таиланд ) | 
+62347 | Portopalo di Capo Passero   (96010 Portopalo di Capo Passero SR, Италия, Италия ) | 
+58256 | Cagli   (61043 Cagli PU, Италия, Италия ) | 
+26008 | Cala Llonga   (07849 Cala Llonga, Illes Balears, Испания, Испания ) | 
+6562 | Boicucanga   (Boicucanga, São Sebastião - SP, Бразилия, Бразилия ) | 
+59810 | Fivizzano   (54013 Fivizzano MS, Италия, Италия ) | 
+62627 | Renon   (39054 Renon BZ, Италия, Италия ) | 
+52648 | Janjina   (Janjina, Хорватия, Хорватия ) | 
+51372 | Moraitika   (Moraitika, Греция, Греция ) | 
+52398 | Brseč   (51418, Brseč, Хорватия, Хорватия ) | 
+60846 | Marotta   (Marotta, Province of Pesaro and Urbino, Италия, Италия ) | 
+78255 | Seia   (6270 Seia, Португалия, Португалия ) | 
+85428 | เขาบางแสน   (เขาบางแสน ตำบล คึกคัก อำเภอ ตะกั่วป่า พังงา 82190, Таиланд, Таиланд ) | 
+61880 | Peccioli   (56037 Peccioli PI, Италия, Италия ) | 
+60868 | Maruggio   (74020 Maruggio TA, Италия, Италия ) | 
+86226 | Gündoğan   (Gündoğan, Aşağı, 48965 Gündoğan/Bodrum/Muğla Province, Турция, Турция ) | 
+71129 | Offingawier   (8626 Offingawier, Нидерланды, Нидерланды ) | 
+85468 | จ.ชุมพร   (Чумпхон, Таиланд, Таиланд ) | 
+26590 | Coma-ruga   (Coma-ruga, Tarragona, Испания, Испания ) | 
+63969 | Terricciola   (56030 Terricciola PI, Италия, Италия ) | 
+83940 | Cerkno   (5282 Cerkno, Словения, Словения ) | 
+83688 | Tofta   (432 95 Tofta, Швеция, Швеция ) | 
+52712 | Kolan   (23251, Kolan, Хорватия, Хорватия ) | 
+61932 | Perledo   (23828 Perledo LC, Италия, Италия ) | 
+60409 | Lari   (56035 Lari, Province of Pisa, Италия, Италия ) | 
+63239 | Sannicola   (73017 Sannicola LE, Италия, Италия ) | 
+85513 | Khao Kho District   (Khao Kho District, Phetchabun, Таиланд, Таиланд ) | 
+11 | Encamp   (AD200 Encamp, Андорра, Андорра ) | 
+57869 | Bassano del Grappa   (36061 Bassano del Grappa VI, Италия, Италия ) | 
+77840 | Odeceixe   (8670 Odeceixe, Португалия, Португалия ) | 
+52498 | Dračevac   (52440, Dračevac, Хорватия, Хорватия ) | 
+59682 | Fabriano   (60044 Fabriano AN, Италия, Италия ) | 
+82728 | Karlskrona   (Karlskrona, Швеция, Швеция ) | 
+71466 | Tzummarum   (8851 Tzummarum, Нидерланды, Нидерланды ) | 
+61741 | Paceco   (91027 Paceco TP, Италия, Италия ) | 
+52791 | Lastovo   (Lastovo, Хорватия, Хорватия ) | 
+59961 | Funes   (39040 Funes BZ, Италия, Италия ) | 
+61502 | Negrar   (37024 Negrar VR, Италия, Италия ) | 
+77890 | Palmela   (Palmela, Португалия, Португалия ) | 
+52810 | Loborika   (Loborika, Хорватия, Хорватия ) | 
+62798 | Rovereto   (38068 Rovereto TN, Италия, Италия ) | 
+66398 | Byblos   (Byblos, Ливан, Ливан ) | 
+77150 | Boliqueime   (8100 Boliqueime, Португалия, Португалия ) | 
+64096 | Torre Vado   (73040 Torre Vado LE, Италия, Италия ) | 
+58465 | Cantagrillo   (51030 Cantagrillo PT, Италия, Италия ) | 
+51043 | Kokkíni Khánion   (Kokkíni Khánion, Греция ) | 
+58211 | Buonconvento   (53022 Buonconvento SI, Италия, Италия ) | 
+62320 | Porto Ottiolu   (08020 Porto Ottiolu OT, Италия, Италия ) | 
+63880 | Talamone   (Talamone, Province of Grosseto, Италия, Италия ) | 
+77713 | Marvão   (7330 Marvão, Португалия, Португалия ) | 
+74645 | Biały Dunajec   (Biały Dunajec, Польша, Польша ) | 
+26010 | Cala Mendia   (07680 Cala Mendia, Illes Balears, Испания, Испания ) | 
+51870 | Stafilos   (Stafilos 370 03, Греция, Греция ) | 
+51876 | Stavros   (Stavros 570 14, Греция, Греция ) | 
+23215 | Eskebjerg   (4593 Eskebjerg, Дания, Дания ) | 
+53423 | Zaostrog   (Zaostrog, Хорватия, Хорватия ) | 
+26032 | Calafell   (Calafell, Tarragona, Испания, Испания ) | 
+61361 | Monticchiello   (53026 Monticchiello SI, Италия, Италия ) | 
+53428 | Zastražišće   (Zastražišće, Хорватия, Хорватия ) | 
+31928 | Rauha   (86800 Rauha, Финляндия, Финляндия ) | 
+23737 | Sæby   (9300 Sæby, Дания, Дания ) | 
+60351 | La Salle   (11015 La Salle AO, Италия, Италия ) | 
+60355 | La Thuile   (11016 La Thuile AO, Италия, Италия ) | 
+23492 | Lemvig   (7620 Lemvig, Дания, Дания ) | 
+61892 | Peio   (38024 Peio TN, Италия, Италия ) | 
+71110 | Noordwijk   (Noordwijk, Нидерланды, Нидерланды ) | 
+51661 | Plomari   (Plomari, Греция, Греция ) | 
+24527 | Narva-Jõesuu   (Narva-Jõesuu, Ida-Viru maakond, Эстония, Эстония ) | 
+60367 | Ladispoli   (00055 Ladispoli RM, Италия, Италия ) | 
+53200 | Smoljanac   (Smoljanac, Хорватия, Хорватия ) | 
+50646 | Exópolis   (Exópolis, Греция ) | 
+61660 | Oria   (72024 Oria BR, Италия, Италия ) | 
+58077 | Borgo San Lorenzo   (50032 Borgo San Lorenzo FI, Италия, Италия ) | 
+85727 | Suan Phueng   (Suan Phueng, Suan Phueng District, Ratchaburi 70180, Таиланд, Таиланд ) | 
+51936 | Trapezaki   (Trapezaki 471 00, Греция, Греция ) | 
+62691 | Roccaraso   (67037 Roccaraso AQ, Италия, Италия ) | 
+61924 | Pergo   (52044 Pergo AR, Италия, Италия ) | 
+23526 | Melby   (3370 Melby, Дания, Дания ) | 
+52454 | Dajla   (52466, Dajla, Хорватия, Хорватия ) | 
+69864 | Skudai   (Skudai, 81300 Skudai, Johor, Малайзия, Малайзия ) | 
+63981 | Teulada   (09019 Teulada CA, Италия, Италия ) | 
+63470 | Savelletri   (72015 Savelletri BR, Италия, Италия ) | 
+59119 | Champoluc   (11020 Champoluc AO, Италия, Италия ) | 
+71152 | Oost-Vlieland   (Oost-Vlieland, Нидерланды, Нидерланды ) | 
+23536 | Mosevrå   (6840 Mosevrå, Дания, Дания ) | 
+82941 | Ljungskile   (459 30 Ljungskile, Швеция, Швеция ) | 
+97030 | Fish Hoek   (Fish Hoek, Cape Town, 7975, Южная Африка, ЮАР ) | 
+64267 | Urbania   (61049 Urbania PU, Италия, Италия ) | 
+18452 | GE   (Гельзенкирхен, Германия, Германия ) | 
+62228 | Pontassieve   (50065 Pontassieve FI, Италия, Италия ) | 
+63253 | Sant'Isidoro   (73048 Sant'Isidoro LE, Италия, Италия ) | 
+59671 | Ercolano   (80056 Ercolano NA, Италия, Италия ) | 
+62492 | Quercianella   (57128 Quercianella LI, Италия, Италия ) | 
+61476 | Murta Maria   (07026 Murta Maria OT, Италия, Италия ) | 
+54824 | Tegalalang   (Tegalalang, Tegallalang, Tegallalang, Kabupaten Gianyar, Bali, Индонезия, Индонезия ) | 
+55595 | Had Nes   (Had Nes, Израиль ) | 
+30266 | Santanyí   (07650 Santanyí, Illes Balears, Испания, Испания ) | 
+77627 | Lamego   (5100 Lamego, Португалия, Португалия ) | 
+63300 | Santa Maria   (84048 Santa Maria, Province of Salerno, Италия, Италия ) | 
+23366 | Hjarbæk   (8831 Hjarbæk, Дания, Дания ) | 
+6745 | Chapada dos Guimarães   (Chapada dos Guimarães, Chapada dos Guimarães - MT, Бразилия, Бразилия ) | 
+63321 | Santa Teresa di Riva   (98028 Santa Teresa di Riva ME, Италия, Италия ) | 
+58970 | Cavaion Veronese   (37010 Cavaion Veronese VR, Италия, Италия ) | 
+60255 | Iglesias   (09016 Iglesias CI, Италия, Италия ) | 
+6497 | Barra de São Miguel   (Barra de São Miguel, Barra de São Miguel - AL, Бразилия, Бразилия ) | 
+60769 | Marausa   (91100 Marausa TP, Италия, Италия ) | 
+31587 | Imatra   (55100 Imatra, Финляндия, Финляндия ) | 
+82280 | Färjestaden   (386 31 Färjestaden, Швеция, Швеция ) | 
+23400 | Husby   (6990 Husby, Дания, Дания ) | 
+63851 | Sughera   (50050 Sughera FI, Италия, Италия ) | 
+76140 | Sarbinowo   (Sarbinowo, Польша, Польша ) | 
+26738 | Cullera   (Cullera, Valencia, Испания, Испания ) | 
+58996 | Cavriglia   (52022 Cavriglia AR, Италия, Италия ) | 
+60802 | Marina di Cecina   (Marina di Cecina, 57023 Cecina LI, Италия, Италия ) | 
+53382 | Volosko   (Volosko, 51410, Opatija, Хорватия, Хорватия ) | 
+85639 | อ.ปากช่อง   (Pak Chong District, Nakhon Ratchasima, Таиланд, Таиланд ) | 
+59527 | Crone   (25074 Crone BS, Италия, Италия ) | 
+63624 | Sestriere   (10058 Sestriere TO, Италия, Италия ) | 
+53135 | Rovanjska   (23243, Rovanjska, Jasenice, Хорватия, Хорватия ) | 
+26005 | Cala Galdana   (07750 Cala Galdana, Illes Balears, Испания, Испания ) | 
+77718 | Matosinhos   (Matosinhos, Португалия, Португалия ) | 
+30106 | Sant Carles de Peralta   (07850 Sant Carles de Peralta, Illes Balears, Испания, Испания ) | 
+6811 | Cunha   (Cunha, Cunha - SP, Бразилия, Бразилия ) | 
+53667 | Cserszegtomaj   (Cserszegtomaj, Венгрия, Венгрия ) | 
+50854 | Kamena Vourla   (Kamena Vourla, Греция, Греция ) | 
+59817 | Floridia   (96014 Floridia SR, Италия, Италия ) | 
+64685 | Vorno   (55060 Vorno LU, Италия, Италия ) | 
+84655 | Tále   (976 81 Horná Lehota-Tále, Словакия, Словакия ) | 
+59576 | Deiva Marina   (19013 Deiva Marina SP, Италия, Италия ) | 
+85689 | จ.ระยอง   (Районг, Таиланд, Таиланд ) | 
+58812 | Castellammare di Stabia   (80053 Castellammare di Stabia NA, Италия, Италия ) | 
+7357 | Nova Petrópolis   (Nova Petrópolis, Nova Petrópolis - RS, Бразилия, Бразилия ) | 
+53439 | Zečevo   (22305, Zečevo, Хорватия, Хорватия ) | 
+59842 | Fondi   (04022 Fondi LT, Италия, Италия ) | 
+54724 | Puncak   (Puncak, Ciloto, Cipanas, Cianjur Regency, West Java, Индонезия, Индонезия ) | 
+50885 | Kardamyli   (Kardamyli 240 22, Греция, Греция ) | 
+52934 | Novigrad Dalmatia   (Novigrad Dalmatia, Хорватия ) | 
+61638 | Olmedo   (07040 Olmedo SS, Италия, Италия ) | 
+58311 | Caltanissetta   (93100 Caltanissetta CL, Италия, Италия ) | 
+74952 | Dziwnówek   (Dziwnówek, Польша, Польша ) | 
+61131 | Monsummano Terme   (51015 Monsummano Terme PT, Италия, Италия ) | 
+7119 | Jacumã   (Jacumã, Ceará-Mirim - RN, Бразилия, Бразилия ) | 
+61398 | Monzambano   (46040 Monzambano MN, Италия, Италия ) | 
+60375 | Lajatico   (56030 Lajatico PI, Италия, Италия ) | 
+26584 | Colonia de Sant Pere   (07579 Colonia de Sant Pere, Illes Balears, Испания, Испания ) | 
+62428 | Presicce   (73054 Presicce LE, Италия, Италия ) | 
+77034 | Arco Da Calheta   (9370 Arco Da Calheta, Португалия, Португалия ) | 
+65775 | Zao Onsen   (Zao Onsen, Япония ) | 
+79353 | Venus   (Venus, Румыния, Румыния ) | 
+50171 | Aegiali   (Aegiali 840 08, Греция, Греция ) | 
+50172 | Aegina Town   (Aegina Town, Греция ) | 
+53246 | Ston   (20230, Ston, Хорватия, Хорватия ) | 
+50436 | Asprovalta   (Asprovalta 570 21, Греция, Греция ) | 
+71689 | Zonnemaire   (4316 Zonnemaire, Нидерланды, Нидерланды ) | 
+61718 | Ostia Antica   (00119 Ostia Antica RM, Италия, Италия ) | 
+60184 | Gravina in Puglia   (70024 Gravina in Puglia BA, Италия, Италия ) | 
+13084 | Nanchangshan   (Nanchangshan, Dongping, Tai'an, Китай, Китай ) | 
+70437 | Brunssum   (Brunssum, Нидерланды, Нидерланды ) | 
+61221 | Montecarlo   (55015 Montecarlo LU, Италия, Италия ) | 
+52774 | Kukci   (Kukci, Хорватия, Хорватия ) | 
+63017 | San Giuliano Terme   (56017 San Giuliano Terme PI, Италия, Италия ) | 
+82987 | Lysekil   (Lysekil, Швеция, Швеция ) | 
+70444 | Bunschoten   (Bunschoten, 3751 Bunschoten-Spakenburg, Нидерланды, Нидерланды ) | 
+59955 | Fucecchio   (50054 Fucecchio FI, Италия, Италия ) | 
+57659 | Arona   (28041 Arona NO, Италия, Италия ) | 
+6972 | Guarda do Embaú   (Guarda do Embaú, Palhoça - SC, Бразилия, Бразилия ) | 
+13888 | Yanzhuangzhen   (Yanzhuangzhen, Songxian, Luoyang, Henan, Китай, Китай ) | 
+51525 | Pápigkon   (Pápigkon, Греция ) | 
+64842 | وادي رم   (وادي رم، Иордания, Иордания ) | 
+58444 | Canneto   (98072 Canneto, Province of Messina, Италия, Италия ) | 
+25677 | Benicarló   (12580 Benicarló, Castelló, Испания, Испания ) | 
+59730 | Fauglia   (56043 Fauglia PI, Италия, Италия ) | 
+58965 | Cava de' Tirreni   (84013 Cava de' Tirreni SA, Италия, Италия ) | 
+59221 | Città Sant'Angelo   (65013 Città Sant'Angelo PE, Италия, Италия ) | 
+64085 | Torre Pali   (73050 Torre Pali LE, Италия, Италия ) | 
+75606 | Międzywodzie   (Międzywodzie, Польша, Польша ) | 
+52310 | Baderna   (52445, Baderna, Хорватия, Хорватия ) | 
+28247 | Llubí   (07430 Llubí, Illes Balears, Испания, Испания ) | 
+57688 | Asolo   (31011 Asolo TV, Италия, Италия ) | 
+62552 | Reitani   (96017 Reitani SR, Италия, Италия ) | 
+64605 | Villaputzu   (09040 Villaputzu CA, Италия, Италия ) | 
+8031 | Vila Velha   (Vila Velha, Vila Velha - ES, Бразилия, Бразилия ) | 
+59231 | Cividale del Friuli   (33043 Cividale del Friuli UD, Италия, Италия ) | 
+7782 | São João Del Rei   (São João Del Rei, São João Del Rei - MG, Бразилия, Бразилия ) | 
+51572 | Perama   (Perama, Греция, Греция ) | 
+53108 | Raša   (Raša, Хорватия, Хорватия ) | 
+29558 | Sóller   (07100 Sóller, Illes Balears, Испания, Испания ) | 
+5240 | Middelkerke   (Middelkerke, Бельгия, Бельгия ) | 
+86910 | Puli Township   (Puli Township, Nantou County, Тайвань 545, Тайвань ) | 
+61824 | Parabita   (73052 Parabita LE, Италия, Италия ) | 
+57985 | Bisceglie   (76011 Bisceglie BT, Италия, Италия ) | 
+85640 | Pak Kret   (Pak Kret, Pak Kret District, Nonthaburi 11120, Таиланд, Таиланд ) | 
+58512 | Capranica   (01012 Capranica VT, Италия, Италия ) | 
+60560 | Loano   (17025 Loano SV, Италия, Италия ) | 
+23441 | Kelstrup   (6100 Kelstrup, Дания, Дания ) | 
+61329 | Monteroni d'Arbia   (53014 Monteroni d'Arbia SI, Италия, Италия ) | 
+63121 | San Pantaleo   (07026 San Pantaleo OT, Италия, Италия ) | 
+63638 | Sferracavallo   (05018 Sferracavallo TR, Италия, Италия ) | 
+64406 | Veglie   (73010 Veglie LE, Италия, Италия ) | 
+59799 | Fiorino   (56040 Fiorino PI, Италия, Италия ) | 
+54424 | Borobudur   (Borobudur, Magelang, Central Java, Индонезия, Индонезия ) | 
+85921 | Amasra   (Amasra, Amasra/Bartın, Турция, Турция ) | 
+62630 | Riva di Solto   (24060 Riva di Solto BG, Италия, Италия ) | 
+57512 | Alleghe   (32022 Alleghe BL, Италия, Италия ) | 
+50345 | Andros   (Andros 845 00, Греция, Греция ) | 
+66732 | Nilaveli   (Nilaveli, Шри-Ланка, Шри-Ланка ) | 
+61870 | Patù   (73053 Patù LE, Италия, Италия ) | 
+54191 | Szántód   (Szántód, Венгрия, Венгрия ) | 
+60595 | Loreto   (60025 Loreto AN, Италия, Италия ) | 
+51638 | Platamonas   (Platamonas 640 09, Греция, Греция ) | 
+60854 | Marsiliana   (Marsiliana, Province of Grosseto, Италия, Италия ) | 
+62647 | Rivotorto   (06081 Rivotorto, Province of Perugia, Италия, Италия ) | 
+53436 | Žbandaj   (52440, Žbandaj, Хорватия, Хорватия ) | 
+84931 | Amphawa District   (Amphawa District, Samut Songkhram, Таиланд, Таиланд ) | 
+59587 | Diamante   (87023 Diamante CS, Италия, Италия ) | 
+62665 | Rocca Pietore   (32020 Rocca Pietore BL, Италия, Италия ) | 
+59596 | Dimaro   (38025 Dimaro TN, Италия, Италия ) | 
+53204 | Sobra   (Sobra, Хорватия, Хорватия ) | 
+59607 | Dolceacqua   (18035 Dolceacqua IM, Италия, Италия ) | 
+28387 | l'Alfàs del Pi   (03580 l'Alfàs del Pi, Alicante, Испания, Испания ) | 
+85483 | Khao Hat Yao   (Khao Hat Yao ตำบล สัตหีบ อำเภอ สัตหีบ ชลบุรี 20180, Таиланд, Таиланд ) | 
+60141 | Gonnesa   (09010 Gonnesa CI, Италия, Италия ) | 
+85486 | อ. หางดง   (Hang Dong District, Chiang Mai, Таиланд, Таиланд ) | 
+85746 | จ.ภูเก็ต   (Пхукет, Таиланд, Таиланд ) | 
+30462 | Son Serra de Marina   (07459 Son Serra de Marina, Illes Balears, Испания, Испания ) | 
+23298 | Grevinge   (4571 Grevinge, Дания, Дания ) | 
+61699 | Osimo   (60027 Osimo AN, Италия, Италия ) | 
+62468 | Putignano   (70017 Putignano BA, Италия, Италия ) | 
+86022 | Bozburun   (Bozburun, 48710 Taşlıca/Marmaris/Muğla Province, Турция, Турция ) | 
+52742 | Kraj   (Kraj, Хорватия, Хорватия ) | 
+64263 | Umbertide   (06019 Umbertide PG, Италия, Италия ) | 
+8 | Canillo   (AD100 Canillo, Андорра, Андорра ) | 
+56842 | TH   (Таиланд, Индия ) | 
+59664 | Enna   (94100 Enna EN, Италия, Италия ) | 
+60955 | Mengara   (06024 Mengara PG, Италия, Италия ) | 
+63259 | Santa Caterina   (Santa Caterina, Nardò LE, Италия, Италия ) | 
+7964 | Trindade   (Trindade, Trindade - GO, Бразилия, Бразилия ) | 
+72221 | Hervik   (Hervik, Норвегия, Норвегия ) | 
+64285 | Vada   (57016 Vada LI, Италия, Италия ) | 
+66591 | Haputale   (Haputale, Шри-Ланка, Шри-Ланка ) | 
+53280 | Sveti Vid-Miholjice   (Sveti Vid-Miholjice, Хорватия, Хорватия ) | 
+60192 | Cadenabbia   (22011 Cadenabbia, Province of Como, Италия, Италия ) | 
+51236 | Makrinitsa   (Makrinitsa 370 11, Греция, Греция ) | 
+63525 | Scopeti   (50068 Scopeti FI, Италия, Италия ) | 
+77352 | Colares   (2705 Colares, Португалия, Португалия ) | 
+58921 | Castiglione di Sicilia   (95012 Castiglione di Sicilia CT, Италия, Италия ) | 
+87084 | Matemwe   (Matemwe, Танзания, Танзания ) | 
+74030 | Organos   (Organos, Перу, Перу ) | 
+62511 | Raffa   (25080 Raffa BS, Италия, Италия ) | 
+77616 | Lagoa   (8400 Lagoa, Португалия, Португалия ) | 
+53296 | Tribalj   (Tribalj, Хорватия, Хорватия ) | 
+71473 | Uitgeest   (1911 Uitgeest, Нидерланды, Нидерланды ) | 
+27955 | La Savina   (07870 La Savina, Illes Balears, Испания, Испания ) | 
+50232 | Ag. Ioannis   (Ag. Ioannis 491 00, Греция, Греция ) | 
+64573 | Villaggio Mosè   (92100 Villaggio Mosè AG, Италия, Италия ) | 
+58943 | Castrocaro Terme   (47011 Castrocaro Terme FC, Италия, Италия ) | 
+59456 | Corsano   (73033 Corsano LE, Италия, Италия ) | 
+51523 | Panormos   (Panormos 370 03, Греция, Греция ) | 
+60238 | Guardistallo   (56040 Guardistallo PI, Италия, Италия ) | 
+61519 | Nettuno   (00048 Nettuno RM, Италия, Италия ) | 
+50772 | Istro   (Istro 721 00, Греция, Греция ) | 
+14936 | Droushia   (Droushia, Кипр ) | 
+51288 | Megali Ammos Beach   (Megali Ammos Beach, Греция, Греция ) | 
+85595 | Mae Sai   (Mae Sai, Mae Sai District, Chiang Rai 57130, Таиланд, Таиланд ) | 
+51804 | Sissi   (Sissi, 7078, Швейцария, Греция ) | 
+23645 | Rørvig   (4581 Rørvig, Дания, Дания ) | 
+78430 | Vieira do Minho   (4850 Vieira do Minho, Португалия, Португалия ) | 
+60767 | Maranza   (39037 Maranza BZ, Италия, Италия ) | 
+58976 | Cavallino   (73020 Cavallino LE, Италия, Италия ) | 
+53348 | Velike Kuknjare   (Velike Kuknjare, Хорватия ) | 
+74858 | Czarna Góra   (Czarna Góra, Польша, Польша ) | 
+64619 | Villastrada   (46030 Villastrada MN, Италия, Италия ) | 
+86382 | Kızılot   (Kızılot, 07600 Kızılot/Manavgat/Antalya, Турция, Турция ) | 
+57710 | Auronzo di Cadore   (32041 Auronzo di Cadore BL, Италия, Италия ) | 
+58223 | Buseto Palizzolo   (91012 Buseto Palizzolo TP, Италия, Италия ) | 
+58488 | Capo Coda Cavallo   (08020 Capo Coda Cavallo OT, Италия, Италия ) | 
+61819 | Paola   (87027 Paola CS, Италия, Италия ) | 
+62076 | Pieve di Ledro   (38067 Pieve di Ledro TN, Италия, Италия ) | 
+85892 | Akçay   (Akçay, Akçay/Edremit/Balıkesir Province, Турция, Турция ) | 
+64134 | Trabia   (90019 Trabia PA, Италия, Италия ) | 
+64657 | Vittorio Veneto   (31029 Vittorio Veneto TV, Италия, Италия ) | 
+24978 | Alaró   (07340 Alaró, Illes Balears, Испания, Испания ) | 
+52632 | Ika   (51414, Ika, Хорватия, Хорватия ) | 
+62360 | Potenza   (85100 Potenza, Италия, Италия ) | 
+59034 | Centola   (84051 Centola SA, Италия, Италия ) | 
+6812 | Cupé   (Cupé, Ipojuca - PE, Бразилия, Бразилия ) | 
+60319 | Itri   (04020 Itri LT, Италия, Италия ) | 
+59808 | Fiumefreddo di Sicilia   (95013 Fiumefreddo di Sicilia CT, Италия, Италия ) | 
+53409 | Vrvari   (52440, Vrvari, Хорватия, Хорватия ) | 
+60834 | Marino   (Marino RM, Италия, Италия ) | 
+79011 | Moieciu de Sus   (Moieciu de Sus 507134, Румыния, Румыния ) | 
+77477 | Ferragudo   (8400 Ferragudo, Португалия, Португалия ) | 
+50601 | Elati   (Elati 420 32, Греция, Греция ) | 
+59563 | Cutigliano   (51024 Cutigliano PT, Италия, Италия ) | 
+23212 | Ertebølle   (9640 Ertebølle, Дания, Дания ) | 
+61108 | Monforte d'Alba   (12065 Monforte d'Alba CN, Италия, Италия ) | 
+62900 | San Casciano dei Bagni   (53040 San Casciano dei Bagni SI, Италия, Италия ) | 
+75704 | Niechorze   (Niechorze, Польша, Польша ) | 
+59832 | Folgarida   (38025 Folgarida TN, Италия, Италия ) | 
+60856 | Martano   (73025 Martano LE, Италия, Италия ) | 
+55999 | Deori Rd   (Bhim Vatika, Deori Rd, Madhu Nagar, Lakhori, Defence Estate, Agra, Uttar Pradesh 282001, Индия, Индия ) | 
+73920 | Canoas De Punta Sal   (Canoas De Punta Sal, Перу ) | 
+15042 | Pomos   (Pomos, Кипр, Кипр ) | 
+86987 | Xincheng Township   (Xincheng Township, Hualien County, Тайвань 971, Тайвань ) | 
+50892 | Karfas   (Karfas 821 00, Греция, Греция ) | 
+52431 | Cesarica   (Cesarica, Хорватия, Хорватия ) | 
+75218 | Jurata   (Jurata, Jastarnia, Польша, Польша ) | 
+83925 | Bohinjska Bistrica   (4264 Bohinjska Bistrica, Словения, Словения ) | 
+70616 | Epen   (6285 Epen, Нидерланды, Нидерланды ) | 
+86233 | Güzelçamlı   (Güzelçamlı, Güzelçamlı/Kuşadası/Aydın Province, Турция, Турция ) | 
+52700 | Kavran   (Kavran, Хорватия, Хорватия ) | 
+63453 | Sassetta   (57020 Sassetta LI, Италия, Италия ) | 
+83938 | Cerklje na Gorenjskem   (4207 Cerklje na Gorenjskem, Словения, Словения ) | 
+13795 | Xinpu   (Xinpu, Gyangze, Xigaze, Китай, Китай ) | 
+30182 | Santa Cristina d'Aro   (17246 Santa Cristina d'Aro, Girona, Испания, Испания ) | 
+50668 | Foinikounta   (Foinikounta, Греция, Греция ) | 
+58350 | Campagnano di Roma   (00063 Campagnano di Roma RM, Италия, Италия ) | 
+51700 | Prinos   (Prinos 640 10, Греция, Греция ) | 
+51958 | Tsoukaládhes   (Tsoukaládhes, Греция ) | 
+57848 | Palese   (Palese, Bari, Италия, Италия ) | 
+26105 | Campanet   (07310 Campanet, Illes Balears, Испания, Испания ) | 
+61689 | Ortona   (66026 Ortona CH, Италия, Италия ) | 
+64253 | Tuscania   (01017 Tuscania VT, Италия, Италия ) | 
+78335 | Tomar   (2300 Tomar, Португалия, Португалия ) | 
+60416 | Lastra a Signa   (50055 Lastra a Signa FI, Италия, Италия ) | 
+54786 | Sukawati   (Sukawati, Guwang, Sukawati, Kabupaten Gianyar, Bali, Индонезия, Индонезия ) | 
+65282 | Minami Aso   (Minami Aso, Япония ) | 
+29445 | Porto Cristo   (07680 Porto Cristo, Illes Balears, Испания, Испания ) | 
+52997 | Peruški   (52208, Peruški, Хорватия, Хорватия ) | 
+5382 | Poperinge   (Poperinge, Бельгия, Бельгия ) | 
+83214 | Överbyn   (685 94 Överbyn, Швеция, Швеция ) | 
+97296 | Middelburg   (Middelburg, Южная Африка, ЮАР ) | 
+25105 | Algaida   (07210 Algaida, Illes Balears, Испания, Испания ) | 
+70422 | Brielle   (Brielle, Нидерланды, Нидерланды ) | 
+61206 | Monte Sant'Angelo   (71037 Monte Sant'Angelo FG, Италия, Италия ) | 
+83991 | Hočko Pohorje   (Hočko Pohorje, Словения, Словения ) | 
+13594 | Wangjing   (Wangjing, Chaoyang, Beijing, Китай, Китай ) | 
+77083 | Azeitão   (2925-069 Azeitão, Португалия, Португалия ) | 
+85532 | Ko Kut   (Ko Kut, Ko Kut District, Trat, Таиланд, Таиланд ) | 
+7206 | Lumiar   (Lumiar, Nova Friburgo - RJ, Бразилия, Бразилия ) | 
+61990 | Pian di Scò   (52026 Pian di Scò AR, Италия, Италия ) | 
+54312 | Velence   (Velence, 2481 Венгрия, Венгрия ) | 
+7466 | Peruíbe   (Peruíbe, Peruíbe - SP, Бразилия, Бразилия ) | 
+52785 | Kutleša   (Kutleša, Хорватия ) | 
+57410 | Acquapendente   (01021 Acquapendente VT, Италия, Италия ) | 
+68164 | Ljuta   (Ljuta, Черногория, Черногория ) | 
+62540 | Recanati   (62019 Recanati MC, Италия, Италия ) | 
+85581 | Lipa Noi   (Lipa Noi, Ko Samui District, Surat Thani, Таиланд, Таиланд ) | 
+63311 | Santa Marinella   (00058 Santa Marinella RM, Италия, Италия ) | 
+52823 | Lozica   (20236, Lozica, Хорватия, Хорватия ) | 
+71002 | Mechelen   (6281 Mechelen, Нидерланды, Нидерланды ) | 
+70749 | Heiloo   (Heiloo, Нидерланды, Нидерланды ) | 
+57700 | Atrani   (84010 Atrani SA, Италия, Италия ) | 
+60264 | Imola   (40026 Imola BO, Италия, Италия ) | 
+60779 | Marciana Marina   (57033 Marciana Marina LI, Италия, Италия ) | 
+62317 | Porto Ercole   (Porto Ercole, Province of Grosseto, Италия, Италия ) | 
+62837 | Saint-Vincent   (11027 Saint-Vincent AO, Италия, Италия ) | 
+62582 | Ricco' del Golfo di Spezia   (19020 Ricco' del Golfo di Spezia SP, Италия, Италия ) | 
+51324 | Metamórfosis   (Metamórfosis, Avlonari 340 09, Греция, Греция ) | 
+60800 | Marina di Carrara   (54033 Marina di Carrara MS, Италия, Италия ) | 
+51329 | Methoni   (Methoni 600 66, Греция, Греция ) | 
+29571 | Puigcerdà   (Puigcerdà, Girona, Испания, Испания ) | 
+63619 | Sesto Fiorentino   (50019 Sesto Fiorentino FI, Италия, Италия ) | 
+51335 | Mikri Vigla   (Mikri Vigla 843 02, Греция, Греция ) | 
+61063 | Mogliano Veneto   (31021 Mogliano Veneto TV, Италия, Италия ) | 
+67980 | Skoura   (Skoura, Марокко, Марокко ) | 
+86158 | Erdek   (Erdek, Erdek/Balıkesir, Турция, Турция ) | 
+59278 | Colà   (37017 Colà VR, Италия, Италия ) | 
+84367 | Hrabušice   (053 15 Hrabušice, Словакия, Словакия ) | 
+6545 | Bertioga   (Bertioga, Bertioga - SP, Бразилия, Бразилия ) | 
+68506 | Bugibba   (Bugibba, St Paul's Bay, Мальта, Мальта ) | 
+19354 | J   (Йена, Германия, Германия ) | 
+75167 | Jarosławiec   (Jarosławiec, Польша, Польша ) | 
+58276 | Calatafimi   (91013 Calatafimi TP, Италия, Италия ) | 
+63144 | San Pietro In Cariano   (37029 San Pietro In Cariano VR, Италия, Италия ) | 
+58282 | Calci   (56011 Calci PI, Италия, Италия ) | 
+65963 | Koh Rong Sanloem   (Koh Rong Sanloem, Krong Preah Sihanouk, Камбоджа, Камбоджа ) | 
+23724 | Strøby Ladeplads   (Strøby Ladeplads, 4671 Strøby, Дания, Дания ) | 
+51886 | Stoupa   (Stoupa 240 24, Греция, Греция ) | 
+64432 | Vercana   (22013 Vercana CO, Италия, Италия ) | 
+82612 | Holmsjö   (370 34 Holmsjö, Швеция, Швеция ) | 
+7351 | Nova Friburgo   (Nova Friburgo, Nova Friburgo - RJ, Бразилия, Бразилия ) | 
+23235 | Femmøller   (Femmøller, 8400 Ebeltoft, Дания, Дания ) | 
+70341 | Beekbergen   (Beekbergen, Нидерланды, Нидерланды ) | 
+58565 | Carini   (90044 Carini PA, Италия, Италия ) | 
+61893 | Pelago   (50060 Pelago FI, Италия, Италия ) | 
+60621 | Lucolena In Chianti   (50022 Lucolena In Chianti FI, Италия, Италия ) | 
+53455 | Žrnovnica   (Žrnovnica, Хорватия, Хорватия ) | 
+52947 | Oprič   (Oprič, Хорватия, Хорватия ) | 
+63443 | Saronno   (21047 Saronno VA, Италия, Италия ) | 
+63444 | Sarre   (11010 Sarre AO, Италия, Италия ) | 
+60376 | Laigueglia   (17053 Laigueglia SV, Италия, Италия ) | 
+60895 | Massa Martana   (06056 Massa Martana PG, Италия, Италия ) | 
+66279 | Ban Dondét   (Ban Dondét, Лаос ) | 
+62183 | Pognana Lario   (22020 Pognana Lario CO, Италия, Италия ) | 
+62439 | Procchio   (57030 Procchio LI, Италия, Италия ) | 
+97000 | Edenvale   (Edenvale, Южная Африка, ЮАР ) | 
+63976 | Tesero   (38038 Tesero TN, Италия, Италия ) | 
+50922 | Kastraki   (Kastraki 422 00, Греция, Греция ) | 
+71659 | Workum   (8711 Workum, Нидерланды, Нидерланды ) | 
+7405 | Paracuru   (Paracuru, Paracuru - CE, Бразилия, Бразилия ) | 
+66804 | Talpe   (Talpe, Шри-Ланка, Шри-Ланка ) | 
+59638 | Dro   (38074 Dro TN, Италия, Италия ) | 
+51191 | Lithakia   (Lithakia 290 92, Греция, Греция ) | 
+50937 | Kateleios   (Kateleios 280 86, Греция, Греция ) | 
+63481 | Savona   (17100 Savona SV, Италия, Италия ) | 
+59900 | Fosdinovo   (54035 Fosdinovo MS, Италия, Италия ) | 
+30463 | Son Servera   (07550 Son Servera, Illes Balears, Испания, Испания ) | 

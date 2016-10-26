@@ -13,6 +13,12 @@ from mango.toolbox import russian_plurals, get_distance
 from mango.geo.models import Tip, Place
 from operator import itemgetter
 
+from sqlalchemy import desc
+
+from alphabet_detector import AlphabetDetector
+
+ad = AlphabetDetector()
+
 manager = Manager(app)
 
 
@@ -239,7 +245,16 @@ def cache_all_tips():
         print(t.id)
         t.cache_it()
 
-
+@manager.command
+def check_rusnames():
+    with open('rusnames.txt', 'w') as f:
+        places = Place.query.filter(Place.number>20).order_by(desc(Place.number)).all()
+        i=1
+        for p in places:
+            if not ad.is_cyrillic(p.rus_name):
+                f.write('%d | %s   (%s, %s ) | \n' % (p.id, p.rus_name, p.rus_address, p.country.rus_name))
+                print(i)
+                i+=1
 
 
 

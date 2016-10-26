@@ -40,3 +40,31 @@ $(document).ready(function(){
     //refreshIndicators();
     setInterval(checkNotifications,20000);
 });
+
+var placeSearch = new Vue({
+    el: '#navbar',
+    data: {
+        needle: '',
+        showingResults: false,
+        results:{}
+    },
+    methods:{
+        checkNeedle: function(){
+            var self=this;
+            if (this.needle.length>=2){
+                getResults('/json/place-search','json',{needle: this.needle}, function(res){
+                    if (res.status=='ok'){
+                        if (res.places.length){
+                            self.results=res.places;
+                            self.showingResults = true;
+                        } else {
+                            self.results = {};
+                        }
+                    }
+                });
+            } else {
+                self.showingResults = false;
+            }
+        }
+    }
+});

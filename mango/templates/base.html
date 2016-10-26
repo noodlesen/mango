@@ -40,10 +40,10 @@
                 
                 <div id="navbar__search">
                     <span class="glyphicon glyphicon-map-marker"></span>
-                    <input type="text" class="form-control" placeholder="Поиск мест">
+                    <input type="text" class="form-control" placeholder="Поиск мест" v-model="needle" @keyup="checkNeedle">
                 </div>
 
-                
+
                 <div class="divider visible-xs"></div>
                 <div  id="navbar__user">
                     <div id="user__nickname">
@@ -86,8 +86,13 @@
 
 
                 <div class="clearfix"></div>
+                
 
         </div>
+        <div id="search-results" v-show="showingResults">
+                    <div class="divider"></div>
+                    <span style="display:inline-block; margin:5px; padding:5px;" :style="{fontSize: (p.number>3000?3000:p.number)/10+120+'%'}" v-for="p in results" v-text="p.name"></span>
+                </div>
     </div>
 
 {% endblock %}

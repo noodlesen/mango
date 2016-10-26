@@ -162,7 +162,35 @@ def place_subscribe():
     return json.dumps(res)
 
 
+@geo.route('/json/place-search', methods=['POST'])
+def place_search():
+    def get_places(field, needle):
+        places = []
+        sql = "SELECT id, %s, `number` FROM G_places WHERE %s LIKE '%s%%'  ORDER BY `number` DESC LIMIT 25" % (field, field, needle)
+        print(sql)
+        results = db.session.execute(sql)
+        for r in results:
+            print (r[1])
+            places.append({"id": r[0], "name": r[1], "number": r[2]})
+        return places
 
+    q = request.json
+    res={"status":"ok", "places":[]}
+    res['places'] = get_places('rus_name', q['needle'])
+    if len(res['places'])<10:
+        res['places'].extend(get_places('eng_name', q['needle']))
+    #needle = q['needle']
+    #sql = "SELECT id, rus_name, `number` FROM G_places WHERE rus_name LIKE '%s%%'  ORDER BY `number` DESC LIMIT 25" % q['needle'] 
+    #rus_places = db.session.execute(sql)
+    # for rp in rus_places:
+    #     res['places'].append({"id": rp[0], "name": rp[1], "number": rp[2]})
+    # if not res['places']:
+    #     sql = "SELECT id, eng_name, `number` FROM G_places WHERE eng_name LIKE '%s%%'  ORDER BY `number` DESC LIMIT 25" % q['needle'] 
+    #     eng_places = db.session.execute(sql)
+    #     for ep in eng_places:
+    #         res['places'].append({"id": ep[0], "name": ep[1], "number": ep[2]})
+
+    return json.dumps(res)
 
 
 
@@ -316,6 +344,10 @@ def json_tip():
 
     
     return json.dumps(res)
+
+
+
+
 
 
 
