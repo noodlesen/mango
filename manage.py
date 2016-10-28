@@ -1,10 +1,12 @@
 #manage.py
 
 import json
+from urllib.parse import unquote
 
 from flask import url_for
 from flask.ext.script import Manager
 from fuzzywuzzy import fuzz
+from unidecode import unidecode
 
 from mango import app
 from mango.db import db
@@ -255,6 +257,41 @@ def check_rusnames():
                 f.write('%d | %s   (%s, %s ) | \n' % (p.id, p.rus_name, p.rus_address, p.country.rus_name))
                 print(i)
                 i+=1
+
+
+@manager.command
+def udtest():
+    places = db.session.execute('SELECT id, url_string FROM G_places WHERE url_string LIKE ("%%\%%%%")')
+    results = []
+    for p in places:
+        pp=  unidecode(unquote(p[1])).lower()
+        pp = pp.replace("'",'')
+        pp = pp.replace("%",'')
+        pp = pp.replace("-",'_')
+        pp = pp.replace(" ",'_')
+        pp = pp.replace("/",'_')
+        pp = pp.replace("(",'_')
+        pp = pp.replace(")",'_')
+        print(p[1],"  ==>  ",pp)
+        results.append({"id":p[0], "url": pp})
+
+    for r in results:
+        # sql = 'UPDATE G_places SET new_url="%s" WHERE id=%d' % (r["url"], r["id"])
+        # print(sql)
+        # db.session.execute(sql)
+        place = Place.query.get(r["id"])
+        place.url_string = r["url"]
+        db.session.add(place)
+        db.session.commit()
+
+
+@manager.command
+def lowerurl():
+    places = Place.query.all()
+    for p in places:
+        p.url_string = p.url_string.lower()
+        db.session.add(p)
+        db.session.commit()
 
 
 
