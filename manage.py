@@ -7,15 +7,21 @@ from flask import url_for
 from flask.ext.script import Manager
 from fuzzywuzzy import fuzz
 from unidecode import unidecode
+from werkzeug.datastructures import FileStorage
 
 from mango import app
 from mango.db import db
 from mango.mailer import Mailer
 from mango.toolbox import russian_plurals, get_distance
 from mango.geo.models import Tip, Place
+from mango.social.models import User
+from mango.social.views import avatar_picture_upload
 from operator import itemgetter
 
 from sqlalchemy import desc
+
+import os
+from random import randint
 
 from alphabet_detector import AlphabetDetector
 
@@ -292,6 +298,45 @@ def lowerurl():
         p.url_string = p.url_string.lower()
         db.session.add(p)
         db.session.commit()
+
+
+@manager.command
+def load_avatars():
+
+    ld = os.listdir('../utils/Avatar')
+
+    _workers = db.session.execute('SELECT id, ws, nickname FROM users WHERE worker=1')
+    workers =[]
+    for w in _workers:
+        workers.append({"id": w[0], "sex": w[1], "nickname":w[2], "pic": None})
+
+    files = []
+    for f in ld:
+        if f.endswith("jpg"):
+            files.append({"filename": f, "sex": f[:1].upper()})
+
+
+    for f in files:
+        sex = ''
+        while sex != f["sex"]:
+            picked = workers[randint(0, len(workers)-1)]
+            if not picked["pic"]:
+                sex = picked["sex"]
+        picked["pic"] = f["filename"]
+
+
+    for w in workers:
+        print (w["nickname"], w["pic"])
+        if w["pic"]:
+            u = User.query.get(w["id"])
+            fs = None
+            path = "../utils/Avatar/"+w["pic"]
+            print(path)
+            with open(path, 'rb') as fl:
+                fs = FileStorage(fl)
+                avatar_picture_upload(fs, u, False)
+
+    
 
 
 

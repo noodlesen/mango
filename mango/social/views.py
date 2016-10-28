@@ -293,30 +293,23 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1] in AVATAR_ALLOWED_EXTENSIONS
 
 
-@social.route('/avatar-upload', methods=['POST'])
-def avatar_upload():
-
-    if 'file' not in request.files:
-        flash('Выберите файл с помощью кнопки Обзор')
-
-    file = request.files['file']
+def avatar_picture_upload(f, user, skipFileSize): #  f - FileStorage objct
 
     has_size_error = False
-    if bool(file.filename):
-        file_bytes = file.read(MAX_FILE_SIZE)
-        file.seek(0)
-        has_size_error = len(file_bytes) == MAX_FILE_SIZE
+    if not skipFileSize:
+        if bool(f.filename):
+            file_bytes = f.read(MAX_FILE_SIZE)
+            f.seek(0)
+            has_size_error = len(file_bytes) == MAX_FILE_SIZE
 
-    if file.filename == '':
-        flash('Выберите файл с помощью кнопки Обзор')
-
-    if file and allowed_file(file.filename) and not has_size_error:
-        filename = secure_filename(file.filename)
+    if f and allowed_file(f.filename) and not has_size_error:
+        filename = secure_filename(f.filename)
         file_path = os.path.join(ROOT_DIR, UPLOAD_DIR, 'avatars', filename)
-        file.save(file_path)
-        file = open(file_path, "rb")
-        img = Image.open(file)
+        f.save(file_path)
+        f = open(file_path, "rb")
+        img = Image.open(f)
         max_size = 160
+
         if (img.size[0] >= img.size[1]):
             img.thumbnail([max_size*100, max_size])
             off = int((img.size[0]-max_size)/2)
@@ -325,18 +318,41 @@ def avatar_upload():
             img.thumbnail([max_size, max_size*100])
             off = int((img.size[1]-max_size)/2)
             img2 = img.crop([0, off, max_size, off+max_size])
-        ava_name = get_hash(str(current_user.id)+filename)+".png"
-        old_ava_name = current_user.image
-        current_user.image = ava_name
-        db.session.add(current_user)
+
+        ava_name = get_hash(str(user.id)+filename)+".png"
+        print('ava name: '+ava_name)
+        old_ava_name = user.image
+        user.image = ava_name
+        db.session.add(user)
         db.session.commit()
+
         img2.save(os.path.join(ROOT_DIR, 'social', 'static', 'images', 'avatars', ava_name), "PNG")
-        file.close()
+        f.close()
         os.remove(file_path)
         if old_ava_name:
             os.remove(os.path.join(ROOT_DIR, 'social', 'static', 'images', 'avatars', old_ava_name))
 
-        return json.dumps({"url": current_user.get_avatar()})
+
+@social.route('/avatar-upload', methods=['POST'])
+def avatar_upload():
+
+    if 'file' not in request.files:
+        flash('Выберите файл с помощью кнопки Обзор')
+
+    file = request.files['file']
+
+    print()
+    print (file)
+
+
+
+    if file.filename == '':
+
+        flash('Выберите файл с помощью кнопки Обзор')
+
+    avatar_picture_upload(file, current_user)
+
+    return json.dumps({"url": current_user.get_avatar()})
 
 
 # USER EVENTS
