@@ -285,6 +285,7 @@ def json_tip():
                         db.session.add(new_tag)
                         tip.tags.append(new_tag)
                         
+                tip.created_at = datetime.utcnow() 
                 db.session.add(tip)
                 db.session.commit()
                 tip.cache_it()

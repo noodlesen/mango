@@ -3,3 +3,41 @@
 #single-tip{
     font-size: 150%;
 }
+
+#single-tip__vote-buttons{
+    text-align: right;
+}
+
+@mixin vote_btn ($cl, $cd){
+    color: $cl;
+    border-color: $cl;
+    &:hover{
+        color:$cd;
+        border-color: $cd;
+    }
+    &:active{
+        color:white;
+        border-color: $cd;
+        background-color: $cd;
+    }
+}
+
+
+#single-tip__upvote-btn{
+    @include vote_btn($light-green, $dark-green);
+}
+
+#single-tip__downvote-btn{
+    @include vote_btn($light-red, $dark-red);
+}
+
+.single-tip__vote-btn{
+    font-weight: bolder;
+    font-size: 80%;
+    border-width: 2px;
+    border-radius: 0.3em;
+    border-style: solid;
+    display: inline-block;
+    padding: .2em .5em;
+    cursor: pointer;
+}

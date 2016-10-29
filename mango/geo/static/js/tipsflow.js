@@ -480,6 +480,11 @@ var tipsFlow = new Vue({
             } else if (self.limitError){
                 self.newTipForm.error=true;
                 self.newTipForm.errorMessage='Совет должен быть не более 600 символов';
+
+            } else if (self.newTipForm.tipText.trim().length==0){
+                self.newTipForm.error=true;
+                self.newTipForm.errorMessage='Похоже, вы забыли написать сам совет ;)';
+
             } else {
                 self.newTipForm.error=false;
             }

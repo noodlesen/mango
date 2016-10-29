@@ -82,6 +82,7 @@ def v_authorized():
         user = User.query.filter_by(register_email=email).first()
         if user is None:
             user = User.register_vk_user(username, email, uid)
+            user.registered_at = datetime.utcnow()
             just_registered = True
         else:
             user.vk_id = uid
@@ -147,6 +148,7 @@ def g_authorized():
         if user is None:
             user = User.register_google_user(me.data['name'], me.data['email'], me.data['id'])
             just_registered = True
+            user.registered_at = datetime.utcnow()
         else:
             user.google_id = me.data['id']
             user.g_username = me.data['name']
@@ -208,6 +210,7 @@ def f_authorized():
         if user is None:
             user = User.register_facebook_user(me.data['name'], me.data['email'], me.data['id'])
             just_registered = True
+            user.registered_at = datetime.utcnow()
         else:
             user.facebook_id = me.data['id']
             user.f_username = me.data['name']
@@ -463,7 +466,7 @@ def post_messenger():
             isBanned = False
 
         for m in pm:
-            msgs.append({"text": m.text, "sender": m.user_from, "ago":how_long_ago(m.timestamp)})
+            msgs.append({"text": m.text, "sender": m.user_from, "ago":how_long_ago(m.sent_at)})
         return json.dumps({'name': u.nickname, 'status': 'ok', 'messages': msgs, 'isBanned': isBanned})
 
     elif query['cmd'] == 'getContacts':

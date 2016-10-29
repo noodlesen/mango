@@ -324,3 +324,54 @@
 #single-tip {
   font-size: 150%;
 }
+
+/* line 7, scss/single_tip.scss */
+#single-tip__vote-buttons {
+  text-align: right;
+}
+
+/* line 26, scss/single_tip.scss */
+#single-tip__upvote-btn {
+  color: #c8efb1;
+  border-color: #c8efb1;
+}
+/* line 14, scss/single_tip.scss */
+#single-tip__upvote-btn:hover {
+  color: #0c9702;
+  border-color: #0c9702;
+}
+/* line 18, scss/single_tip.scss */
+#single-tip__upvote-btn:active {
+  color: white;
+  border-color: #0c9702;
+  background-color: #0c9702;
+}
+
+/* line 30, scss/single_tip.scss */
+#single-tip__downvote-btn {
+  color: #ffc4b3;
+  border-color: #ffc4b3;
+}
+/* line 14, scss/single_tip.scss */
+#single-tip__downvote-btn:hover {
+  color: #ff0a02;
+  border-color: #ff0a02;
+}
+/* line 18, scss/single_tip.scss */
+#single-tip__downvote-btn:active {
+  color: white;
+  border-color: #ff0a02;
+  background-color: #ff0a02;
+}
+
+/* line 34, scss/single_tip.scss */
+.single-tip__vote-btn {
+  font-weight: bolder;
+  font-size: 80%;
+  border-width: 2px;
+  border-radius: 0.3em;
+  border-style: solid;
+  display: inline-block;
+  padding: .2em .5em;
+  cursor: pointer;
+}

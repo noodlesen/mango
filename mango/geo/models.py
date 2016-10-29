@@ -50,7 +50,7 @@ class Place(db.Model):
     url_string = db.Column(db.String(50))
     image = db.Column(db.String(50))
     tips = db.relationship('Tip', backref='place', lazy='dynamic')
-    active = db.Column(db.Boolean, default=False)
+    chd_has_tips = db.Column(db.Boolean, default=False)
     chd_places_nearby = db.Column(db.Text)
     chd_airports = db.Column(db.Text)
     tp_rus_name = db.Column(db.String(50))
@@ -134,7 +134,7 @@ class Tip(db.Model):
     chd_downvoted = db.Column(db.Integer, default=0)
     chd_rating = db.Column(db.Integer, default=0)
     chd_data = db.Column(db.Text)
-    timestamp = db.Column(db.Integer)
+    created_at = db.Column(db.Integer)
 
     #temp
     taglines = db.Column(db.Text)

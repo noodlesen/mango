@@ -23,10 +23,10 @@ class PrivateMessage(db.Model):
     text = db.Column(db.Text)
     user_from = db.Column(db.ForeignKey('users.id'))
     user_to = db.Column(db.ForeignKey('users.id'))
-    timestamp = db.Column(db.DateTime)
+    sent_at = db.Column(db.DateTime)
 
     def __init__(self, user_to, text):
-        self.timestamp = datetime.utcnow()
+        self.sent_at = datetime.utcnow()
         self.text = text
         self.user_to = user_to
 
@@ -37,6 +37,7 @@ class UserToPlaceRelationship(db.Model):
     user_id = db.Column(db.ForeignKey('users.id'))
     place_id = db.Column(db.ForeignKey('G_places.id'))
     type = db.Column(db.String(1))
+    #timestamp = db.Column(db.DateTime)
 
 
 
@@ -89,6 +90,8 @@ class User (UserMixin, db.Model):
     image =db.Column(db.String(250), unique=True)
     last_login = db.Column(db.DateTime)
     worker = db.Column(db.Boolean, default = False)
+    registered_at = db.Column(db.DateTime)
+
 
     private_messages_from = db.relationship('PrivateMessage', backref='sender', lazy='dynamic', foreign_keys='PrivateMessage.user_from')
     private_messages_to = db.relationship('PrivateMessage', backref='recipient', lazy='dynamic', foreign_keys='PrivateMessage.user_to')
@@ -291,7 +294,7 @@ class NotificationMixin():
     ntype = db.Column(db.String(20))
     user_from = db.Column(db.Integer, default=0)
     #emitter_type = db.Column(db.String(20))
-    timestamp = db.Column(db.DateTime)
+    created_at = db.Column(db.DateTime)
     #unread = db.Column(db.Boolean, default=True)
     message = db.Column(db.Text)
     data = db.Column(db.Text)
@@ -304,7 +307,7 @@ class NotificationMixin():
 class NotificationHistory(db.Model, NotificationMixin):
     __tablename__ = 'notification_history'
     user_to = db.Column(db.Integer)
-    archived = db.Column(db.DateTime)
+    archived_at = db.Column(db.DateTime)
 
 
 class Notification(db.Model, NotificationMixin):
@@ -338,7 +341,7 @@ class Notification(db.Model, NotificationMixin):
 
         self.ntype = ntype
         # self.unread = True
-        self.timestamp = datetime.utcnow()
+        self.created_at = datetime.utcnow()
 
 
     def add(user_to, ntype, message, **kwargs):
@@ -384,7 +387,7 @@ class Notification(db.Model, NotificationMixin):
                 h.message = n.message
                 h.data = n.data
 
-                h.archived = datetime.utcnow()
+                h.archived_at = datetime.utcnow()
 
                 db.session.add(h)
 

@@ -9,33 +9,35 @@ class UsersLog(db.Model):
 
     __tablename__ = 'users_log'
 
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
     action = db.Column(db.String(50))
     data = db.Column(db.Text)
-    timestamp = db.Column(db.DateTime)
+    logged_at = db.Column(db.DateTime)
 
+    @staticmethod
     def write(act, data=""):
         if current_user.is_authenticated:
             l = UsersLog()
             l.user_id = current_user.id
             l.action = act
             l.data = json.dumps(data)
-            l.timestamp = datetime.now()
+            l.logged_at = datetime.now()
             db.session.add(l)
             db.session.commit()
 
 
 class StrangersLog(db.Model):
-    __tablename__='strangers_log'
-    id = db.Column(db.Integer, primary_key = True)
+    __tablename__ = 'strangers_log'
+    id = db.Column(db.Integer, primary_key=True)
     action = db.Column(db.String(50))
     entry = db.Column(db.String(50))
     label = db.Column(db.String(50))
     marker = db.Column(db.Text)
     note = db.Column(db.Text)
-    timestamp = db.Column(db.DateTime)
+    logged_at = db.Column(db.DateTime)
 
+    @staticmethod
     def write(action, note=''):
         l = StrangersLog()
         if 'marker' in session.keys():
@@ -54,11 +56,6 @@ class StrangersLog(db.Model):
             l.note = note
 
         l.action = action
-        l.timestamp = datetime.utcnow()
+        l.logged_at = datetime.utcnow()
         db.session.add(l)
         db.session.commit()
-
-
-
-
-

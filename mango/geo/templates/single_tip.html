@@ -13,12 +13,21 @@
 <div class="container-fluid" id="cont">
     <div class="row">
    
-        
-        <section class="col-lg-6 col-lg-offset-3" id="single-tip">
-            <div class="section-body">
-                {{tip.text}}
+        <div class="col-lg-6 col-lg-offset-3" id="single-tip">
+            <div id="single-tip_author">
+                
             </div>
-        </section>
+            <section>
+                <div class="section-body">
+                    {{tip.text}}
+                </div>
+            </section>
+            <div id="single-tip__vote-buttons"> 
+                <span id="single-tip__upvote-btn" class="single-tip__vote-btn"><span class="glyphicon glyphicon-triangle-top"></span> Да, это так!</span>
+                <span id="single-tip__downvote-btn" class="single-tip__vote-btn"><span class="glyphicon glyphicon-triangle-bottom"></span> Не соглашусь!</span>
+            </div>
+        </div>
+        
 
     </div>
 

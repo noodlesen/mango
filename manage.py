@@ -11,6 +11,7 @@ from werkzeug.datastructures import FileStorage
 
 from mango import app
 from mango.db import db
+from mango.rts import get_random_datetime
 from mango.mailer import Mailer
 from mango.toolbox import russian_plurals, get_distance
 from mango.geo.models import Tip, Place
@@ -337,6 +338,19 @@ def load_avatars():
                 avatar_picture_upload(fs, u, False)
 
     
+
+@manager.command
+def make_timestamps():
+    order = []
+    tips = db.engine.execute('SELECT id FROM tips WHERE created_at IS NULL')
+    for t in tips:
+        print (t[0])
+        ts = get_random_datetime(2016,2016,9,10).strftime('%Y-%m-%d %H:%M:%S')
+        order.append({"id":t[0], "ts":ts})
+    #db.session.commit()
+    for r in order:
+        db.engine.execute('UPDATE tips SET created_at="%s" WHERE id=%d' % (r["ts"], r["id"]))
+
 
 
 
