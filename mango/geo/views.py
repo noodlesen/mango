@@ -100,8 +100,50 @@ def old_places(pid):
         abort(404)
 
 
-#@cache.cached(50)
 @geo.route('/place/<us>', methods=['GET'])
+def places(us):
+    if request.args and '_escaped_fragment_' in request.args:
+        ajax=False
+    else:
+        ajax = True
+    p = Place.query.filter_by(url_string=us).first()
+    if p:
+        jd ={}
+        
+        td = get_tips_data(p.tips, place_id=p.id)
+
+        jd.update(td)
+
+        jd['all_tags'] = get_all_tags()        
+
+        jd['config'] = {
+                        'page': 'place',
+                        'allowFilters': True,
+                        'allowAddNewTip': True
+        }
+
+        subscribed = False
+        if current_user.is_authenticated:
+            u2p = UserToPlaceRelationship.query.filter_by(user_id=current_user.id, place_id=p.id).first()
+            if u2p:
+                subscribed = True
+
+
+
+        return render_template('place.html',
+                               place=p,
+                               json_data=json.dumps(jd),
+                               airports=p.get_airports(),
+                               signed=current_user.is_authenticated,
+                               subscribed=subscribed,
+                               ajax = ajax
+                               )
+
+    else:
+        abort(404)
+
+#SSR VERSION
+@geo.route('/_place/<us>', methods=['GET'])
 def places(us):
     if request.args and '_escaped_fragment_' in request.args:
         ajax=False
