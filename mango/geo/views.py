@@ -194,9 +194,23 @@ def place_search():
 
 @geo.route('/tip/<tid>', methods=['GET'])
 def single_tip(tid):
+
     tip = Tip.query.get(tid)
+
+    
     if tip:
-        return render_template('single_tip.html', tip=tip)
+        if current_user.is_authenticated:
+            pa = current_user.get_place_actions(tip.place_id)
+        else:
+            pa = {"favorites":[], "likes":[], "dislikes":[]}
+        
+        upvoted = True if tip.id in pa["likes"] else False
+        downvoted = True if tip.id in pa["dislikes"] else False
+        return render_template('single_tip.html', 
+                                tip=tip,
+                                signed_in=current_user.is_authenticated,
+                                upvoted=upvoted,
+                                downvoted=downvoted)
     else:
         abort(404)
 

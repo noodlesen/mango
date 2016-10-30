@@ -108,7 +108,7 @@ class User (UserMixin, db.Model):
                                         lazy='dynamic', 
                                         foreign_keys='UserToPlaceRelationship.user_id'
                                         )
-    power = db.Column(db.Integer)
+    power = db.Column(db.Integer, default=1)
 
     # def get_favorites(self):
     #     faves = db.engine.execute('SELECT u.tip_id, t.text FROM users2tips AS u INNER JOIN tips AS t ON t.id = u.tip_id WHERE u.user_id=%d AND u.type="F"' % self.id)
@@ -383,7 +383,7 @@ class Notification(db.Model, NotificationMixin):
                 h.user_from = n.user_from
                 h.user_to = n.user_to
                 h.ntype = n.ntype
-                h.timestamp = n.timestamp
+                h.created_at = n.created_at
                 h.message = n.message
                 h.data = n.data
 

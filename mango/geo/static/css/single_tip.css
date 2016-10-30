@@ -331,40 +331,64 @@
 }
 
 /* line 26, scss/single_tip.scss */
-#single-tip__upvote-btn {
+.single-tip__upvote-btn {
   color: #c8efb1;
   border-color: #c8efb1;
 }
 /* line 14, scss/single_tip.scss */
-#single-tip__upvote-btn:hover {
+.single-tip__upvote-btn:hover {
   color: #0c9702;
   border-color: #0c9702;
 }
 /* line 18, scss/single_tip.scss */
-#single-tip__upvote-btn:active {
+.single-tip__upvote-btn:active {
   color: white;
   border-color: #0c9702;
   background-color: #0c9702;
 }
 
 /* line 30, scss/single_tip.scss */
-#single-tip__downvote-btn {
+.single-tip__downvote-btn {
   color: #ffc4b3;
   border-color: #ffc4b3;
 }
 /* line 14, scss/single_tip.scss */
-#single-tip__downvote-btn:hover {
+.single-tip__downvote-btn:hover {
   color: #ff0a02;
   border-color: #ff0a02;
 }
 /* line 18, scss/single_tip.scss */
-#single-tip__downvote-btn:active {
+.single-tip__downvote-btn:active {
   color: white;
   border-color: #ff0a02;
   background-color: #ff0a02;
 }
 
 /* line 34, scss/single_tip.scss */
+.single-tip__upvote-btn--selected {
+  color: white;
+  background-color: #55d426;
+  border-color: #55d426;
+}
+/* line 38, scss/single_tip.scss */
+.single-tip__upvote-btn--selected:hover {
+  border-color: #55d426;
+  color: white;
+}
+
+/* line 44, scss/single_tip.scss */
+.single-tip__downvote-btn--selected {
+  color: white;
+  background-color: #ff4e2b;
+  border-color: #ff4e2b;
+}
+/* line 48, scss/single_tip.scss */
+.single-tip__downvote-btn--selected:hover {
+  border-color: #ff4e2b;
+  color: white;
+}
+
+/* line 54, scss/single_tip.scss */
 .single-tip__vote-btn {
   font-weight: bolder;
   font-size: 80%;
@@ -376,18 +400,18 @@
   cursor: pointer;
 }
 
-/* line 45, scss/single_tip.scss */
+/* line 65, scss/single_tip.scss */
 #single-tip__top {
   margin-bottom: 1em;
   margin-top: 3em;
 }
 
-/* line 50, scss/single_tip.scss */
+/* line 70, scss/single_tip.scss */
 #single-tip__author {
   float: left;
 }
 
-/* line 54, scss/single_tip.scss */
+/* line 74, scss/single_tip.scss */
 #single-tip__place {
   float: right;
 }

@@ -23,12 +23,32 @@
 }
 
 
-#single-tip__upvote-btn{
+.single-tip__upvote-btn{
     @include vote_btn($light-green, $dark-green);
 }
 
-#single-tip__downvote-btn{
+.single-tip__downvote-btn{
     @include vote_btn($light-red, $dark-red);
+}
+
+.single-tip__upvote-btn--selected{
+    color:white;
+    background-color: $green;
+    border-color:$green;
+    &:hover{
+        border-color:$green;
+        color:white;
+    }
+}
+
+.single-tip__downvote-btn--selected{
+    color:white;
+    background-color: $red;
+    border-color:$red;
+    &:hover{
+        border-color:$red;
+        color:white;
+    }
 }
 
 .single-tip__vote-btn{

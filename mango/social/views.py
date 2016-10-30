@@ -353,7 +353,7 @@ def avatar_upload():
 
         flash('Выберите файл с помощью кнопки Обзор')
 
-    avatar_picture_upload(file, current_user)
+    avatar_picture_upload(file, current_user, False)
 
     return json.dumps({"url": current_user.get_avatar()})
 
