@@ -473,29 +473,29 @@
   color: #ff0a02;
 }
 
-/* line 144, scss/tipsflow.scss */
+/* line 143, scss/tipsflow.scss */
 #filter-message {
   border-radius: 6px;
   background-color: white;
   padding: 5px 10px 7px;
 }
 
-/* line 150, scss/tipsflow.scss */
+/* line 149, scss/tipsflow.scss */
 .tip {
   background-color: white;
 }
 
-/* line 154, scss/tipsflow.scss */
+/* line 153, scss/tipsflow.scss */
 .tip-agreed {
   background-color: #e3f7d8;
 }
 
-/* line 157, scss/tipsflow.scss */
+/* line 156, scss/tipsflow.scss */
 .tip-disagreed {
   background-color: #ffe1d9;
 }
 
-/* line 161, scss/tipsflow.scss */
+/* line 160, scss/tipsflow.scss */
 .filter-item {
   padding: 1px 7px;
   border-radius: 5px 0 0 5px;
@@ -504,19 +504,19 @@
   cursor: pointer;
 }
 
-/* line 169, scss/tipsflow.scss */
+/* line 168, scss/tipsflow.scss */
 .filter-item-inactive {
   background-color: #efefef;
   color: #c6c6c6;
   border: 1px solid #c6c6c6;
 }
-/* line 174, scss/tipsflow.scss */
+/* line 173, scss/tipsflow.scss */
 .filter-item-inactive:hover {
   border: 1px solid #878787;
   color: #878787;
 }
 
-/* line 181, scss/tipsflow.scss */
+/* line 180, scss/tipsflow.scss */
 .tip__main-text {
   font-size: 14px;
   line-height: 1.3em;
@@ -525,12 +525,12 @@
   padding-right: 4px;
   padding-top: 4px;
 }
-/* line 188, scss/tipsflow.scss */
+/* line 187, scss/tipsflow.scss */
 .tip__main-text:first-letter {
   font-size: 1.2em;
 }
 
-/* line 193, scss/tipsflow.scss */
+/* line 192, scss/tipsflow.scss */
 .tip__tag, .form__tag, .form__main-tag, .form__added-tag {
   display: inline-block;
   color: white;
@@ -538,7 +538,7 @@
   cursor: pointer;
 }
 
-/* line 200, scss/tipsflow.scss */
+/* line 199, scss/tipsflow.scss */
 .tip__tag {
   font-size: 12px;
   border-radius: 2px;
