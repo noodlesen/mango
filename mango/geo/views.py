@@ -103,6 +103,10 @@ def old_places(pid):
 #@cache.cached(50)
 @geo.route('/place/<us>', methods=['GET'])
 def places(us):
+    if request.args and '_escaped_fragment_' in request.args:
+        ajax=False
+    else:
+        ajax = True
     p = Place.query.filter_by(url_string=us).first()
     if p:
         jd ={}
@@ -125,12 +129,15 @@ def places(us):
             if u2p:
                 subscribed = True
 
+
+
         return render_template('place.html',
                                place=p,
                                json_data=json.dumps(jd),
                                airports=p.get_airports(),
                                signed=current_user.is_authenticated,
-                               subscribed=subscribed
+                               subscribed=subscribed,
+                               ajax = ajax
                                )
 
     else:

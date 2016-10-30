@@ -11,7 +11,7 @@ from werkzeug.datastructures import FileStorage
 
 from mango import app
 from mango.db import db
-from mango.rts import get_random_datetime
+from mango.dttools import get_random_datetime
 from mango.mailer import Mailer
 from mango.toolbox import russian_plurals, get_distance
 from mango.geo.models import Tip, Place

@@ -515,7 +515,9 @@ def public_profile(uid):
     td['config'] = {
                         'page': 'public_profile',
                         'allowFilters': False,
-                        'allowAddNewTip': True
+                        'allowAddNewTip': False,
+                        'collapsed':True,
+                        'collapsedMessage': 'Показать советы пользователя '+u.nickname
         }
 
 

@@ -1,4 +1,5 @@
-# Readable Time Stamp library NOT USED?
+# datetimetools library
+
 from datetime import datetime
 from time import sleep
 import random

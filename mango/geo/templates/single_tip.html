@@ -14,8 +14,23 @@
     <div class="row">
    
         <div class="col-lg-6 col-lg-offset-3" id="single-tip">
-            <div id="single-tip_author">
-                
+            <div id="single-tip__top">
+                <div id="single-tip__author">
+                    <img style="display:inline-block" src="{{tip.user.get_avatar()}}" 
+                         class="img img-responsive avatar-small" />
+                    <a href="{{url_for('social.public_profile', uid=tip.user.id)}}" 
+                       class="single-tip__author-name">
+                        {{tip.user.nickname}}
+                    </a>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="single-tip__place">
+                    <a href="{{url_for('geo.places', us=tip.place.url_string)}}">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                        {{tip.place.rus_name}}, {{tip.place.country.rus_name}}
+                    </a>
+                </div>
+                <div class="clearfix"></div>
             </div>
             <section>
                 <div class="section-body">
@@ -23,8 +38,14 @@
                 </div>
             </section>
             <div id="single-tip__vote-buttons"> 
-                <span id="single-tip__upvote-btn" class="single-tip__vote-btn"><span class="glyphicon glyphicon-triangle-top"></span> Да, это так!</span>
-                <span id="single-tip__downvote-btn" class="single-tip__vote-btn"><span class="glyphicon glyphicon-triangle-bottom"></span> Не соглашусь!</span>
+                <span id="single-tip__upvote-btn" class="single-tip__vote-btn">
+                    <span class="glyphicon glyphicon-triangle-top"> </span>
+                    Да, это так!
+                </span>
+                <span id="single-tip__downvote-btn" class="single-tip__vote-btn">
+                    <span class="glyphicon glyphicon-triangle-bottom"> </span>
+                    Не соглашусь!
+                </span>
             </div>
         </div>
         

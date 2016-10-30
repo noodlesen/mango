@@ -375,3 +375,19 @@
   padding: .2em .5em;
   cursor: pointer;
 }
+
+/* line 45, scss/single_tip.scss */
+#single-tip__top {
+  margin-bottom: 1em;
+  margin-top: 3em;
+}
+
+/* line 50, scss/single_tip.scss */
+#single-tip__author {
+  float: left;
+}
+
+/* line 54, scss/single_tip.scss */
+#single-tip__place {
+  float: right;
+}

@@ -37,7 +37,6 @@ function checkNotifications(){
 
 $(document).ready(function(){
     checkNotifications();
-    //refreshIndicators();
     setInterval(checkNotifications,20000);
 });
 

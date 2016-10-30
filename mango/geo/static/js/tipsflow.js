@@ -242,7 +242,7 @@ var cTip = Vue.extend({
                                 <div class="tip__share-block" @click="shareFacebook"><i class="fa fa-facebook"></i></div>\
                                 <div class="tip__share-block" @click="shareVk"><i class="fa fa-vk"></i></div>\
                                 <div class="tip__share-block" @click="shareTwitter"><i class="fa fa-twitter"></i></div>\
-                                <div class="tip__share-link">Ссылка: <input type="text" size="40" v-model="url"></div>\
+                                <div class="tip__share-link"><a href="{{url}}">Ссылка:</a> <input type="text" size="40" v-model="url"></div>\
                     </div>\
                     <div class="cmd-bar">\
                         <div class="cmd-bar__left">\
@@ -393,7 +393,9 @@ var tipsFlow = new Vue({
         allowAddTip: true,
         allowFilters: true,
         allowEdit: false,
-        lastEdited: null
+        lastEdited: null,
+        collapsed: false,
+        collapsedMessage: ''
     },
 
     computed:{
@@ -417,20 +419,17 @@ var tipsFlow = new Vue({
         self.allowFilters = jd.config.allowFilters ? true : false;
         self.allowAddTip = jd.config.allowAddNewTip ? true : false;
         self.allowEdit = jd.config.allowEdit ? true : false;
+        self.collapsed = jd.config.collapsed ? true : false;
+        if (self.collapsed){
+            self.collapsedMessage = jd.config.collapsedMessage;
+        }
 
-        
-        //self.mode = jd.mode;
         self.all_tips=jd.tips;
         self.shown_tips=jd.tips;
         self.sortTips();
 
         self.tagsFilter.placeTags=jd.place_tags;
 
-        /*if (self.mode=='place'){
-            self.newTipForm.allTags=jd.all_tags;
-        } else {
-            self.newTipForm.allTags =[];
-        }*/
         self.newTipForm.allTags=jd.all_tags;
 
         console.log(JSON.stringify(jd.all_tags));
@@ -443,21 +442,16 @@ var tipsFlow = new Vue({
         });
         relatedUsers=jd.related_users;
 
-        /*if (self.mode == 'user'){
-            self.allowAddTip = false;
-            self.allowFilters = false;
-        }*/
-
-        
-
-
-
         this.signedIn = signedIn;
     },
 
     // METHODS
     //............................
     methods: {
+
+        uncollapse: function(){
+            this.collapsed = false;
+        },
 
         sortTips: function(){
            this.shown_tips.sort(function(a,b){
@@ -752,7 +746,9 @@ var tipsFlow = new Vue({
     },
 
     template: '<div>\
-                <div id="filters" class="hidden-xs tips-sidebar" v-if="allowFilters">\
+                <button style="width:100%; font-size:120%;" class="btn btn-large btn-default" @click="uncollapse" v-text="collapsedMessage" v-if="collapsed">\
+                </button>\
+                <div id="filters" class="hidden-xs tips-sidebar" v-if="allowFilters&&!collapsed">\
                     <div class="tags__list">\
                         <h2>Метки</h2>\
                         <div id="tag-list"><tag v-for="t in tagsFilter.placeTags" :name="t.name" :color="t.style" :active="false"></tag></div>\
@@ -761,7 +757,7 @@ var tipsFlow = new Vue({
                 \
                 <!-- ==== TIPS COLUMN ==== -->\
                 \
-                <div id="tips" :class="{\'tips-1sb\': allowFilters}">\
+                <div id="tips" :class="{\'tips-1sb\': allowFilters}" v-if="!collapsed">\
                     <div v-show="!showingTipForm&&allowAddTip" id="add-tip-btn" @click="showTipForm">\
                         <span class="glyphicon glyphicon-plus-sign"></span>\
                         <span>Добавьте свой совет!</span>\
@@ -815,7 +811,7 @@ var tipsFlow = new Vue({
                     \
                     <!-- ==== TIPS CONTENT ==== -->\
                     \
-                    <div id="tips-content">\
+                    <div id="tips-content" v-if="!collapsed">\
                     <c-tip v-for="tip in shown_tips" \
                             :tags="tip.tags" \
                             :author="tip.author"\
