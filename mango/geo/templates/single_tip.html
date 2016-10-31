@@ -51,6 +51,17 @@
                     Не соглашусь!
                 </span>
             </div>
+            <div class="divider"></div>
+            <div id="single-tip__comments">
+                <span class="">Комментарии: </span>
+                {% for c in comments %}
+                    <div class="single-tip__comment">{{c["text"]}}
+                        <div class="single-tip__comment-footer">
+                            <a href="{{url_for('social.public_profile', uid=c['author_id'])}}">{{c["author_name"]}}</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
         
 

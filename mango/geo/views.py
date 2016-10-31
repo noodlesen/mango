@@ -40,6 +40,9 @@ def get_tips_data(tips_list, **kwargs):
         like = True if t.id in pa["likes"] else False
         dislike = True if t.id in pa["dislikes"] else False
         comments = json.loads(t.comments) if t.comments else []
+        for c in comments:
+            c["is_mine"]=True if c["author_id"] == current_user.id else False
+
         chd_data = t.chd_data
         if not chd_data:
             t.cache_it()
@@ -74,6 +77,7 @@ def get_tips_data(tips_list, **kwargs):
     ru = User.query.filter(User.id.in_(related_users_ids)).all()
     for u in ru:
         td['related_users'].append({"id": u.id, "nickname": u.nickname})
+    td['related_users'].append({"id": current_user.id, "nickname": current_user.nickname})
 
     return td
 
@@ -206,11 +210,19 @@ def single_tip(tid):
         
         upvoted = True if tip.id in pa["likes"] else False
         downvoted = True if tip.id in pa["dislikes"] else False
+
+        ## ^^^ REWRITE AS VVV
+        n = get_tips_data([tip])
+        for c in n['tips'][0]["comments"]:
+            uid = c["author_id"]
+            name = next(u for u in n['related_users'] if u["id"]==uid)["nickname"]
+            c["author_name"]=name
         return render_template('single_tip.html', 
                                 tip=tip,
                                 signed_in=current_user.is_authenticated,
                                 upvoted=upvoted,
-                                downvoted=downvoted)
+                                downvoted=downvoted,
+                                comments=n['tips'][0]["comments"])
     else:
         abort(404)
 
@@ -259,6 +271,9 @@ def json_tip():
             comments = json.loads(tip.comments) if tip.comments else []
             ts = (datetime.utcnow().strftime('%y %m %d %H %M %S'))
             comments.append({"text":q['text'], "author_id":current_user.id, "timestamp":ts})
+
+            for c in comments:
+                c["is_mine"]=True if c["author_id"] == current_user.id else False
             
             tip.comments = json.dumps(comments)
             res['comments'] = comments
@@ -274,6 +289,35 @@ def json_tip():
                 user_from=current_user.id,
                 extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
             )
+
+        elif q['cmd']=='saveComment':
+            tip = Tip.query.get(q['id'])
+            print()
+            print()
+            print('>>>>>>>')
+            print(q)
+
+            comments = json.loads(tip.comments) if tip.comments else []
+            ts = (datetime.utcnow().strftime('%y %m %d %H %M %S'))
+            comments[q['cid']]={"text":q['text'], "author_id":current_user.id, "timestamp":ts}
+
+            for c in comments:
+                c["is_mine"]=True if c["author_id"] == current_user.id else False
+            
+            tip.comments = json.dumps(comments)
+            res['comments'] = comments
+            db.session.add(tip)
+            db.session.commit()
+
+            # msg = 'К вашему совету добавлен новый комментарий от пользователя '+current_user.nickname
+            # Notification.add(
+            #     tip.user_id,
+            #     'NC',
+            #     msg,
+            #     data=q['text'][:100]+"...",
+            #     user_from=current_user.id,
+            #     extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
+            # )
 
 
 

@@ -25,6 +25,8 @@ var cTip = Vue.extend({
             showingComments: false,
             showingShare: false,
             commentText:'',
+            commentFormEditMode: false,
+            commentToSave: null,
             signedIn: false,
             pendingDelete: false
         }
@@ -197,6 +199,27 @@ var cTip = Vue.extend({
             }
         },
 
+        editComment: function(i){
+            this.commentFormEditMode = true;
+            this.commentText = this.comments[i].text;
+            this.commentToSave = i;
+        },
+
+        saveComment: function(i){
+            console.log('>>>>>');
+            console.log(i);
+            var self = this;
+            if (this.commentText.trim()!=''){
+                getResults('/json/tip', 'json', {cmd: 'saveComment', text: this.commentText, id: this.id, cid: this.commentToSave}, function(res){
+                    if (res.status=='ok'){
+                        self.commentText = '';
+                        self.comments = res.comments;
+                        self.commentFormEditMode=false;
+                    }
+                });
+            }
+        },
+
         getDate: function(timestamp){
             return moment.utc(timestamp, 'YY MM DD hh mm ss').fromNow();
         },
@@ -272,13 +295,17 @@ var cTip = Vue.extend({
                     </div>\
                 </div>\
                 <div v-if="showingComments" class="comments">\
-                    <div class="comment" v-for="c in comments">\
+                    <div class="comment" v-for="c in comments" track-by="$index">\
                         <div class="comment__text">{{c.text}}</div>\
-                        <div class="comment__meta">{{getUser(c.author_id)}} / {{getDate(c.timestamp)}}</div>\
+                        <div class="comment__meta">\
+                        <span @click="editComment($index)" v-if="c.is_mine" class="plink"><span class="glyphicon glyphicon-edit"></span></span>\
+                        {{getUser(c.author_id)}} {{getDate(c.timestamp)}}\
+                        </div>\
                     </div>\
-                    <div class="addCommentForm" v-if="signedIn">\
-                        <textarea v-model="commentText" class="addCommentForm__ta" rows="3" placeholder="Добавьте свой комментарий"></textarea>\
-                    <button @click="addComment" class="btn btn-large btn-default add-comment__button">Добавить комментарий</button>\
+                    <div class="commentForm" v-if="signedIn">\
+                        <textarea v-model="commentText" class="commentForm__ta" rows="3" placeholder="Добавьте свой комментарий"></textarea>\
+                    <button v-if="!commentFormEditMode" @click="addComment" class="btn btn-large btn-default comment__button">Добавить комментарий</button>\
+                    <button v-if="commentFormEditMode" @click="saveComment" class="btn btn-large btn-default comment__button">Сохранить комментарий</button>\
                     </div>\
                     <div class="divider"></div>\
                 </div>\
@@ -812,7 +839,7 @@ var tipsFlow = new Vue({
                     <!-- ==== TIPS CONTENT ==== -->\
                     \
                     <div id="tips-content" v-if="!collapsed">\
-                    <c-tip v-for="tip in shown_tips" \
+                    <c-tip v-for="tip in shown_tips" track-by="id" \
                             :tags="tip.tags" \
                             :author="tip.author"\
                             :id="tip.id" \

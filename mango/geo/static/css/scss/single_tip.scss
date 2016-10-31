@@ -75,3 +75,23 @@
     float: right;
 }
 
+#single-tip__comments{
+    padding: .5em 1em;
+}
+
+.single-tip__comment{
+    background-color: white;
+    border-color: $blue;
+    border-width: 0 0 0 5px;
+    border-style: solid;
+    padding: .4em 1em;
+    margin-bottom: .4em;
+    font-size: 80%;
+}
+.single-tip__comment-footer{
+    width:100%;
+    font-size: 80%;
+    color: $gray4;
+    text-align: right;
+}
+

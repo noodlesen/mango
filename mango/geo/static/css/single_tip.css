@@ -415,3 +415,27 @@
 #single-tip__place {
   float: right;
 }
+
+/* line 78, scss/single_tip.scss */
+#single-tip__comments {
+  padding: .5em 1em;
+}
+
+/* line 82, scss/single_tip.scss */
+.single-tip__comment {
+  background-color: white;
+  border-color: #0088cc;
+  border-width: 0 0 0 5px;
+  border-style: solid;
+  padding: .4em 1em;
+  margin-bottom: .4em;
+  font-size: 80%;
+}
+
+/* line 91, scss/single_tip.scss */
+.single-tip__comment-footer {
+  width: 100%;
+  font-size: 80%;
+  color: #c6c6c6;
+  text-align: right;
+}

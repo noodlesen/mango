@@ -665,7 +665,7 @@
 }
 
 /* line 318, scss/tipsflow.scss */
-.addCommentForm__ta {
+.commentForm__ta {
   width: 100%;
   resize: vertical;
   padding: 0.1em 0.5em;
@@ -681,7 +681,7 @@
   margin-right: 2%;
 }
 /* line 331, scss/tipsflow.scss */
-.comments .add-comment__button {
+.comments .comment__button {
   width: 100%;
 }
 
