@@ -351,6 +351,57 @@ def make_timestamps():
     for r in order:
         db.engine.execute('UPDATE tips SET created_at="%s" WHERE id=%d' % (r["ts"], r["id"]))
 
+@manager.command
+def assign_countries_to_workers():
+    countries = db.engine.execute('SELECT c.id, c.rus_name FROM G_countries as c JOIN G_places as p ON p.country_id=c.id WHERE p.chd_has_tips=1 ') # GROUP BY c.id 
+    field=[]
+    field.extend([c[0] for c in countries])
+    #print (field)
+    _workers = db.engine.execute('SELECT id, nickname FROM users WHERE worker=1')
+    workers=[]
+    for w in _workers:
+        cs = []
+        for n in range(1,4):
+            while True:
+                cn = field[randint(0, len(field)-1)]
+                if cn not in cs:
+                    cs.append(cn)
+                    break
+        print (w[1])
+        print(cs)
+        for c in cs:
+            db.engine.execute('INSERT INTO workers2countries (`worker_id`, `country_id`) VALUES (%d, %d)' % (w[0], c))
+
+
+@manager.command
+def assign_tips_to_workers():
+    tips = db.engine.execute('SELECT t.id, t.sex, c.id FROM tips as t JOIN G_places as p ON t.place_id=p.id JOIN G_countries as c ON c.id = p.country_id')
+    i=0
+    for t in tips:
+        i+=1
+        print(i)
+        tip_sex = t[1]
+        if tip_sex !='N':
+            _candidates = db.engine.execute("""SELECT w.worker_id, u.ws FROM workers2countries as w JOIN users as u ON u.id = w.worker_id WHERE w.country_id=%d AND u.ws='%s' """ % (t[2], tip_sex))
+        else:
+            _candidates = db.engine.execute("""SELECT w.worker_id, u.ws FROM workers2countries as w JOIN users as u ON u.id = w.worker_id WHERE w.country_id=%d """ % (t[2]))
+        candidates = [c for c in _candidates]
+        print (candidates)
+        if candidates:
+            while True:
+                cnd = candidates[randint(0, len(candidates)-1)]
+                if cnd[1] == tip_sex or tip_sex == 'N':
+                    break
+            db.engine.execute('UPDATE tips SET user_id = %d WHERE id=%d' % (cnd[0], t[0]))
+        else: 
+            db.engine.execute('UPDATE tips SET user_id = %d WHERE id=%d' % (131, t[0]))
+
+    #cache_all_tips()
+
+
+
+
+
 
 
 

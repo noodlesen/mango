@@ -8,20 +8,21 @@ html {
 
 
 #pre-footer{
-    height:150px;
+    height:120px;
 }
 
 
 #footer {
   position: absolute;
-  bottom: 0;
+  bottom: -30px;
   width: 100%;
   font-weight: bolder;
-  color: black;
-  background-color: $gray4;
+  color: $gray2;
+  background-color: $gray5;
   /* Set the fixed height of the footer here */
   height: 70px;
   text-align: center;
+  
   p {
     font-size: 80%;
     }

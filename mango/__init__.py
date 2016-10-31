@@ -114,8 +114,9 @@ def maintenance():
 #@cache.cached(3600)
 @app.route('/')
 def root():
-    places = Place.query.filter_by(chd_has_tips=1)
-    return render_template('test_places.html', places=places)
+    #places = Place.query.filter_by(chd_has_tips=1)
+    #return render_template('test_places.html', places=places)
+    return render_template('main.html')
 
 @app.route('/users')
 def users():
@@ -130,7 +131,7 @@ def users():
                                 )
     else:
         return render_template(
-                                'root_example.html',
+                                'test_users.html',
                                 users=users
                                 )
 
