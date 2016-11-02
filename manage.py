@@ -431,6 +431,31 @@ def rename_twins():
             db.engine.execute(sql)
             
 
+@manager.command
+def seed_likes():
+    COUNT = 10000
+    workers = [w for w in db.engine.execute("""SELECT id, nickname FROM users WHERE worker=1""")]
+    tips = [t for t in db.engine.execute("""SELECT id, user_id FROM tips""") ]
+    for i in range(1, COUNT):
+        print(">%d" % i)
+        rw = randint(0, len(workers)-1)
+        rt = randint(0, len(tips)-1)
+        print (workers[rw][1],">>>>>",tips[rt][0])
+        uid = workers[rw][0]
+        tid = tips[rt][0]
+        tuid = tips[rt][1]
+        if uid != tuid:
+            drc = 'up' if randint(0,100)<=75 else 'down'
+            exists = [x for x in db.session.execute(""" SELECT id FROM users_%svotes WHERE user_id=%d AND tip_id=%d """ % (drc, uid, tid))]
+            if not len(exists):
+                print("WRITE")
+                #db.session.execute(""" INSERT INTO users_%svotes (`user_id`, `tip_id`) VALUES (%d, %d) """ % (uid, tid))
+                user = User.query.get(uid)
+                tip = Tip.query.get(tid)
+                if drc=='up':
+                    user.upvote(tip)
+                else:
+                    user.downvote(tip)
 
 
 
