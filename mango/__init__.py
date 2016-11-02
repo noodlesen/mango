@@ -109,6 +109,9 @@ def maintenance():
     else:
         return redirect(url_for('root'))
 
+@app.route('/robots.txt')
+def robots():
+    return ("User-agent: *\nDisallow: /")
 
 #for example
 #@cache.cached(3600)
@@ -124,7 +127,7 @@ def users():
     if current_user.is_authenticated:
         notifications = Notification.count(current_user)
         return render_template(
-                                'root_example.html',
+                                'test_users.html',
                                 users=users,
                                 notifications_count=notifications['other'],
                                 messages_count=notifications['messages']

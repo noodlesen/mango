@@ -75,9 +75,9 @@
                             </table>
                         {% else %}
                             Войдите с 
-                                <a href="{{url_for('social.g_login')}}"><span class="fa fa-google"></span></a>
-                                , <a href="{{url_for('social.f_login')}}"><span class="fa fa-facebook"></a>
-                                 или <a href="{{url_for('social.v_login')}}"><span class="fa fa-vk"></a>
+                                <a href="{{url_for('social.g_login')}}?follow={{request.path}}"><span class="fa fa-google"></span></a>
+                                , <a href="{{url_for('social.f_login')}}?follow={{request.path}}"><span class="fa fa-facebook"></a>
+                                 или <a href="{{url_for('social.v_login')}}?follow={{request.path}}"><span class="fa fa-vk"></a>
                         {% endif %}
                     </div><div class="clearfix"></div>
 

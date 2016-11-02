@@ -41,7 +41,8 @@ def get_tips_data(tips_list, **kwargs):
         dislike = True if t.id in pa["dislikes"] else False
         comments = json.loads(t.comments) if t.comments else []
         for c in comments:
-            c["is_mine"]=True if c["author_id"] == current_user.id else False
+            if current_user.is_authenticated:
+                c["is_mine"]=True if c["author_id"] == current_user.id else False
 
         chd_data = t.chd_data
         if not chd_data:
@@ -77,7 +78,8 @@ def get_tips_data(tips_list, **kwargs):
     ru = User.query.filter(User.id.in_(related_users_ids)).all()
     for u in ru:
         td['related_users'].append({"id": u.id, "nickname": u.nickname})
-    td['related_users'].append({"id": current_user.id, "nickname": current_user.nickname})
+    if current_user.is_authenticated:
+        td['related_users'].append({"id": current_user.id, "nickname": current_user.nickname})
 
     return td
 
