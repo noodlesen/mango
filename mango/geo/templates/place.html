@@ -38,7 +38,7 @@
             </div>
             <div id="tips" class="tips-1sb">
                 <div id="tips-content">
-                {% for t in place.tips %}
+                {% for t in place_data['tips'] %}
                     <!-- <div class="item-block tip has-cmd-bar">
                         <div class="tip-block__body">
                             {{t.text}}
@@ -56,14 +56,14 @@
                         <div class="tip-block__body" >
                             <div class="tip__top">
                                 <div class="tip__tags">
-                                    {% for tag in t.tags %}
-                                        <span class="tip__tag back-color-dark-cyan">{{tag.name}}</span>
+                                    {% for tag in t['tags'] %}
+                                        <span class="tip__tag back-color-dark-cyan">{{tag['name']}}</span>
                                     {% endfor %}
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="tip__main-text">
-                               {{t.text}}
+                               {{t['text']}}
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -72,7 +72,7 @@
                         <div class="cmd-bar">
                             <div class="cmd-bar__right">
                                 <div class="cmd-bar__button tip__author">
-                                        <a href="/user/{{t.user.id}}" ><span class="glyphicon glyphicon-user"></span> {{t.user.nickname}}</a>
+                                        <a href="/user/{{t['author']['id']}}" ><span class="glyphicon glyphicon-user"></span> {{t['author']['name']}}</a>
                                 </div>
                             </div>
                             <div class="clearfix"></div>

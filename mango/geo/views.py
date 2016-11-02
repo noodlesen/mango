@@ -61,11 +61,14 @@ def get_tips_data(tips_list, **kwargs):
                 'comments': comments,
                 'upvoted': t.chd_upvoted,
                 'downvoted': t.chd_downvoted,
+                'rating': t.chd_upvoted - t.chd_downvoted,
                 'url': url_for('geo.single_tip', tid=t.id, _external = True)
                 }
                 
         tip['tags'] = cached_data['tags']
         td['tips'].append(tip)
+
+    td['tips'] = sorted(td['tips'], key=itemgetter('rating'), reverse=True)
     
     place_tags=[]
     for t in td['tips']:
@@ -138,6 +141,7 @@ def places(us):
 
         return render_template('place.html',
                                place=p,
+                               place_data = jd,
                                json_data=json.dumps(jd),
                                airports=p.get_airports(),
                                signed=current_user.is_authenticated,
