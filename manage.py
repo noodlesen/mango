@@ -399,6 +399,37 @@ def assign_tips_to_workers():
     #cache_all_tips()
 
 
+@manager.command
+def rename_twins():
+    LANG='rus'
+    sql = 'SELECT %s_name, COUNT(%s_name) FROM G_places GROUP BY %s_name' % (LANG, LANG, LANG)
+    res = db.engine.execute(sql)
+    i=0
+    twins=[]
+    for r in res:
+        if r[1]>1:
+            i+=1
+            print(i, r[0], r[1])
+            twins.append(r[0])
+
+    for t in twins:
+        print()
+        sql = """SELECT p.id, p.number, p.%s_address FROM G_places as p WHERE %s_name="%s" """ % (LANG, LANG, t)
+        results = db.engine.execute(sql)
+
+        res = [r for r in results]
+        nmax=0
+        for r in res:
+            if r[1] and r[1]>nmax:
+                nmax = r[1]
+
+        for x in res:
+            newname = t if x[1]==nmax else x[2]
+            print (t, x[1], '>>>', newname)
+            sql = """UPDATE G_places SET %s_name="%s" WHERE id=%d """ % (LANG, newname, x[0])
+            print(sql)
+            db.engine.execute(sql)
+            
 
 
 
