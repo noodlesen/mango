@@ -49,13 +49,13 @@ var placeSearch = new Vue({
         preSelected: false,
         preSelectedIndex: -1
     },
-    computed:{
-        
-    },
     methods:{
         choosePreSelected: function(){
             if (this.preSelected){
-               location.assign(this.results[this.preSelectedIndex].url);
+               //location.assign(this.results[this.preSelectedIndex].url);
+               var hr = this.results[this.preSelectedIndex].url;
+               setTimeout(function(){window.location.pathname = hr;},100);
+               
 
                //$(location).attr('href', 'http://www.sitefinity.com');
 
@@ -88,8 +88,6 @@ var placeSearch = new Vue({
             console.log(this.preSelectedIndex);
         },
         checkNeedle: function(){
-            //console.log(JSON.stringify(e));
-            
             var self=this;
             if (this.needle.length>=2){
                 getResults('/json/place-search','json',{needle: this.needle}, function(res){
