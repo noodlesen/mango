@@ -130,8 +130,13 @@ body {
     &:hover{
       border-color: white;
     }
+    &.search-result--preselected{
+      border-color: white;
+    }
   }
 }
+
+
 
 
 

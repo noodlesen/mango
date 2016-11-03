@@ -479,5 +479,9 @@ body {
 #search-results a:hover {
   border-color: white;
 }
+/* line 133, scss/base.scss */
+#search-results a.search-result--preselected {
+  border-color: white;
+}
 
 /* ================================= END NAVBAR =============================*/
