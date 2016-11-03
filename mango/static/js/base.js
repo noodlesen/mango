@@ -55,16 +55,14 @@ var placeSearch = new Vue({
     methods:{
         choosePreSelected: function(){
             if (this.preSelected){
-               //window.location = 'http://localhost:5000/place/singapore';
+               location.assign(this.results[this.preSelectedIndex].url);
 
                //$(location).attr('href', 'http://www.sitefinity.com');
 
-                //'http://localhost:5000'+this.results[this.preSelectedIndex].url;
                 //window.location.assign("http://www.mozilla.org");//'http://localhost:5000'+this.results[this.preSelectedIndex].url;
                 //console.log(this.results[this.preSelectedIndex].url);
                 //$('#search-results').trigger('click', 'a #sl'+this.preSelectedIndex);
-                $('#sl'+this.preSelectedIndex).click();
-                alert();
+                //$('#sl'+this.preSelectedIndex).trigger('click');
                 //$("#search-results").find("a:first").trigger("click");
             }
         },
@@ -74,6 +72,13 @@ var placeSearch = new Vue({
         preSelect: function(i){
             if (this.preSelected){
                 this.preSelectedIndex+=i;
+                if (this.preSelectedIndex<0) {
+                    this.preSelectedIndex = this.results.length-1;
+                }
+                if (this.preSelectedIndex>=this.results.length) {
+                    this.preSelectedIndex = 0;
+                }
+
             } else if (i==1){
                 this.preSelectedIndex=0;
             } else if (i = -1){
