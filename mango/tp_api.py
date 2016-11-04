@@ -34,5 +34,3 @@ for f in json.loads(response.text)['data']:
     print (f)
     print()
     dd=datetime.strptime(f['depart_date'],'%Y-%m-%d')
-    #if dd>=dd_in and dd<=dd_out:
-    #print(dd)

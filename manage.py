@@ -41,8 +41,6 @@ def check_tags():
     f = open('dive_report.txt', 'w')
     tips = Tip.query.all()
     words = ['дайв', 'Дайв', 'PADI']
-    #words = ['евро', 'доллар', 'доллара', "долларов", "доллару", "рупий", "рупия", "EUR", "eur", "usd", "USD", "$", "юань", "юаней", "юаня"]
-    #words = ['поесть', 'поели', 'еда', "кухня", "кухни", "блюдо", "ресторан", "ресторанчик", "ресторане", "ресторанчике", "перекусить", "пожрать", "сожрать", "вкусно", "вкуснятина"]
     n = 1
     for tip in tips:
         found = False
@@ -172,81 +170,6 @@ def calculate_airports_nearby():
 # EXPERIMENTAL ============================================================
 
 
-# @manager.command
-# def load_tp_cities():
-#     fn = 'cities.json'
-#     with open(fn, 'r') as f:
-#         data = json.loads(f.read())
-        
-#         places = Place.query.filter(Place.city_code==None).all()
-#         i = 1
-#         for c in data:
-#             print('#%d' % i)
-#             if c['coordinates']:
-#                 clat = round(c['coordinates']['lat'],0)
-#                 clng = round(c['coordinates']['lon'],0)
-#                 for p in places:
-#                     if p.lat:
-#                         plat = round(p.lat,0)
-#                         plng = round(p.lng,0)
-#                         if 'ru' in c['name_translations']:
-#                             fz = fuzz.partial_ratio(c['name_translations']['ru'],p.rus_name)
-#                             if plat ==clat and plng == clng and fz > 70:
-#                                 print ('MATCH!!!  %s and %s    --- %d' % (c['name_translations']['ru'], p.rus_name, fz))
-#                                 if 'ru' in  c['name_translations'].keys():
-#                                     rus_name = c['name_translations']['ru'] 
-#                                 else:
-#                                     rus_name = ''
-#                                 db.engine.execute('INSERT INTO tp_cities_match (`code`, `tp_name`, `rus_name`, `place_id`, `match`) VALUES ("%s", "%s", "%s", %d, %d)' % (c["code"], c["name"], rus_name,p.id, fz))
-
-#             i+=1
-
-# @manager.command
-# def add_place_names():
-#     db.engine.execute('UPDATE tp_cities_match INNER JOIN G_places AS p ON place_id = p.id SET place_name = p.eng_name')
-
-
-
-# @manager.command
-# def mail_test():
-#     Mailer.welcome_mail()
-
-
-# @manager.command
-# def test_russian_plurals():
-#     for n in range(0, 125):
-#         print ("%d %s назад" % (n, russian_plurals('секунда', n, ago=True)))
-
-# @manager.command
-# def get_length():
-#     tips = Tip.query.all()
-#     tmax = 0
-#     tmin = 10000
-#     tsum = 0
-#     tcount = 0
-#     p300 = 0
-#     p400 = 0
-#     p500 = 0
-#     for t in tips:
-#         print (tcount)
-#         tcount += 1
-#         l = len(t.text)
-#         tsum += l
-#         if l < tmin:
-#             tmin = l
-#         if l > tmax:
-#             tmax = l
-#         if l > 300:
-#             p300 += 1
-#         if l > 400:
-#             p400 += 1
-#         if l > 500:
-#             p500 += 1
-#     tavg = round(tsum / tcount)
-#     print ("MIN :%d MAX :%d AVG :%d" % (tmin, tmax, tavg))
-#     print('TOTAL %d' % tcount)
-#     print (">300 :%d >400 :%d >500 :%d" % (p300, p400, p500))
-
 @manager.command
 def cache_all_tips():
     tips = Tip.query.all()
@@ -283,9 +206,6 @@ def udtest():
         results.append({"id":p[0], "url": pp})
 
     for r in results:
-        # sql = 'UPDATE G_places SET new_url="%s" WHERE id=%d' % (r["url"], r["id"])
-        # print(sql)
-        # db.session.execute(sql)
         place = Place.query.get(r["id"])
         place.url_string = r["url"]
         db.session.add(place)
@@ -347,7 +267,6 @@ def make_timestamps():
         print (t[0])
         ts = get_random_datetime(2016,2016,9,10).strftime('%Y-%m-%d %H:%M:%S')
         order.append({"id":t[0], "ts":ts})
-    #db.session.commit()
     for r in order:
         db.engine.execute('UPDATE tips SET created_at="%s" WHERE id=%d' % (r["ts"], r["id"]))
 
@@ -356,7 +275,6 @@ def assign_countries_to_workers():
     countries = db.engine.execute('SELECT c.id, c.rus_name FROM G_countries as c JOIN G_places as p ON p.country_id=c.id WHERE p.chd_has_tips=1 ') # GROUP BY c.id 
     field=[]
     field.extend([c[0] for c in countries])
-    #print (field)
     _workers = db.engine.execute('SELECT id, nickname FROM users WHERE worker=1')
     workers=[]
     for w in _workers:
@@ -395,8 +313,6 @@ def assign_tips_to_workers():
             db.engine.execute('UPDATE tips SET user_id = %d WHERE id=%d' % (cnd[0], t[0]))
         else: 
             db.engine.execute('UPDATE tips SET user_id = %d WHERE id=%d' % (131, t[0]))
-
-    #cache_all_tips()
 
 
 @manager.command
@@ -448,8 +364,6 @@ def seed_likes():
             drc = 'up' if randint(0,100)<=75 else 'down'
             exists = [x for x in db.session.execute(""" SELECT id FROM users_%svotes WHERE user_id=%d AND tip_id=%d """ % (drc, uid, tid))]
             if not len(exists):
-                print("WRITE")
-                #db.session.execute(""" INSERT INTO users_%svotes (`user_id`, `tip_id`) VALUES (%d, %d) """ % (uid, tid))
                 user = User.query.get(uid)
                 tip = Tip.query.get(tid)
                 if drc=='up':

@@ -28,11 +28,6 @@
     @include respond-to(xs) { width: 100% ;}
 }
 
-// legacy
-/* .tips-narrow{
-    float: left;
-    width:74%;
-} */
 
 .tips-1sb{
     float: left;
@@ -335,7 +330,6 @@
 
 .comment{
     background-color: white;
-    //border-radius: 6px;
     border-width: 0 0 0 7px;
     border-color: $blue;
     border-style: solid;
@@ -393,14 +387,12 @@
     width:7%;
     float: right;
     font-weight: bolder;
-    //padding-left: 2px;
     font-size: 1.6em;
     text-align: center;
     line-height: .5em;
 }
 
 .tip__share-block{
-    //font-size: 20px;
     height: 30px;
     min-width: 30px;
     padding-top:4px;

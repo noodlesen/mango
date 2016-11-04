@@ -31,8 +31,6 @@ def get_tips_data(tips_list, **kwargs):
     related_users_ids = []
 
     if current_user.is_authenticated and "place_id" in kwargs:
-        print()
-        print(kwargs["place_id"])
         pa = current_user.get_place_actions(kwargs["place_id"])
     else:
         pa = {"favorites":[], "likes":[], "dislikes":[]}
@@ -113,10 +111,6 @@ def old_places(pid):
 
 @geo.route('/place/<us>', methods=['GET'])
 def places(us):
-    # if request.args and '_escaped_fragment_' in request.args:
-    #     ajax=False
-    # else:
-    #     ajax = True
     Log.register(action='geo.route:place', data=us)
     p = Place.query.filter_by(url_string=us).first()
     if p:
@@ -187,7 +181,6 @@ def place_search():
         urlbase = url_for('geo.places', us='')
         places = []
         sql = "SELECT id, %s, `number`, url_string FROM G_places WHERE %s LIKE '%s%%'  ORDER BY `number` DESC LIMIT 25" % (field, field, needle)
-        print(sql)
         results = db.session.execute(sql)
         for r in results:
             places.append({"id": r[0], "name": r[1], "number": r[2], "url": urlbase+r[3]})
@@ -201,7 +194,6 @@ def place_search():
         res['places'].extend(get_places('eng_name', q['needle']))
 
     return json.dumps(res)
-
 
 
 
@@ -304,10 +296,6 @@ def json_tip():
 
         elif q['cmd']=='saveComment':
             tip = Tip.query.get(q['id'])
-            print()
-            print()
-            print('>>>>>>>')
-            print(q)
 
             comments = json.loads(tip.comments) if tip.comments else []
             ts = (datetime.utcnow().strftime('%y %m %d %H %M %S'))
@@ -320,18 +308,6 @@ def json_tip():
             res['comments'] = comments
             db.session.add(tip)
             db.session.commit()
-
-            # msg = 'К вашему совету добавлен новый комментарий от пользователя '+current_user.nickname
-            # Notification.add(
-            #     tip.user_id,
-            #     'NC',
-            #     msg,
-            #     data=q['text'][:100]+"...",
-            #     user_from=current_user.id,
-            #     extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
-            # )
-
-
 
         elif q['cmd']=='addNew' or q['cmd']=='edit':
             if q['cmd']=='addNew':
@@ -401,9 +377,6 @@ def json_tip():
                 db.session.commit()
             else:
                 res['status']='Error deleting the tip'
-
-
-
 
     else:
         res['status']='error: not logged in'

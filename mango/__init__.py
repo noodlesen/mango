@@ -9,17 +9,13 @@ from flask_wtf.csrf import CsrfProtect
 import json
 
 from .cache import cache
-
 from .db import db
-
 from .config import DEBUG, SECRET_KEY, DBURI, MAINTENANCE, PROJECT_NAME, MAIL_SERVER, MAIL_PORT, MAIL_USE_TLS, MAIL_USE_SSL, MAIL_USERNAME, MAIL_PASSWORD
 from .social import social, oauth
 from .social.models import User, Notification
 from .admin import admin
 from .geo import geo
 from .geo.models import Place
-
-# from .mailer import mail
 from .logger import Log
 
 
@@ -41,12 +37,6 @@ app.config['SQLALCHEMY_POOL_RECYCLE'] = 60
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
 app.config['BOOTSTRAP_SERVE_LOCAL']=True
 app.config['CACHE_TYPE']='simple'
-# app.config['MAIL_SERVER']=MAIL_SERVER
-# app.config['MAIL_PASSWORD']=MAIL_PASSWORD
-# app.config['MAIL_PORT']=MAIL_PORT
-# app.config['MAIL_USE_SSL']=MAIL_USE_SSL
-# app.config['MAIL_USE_TLS']=MAIL_USE_TLS
-# app.config['MAIL_USERNAME']=MAIL_USERNAME
 app.config['EMAIL_HOST']= MAIL_SERVER
 app.config['EMAIL_PORT']= MAIL_PORT
 app.config['EMAIL_HOST_USER']= MAIL_USERNAME
@@ -56,13 +46,7 @@ app.config['EMAIL_USE_TLS']= MAIL_USE_TLS
 
 app.config['WTF_CSRF_TIME_LIMIT'] = 36000
 
-
-#mail = Mail(app)
-
-
 cache.init_app(app)
-
-# mail.init_app(app)
 
 toolbar = DebugToolbarExtension(app)
 
@@ -88,11 +72,6 @@ def load_user(id):
     else:
         return None
 
-# @csrf.error_handler
-# def csrf_error(reason):
-#     return render_template('error.html', reason=reason)
-
-
 @app.before_request
 def make_session_permanent():
     session.permanent = True
@@ -115,14 +94,10 @@ def robots():
     return ("User-agent: *\nDisallow: /")
 
 
-#for example
 #@cache.cached(3600)
-
 @app.route('/')
 def root():
     Log.register(action='route:root')
-    #places = Place.query.filter_by(chd_has_tips=1)
-    #return render_template('test_places.html', places=places)
     return render_template('main.html')
 
 @app.route('/users')
@@ -160,9 +135,10 @@ def page_not_found(e):
 def error413(e):
     return "Your error page for 413 status code", 413
 
-# @app.route('/csrf-test', methods=['POST'])
-# def csrf_test():
-#     return ('okk')
+
+# @csrf.error_handler
+# def csrf_error(reason):
+#     return render_template('error.html', reason=reason)
 
 
 

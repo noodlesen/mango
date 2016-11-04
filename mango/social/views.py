@@ -59,14 +59,11 @@ def v_login():
 def v_authorized():
     just_registered = False
     resp = vk.authorized_response()
-    print('RESPONSE:')
-    print(resp)
     if resp is None:
         return 'Access denied: reason=%s error=%s' % (
             request.args['error_reason'],
             request.args['error_description']
         )
-    print ('TOKEN')
     ac_token  = resp['access_token']
     session['vk_token'] = (resp['access_token'], '')
 
@@ -79,7 +76,6 @@ def v_authorized():
     email = resp['email']
     uid = user_info["uid"]
 
-    # check for user
     user = User.query.filter_by(vk_id=uid).first()
     if user is None:
         user = User.query.filter_by(register_email=email).first()
@@ -146,9 +142,7 @@ def g_authorized():
         )
     session['google_token'] = (resp['access_token'], '')
     me = google.get('userinfo')
-    print(me.data['email'])
 
-    # check for user
     user = User.query.filter_by(google_id=me.data['id']).first()
     if user is None:
         user = User.query.filter_by(register_email=me.data['email']).first()
@@ -213,7 +207,6 @@ def f_authorized():
     session['facebook_token'] = (resp['access_token'], '')
     me = facebook.get('/me?fields=name,email,picture')
 
-    # check for user
     user = User.query.filter_by(facebook_id=me.data['id']).first()
     if user is None:
         user = User.query.filter_by(register_email=me.data['email']).first()
@@ -226,7 +219,6 @@ def f_authorized():
             user.facebook_id = me.data['id']
             user.f_username = me.data['name']
     user.last_login = datetime.utcnow()
-    print(me.data)
     db.session.add(user)
     db.session.commit()
     login_user(user)
@@ -361,11 +353,6 @@ def avatar_upload():
 
     file = request.files['file']
 
-    print()
-    print (file)
-
-
-
     if file.filename == '':
 
         flash('Выберите файл с помощью кнопки Обзор')
@@ -431,7 +418,6 @@ def post_messenger():
     query = request.json
 
     if query['cmd'] == 'sendMessage':
-        print('sendMessage')
         ur = UsersRelationship.query.filter(
             and_(
                 UsersRelationship.user1 == current_user.id,
@@ -439,7 +425,6 @@ def post_messenger():
             ).first()
 
         if (not ur or ur.can_send_pm_to):
-            print('allowed')
             txt = query['text']
             current_user.send_private_message(query['uid'], txt)
             status = 'ok'
@@ -452,7 +437,6 @@ def post_messenger():
                                 data=txt
                             )
         else:
-            print('disabled')
             status = 'disabled'
         return json.dumps({'status': status})
 
@@ -610,7 +594,6 @@ def notifier():
 def user_subscribe():
     Log.register(action='social.post:user_subscribe', data=request.json)
     res = {"status":"ok"}
-    print(request.json)
     uid = request.json['uid']
     bval = True if request.json['cmd']=="subscribe" else False
     if current_user.is_authenticated:

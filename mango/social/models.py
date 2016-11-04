@@ -8,10 +8,6 @@ from datetime import datetime
 
 from sqlalchemy.sql import or_
 
-#from . .geo.models import Tip
-
-# import os
-# from . .path import ROOT_DIR, UPLOAD_FOLDER, AVATAR_FOLDER
 import json
 
 
@@ -36,8 +32,6 @@ class UserToPlaceRelationship(db.Model):
     user_id = db.Column(db.ForeignKey('users.id'))
     place_id = db.Column(db.ForeignKey('G_places.id'))
     type = db.Column(db.String(1))
-    #timestamp = db.Column(db.DateTime)
-
 
 
 class UsersRelationship(db.Model):
@@ -82,7 +76,6 @@ class User (UserMixin, db.Model):
     vk_username = db.Column(db.String(50))
     nickname = db.Column(db.String(50))
     password_hash = db.Column(db.String(64))
-    # email = db.Column(db.String(100), unique=True)
     google_id =db.Column(db.String(255), unique=True)
     facebook_id =db.Column(db.String(255), unique=True)
     vk_id =db.Column(db.String(255), unique=True)
@@ -108,14 +101,6 @@ class User (UserMixin, db.Model):
                                         foreign_keys='UserToPlaceRelationship.user_id'
                                         )
     power = db.Column(db.Integer, default=1)
-
-    # def get_favorites(self):
-    #     faves = db.engine.execute('SELECT u.tip_id, t.text FROM users2tips AS u INNER JOIN tips AS t ON t.id = u.tip_id WHERE u.user_id=%d AND u.type="F"' % self.id)
-    #     results=[]
-    #     if faves:
-    #         for f in faves:
-    #             results.append(f[1])
-    #     return results
 
     faved = db.relationship('Tip', 
         secondary = users_favorites, 
@@ -292,9 +277,7 @@ class NotificationMixin():
     id = db.Column(db.Integer, primary_key=True)
     ntype = db.Column(db.String(20))
     user_from = db.Column(db.Integer, default=0)
-    #emitter_type = db.Column(db.String(20))
     created_at = db.Column(db.DateTime)
-    #unread = db.Column(db.Boolean, default=True)
     message = db.Column(db.Text)
     data = db.Column(db.Text)
     extra = db.Column(db.Text)
@@ -318,11 +301,6 @@ class Notification(db.Model, NotificationMixin):
         self.user_to = user_to
         self.message = message
 
-        # if 'emitter_type' in kwargs:
-        #     self.emitter_type = kwargs['emitter_type']
-        # else:
-        #     self.emitter_type=''
-
         if 'data' in kwargs:
             self.data = kwargs['data']
         else:
@@ -339,7 +317,6 @@ class Notification(db.Model, NotificationMixin):
             self.user_from = 0
 
         self.ntype = ntype
-        # self.unread = True
         self.created_at = datetime.utcnow()
 
 

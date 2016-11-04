@@ -1,5 +1,3 @@
-
-
 from flask.ext.emails import Message
 from flask import render_template
 
