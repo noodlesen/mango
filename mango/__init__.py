@@ -153,6 +153,7 @@ def nl2br(value):
 
 @app.errorhandler(404)
 def page_not_found(e):
+    Log.register(action='route:404', data=request.url)
     return render_template('404.html'), 404
 
 @app.errorhandler(413)

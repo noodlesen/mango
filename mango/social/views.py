@@ -24,6 +24,8 @@ import requests
 from . .geo.views import get_tips_data, get_all_tags
 from . .geo.models import Tip
 
+from . .logger import Log
+
 
 
 def welcome_procedure():
@@ -47,6 +49,7 @@ vk = oauth.remote_app(
 
 @social.route('/vk-login', methods=['GET'])
 def v_login():
+    Log.register(action='social.route:v_login')
     if request.args and request.args['follow']:
         session['follow'] = request.args['follow']
     return vk.authorize(callback=url_for('social.v_authorized', _external=True))
@@ -81,16 +84,19 @@ def v_authorized():
     if user is None:
         user = User.query.filter_by(register_email=email).first()
         if user is None:
+            Log.register(action='v_register', data={"marker":session['marker'], "email":email})
             user = User.register_vk_user(username, email, uid)
             user.registered_at = datetime.utcnow()
             just_registered = True
         else:
             user.vk_id = uid
             user.vk_username = username
+
     user.last_login = datetime.utcnow()
     db.session.add(user)
     db.session.commit()
     login_user(user)
+    Log.register(action='user_login', data={"user":{"nickname": user.nickname, "id": user.id}, "method":"vk"})
     if just_registered:
         welcome_procedure()
     if "follow" in session:
@@ -123,6 +129,7 @@ google = oauth.remote_app(
 
 @social.route('/google-login', methods=['GET'])
 def g_login():
+    Log.register(action='social.route:g_login')
     if request.args and request.args['follow']:
         session['follow'] = request.args['follow']
     return google.authorize(callback=url_for('social.g_authorized', _external=True))
@@ -146,6 +153,7 @@ def g_authorized():
     if user is None:
         user = User.query.filter_by(register_email=me.data['email']).first()
         if user is None:
+            Log.register(action='g_register', data={"marker":session['marker'], "email":email})
             user = User.register_google_user(me.data['name'], me.data['email'], me.data['id'])
             just_registered = True
             user.registered_at = datetime.utcnow()
@@ -156,6 +164,7 @@ def g_authorized():
     db.session.add(user)
     db.session.commit()
     login_user(user)
+    Log.register(action='user_login', data={"user":{"nickname": user.nickname, "id": user.id}, "method":"google"})
     if just_registered:
         welcome_procedure()
     if "follow" in session:
@@ -186,6 +195,7 @@ facebook = oauth.remote_app('facebook',
 
 @social.route('/facebook-login', methods=['GET'])
 def f_login():
+    Log.register(action='social.route:f_login')
     if request.args and request.args['follow']:
         session['follow'] = request.args['follow']
     return facebook.authorize(callback=url_for('social.f_authorized', _external=True))
@@ -208,6 +218,7 @@ def f_authorized():
     if user is None:
         user = User.query.filter_by(register_email=me.data['email']).first()
         if user is None:
+            Log.register(action='f_register', data={"marker":session['marker'], "email":email})
             user = User.register_facebook_user(me.data['name'], me.data['email'], me.data['id'])
             just_registered = True
             user.registered_at = datetime.utcnow()
@@ -219,6 +230,7 @@ def f_authorized():
     db.session.add(user)
     db.session.commit()
     login_user(user)
+    Log.register(action='user_login', data={"user":{"nickname": user.nickname, "id": user.id}, "method":"facebook"})
     if just_registered:
         welcome_procedure()
     if "follow" in session:
@@ -244,6 +256,7 @@ def login():
 @social.route('/logout')
 @login_required
 def logout():
+    Log.register(action='user_logout', data={"user":{"nickname": current_user.nickname, "id": current_user.id}, "marker":session['marker']})
     session.pop('google_token', None)
     session.pop('facebook_token', None)
     logout_user()
@@ -257,6 +270,7 @@ def logout():
 @social.route('/profile')
 @login_required
 def profile():
+    Log.register(action='social.route:profile')
     u = current_user
     return render_template('profile.html', u=u)
 
@@ -264,6 +278,7 @@ def profile():
 @social.route('/check-nick', methods=['POST'])
 @login_required
 def check_nick():
+    Log.register(action='social.post:check_nick', data=request.json)
     query = request.json
     res = User.query.filter_by(nickname=query['val']).count()
     return json.dumps({"val": res})
@@ -272,6 +287,7 @@ def check_nick():
 @social.route('/save-nick', methods=['POST'])
 @login_required
 def save_nick():
+    Log.register(action='social.post:save_nick', data=request.json)
     query = request.json
     if User.query.filter_by(nickname=query['val']).count() == 0:
         current_user.nickname = query['val']
@@ -326,6 +342,7 @@ def avatar_picture_upload(f, user, skipFileSize): #  f - FileStorage objct
         print('ava name: '+ava_name)
         old_ava_name = user.image
         user.image = ava_name
+        Log.register(action='social.change_avatar', data=ava_name)
         db.session.add(user)
         db.session.commit()
 
@@ -364,6 +381,7 @@ def avatar_upload():
 @social.route('/user/events', methods=['GET', 'POST'])
 def user_events():
     if request.method == 'GET':
+        Log.register(action='social.route:user_events')
         nots = Notification.get(current_user).order_by(desc(Notification.id))
         nots_history = NotificationHistory.query.filter_by(user_to=current_user.id).order_by(desc(NotificationHistory.id))
         return render_template('user_events.html', nots=nots, nots_history=nots_history)
@@ -380,6 +398,7 @@ def user_events():
 @login_required
 @social.route('/my-tips', methods=['GET'])
 def my_tips():
+    Log.register(action='social.route:my_tips')
     if current_user.is_authenticated:
         tips = get_tips_data(current_user.tips)
         tips['config'] = {
@@ -399,6 +418,7 @@ def my_tips():
 @login_required
 @social.route('/private-messages', methods=['GET'])
 def messenger():
+    Log.register(action='social.route:messenger')
     sel = request.args.get('user')
     u = current_user
     return render_template('messenger.html', u=u, sel=sel)
@@ -407,7 +427,7 @@ def messenger():
 @login_required
 @social.route('/post-messenger', methods=['POST'])
 def post_messenger():
-
+    Log.register(action='social.post:messenger', data=request.json)
     query = request.json
 
     if query['cmd'] == 'sendMessage':
@@ -509,7 +529,7 @@ def post_messenger():
 #=============================================================
 @social.route('/user/<uid>')
 def public_profile(uid):
-
+    Log.register(action='social.route:public_profile', data=uid)
     u = User.query.get(uid)
     td = get_tips_data(u.tips)
     td['config'] = {
@@ -546,6 +566,7 @@ def public_profile(uid):
 @login_required
 @social.route('/favorites', methods=['GET'])
 def favorites():
+    Log.register(action='social.route:favorites')
     tips = get_tips_data(current_user.faved)
     tips['config'] = {
                         'page': 'favorites',
@@ -587,6 +608,7 @@ def notifier():
 #=============================================================
 @social.route('/user-subscribe', methods=['POST'])
 def user_subscribe():
+    Log.register(action='social.post:user_subscribe', data=request.json)
     res = {"status":"ok"}
     print(request.json)
     uid = request.json['uid']
@@ -618,6 +640,7 @@ def user_subscribe():
 @social.route('/verify-email', methods=['GET', 'POST'])
 def verify_email():
     if request.method == 'POST' and current_user.is_authenticated:
+        Log.register(action='social.post:verify_email', data=request.json)
         email = request.json['email']
         current_user.contact_email = email
         current_user.contact_email_accepted = False
@@ -641,6 +664,8 @@ def verify_email():
             u.contact_email_accepted = True
             db.session.add(u)
             db.session.commit()
+            Log.register(action='social.route:verify_email',data="success")
             return redirect(url_for('social.profile'))
         else:
+            Log.register(action='social.route:verify_email',data="bad confirmation code")
             return render_template('error.html', error='Bad confirmation code')

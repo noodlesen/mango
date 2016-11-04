@@ -17,6 +17,7 @@ from . .path import ROOT_DIR, UPLOAD_DIR
 from . .toolbox import get_hash, how_long_ago
 from . .mailer import Mailer
 from . .db import db
+from . .logger import Log
 
 
 ad = AlphabetDetector()
@@ -102,6 +103,7 @@ def get_all_tags():
 # LEGACY URLS SUPPORT
 @geo.route('/places/id/<pid>', methods=['GET'])
 def old_places(pid):
+    Log.register(action='geo.route:legacy_place', data=pid)
     p = Place.query.filter_by(fpid=pid).first()
     if p:
         return redirect(url_for('geo.places', us=p.url_string))
@@ -115,6 +117,7 @@ def places(us):
     #     ajax=False
     # else:
     #     ajax = True
+    Log.register(action='geo.route:place', data=us)
     p = Place.query.filter_by(url_string=us).first()
     if p:
         jd ={}
@@ -155,6 +158,7 @@ def places(us):
 
 @geo.route('/place-subscribe', methods=['POST'])
 def place_subscribe():
+    Log.register(action='geo.post:place-subscribe', data=request.json)
     q = request.json
     pid = q['pid']
     res = {}
@@ -178,6 +182,7 @@ def place_subscribe():
 
 @geo.route('/json/place-search', methods=['POST'])
 def place_search():
+    Log.register(action='geo.post:place-search', data=request.json)
     def get_places(field, needle):
         urlbase = url_for('geo.places', us='')
         places = []
@@ -204,7 +209,7 @@ def place_search():
 
 @geo.route('/tip/<tid>', methods=['GET'])
 def single_tip(tid):
-
+    Log.register(action='geo.route:single_tip', data=tid)
     tip = Tip.query.get(tid)
 
     
@@ -236,6 +241,7 @@ def single_tip(tid):
 @login_required
 @geo.route('/json/tip', methods=['POST'])
 def json_tip():
+    Log.register(action='geo.post:json_tip', data=request.json)
     
     q = request.json
     res={"status":"ok"}
