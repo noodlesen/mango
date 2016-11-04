@@ -1,61 +1,107 @@
-from .db import db
-from flask import session
-from datetime import datetime
+# from .db import db
+# from flask import session
+# from datetime import datetime
+# from flask.ext.login import current_user
+# import json
+
+
+# class UsersLog(db.Model):
+
+#     __tablename__ = 'users_log'
+
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer)
+#     action = db.Column(db.String(50))
+#     data = db.Column(db.Text)
+#     logged_at = db.Column(db.DateTime)
+
+#     @staticmethod
+#     def write(act, data=""):
+#         if current_user.is_authenticated:
+#             l = UsersLog()
+#             l.user_id = current_user.id
+#             l.action = act
+#             l.data = json.dumps(data)
+#             l.logged_at = datetime.now()
+#             db.session.add(l)
+#             db.session.commit()
+
+
+# class StrangersLog(db.Model):
+#     __tablename__ = 'strangers_log'
+#     id = db.Column(db.Integer, primary_key=True)
+#     action = db.Column(db.String(50))
+#     entry = db.Column(db.String(50))
+#     label = db.Column(db.String(50))
+#     marker = db.Column(db.Text)
+#     note = db.Column(db.Text)
+#     logged_at = db.Column(db.DateTime)
+
+#     @staticmethod
+#     def write(action, note=''):
+#         l = StrangersLog()
+#         if 'marker' in session.keys():
+#             l.marker = session['marker']
+#         else:
+#             l.marker = 'None'
+#         if 'entry' in session.keys():
+#             l.entry = session['entry']
+#         else:
+#             l.entry = 'None'
+#         if 'label' in session.keys():
+#             l.label = session['label']
+#         else:
+#             l.label = 'None'
+
+#             l.note = note
+
+#         l.action = action
+#         l.logged_at = datetime.utcnow()
+#         db.session.add(l)
+#         db.session.commit()
+
+
 from flask.ext.login import current_user
 import json
+from flask import session, request
+from .dttools import RTS
+from .toolbox import create_marker
 
+class Log():
 
-class UsersLog(db.Model):
+    def register(**kwargs):
 
-    __tablename__ = 'users_log'
+        if 'marker' not in session.keys():
+            session['marker']=create_marker(request)
+        marker = session['marker']
+        
+        action = kwargs['action'] if 'action' in kwargs else None
 
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer)
-    action = db.Column(db.String(50))
-    data = db.Column(db.Text)
-    logged_at = db.Column(db.DateTime)
+        dt = RTS.utc_now()
 
-    @staticmethod
-    def write(act, data=""):
+        data = kwargs['data'] if 'data' in kwargs else None
+
         if current_user.is_authenticated:
-            l = UsersLog()
-            l.user_id = current_user.id
-            l.action = act
-            l.data = json.dumps(data)
-            l.logged_at = datetime.now()
-            db.session.add(l)
-            db.session.commit()
-
-
-class StrangersLog(db.Model):
-    __tablename__ = 'strangers_log'
-    id = db.Column(db.Integer, primary_key=True)
-    action = db.Column(db.String(50))
-    entry = db.Column(db.String(50))
-    label = db.Column(db.String(50))
-    marker = db.Column(db.Text)
-    note = db.Column(db.Text)
-    logged_at = db.Column(db.DateTime)
-
-    @staticmethod
-    def write(action, note=''):
-        l = StrangersLog()
-        if 'marker' in session.keys():
-            l.marker = session['marker']
+            agent = {"name": current_user.nickname, "id":current_user.id}
+            logfile = 'logs/users_%s.log' % dt[:10]
         else:
-            l.marker = 'None'
-        if 'entry' in session.keys():
-            l.entry = session['entry']
-        else:
-            l.entry = 'None'
-        if 'label' in session.keys():
-            l.label = session['label']
-        else:
-            l.label = 'None'
+            agent = {"marker":marker}
+            logfile = 'logs/strangers_%s.log' % dt[:10]
 
-            l.note = note
 
-        l.action = action
-        l.logged_at = datetime.utcnow()
-        db.session.add(l)
-        db.session.commit()
+        with open(logfile, 'a') as l:
+            l.write(json.dumps([dt, agent, action, data])+',\n')
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,11 +7,11 @@ import random
 
 class RTS():
 
-    __FORMAT_STRING = '%y%m%d%H%M%S'
+    __FORMAT_STRING = '%Y-%m-%d %H:%M:%S'
 
     @staticmethod
     def utc_now():
-        return ( int(datetime.utcnow().strftime(RTS.__FORMAT_STRING)) )
+        return (datetime.utcnow().strftime(RTS.__FORMAT_STRING))
 
     @staticmethod
     def from_datetime(dt):
@@ -19,7 +19,7 @@ class RTS():
 
     @staticmethod
     def to_datetime(rt):
-        return (str(rt).strptime(RTS.__FORMAT_STRING))
+        return (rt.strptime(RTS.__FORMAT_STRING))
 
 
 def get_random_datetime(year_from, year_to, month_from=1, month_to=12, day_from=1, day_to=28, hour_from=0, hour_to=23, minute_from=0, minute_to=59, second_from=0, second_to=59):

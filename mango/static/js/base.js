@@ -54,7 +54,7 @@ var placeSearch = new Vue({
             if (this.preSelected){
                //location.assign(this.results[this.preSelectedIndex].url);
                var hr = this.results[this.preSelectedIndex].url;
-               setTimeout(function(){window.location.pathname = hr;},100);
+               setTimeout(function(){window.location.pathname = hr;},500);
                
 
                //$(location).attr('href', 'http://www.sitefinity.com');

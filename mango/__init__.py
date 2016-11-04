@@ -20,6 +20,7 @@ from .geo import geo
 from .geo.models import Place
 
 # from .mailer import mail
+from .logger import Log
 
 
 
@@ -113,10 +114,13 @@ def maintenance():
 def robots():
     return ("User-agent: *\nDisallow: /")
 
+
 #for example
 #@cache.cached(3600)
+
 @app.route('/')
 def root():
+    Log.register(action='route:root')
     #places = Place.query.filter_by(chd_has_tips=1)
     #return render_template('test_places.html', places=places)
     return render_template('main.html')

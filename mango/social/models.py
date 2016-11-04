@@ -12,7 +12,6 @@ from sqlalchemy.sql import or_
 
 # import os
 # from . .path import ROOT_DIR, UPLOAD_FOLDER, AVATAR_FOLDER
-from . .logger import StrangersLog
 import json
 
 
