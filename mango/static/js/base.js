@@ -44,6 +44,7 @@ var placeSearch = new Vue({
     el: '#navbar',
     data: {
         needle: '',
+        previousNeedle:'',
         showingResults: false,
         results:{},
         preSelected: false,
@@ -87,19 +88,23 @@ var placeSearch = new Vue({
             this.preSelected = true;
             console.log(this.preSelectedIndex);
         },
-        checkNeedle: function(){
+        checkNeedle: function(e){
             var self=this;
+            console.log(e);
             if (this.needle.length>=2){
-                getResults('/json/place-search','json',{needle: this.needle}, function(res){
-                    if (res.status=='ok'){
-                        if (res.places.length){
-                            self.results=res.places;
-                            self.showingResults = true;
-                        } else {
-                            self.results = {};
+                if (this.needle!=this.previousNeedle){
+                    this.previousNeedle = this.needle;
+                    getResults('/json/place-search','json',{needle: this.needle}, function(res){
+                        if (res.status=='ok'){
+                            if (res.places.length){
+                                self.results=res.places;
+                                self.showingResults = true;
+                            } else {
+                                self.results = {};
+                            }
                         }
-                    }
-                });
+                    });
+                }
             } else {
                 self.showingResults = false;
             }

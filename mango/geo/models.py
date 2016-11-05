@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 from . .db import db
 
@@ -56,6 +57,7 @@ class Place(db.Model):
     tp_rus_name = db.Column(db.String(50))
     tp_eng_name = db.Column(db.String(50))
     city_code = db.Column(db.String(3))
+    modified_at = db.Column(db.DateTime)
 
     def get_places_nearby(self):
         pn_json = self.chd_places_nearby
@@ -72,6 +74,11 @@ class Place(db.Model):
         else:
             ap_list = []
         return {"list": ap_list, "count": len(ap_list)}
+
+    def renew_timestamp(self):
+        self.modified_at = datetime.utcnow()
+        db.session.add(self)
+        db.session.commit()
 
 
 
@@ -114,7 +121,9 @@ class Tip(db.Model):
     chd_downvoted = db.Column(db.Integer, default=0)
     chd_rating = db.Column(db.Integer, default=0)
     chd_data = db.Column(db.Text)
-    created_at = db.Column(db.Integer)
+    created_at = db.Column(db.DateTime)
+    updated_at = db.Column(db.DateTime)
+    chd_comments_count = db.Column(db.Integer, default=0)
 
     #temp
     taglines = db.Column(db.Text)

@@ -134,7 +134,8 @@ def calculate_airports_nearby():
         and saves data into chd_airports field of G_places table
 
     """
-    places_res = list(db.engine.execute('SELECT t.place_id, p.lat, p.lng FROM tips AS t INNER JOIN G_places AS p ON p.id=t.place_id GROUP BY t.place_id'))
+    #places_res = list(db.engine.execute('SELECT t.place_id, p.lat, p.lng FROM tips AS t INNER JOIN G_places AS p ON p.id=t.place_id GROUP BY t.place_id'))
+    places_res = list(db.engine.execute('SELECT p.id, p.lat, p.lng FROM G_places as p'))
     airports = list(db.engine.execute('SELECT name, IATA, lat, lng, id, city_code, rating, size FROM airports'))
     results={}
     for p in places_res:
@@ -146,7 +147,7 @@ def calculate_airports_nearby():
             aplng = ap[3]
             if plat and aplat:
                 dist = get_distance(plat, plng, aplat, aplng)
-                if dist<=60:
+                if dist<=70:
                     print(ap[1])
                     airport = {"ap_id":ap[4], "code":ap[1], "name":ap[0], "distance":dist, "rating":ap[6], "size":ap[7]}
                     if p[0] in results.keys():
@@ -370,6 +371,17 @@ def seed_likes():
                     user.upvote(tip)
                 else:
                     user.downvote(tip)
+
+@manager.command
+def count_comments():
+    tips = list(db.engine.execute("""SELECT id, comments FROM tips"""))
+    for t in tips:
+        if t[1]:
+            c = json.loads(t[1])
+            cc = len(c)
+        else:
+            cc=0
+        db.engine.execute("""UPDATE tips SET chd_comments_count=%d WHERE id=%d""" %(cc, t[0]))
 
 
 

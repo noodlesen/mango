@@ -281,6 +281,9 @@ def json_tip():
             
             tip.comments = json.dumps(comments)
             res['comments'] = comments
+
+            tip.chd_comments_count = len(comments)
+            
             db.session.add(tip)
             db.session.commit()
 
@@ -306,6 +309,9 @@ def json_tip():
             
             tip.comments = json.dumps(comments)
             res['comments'] = comments
+
+            tip.chd_comments_count = len(comments)
+
             db.session.add(tip)
             db.session.commit()
 
@@ -337,9 +343,10 @@ def json_tip():
                         db.session.add(new_tag)
                         tip.tags.append(new_tag)
                         
-                tip.created_at = datetime.utcnow() 
+                tip.created_at = datetime.utcnow()
                 db.session.add(tip)
                 db.session.commit()
+                tip.place.renew_timestamp()
                 tip.cache_it()
                 res['tip_data']={'author_name': current_user.nickname, 'author_id':current_user.id, 'tip_id': tip.id}
 
