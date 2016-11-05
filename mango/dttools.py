@@ -30,3 +30,10 @@ def get_random_datetime(year_from, year_to, month_from=1, month_to=12, day_from=
     minute = random.randint(minute_from, minute_to)
     second = random.randint(second_from, second_to)
     return datetime(year, month, day, hour, minute, second)
+
+
+def days_ago(n):
+    return datetime.now() - timedelta(days=n).date().isoformat()
+
+def random_days_ago(n1, n2):
+    return datetime.now() - timedelta(days=random.randint(n1, n2+1)).date().isoformat()

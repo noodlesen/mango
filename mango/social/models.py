@@ -83,6 +83,7 @@ class User (UserMixin, db.Model):
     last_login = db.Column(db.DateTime)
     worker = db.Column(db.Boolean, default = False)
     registered_at = db.Column(db.DateTime)
+    changed_at = db.Column(db.DateTime)
 
 
     private_messages_from = db.relationship('PrivateMessage', backref='sender', lazy='dynamic', foreign_keys='PrivateMessage.user_from')
