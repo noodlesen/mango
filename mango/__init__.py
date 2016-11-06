@@ -1,4 +1,4 @@
-# SCore 0.01
+# MANGO R0.12
 
 from flask import Flask, request, session, render_template, url_for, make_response
 from flask_debugtoolbar import DebugToolbarExtension
