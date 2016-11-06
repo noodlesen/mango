@@ -29,7 +29,8 @@ var cTip = Vue.extend({
             commentToSave: null,
             signedIn: false,
             pendingDelete: false,
-            pendingCommentDelete: false
+            pendingCommentDelete: false,
+            allowCmdBar:true
         }
     },
     ready:function(){
@@ -43,6 +44,7 @@ var cTip = Vue.extend({
         if (this.mode=='single'){
             this.showingShare = true;
             this.showingComments = true;
+            this.allowCmdBar = false;
         }
     },
     computed: {
@@ -207,7 +209,6 @@ var cTip = Vue.extend({
             this.commentFormEditMode = true;
             this.commentText = this.comments[i].text;
             this.commentToSave = i;
-            alert();
         },
 
         saveComment: function(i){
@@ -283,7 +284,7 @@ var cTip = Vue.extend({
                                 <div class="tip__share-block" @click="shareTwitter"><i class="fa fa-twitter"></i></div>\
                                 <div class="tip__share-link"><a href="{{url}}">Ссылка:</a> <input type="text" size="40" v-model="url"></div>\
                     </div>\
-                    <div class="cmd-bar">\
+                    <div class="cmd-bar" v-if="allowCmdBar">\
                         <div class="cmd-bar__left">\
                         <div class="cmd-bar__button" @click="toggleShowShare">\
                                 <i class="fa fa-share-alt-square"></i> Поделиться\
@@ -473,29 +474,29 @@ var tipsFlow = new Vue({
 
         if (self.mode=='place'){
             this.allowFilters=true;
-            this.allowAddNewTip = true;
+            this.allowAddTip = true;
             this.allowTipFilters = true;
 
-        } else if (self.mode='single'){
+        } else if (self.mode=='single'){
             this.allowFilters=false;
-            this.allowAddNewTip = false;
+            this.allowAddTip = false;
             this.allowTipFilters = false;
         
-        } else if (self.mode='my_tips'){
+        } else if (self.mode=='my_tips'){
             this.allowFilters=false;
-            this.allowAddNewTip = false;
+            this.allowAddTip = false;
             this.allowEdit = true;
 
-        } else if (self.mode='public_profile'){
+        } else if (self.mode=='public_profile'){
             this.allowFilters=false;
-            this.allowAddNewTip = false;
+            this.allowAddTip = false;
             this.allowEdit = true;
             this.collapsed = true;
-            collapsedMessage =jd.config.collapsed_message;
+            this.collapsedMessage =jd.config.collapsed_message;
 
-        } else if (self.mode='favorites'){
+        } else if (self.mode=='favorites'){
             this.allowFilters=false;
-            this.allowAddNewTip = false;
+            this.allowAddTip = false;
             this.allowPlacesList = true;
         }
 

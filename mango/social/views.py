@@ -514,8 +514,8 @@ def public_profile(uid):
     u = User.query.get(uid)
     td = get_tips_data(u.tips)
     td['config'] = {
-                        'page': 'public_profile',
-                        'collapsed_message': 'Показать советы пользователя '+u.nickname
+                    'mode': 'public_profile',
+                    'collapsed_message': 'Показать советы пользователя '+u.nickname
         }
 
 
@@ -547,7 +547,7 @@ def favorites():
     Log.register(action='social.route:favorites')
     tips = get_tips_data(current_user.faved)
     tips['config'] = {
-                        'page': 'favorites'
+                        'mode': 'favorites'
                     }
     return render_template('favorites.html',
                             json_data=json.dumps(tips),
