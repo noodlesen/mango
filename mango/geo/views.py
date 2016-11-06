@@ -283,7 +283,7 @@ def json_tip():
             res['comments'] = comments
 
             tip.chd_comments_count = len(comments)
-            
+
             db.session.add(tip)
             db.session.commit()
 

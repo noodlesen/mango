@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 
 from .cache import cache
 from .db import db
-from .config import DEBUG, SECRET_KEY, DBURI, MAINTENANCE, PROJECT_NAME, MAIL_SERVER, MAIL_PORT, MAIL_USE_TLS, MAIL_USE_SSL, MAIL_USERNAME, MAIL_PASSWORD
+from .config import DEBUG, SECRET_KEY, DBURI, MAINTENANCE, PROJECT_NAME, MAIL_SERVER, MAIL_PORT, MAIL_USE_TLS, MAIL_USE_SSL, MAIL_USERNAME, MAIL_PASSWORD, ALLOW_ROBOTS
 from .social import social, oauth
 from .social.models import User, Notification
 from .admin import admin
@@ -93,10 +93,15 @@ def maintenance():
 
 @app.route('/robots.txt')
 def robots():
-    return ("User-agent: *\nDisallow: /")
+    if not ALLOW_ROBOTS:
+        return ("User-agent: *\nDisallow: /")
+    else:
+        return ("User-agent: *\nDisallow:")
+
 
 
 @app.route('/sitemap.xml', methods=['GET'])
+@cache.cached(timeout=3600)
 def sitemap():
 
     """Generate sitemap.xml. Makes a list of urls and date modified."""
@@ -114,11 +119,11 @@ def sitemap():
         date = ten_days_ago if not p[1] else p[1].date().isoformat()
         pages.append([url_for('geo.places', us=p[0], _external=True), date])
 
-    # SINGLE TIPS
+    #SINGLE TIPS
 
     tips = list(db.engine.execute("""SELECT id, updated_at FROM tips WHERE chd_comments_count >0 """))
     for t in tips:
-        pages.append([url_for('geo.single_tip', tid=p[0], _external=True), t[1].date().isoformat()])
+        pages.append([url_for('geo.single_tip', tid=t[0], _external=True), t[1].date().isoformat()])
 
     # USER PROFILES
 
