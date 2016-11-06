@@ -704,18 +704,20 @@ var tipsFlow = new Vue({
         // FILTER METHODS
         //............................
         resetFilters : function(){
-            this.selectedTags = {};
+            this.tagsFilter.selectedTags = {};
             this.showAll = true;
             this.shown_tips = this.all_tips;
+            //this.tagsFilter.message = "";
             this.$broadcast('eResetAllFilters');
         },
         
         filterTips: function(){
             var self = this;
 
+            console.log(self.tagsFilter.selectedTags)
+
             self.tagsFilter.message = "";
             Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
-                console.log(t);
                 if (self.tagsFilter.selectedTags[t]){
                     var style='';
                     self.tagsFilter.placeTags.forEach(function(f){
@@ -883,9 +885,9 @@ var tipsFlow = new Vue({
                     <div id="tips__info" v-if="!showAll" >\
                         <div>Показаны советы с метками: </div>\
                         <div id="filter-message" v-html="tagsFilter.message" ></div>\
-                        <div style="text-align:right" @click="resetFilters">\
-                            <span class="glyphicon glyphicon-remove"></span>\
-                            <span class="plink">Снять все фильтры</span></div>\
+                        <div style="text-align:right" >\
+                            <span class="glyphicon glyphicon-remove" @click="resetFilters"></span>\
+                            <span class="plink" @click="resetFilters">Снять все фильтры</span></div>\
                     </div>\
                     \
                     <!-- ==== TIPS CONTENT ==== -->\
