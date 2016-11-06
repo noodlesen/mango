@@ -30,7 +30,6 @@
         var jsonData = {{json_data|tojson|safe}};
     </script>
     <script src ="{{ url_for('static', filename="lib/moment-with-locales.min.js") }}" type="text/javascript"></script>
-    <script src ="{{ url_for('static', filename="lib/vue.js") }}" type="text/javascript"></script>
-    <script src ="{{ url_for('static', filename="js/common.js") }}" type="text/javascript"></script>
+    <script src ="{{ url_for('static', filename="lib/sharer.js") }}" type="text/javascript"></script>
     <script src ="{{ url_for('geo.static', filename="js/tipsflow.js") }}" type="text/javascript"></script>
 {% endblock %}

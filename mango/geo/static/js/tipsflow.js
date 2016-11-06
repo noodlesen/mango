@@ -237,6 +237,7 @@ var cTip = Vue.extend({
 
         getUser: function(uid){
             console.log('get user: '+uid);
+            console.log(relatedUsers);
             return relatedUsers.find(function(u){ return u.id==uid}).nickname;
         }
     },
@@ -480,7 +481,7 @@ var tipsFlow = new Vue({
 
         self.newTipForm.allTags=jd.all_tags;
 
-        console.log(JSON.stringify(jd.all_tags));
+        console.log(JSON.stringify(jd.related_users));
 
 
         self.newTipForm.popularTags = self.newTipForm.allTags.slice(0, 12);
@@ -489,6 +490,7 @@ var tipsFlow = new Vue({
             self.tagsFilter.selectedTags[t.name]=false;
         });
         relatedUsers=jd.related_users;
+        console.log(relatedUsers);
 
         this.signedIn = signedIn;
     },
