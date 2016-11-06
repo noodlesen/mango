@@ -302,18 +302,37 @@ def json_tip():
 
             comments = json.loads(tip.comments) if tip.comments else []
             ts = (datetime.utcnow().strftime('%y %m %d %H %M %S'))
-            comments[q['cid']]={"text":q['text'], "author_id":current_user.id, "timestamp":ts}
 
-            for c in comments:
-                c["is_mine"]=True if c["author_id"] == current_user.id else False
-            
-            tip.comments = json.dumps(comments)
-            res['comments'] = comments
+            if comments[q['cid']]['author_id']==current_user.id:
+                comments[q['cid']]={"text":q['text'], "author_id":current_user.id, "timestamp":ts}
 
-            tip.chd_comments_count = len(comments)
+                for c in comments:
+                    c["is_mine"]=True if c["author_id"] == current_user.id else False
+                
+                tip.comments = json.dumps(comments)
+                res['comments'] = comments
 
-            db.session.add(tip)
-            db.session.commit()
+                tip.chd_comments_count = len(comments)
+
+                db.session.add(tip)
+                db.session.commit()
+            else:
+                res['status']='Error'
+                Log.register('ERROR', 'unauthorized comment editing attempt')
+
+        elif q['cmd']=='deleteComment':
+            tip = Tip.query.get(q['id'])
+            comments = json.loads(tip.comments)
+            if comments[q['cid']]["author_id"]==current_user.id:
+                del comments[q['cid']]
+                tip.comments = json.dumps(comments)
+                res['comments'] = comments
+                tip.chd_comments_count = len(comments)
+                db.session.add(tip)
+                db.session.commit()
+            else:
+                res['status']='Error'
+                Log.register('ERROR', 'unauthorized comment deleting attempt')
 
         elif q['cmd']=='addNew' or q['cmd']=='edit':
             if q['cmd']=='addNew':

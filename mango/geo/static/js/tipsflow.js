@@ -28,7 +28,8 @@ var cTip = Vue.extend({
             commentFormEditMode: false,
             commentToSave: null,
             signedIn: false,
-            pendingDelete: false
+            pendingDelete: false,
+            pendingCommentDelete: false
         }
     },
     ready:function(){
@@ -206,8 +207,6 @@ var cTip = Vue.extend({
         },
 
         saveComment: function(i){
-            console.log('>>>>>');
-            console.log(i);
             var self = this;
             if (this.commentText.trim()!=''){
                 getResults('/json/tip', 'json', {cmd: 'saveComment', text: this.commentText, id: this.id, cid: this.commentToSave}, function(res){
@@ -218,6 +217,18 @@ var cTip = Vue.extend({
                     }
                 });
             }
+        },
+
+        confirmCommentDelete: function(){
+            var self = this;
+            getResults('/json/tip', 'json', {cmd: 'deleteComment', id: this.id, cid: this.commentToSave}, function(res){
+                if (res.status=='ok'){
+                    self.commentText = '';
+                    self.comments = res.comments;
+                    self.commentFormEditMode=false;
+                    self.pendingCommentDelete=false;
+                }
+            });
         },
 
         getDate: function(timestamp){
@@ -305,7 +316,15 @@ var cTip = Vue.extend({
                     <div class="commentForm" v-if="signedIn">\
                         <textarea v-model="commentText" class="commentForm__ta" rows="3" placeholder="Добавьте свой комментарий"></textarea>\
                     <button v-if="!commentFormEditMode" @click="addComment" class="btn btn-large btn-default comment__button">Добавить комментарий</button>\
-                    <button v-if="commentFormEditMode" @click="saveComment" class="btn btn-large btn-default comment__button">Сохранить комментарий</button>\
+                    <button v-if="commentFormEditMode" @click="saveComment" class="btn btn-large back-color-green comment__button">Сохранить комментарий</button>\
+                    <span v-if="commentFormEditMode" @click="pendingCommentDelete=true" class="btn btn-large color-red comment__button">\
+                        <span class="glyphicon glyphicon-trash"></span>\
+                        Удалить комментарий</span>\
+                    </div>\
+                    <div class="confirm-delete" v-if="pendingCommentDelete" >\
+                        Вы уверены, что хотите удалить этот комментарий? \
+                        <span class="cmd-bar__button" @click="confirmCommentDelete">Да, удаляем! </span>\
+                        <span class="cmd-bar__button" @click="pendingCommentDelete=false"> Нет, нет, нет!</span>\
                     </div>\
                     <div class="divider"></div>\
                 </div>\
