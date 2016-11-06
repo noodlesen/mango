@@ -123,10 +123,7 @@ def places(us):
         jd['all_tags']= get_all_tags()        
 
         jd['config'] = {
-                        'page': 'place',
-                        'allowFilters': True,
-                        'allowAddNewTip': True,
-                        'allowTipFilters': True
+                        'mode': 'place'
         }
 
         subscribed = False
@@ -214,10 +211,7 @@ def single_tip(tid):
     #jd['all_tags']= get_all_tags()        
 
     jd['config'] = {
-                    'page': 'single',
-                    'allowFilters': False,
-                    'allowAddNewTip': False,
-                    'allowTipFilters': False
+                    'mode': 'single'
     }
 
     print (jd)
@@ -298,11 +292,12 @@ def json_tip():
             ts = (datetime.utcnow().strftime('%y %m %d %H %M %S'))
             comments.append({"text":q['text'], "author_id":current_user.id, "timestamp":ts})
 
-            for c in comments:
+            res_comments = [c for c in comments]
+            for c in res_comments:
                 c["is_mine"]=True if c["author_id"] == current_user.id else False
             
             tip.comments = json.dumps(comments)
-            res['comments'] = comments
+            res['comments'] = res_comments
 
             tip.chd_comments_count = len(comments)
 
@@ -328,11 +323,13 @@ def json_tip():
             if comments[q['cid']]['author_id']==current_user.id:
                 comments[q['cid']]={"text":q['text'], "author_id":current_user.id, "timestamp":ts}
 
-                for c in comments:
+                res_comments = [c for c in comments]
+                for c in res_comments:
                     c["is_mine"]=True if c["author_id"] == current_user.id else False
                 
+                res['comments'] = res_comments
                 tip.comments = json.dumps(comments)
-                res['comments'] = comments
+                
 
                 tip.chd_comments_count = len(comments)
 

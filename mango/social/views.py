@@ -389,10 +389,7 @@ def my_tips():
     if current_user.is_authenticated:
         tips = get_tips_data(current_user.tips)
         tips['config'] = {
-                        'page': 'public_profile',
-                        'allowFilters': False,
-                        'allowAddNewTip': False,
-                        'allowEdit': True
+                        'mode': 'my_tips'
                     }
         tips['all_tags'] = get_all_tags()
         return render_template('my_tips.html', json_data=json.dumps(tips), signed_in=True)
@@ -518,10 +515,7 @@ def public_profile(uid):
     td = get_tips_data(u.tips)
     td['config'] = {
                         'page': 'public_profile',
-                        'allowFilters': False,
-                        'allowAddNewTip': False,
-                        'collapsed':True,
-                        'collapsedMessage': 'Показать советы пользователя '+u.nickname
+                        'collapsed_message': 'Показать советы пользователя '+u.nickname
         }
 
 
@@ -553,10 +547,7 @@ def favorites():
     Log.register(action='social.route:favorites')
     tips = get_tips_data(current_user.faved)
     tips['config'] = {
-                        'page': 'favorites',
-                        'allowFilters': False,
-                        'allowAddNewTip': False,
-                        'allowPlacesList':True
+                        'page': 'favorites'
                     }
     return render_template('favorites.html',
                             json_data=json.dumps(tips),

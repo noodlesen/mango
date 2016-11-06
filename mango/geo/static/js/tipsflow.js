@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 var cTip = Vue.extend({
 
-    props: ['tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit', 'related'],
+    props: ['tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit', 'related','mode'],
 
     data: function(){
         return { 
@@ -34,13 +34,15 @@ var cTip = Vue.extend({
     },
     ready:function(){
         this.signedIn = signedIn;
-/*        console.log('creating tip');
-        console.log(JSON.stringify(this.related));*/
         this.favorite = this.fave;
         if (this.upvote){
             this.upVote=true;
         } else if (this.downvote){
             this.downVote = true;
+        }
+        if (this.mode=='single'){
+            this.showingShare = true;
+            this.showingComments = true;
         }
     },
     computed: {
@@ -205,6 +207,7 @@ var cTip = Vue.extend({
             this.commentFormEditMode = true;
             this.commentText = this.comments[i].text;
             this.commentToSave = i;
+            alert();
         },
 
         saveComment: function(i){
@@ -466,25 +469,46 @@ var tipsFlow = new Vue({
         var self = this;
         var jd = JSON.parse(jsonData);
 
-        self.allowFilters = jd.config.allowFilters ? true : false;
-        self.allowAddTip = jd.config.allowAddNewTip ? true : false;
-        self.allowEdit = jd.config.allowEdit ? true : false;
-        self.collapsed = jd.config.collapsed ? true : false;
-        this.relatedUsers=jd.related_users;
-        self.allowTipFilters = jd.config.allowTipFilters ? true : false;
-        if (self.collapsed){
-            self.collapsedMessage = jd.config.collapsedMessage;
+        self.mode = jd.config.mode;
+
+        if (self.mode=='place'){
+            this.allowFilters=true;
+            this.allowAddNewTip = true;
+            this.allowTipFilters = true;
+
+        } else if (self.mode='single'){
+            this.allowFilters=false;
+            this.allowAddNewTip = false;
+            this.allowTipFilters = false;
+        
+        } else if (self.mode='my_tips'){
+            this.allowFilters=false;
+            this.allowAddNewTip = false;
+            this.allowEdit = true;
+
+        } else if (self.mode='public_profile'){
+            this.allowFilters=false;
+            this.allowAddNewTip = false;
+            this.allowEdit = true;
+            this.collapsed = true;
+            collapsedMessage =jd.config.collapsed_message;
+
+        } else if (self.mode='favorites'){
+            this.allowFilters=false;
+            this.allowAddNewTip = false;
+            this.allowPlacesList = true;
         }
 
+
+        this.relatedUsers=jd.related_users;
         self.all_tips=jd.tips;
         self.shown_tips=jd.tips;
         self.sortTips();
 
         self.tagsFilter.placeTags=jd.place_tags;
-
         self.newTipForm.allTags=jd.all_tags;
 
-        console.log('dddd');
+
         console.log(JSON.stringify(this.relatedUsers));
 
         self.newTipForm.popularTags = self.newTipForm.allTags.slice(0, 12);
@@ -878,6 +902,7 @@ var tipsFlow = new Vue({
                             :url="tip.url" \
                             :edit="allowEdit"\
                             :related="relatedUsers"\
+                            :mode="mode"\
                             :comments="tip.comments">\
                         {{tip.showThis}}\
                         {{tip.text}}\
