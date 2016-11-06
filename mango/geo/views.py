@@ -125,7 +125,8 @@ def places(us):
         jd['config'] = {
                         'page': 'place',
                         'allowFilters': True,
-                        'allowAddNewTip': True
+                        'allowAddNewTip': True,
+                        'allowTipFilters': True
         }
 
         subscribed = False
@@ -204,30 +205,49 @@ def single_tip(tid):
     Log.register(action='geo.route:single_tip', data=tid)
     tip = Tip.query.get(tid)
 
-    
-    if tip:
-        if current_user.is_authenticated:
-            pa = current_user.get_place_actions(tip.place_id)
-        else:
-            pa = {"favorites":[], "likes":[], "dislikes":[]}
+    jd ={}
         
-        upvoted = True if tip.id in pa["likes"] else False
-        downvoted = True if tip.id in pa["dislikes"] else False
+    td = get_tips_data([tip])
 
-        ## ^^^ REWRITE AS VVV
-        n = get_tips_data([tip])
-        for c in n['tips'][0]["comments"]:
-            uid = c["author_id"]
-            name = next(u for u in n['related_users'] if u["id"]==uid)["nickname"]
-            c["author_name"]=name
-        return render_template('single_tip.html', 
-                                tip=tip,
-                                signed_in=current_user.is_authenticated,
-                                upvoted=upvoted,
-                                downvoted=downvoted,
-                                comments=n['tips'][0]["comments"])
-    else:
-        abort(404)
+    jd.update(td)
+    
+    #jd['all_tags']= get_all_tags()        
+
+    jd['config'] = {
+                    'page': 'single',
+                    'allowFilters': False,
+                    'allowAddNewTip': False,
+                    'allowTipFilters': False
+    }
+
+    return render_template('alt_single_tip.html',
+                               json_data=json.dumps(jd),
+                               signed_in=current_user.is_authenticated,
+                               )
+    
+    # if tip:
+    #     if current_user.is_authenticated:
+    #         pa = current_user.get_place_actions(tip.place_id)
+    #     else:
+    #         pa = {"favorites":[], "likes":[], "dislikes":[]}
+        
+    #     upvoted = True if tip.id in pa["likes"] else False
+    #     downvoted = True if tip.id in pa["dislikes"] else False
+
+    #     ## ^^^ REWRITE AS VVV
+    #     n = get_tips_data([tip])
+    #     for c in n['tips'][0]["comments"]:
+    #         uid = c["author_id"]
+    #         name = next(u for u in n['related_users'] if u["id"]==uid)["nickname"]
+    #         c["author_name"]=name
+    #     return render_template('single_tip.html', 
+    #                             tip=tip,
+    #                             signed_in=current_user.is_authenticated,
+    #                             upvoted=upvoted,
+    #                             downvoted=downvoted,
+    #                             comments=n['tips'][0]["comments"])
+    # else:
+    #     abort(404)
 
 
 @login_required

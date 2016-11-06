@@ -441,7 +441,8 @@ var tipsFlow = new Vue({
         allowEdit: false,
         lastEdited: null,
         collapsed: false,
-        collapsedMessage: ''
+        collapsedMessage: '',
+        allowTipFilters: true
     },
 
     computed:{
@@ -466,6 +467,7 @@ var tipsFlow = new Vue({
         self.allowAddTip = jd.config.allowAddNewTip ? true : false;
         self.allowEdit = jd.config.allowEdit ? true : false;
         self.collapsed = jd.config.collapsed ? true : false;
+        self.allowTipFilters = jd.config.allowTipFilters ? true : false;
         if (self.collapsed){
             self.collapsedMessage = jd.config.collapsedMessage;
         }
@@ -508,8 +510,6 @@ var tipsFlow = new Vue({
 
         submitTipForm: function(edit){
             var self=this;
-
-
 
             if (self.newTipForm.addedTags.length==0){
                 self.newTipForm.error=true;
@@ -739,15 +739,17 @@ var tipsFlow = new Vue({
         },
 
         'eFilterOnly': function(e){
-            console.log(e);
-            var self = this;
-            this.showAll = false;
-            Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
-                self.tagsFilter.selectedTags[t]=false;
-            });
-            this.tagsFilter.selectedTags[e.name]=true;
-            this.filterTips();
-            this.$broadcast('eSwitchFilterOn',{name: e.name});
+            console.log(this.allowTipFilters);
+            if (this.allowTipFilters){
+                var self = this;
+                this.showAll = false;
+                Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
+                    self.tagsFilter.selectedTags[t]=false;
+                });
+                this.tagsFilter.selectedTags[e.name]=true;
+                this.filterTips();
+                this.$broadcast('eSwitchFilterOn',{name: e.name});
+            }
         },
 
         'eCheckTipsOrder': function(e){

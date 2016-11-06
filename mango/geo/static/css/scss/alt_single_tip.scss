@@ -1,0 +1,262 @@
+@import "../../../../static/css/scss/_config";
+
+#tipsflow{
+    text-align: left;
+}
+
+.tips-sidebar{
+    float: left;
+    width:24%;
+}
+
+
+#tips{
+    
+    @include respond-to(xs) { width: 100% ;}
+}
+
+
+.tips-1sb{
+    float: left;
+    width:74%;
+    margin-left: 2%;
+}
+
+.tips-2sb{
+    float: left;
+    width:48%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+
+#tips__info{
+    border-radius: 6px 6px 0 0 ;
+    margin-top: 20px;
+    width: 100%;
+    background-color: $pale-blue;
+    padding: 5px 15px 5px 15px;
+}
+
+
+
+.search-active{
+    background-color: $gray6;
+    border-radius: 5px;
+
+}
+
+
+
+.error-text{
+    color: $dark-red;
+}
+
+
+.tip{
+    background-color: white;
+}
+
+
+.tip__main-text {
+    font-size: 140%;
+    line-height: 1.3em;
+    font-weight: 400;
+    padding: 1em 1.8em 1em 2em;
+    &:first-letter{
+        font-size: 1.2em;
+    }
+}
+
+%tag__common{
+    display: inline-block;
+    color: white;
+    font-weight: bolder;
+    //cursor: pointer; 
+}
+
+.tip__tag {
+    @extend %tag__common;
+    font-size: 120%;
+    border-radius: 2px;
+    padding: 0 3px;
+    margin-right: 1px;
+}
+
+
+
+.tip__tags {
+    float: left;
+    width:96%;
+
+}
+
+.tip__favorite{
+    float:right;
+    width:4%;
+    font-size: 1.3em;
+    color: $orange;
+    cursor: pointer;
+    &:hover{
+        color:$dark-orange;
+    }
+    margin-top: -3px;
+}
+
+
+.tip__vote-icon{
+    font-size: 120%;
+}
+
+.tip__vote-number{
+    font-size: 75%;
+}
+
+
+.tip__vote-up{
+    cursor: pointer;
+    color: $pale-green;
+    &:hover{
+        color:$light-green;
+    }
+    &:active{
+        color: $dark-green;
+    }
+    margin-bottom: .7em;
+}
+
+
+
+.tip__vote-dn{
+    cursor: pointer;
+    color: $pale-red;
+    &:hover{
+        color:$light-red;
+    }
+}
+
+.tip__vote-up--active{
+    color: $green;
+    &:hover{
+        color:$dark-green;
+    }
+}
+
+.tip__vote-dn--active{
+    color: $red;
+    &:hover{
+        color:$dark-red;
+    }
+}
+
+.tip__author{
+    font-weight: bolder;
+}
+
+
+
+// COMMENTS
+
+.commentForm__ta{
+    width:100%;
+    resize:vertical;
+    padding:0.1em 0.5em;
+    border: 0.1em solid $green;
+    border-radius: 6px;
+}
+
+.comments{
+    width:88%;
+    margin-left: 10%;
+    margin-top: 10px;
+    margin-right: 2%;
+    .comment__button{
+        width:100%;
+    }
+}
+
+.comment{
+    background-color: white;
+    border-width: 0 0 0 7px;
+    border-color: $blue;
+    border-style: solid;
+    padding: 12px 12px 2px 25px;
+    margin-bottom: 5px;
+    .comment__text{
+        font-size: 14px;
+        line-height: 1.3em;
+        font-weight: 400;
+        margin-bottom: 5px;
+        &:first-letter{
+            font-size: 1.2em;
+        }
+    }
+    .comment__meta{
+        font-size: 12px;
+        width: 100%;
+        text-align: right;
+        color: $gray3;
+    }
+}
+
+.comment-link{
+    color:$blue;
+}
+
+
+.tip__share{
+    padding: 5px 6px;
+    background-color: $pale-blue;
+    color: $blue;
+    i{
+        font-size: 20px;
+    }
+    input{
+            padding: 0.1em 0.5em;
+            border: 0.1em solid $blue;
+            border-radius: 6px;
+            display: inline-block;   
+        }
+}
+
+.tip-block__body{
+    padding-bottom: 12px;
+    width:93%;
+    float: left;
+    border-width: 0 1px 0 0;
+    border-color: $gray4;
+    border-style: dotted;
+    min-height: 110px;
+}
+
+.tip-block__sidebar{
+    padding-bottom: 12px;
+    width:7%;
+    float: right;
+    font-weight: bolder;
+    font-size: 1.6em;
+    text-align: center;
+    line-height: .5em;
+}
+
+.tip__share-block{
+    height: 30px;
+    min-width: 30px;
+    padding-top:4px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid $blue;
+    display: inline-block;  
+    background-color: white;
+    line-height: 0;
+    cursor: pointer;
+    &:active{
+        background-color: $blue;
+        color:white;
+    }
+}
+
+.tip__share-link{
+    display: inline-block;
+    margin-left: 1em;
+}

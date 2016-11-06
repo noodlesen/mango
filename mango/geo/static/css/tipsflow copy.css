@@ -1,0 +1,780 @@
+/*  EXAMPLE
+.block {
+  float: left;
+  width: 250px;
+  @include respond-to(handhelds) { width: 100% ;}
+  @include respond-to(medium-screens) { width: 125px; }
+  @include respond-to(wide-screens) { float: none; }
+}​ */
+/* line 102, ../../../static/css/scss/_config.scss */
+.color-blue {
+  color: #0088cc;
+}
+
+/* line 107, ../../../static/css/scss/_config.scss */
+.color-cyan {
+  color: #0cbeb2;
+}
+
+/* line 112, ../../../static/css/scss/_config.scss */
+.color-green {
+  color: #55d426;
+}
+
+/* line 117, ../../../static/css/scss/_config.scss */
+.color-yellow {
+  color: #ff9800;
+}
+
+/* line 122, ../../../static/css/scss/_config.scss */
+.color-orange {
+  color: #ff9800;
+}
+
+/* line 127, ../../../static/css/scss/_config.scss */
+.color-red {
+  color: #ff4e2b;
+}
+
+/* line 131, ../../../static/css/scss/_config.scss */
+.color-magenta {
+  color: #b652bf;
+}
+
+/* line 137, ../../../static/css/scss/_config.scss */
+.color-dark-blue {
+  color: #002c87;
+}
+
+/* line 142, ../../../static/css/scss/_config.scss */
+.color-dark-cyan {
+  color: #00705d;
+}
+
+/* line 147, ../../../static/css/scss/_config.scss */
+.color-dark-green {
+  color: #0c9702;
+}
+
+/* line 152, ../../../static/css/scss/_config.scss */
+.color-dark-orange {
+  color: #ff7b00;
+}
+
+/* line 157, ../../../static/css/scss/_config.scss */
+.color-dark-yellow {
+  color: #ffd900;
+}
+
+/* line 162, ../../../static/css/scss/_config.scss */
+.color-dark-red {
+  color: #ff0a02;
+}
+
+/* line 167, ../../../static/css/scss/_config.scss */
+.color-dark-magenta {
+  color: #821a8f;
+}
+
+/* line 172, ../../../static/css/scss/_config.scss */
+.color-light-blue {
+  color: #acd6e7;
+}
+
+/* line 177, ../../../static/css/scss/_config.scss */
+.color-light-cyan {
+  color: #b1e8df;
+}
+
+/* line 182, ../../../static/css/scss/_config.scss */
+.color-light-green {
+  color: #c8efb1;
+}
+
+/* line 187, ../../../static/css/scss/_config.scss */
+.color-light-orange {
+  color: #ffeaa5;
+}
+
+/* line 192, ../../../static/css/scss/_config.scss */
+.color-light-yellow {
+  color: #fff8a9;
+}
+
+/* line 197, ../../../static/css/scss/_config.scss */
+.color-light-red {
+  color: #ffc4b3;
+}
+
+/* line 202, ../../../static/css/scss/_config.scss */
+.color-pale-blue {
+  color: #d5eaf3;
+}
+
+/* line 207, ../../../static/css/scss/_config.scss */
+.color-light-magenta {
+  color: #d294d7;
+}
+
+/* line 212, ../../../static/css/scss/_config.scss */
+.color-pale-cyan {
+  color: #d8f3ef;
+}
+
+/* line 217, ../../../static/css/scss/_config.scss */
+.color-pale-green {
+  color: #e3f7d8;
+}
+
+/* line 222, ../../../static/css/scss/_config.scss */
+.color-pale-yellow {
+  color: #fff4d2;
+}
+
+/* line 227, ../../../static/css/scss/_config.scss */
+.color-pale-yellow {
+  color: #fffbd4;
+}
+
+/* line 232, ../../../static/css/scss/_config.scss */
+.color-pale-red {
+  color: #ffe1d9;
+}
+
+/* line 237, ../../../static/css/scss/_config.scss */
+.color-pale-magenta {
+  color: #e8c9eb;
+}
+
+/* line 245, ../../../static/css/scss/_config.scss */
+.back-color-none {
+  background-color: #78a7b4;
+  color: white;
+}
+
+/* line 250, ../../../static/css/scss/_config.scss */
+.back-color-blue {
+  background-color: #0088cc;
+  color: white;
+}
+
+/* line 255, ../../../static/css/scss/_config.scss */
+.back-color-cyan {
+  background-color: #0cbeb2;
+  color: white;
+}
+
+/* line 260, ../../../static/css/scss/_config.scss */
+.back-color-green {
+  background-color: #55d426;
+  color: white;
+}
+
+/* line 265, ../../../static/css/scss/_config.scss */
+.back-color-yellow {
+  background-color: #ff9800;
+  color: white;
+}
+
+/* line 270, ../../../static/css/scss/_config.scss */
+.back-color-orange {
+  background-color: #ff9800;
+  color: white;
+}
+
+/* line 275, ../../../static/css/scss/_config.scss */
+.back-color-red {
+  background-color: #ff4e2b;
+  color: white;
+}
+
+/* line 280, ../../../static/css/scss/_config.scss */
+.back-color-magenta {
+  background-color: #b652bf;
+  color: white;
+}
+
+/* line 286, ../../../static/css/scss/_config.scss */
+.back-color-dark-blue {
+  background-color: #002c87;
+  color: white;
+}
+
+/* line 291, ../../../static/css/scss/_config.scss */
+.back-color-dark-cyan {
+  background-color: #00705d;
+  color: white;
+}
+
+/* line 296, ../../../static/css/scss/_config.scss */
+.back-color-dark-green {
+  background-color: #0c9702;
+  color: white;
+}
+
+/* line 301, ../../../static/css/scss/_config.scss */
+.back-color-dark-orange {
+  background-color: #ff7b00;
+  color: white;
+}
+
+/* line 306, ../../../static/css/scss/_config.scss */
+.back-color-dark-yellow {
+  background-color: #ffd900;
+  color: white;
+}
+
+/* line 311, ../../../static/css/scss/_config.scss */
+.back-color-dark-red {
+  background-color: #ff0a02;
+  color: white;
+}
+
+/* line 316, ../../../static/css/scss/_config.scss */
+.back-color-dark-magenta {
+  background-color: #821a8f;
+  color: white;
+}
+
+/* line 321, ../../../static/css/scss/_config.scss */
+.back-color-light-blue {
+  background-color: #acd6e7;
+  color: white;
+}
+
+/* line 326, ../../../static/css/scss/_config.scss */
+.back-color-light-cyan {
+  background-color: #b1e8df;
+  color: white;
+}
+
+/* line 331, ../../../static/css/scss/_config.scss */
+.back-color-light-green {
+  background-color: #c8efb1;
+  color: white;
+}
+
+/* line 336, ../../../static/css/scss/_config.scss */
+.back-color-light-orange {
+  background-color: #ffeaa5;
+  color: white;
+}
+
+/* line 341, ../../../static/css/scss/_config.scss */
+.back-color-light-yellow {
+  background-color: #fff8a9;
+  color: white;
+}
+
+/* line 346, ../../../static/css/scss/_config.scss */
+.back-color-light-red {
+  background-color: #ffc4b3;
+  color: white;
+}
+
+/* line 351, ../../../static/css/scss/_config.scss */
+.back-color-pale-blue {
+  background-color: #d5eaf3;
+  color: white;
+}
+
+/* line 356, ../../../static/css/scss/_config.scss */
+.back-color-light-magenta {
+  background-color: #d294d7;
+  color: white;
+}
+
+/* line 361, ../../../static/css/scss/_config.scss */
+.back-color-pale-cyan {
+  background-color: #d8f3ef;
+  color: white;
+}
+
+/* line 366, ../../../static/css/scss/_config.scss */
+.back-color-pale-green {
+  background-color: #e3f7d8;
+  color: white;
+}
+
+/* line 371, ../../../static/css/scss/_config.scss */
+.back-color-pale-orange {
+  background-color: #fff4d2;
+  color: white;
+}
+
+/* line 376, ../../../static/css/scss/_config.scss */
+.back-color-pale-yellow {
+  background-color: #fffbd4;
+  color: white;
+}
+
+/* line 381, ../../../static/css/scss/_config.scss */
+.back-color-pale-red {
+  background-color: #ffe1d9;
+  color: white;
+}
+
+/* line 386, ../../../static/css/scss/_config.scss */
+.back-color-pale-magenta {
+  background-color: #e8c9eb;
+  color: white;
+}
+
+/* line 3, scss/tipsflow copy.scss */
+#tipsflow {
+  text-align: left;
+}
+
+/* line 7, scss/tipsflow copy.scss */
+.tips-sidebar {
+  float: left;
+  width: 24%;
+}
+
+/* line 15, scss/tipsflow copy.scss */
+#filters h2 {
+  text-align: right;
+}
+/* line 18, scss/tipsflow copy.scss */
+#filters .tags__list {
+  border-width: 0 1px 0 0px;
+  border-color: #c6c6c6;
+  border-style: solid;
+  padding: 10px 4px 20px 0;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 26, scss/tipsflow copy.scss */
+  #tips {
+    width: 100%;
+  }
+}
+
+/* line 32, scss/tipsflow copy.scss */
+.tips-1sb {
+  float: left;
+  width: 74%;
+  margin-left: 2%;
+}
+
+/* line 38, scss/tipsflow copy.scss */
+.tips-2sb {
+  float: left;
+  width: 48%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+/* line 46, scss/tipsflow copy.scss */
+#tips__info {
+  border-radius: 6px 6px 0 0;
+  margin-top: 20px;
+  width: 100%;
+  background-color: #d5eaf3;
+  padding: 5px 15px 5px 15px;
+}
+
+/* line 54, scss/tipsflow copy.scss */
+#add-tip-btn {
+  background-color: #c8efb1;
+  color: white;
+  font-size: 24px;
+  border-radius: 6px 6px 0 0;
+  padding: 4px 8px;
+  text-align: center;
+  cursor: pointer;
+}
+/* line 62, scss/tipsflow copy.scss */
+#add-tip-btn span {
+  vertical-align: middle;
+}
+/* line 65, scss/tipsflow copy.scss */
+#add-tip-btn:hover {
+  background-color: #55d426;
+}
+/* line 68, scss/tipsflow copy.scss */
+#add-tip-btn:active {
+  background-color: #0c9702;
+}
+
+/* line 73, scss/tipsflow copy.scss */
+#tip__add-new-form {
+  background-color: #efefef;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+/* line 81, scss/tipsflow copy.scss */
+#addTipForm__header {
+  float: left;
+}
+
+/* line 85, scss/tipsflow copy.scss */
+#addTipForm__close {
+  float: right;
+  cursor: pointer;
+}
+
+/* line 89, scss/tipsflow copy.scss */
+#add-new-form__textarea {
+  height: 6em;
+  width: 100%;
+  resize: vertical;
+  padding: .5em;
+  border: 0.1em solid #55d426;
+  border-radius: 6px 6px 0 0;
+}
+
+/* line 98, scss/tipsflow copy.scss */
+#add-new-form__added-tags {
+  margin-top: -10px;
+  border-radius: 0 0 6px 6px;
+  background-color: #f8f8f8;
+  border: 0.1em solid #55d426;
+  padding: 7px;
+}
+
+/* line 106, scss/tipsflow copy.scss */
+#add-new-form__tags {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* line 111, scss/tipsflow copy.scss */
+#add-new-form__search-tags {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+/* line 117, scss/tipsflow copy.scss */
+.search-active {
+  background-color: #f8f8f8;
+  border-radius: 5px;
+}
+
+/* line 124, scss/tipsflow copy.scss */
+#add-new-form__tags-ta {
+  height: 2em;
+  width: 95%;
+  resize: vertical;
+  padding: 0.1em 0.5em;
+  border: 0.1em solid #55d426;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* line 134, scss/tipsflow copy.scss */
+.error-text {
+  color: #ff0a02;
+}
+
+/* line 138, scss/tipsflow copy.scss */
+#filter-message {
+  border-radius: 6px;
+  background-color: white;
+  padding: 5px 10px 7px;
+}
+
+/* line 144, scss/tipsflow copy.scss */
+.tip {
+  background-color: white;
+}
+
+/* line 148, scss/tipsflow copy.scss */
+.tip-agreed {
+  background-color: #e3f7d8;
+}
+
+/* line 151, scss/tipsflow copy.scss */
+.tip-disagreed {
+  background-color: #ffe1d9;
+}
+
+/* line 155, scss/tipsflow copy.scss */
+.filter-item {
+  padding: 1px 7px;
+  border-radius: 5px 0 0 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* line 163, scss/tipsflow copy.scss */
+.filter-item-inactive {
+  background-color: #efefef;
+  color: #c6c6c6;
+  border: 1px solid #c6c6c6;
+}
+/* line 168, scss/tipsflow copy.scss */
+.filter-item-inactive:hover {
+  border: 1px solid #878787;
+  color: #878787;
+}
+
+/* line 175, scss/tipsflow copy.scss */
+.tip__main-text {
+  font-size: 14px;
+  line-height: 1.3em;
+  font-weight: 400;
+  padding-left: 35px;
+  padding-right: 4px;
+  padding-top: 4px;
+}
+/* line 182, scss/tipsflow copy.scss */
+.tip__main-text:first-letter {
+  font-size: 1.2em;
+}
+
+/* line 187, scss/tipsflow copy.scss */
+.tip__tag, .form__tag, .form__main-tag, .form__added-tag {
+  display: inline-block;
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+/* line 194, scss/tipsflow copy.scss */
+.tip__tag {
+  font-size: 12px;
+  border-radius: 2px;
+  padding: 0 3px;
+  margin-right: 1px;
+}
+
+/* line 203, scss/tipsflow copy.scss */
+.form__tag {
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 0 4px;
+  margin-right: 3px;
+  line-height: 1.3em;
+}
+
+/* line 212, scss/tipsflow copy.scss */
+.form__main-tag {
+  display: block;
+  float: left;
+  width: 32%;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 3px 4px;
+  margin-left: 1%;
+  margin-bottom: 3px;
+  line-height: 1.3em;
+}
+
+/* line 226, scss/tipsflow copy.scss */
+.form__added-tag {
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 0 4px;
+  margin-right: 3px;
+  line-height: 1.3em;
+}
+/* line 233, scss/tipsflow copy.scss */
+.form__added-tag .added-tag__remove-sign {
+  display: none;
+}
+/* line 236, scss/tipsflow copy.scss */
+.form__added-tag:hover .added-tag__remove-sign {
+  display: inline;
+}
+
+/* line 241, scss/tipsflow copy.scss */
+.tip__tags {
+  float: left;
+  width: 96%;
+}
+
+/* line 247, scss/tipsflow copy.scss */
+.tip__favorite {
+  float: right;
+  width: 4%;
+  font-size: 1.3em;
+  color: #ff9800;
+  cursor: pointer;
+  margin-top: -3px;
+}
+/* line 253, scss/tipsflow copy.scss */
+.tip__favorite:hover {
+  color: #ff7b00;
+}
+
+/* line 260, scss/tipsflow copy.scss */
+.tip__vote-icon {
+  font-size: 120%;
+}
+
+/* line 264, scss/tipsflow copy.scss */
+.tip__vote-number {
+  font-size: 75%;
+}
+
+/* line 269, scss/tipsflow copy.scss */
+.tip__vote-up {
+  cursor: pointer;
+  color: #e3f7d8;
+  margin-bottom: .7em;
+}
+/* line 272, scss/tipsflow copy.scss */
+.tip__vote-up:hover {
+  color: #c8efb1;
+}
+/* line 275, scss/tipsflow copy.scss */
+.tip__vote-up:active {
+  color: #0c9702;
+}
+
+/* line 283, scss/tipsflow copy.scss */
+.tip__vote-dn {
+  cursor: pointer;
+  color: #ffe1d9;
+}
+/* line 286, scss/tipsflow copy.scss */
+.tip__vote-dn:hover {
+  color: #ffc4b3;
+}
+
+/* line 291, scss/tipsflow copy.scss */
+.tip__vote-up--active {
+  color: #55d426;
+}
+/* line 293, scss/tipsflow copy.scss */
+.tip__vote-up--active:hover {
+  color: #0c9702;
+}
+
+/* line 298, scss/tipsflow copy.scss */
+.tip__vote-dn--active {
+  color: #ff4e2b;
+}
+/* line 300, scss/tipsflow copy.scss */
+.tip__vote-dn--active:hover {
+  color: #ff0a02;
+}
+
+/* line 305, scss/tipsflow copy.scss */
+.tip__author {
+  font-weight: bolder;
+}
+
+/* line 313, scss/tipsflow copy.scss */
+.commentForm__ta {
+  width: 100%;
+  resize: vertical;
+  padding: 0.1em 0.5em;
+  border: 0.1em solid #55d426;
+  border-radius: 6px;
+}
+
+/* line 321, scss/tipsflow copy.scss */
+.comments {
+  width: 88%;
+  margin-left: 10%;
+  margin-top: 10px;
+  margin-right: 2%;
+}
+/* line 326, scss/tipsflow copy.scss */
+.comments .comment__button {
+  width: 100%;
+}
+
+/* line 331, scss/tipsflow copy.scss */
+.comment {
+  background-color: white;
+  border-width: 0 0 0 7px;
+  border-color: #0088cc;
+  border-style: solid;
+  padding: 12px 12px 2px 25px;
+  margin-bottom: 5px;
+}
+/* line 338, scss/tipsflow copy.scss */
+.comment .comment__text {
+  font-size: 14px;
+  line-height: 1.3em;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+/* line 343, scss/tipsflow copy.scss */
+.comment .comment__text:first-letter {
+  font-size: 1.2em;
+}
+/* line 347, scss/tipsflow copy.scss */
+.comment .comment__meta {
+  font-size: 12px;
+  width: 100%;
+  text-align: right;
+  color: #878787;
+}
+
+/* line 355, scss/tipsflow copy.scss */
+.comment-link {
+  color: #0088cc;
+}
+
+/* line 360, scss/tipsflow copy.scss */
+.tip__share {
+  padding: 5px 6px;
+  background-color: #d5eaf3;
+  color: #0088cc;
+}
+/* line 364, scss/tipsflow copy.scss */
+.tip__share i {
+  font-size: 20px;
+}
+/* line 367, scss/tipsflow copy.scss */
+.tip__share input {
+  padding: 0.1em 0.5em;
+  border: 0.1em solid #0088cc;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* line 375, scss/tipsflow copy.scss */
+.tip-block__body {
+  padding-bottom: 12px;
+  width: 93%;
+  float: left;
+  border-width: 0 1px 0 0;
+  border-color: #c6c6c6;
+  border-style: dotted;
+  min-height: 110px;
+}
+
+/* line 385, scss/tipsflow copy.scss */
+.tip-block__sidebar {
+  padding-bottom: 12px;
+  width: 7%;
+  float: right;
+  font-weight: bolder;
+  font-size: 1.6em;
+  text-align: center;
+  line-height: .5em;
+}
+
+/* line 395, scss/tipsflow copy.scss */
+.tip__share-block {
+  height: 30px;
+  min-width: 30px;
+  padding-top: 4px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #0088cc;
+  display: inline-block;
+  background-color: white;
+  line-height: 0;
+  cursor: pointer;
+}
+/* line 406, scss/tipsflow copy.scss */
+.tip__share-block:active {
+  background-color: #0088cc;
+  color: white;
+}
+
+/* line 412, scss/tipsflow copy.scss */
+.tip__share-link {
+  display: inline-block;
+  margin-left: 1em;
+}
