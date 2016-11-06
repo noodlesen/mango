@@ -7,6 +7,7 @@
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/common.css') }}">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/ui.css') }}">
     <link rel=stylesheet type=text/css href="{{ url_for('geo.static', filename='css/alt_single_tip.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('geo.static', filename='css/login_modal.css') }}">
 {% endblock %}
 
 {% block page_content %}
@@ -37,7 +38,7 @@
         
 
     </div>
-
+{% include 'login_modal.html'%}
 </div>
 {% endblock %}
 

@@ -320,122 +320,58 @@
   color: white;
 }
 
-/* line 3, scss/single_tip.scss */
-#single-tip {
-  font-size: 150%;
+/* line 5, scss/login_modal.scss */
+.modal {
+  margin-top: 10%;
+  text-align: center;
 }
 
-/* line 7, scss/single_tip.scss */
-#single-tip__vote-buttons {
-  text-align: right;
+/* line 9, scss/login_modal.scss */
+.modal-footer {
+  text-align: center;
 }
 
-/* line 26, scss/single_tip.scss */
-.single-tip__upvote-btn {
-  color: #c8efb1;
-  border-color: #c8efb1;
-}
-/* line 14, scss/single_tip.scss */
-.single-tip__upvote-btn:hover {
-  color: #0c9702;
-  border-color: #0c9702;
-}
-/* line 18, scss/single_tip.scss */
-.single-tip__upvote-btn:active {
+/* line 13, scss/login_modal.scss */
+.si-facebook, .si-google, .si-vk {
+  display: block;
+  min-width: 240px;
+  width: 280px;
   color: white;
-  border-color: #0c9702;
-  background-color: #0c9702;
-}
-
-/* line 30, scss/single_tip.scss */
-.single-tip__downvote-btn {
-  color: #ffc4b3;
-  border-color: #ffc4b3;
-}
-/* line 14, scss/single_tip.scss */
-.single-tip__downvote-btn:hover {
-  color: #ff0a02;
-  border-color: #ff0a02;
-}
-/* line 18, scss/single_tip.scss */
-.single-tip__downvote-btn:active {
-  color: white;
-  border-color: #ff0a02;
-  background-color: #ff0a02;
-}
-
-/* line 34, scss/single_tip.scss */
-.single-tip__upvote-btn--selected {
-  color: white;
-  background-color: #55d426;
-  border-color: #55d426;
-}
-/* line 38, scss/single_tip.scss */
-.single-tip__upvote-btn--selected:hover {
-  border-color: #55d426;
-  color: white;
-}
-
-/* line 44, scss/single_tip.scss */
-.single-tip__downvote-btn--selected {
-  color: white;
-  background-color: #ff4e2b;
-  border-color: #ff4e2b;
-}
-/* line 48, scss/single_tip.scss */
-.single-tip__downvote-btn--selected:hover {
-  border-color: #ff4e2b;
-  color: white;
-}
-
-/* line 54, scss/single_tip.scss */
-.single-tip__vote-btn {
-  font-weight: bolder;
-  font-size: 80%;
-  border-width: 2px;
-  border-radius: 0.3em;
-  border-style: solid;
-  display: inline-block;
-  padding: .2em .5em;
+  border-radius: 6px;
+  text-align: center;
+  padding: .5em;
   cursor: pointer;
+  margin: 0 auto 8px;
+  text-decoration: none;
+}
+/* line 24, scss/login_modal.scss */
+.si-facebook span, .si-google span, .si-vk span {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 28, scss/login_modal.scss */
+.si-facebook:hover, .si-google:hover, .si-vk:hover {
+  color: white;
+  text-decoration: none;
 }
 
-/* line 65, scss/single_tip.scss */
-#single-tip__top {
-  margin-bottom: 1em;
-  margin-top: 3em;
+/* line 34, scss/login_modal.scss */
+.si-icon {
+  font-size: 250%;
+  margin-right: .5em;
 }
 
-/* line 70, scss/single_tip.scss */
-#single-tip__author {
-  float: left;
+/* line 39, scss/login_modal.scss */
+.si-facebook {
+  background-color: #3b5998;
 }
 
-/* line 74, scss/single_tip.scss */
-#single-tip__place {
-  float: right;
+/* line 44, scss/login_modal.scss */
+.si-google {
+  background-color: #3367d6;
 }
 
-/* line 78, scss/single_tip.scss */
-#single-tip__comments {
-  padding: .5em 1em;
-}
-
-/* line 82, scss/single_tip.scss */
-.single-tip__comment {
-  background-color: white;
-  border-color: #0088cc;
-  border-width: 0 0 0 5px;
-  border-style: solid;
-  padding: .4em 1em;
-  margin-bottom: .4em;
-  font-size: 80%;
-}
-
-/* line 91, scss/single_tip.scss */
-.single-tip__comment-footer {
-  width: 100%;
-  font-size: 80%;
-  color: #c6c6c6;
-  text-align: right;
+/* line 48, scss/login_modal.scss */
+.si-vk {
+  background-color: #507299;
 }

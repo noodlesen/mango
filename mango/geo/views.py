@@ -30,10 +30,15 @@ def get_tips_data(tips_list, **kwargs):
     td['tips']=[]
     related_users_ids = []
 
-    if current_user.is_authenticated and "place_id" in kwargs:
-        pa = current_user.get_place_actions(kwargs["place_id"])
+    if current_user.is_authenticated:
+        if "place_id" in kwargs:
+            pa = current_user.get_place_actions(kwargs["place_id"])
+        elif len(list(tips_list))>0:
+            ids = [t.id for t in tips_list]
+            pa = current_user.get_list_actions(ids)
     else:
         pa = {"favorites":[], "likes":[], "dislikes":[]}
+
     for t in tips_list:
         favorite = True if t.id in pa["favorites"] else False
         like = True if t.id in pa["likes"] else False
@@ -368,7 +373,7 @@ def json_tip():
             tip.text = q['text'].strip()
             tag_names = q['tags']
 
-            if tip.text!='' and len(tag_names)>0:
+            if tip.text!='' and len(tag_names)>0 and len(tip.text)<=600:
 
                 for tn in tag_names:
                     tag = Tag.query.filter_by(name=tn['name']).first()

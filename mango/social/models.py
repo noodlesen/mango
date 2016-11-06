@@ -183,6 +183,16 @@ class User (UserMixin, db.Model):
         res['dislikes'] = [n[0] for n in db.session.execute(query % ("users_downvotes", pid, self.id))]
         return res
 
+    def get_list_actions(self, ids):
+        res={}
+        idss = ','.join([str(i) for i in ids])
+        query = "SELECT tip_id FROM %s WHERE user_id=%d AND tip_id IN (%s)" 
+        res['favorites'] = [n[0] for n in db.session.execute(query % ("users_favorites",self.id, idss))]
+        res['likes'] = [n[0] for n in db.session.execute(query % ("users_upvotes", self.id, idss))]
+        res['dislikes'] = [n[0] for n in db.session.execute(query % ("users_downvotes",self.id, idss))]
+        return res
+
+
     #=============================================
 
     def set_password(self, password):

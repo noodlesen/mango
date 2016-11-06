@@ -707,15 +707,11 @@ var tipsFlow = new Vue({
             this.tagsFilter.selectedTags = {};
             this.showAll = true;
             this.shown_tips = this.all_tips;
-            //this.tagsFilter.message = "";
             this.$broadcast('eResetAllFilters');
         },
         
         filterTips: function(){
             var self = this;
-
-            console.log(self.tagsFilter.selectedTags)
-
             self.tagsFilter.message = "";
             Object.keys(this.tagsFilter.selectedTags).forEach(function(t){
                 if (self.tagsFilter.selectedTags[t]){
