@@ -3,6 +3,7 @@ import json
 from flask import session, request
 from .dttools import RTS
 from .toolbox import create_marker
+from .path import _ROOT_DIR
 
 class Log():
 
@@ -25,6 +26,7 @@ class Log():
             agent = {"marker":marker}
             logfile = 'logs/strangers_%s.log' % dt[:10]
 
+        logfile=_ROOT_DIR+"/"+logfile
 
         with open(logfile, 'a') as l:
             l.write(json.dumps([dt, agent, action, data])+',\n')

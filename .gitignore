@@ -6,4 +6,4 @@ __pycache__
 mango/__pycache__
 mango/upload
 *.pyc
-logs/*
+logs/*.log
