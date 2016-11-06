@@ -1,7 +1,7 @@
 
 moment.locale('ru');
 
-var relatedUsers =[];
+//var relatedUsers =[];
 
 $(document).ready(function(){
 });
@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 var cTip = Vue.extend({
 
-    props: ['tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit'],
+    props: ['tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit', 'related'],
 
     data: function(){
         return { 
@@ -34,7 +34,8 @@ var cTip = Vue.extend({
     },
     ready:function(){
         this.signedIn = signedIn;
-        //console.log(this.id+'>   '+this.fave);
+/*        console.log('creating tip');
+        console.log(JSON.stringify(this.related));*/
         this.favorite = this.fave;
         if (this.upvote){
             this.upVote=true;
@@ -237,8 +238,8 @@ var cTip = Vue.extend({
 
         getUser: function(uid){
             console.log('get user: '+uid);
-            console.log(relatedUsers);
-            return relatedUsers.find(function(u){ return u.id==uid}).nickname;
+            console.log(JSON.stringify(this.related));
+            return this.related.find(function(u){ return u.id==uid}).nickname;
         }
     },
 
@@ -443,7 +444,8 @@ var tipsFlow = new Vue({
         lastEdited: null,
         collapsed: false,
         collapsedMessage: '',
-        allowTipFilters: true
+        allowTipFilters: true,
+        relatedUsers:[]
     },
 
     computed:{
@@ -468,6 +470,7 @@ var tipsFlow = new Vue({
         self.allowAddTip = jd.config.allowAddNewTip ? true : false;
         self.allowEdit = jd.config.allowEdit ? true : false;
         self.collapsed = jd.config.collapsed ? true : false;
+        this.relatedUsers=jd.related_users;
         self.allowTipFilters = jd.config.allowTipFilters ? true : false;
         if (self.collapsed){
             self.collapsedMessage = jd.config.collapsedMessage;
@@ -481,16 +484,17 @@ var tipsFlow = new Vue({
 
         self.newTipForm.allTags=jd.all_tags;
 
-        console.log(JSON.stringify(jd.related_users));
-
+        console.log('dddd');
+        console.log(JSON.stringify(this.relatedUsers));
 
         self.newTipForm.popularTags = self.newTipForm.allTags.slice(0, 12);
         self.newTipForm.moreTags = self.newTipForm.allTags.slice(12, 64);
         self.tagsFilter.placeTags.forEach(function(t){
             self.tagsFilter.selectedTags[t.name]=false;
         });
-        relatedUsers=jd.related_users;
-        console.log(relatedUsers);
+        
+        
+        
 
         this.signedIn = signedIn;
     },
@@ -873,6 +877,7 @@ var tipsFlow = new Vue({
                             :downvoted="tip.downvoted" \
                             :url="tip.url" \
                             :edit="allowEdit"\
+                            :related="relatedUsers"\
                             :comments="tip.comments">\
                         {{tip.showThis}}\
                         {{tip.text}}\
