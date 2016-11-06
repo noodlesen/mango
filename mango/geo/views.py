@@ -217,9 +217,10 @@ def single_tip(tid):
     print (jd)
 
     return render_template('alt_single_tip.html',
-                               json_data=json.dumps(jd),
-                               signed_in=current_user.is_authenticated,
-                               )
+                            tip = tip,
+                            json_data=json.dumps(jd),
+                            signed_in=current_user.is_authenticated,
+                            )
     
     # if tip:
     #     if current_user.is_authenticated:

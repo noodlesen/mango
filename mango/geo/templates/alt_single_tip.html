@@ -13,8 +13,26 @@
 <div class="container-fluid" id="cont">
     <div class="row">
    
-        <div class="col-lg-6 col-lg-offset-3" id="tipsflow">
-
+        <div class="col-lg-6 col-lg-offset-3">
+            <div id="single-tip__top">
+                <div id="single-tip__author">
+                    <img style="display:inline-block" src="{{tip.user.get_avatar()}}" 
+                         class="img img-responsive avatar-small" />
+                    <a href="{{url_for('social.public_profile', uid=tip.user.id)}}" 
+                       class="single-tip__author-name">
+                        {{tip.user.nickname}}
+                    </a>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="single-tip__place">
+                    <a href="{{url_for('geo.places', us=tip.place.url_string)}}">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                        {{tip.place.rus_name}}, {{tip.place.country.rus_name}}
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div id="tipsflow"></div>
         </div>
         
 
