@@ -7,6 +7,7 @@
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/ui.css') }}">
     <link rel=stylesheet type=text/css href="{{ url_for('social.static', filename='css/public_profile.css') }}">
     <link rel=stylesheet type=text/css href="{{ url_for('geo.static', filename='css/tipsflow.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('geo.static', filename='css/login_modal.css') }}">
 {% endblock %}
 
 {% block page_content %}
@@ -77,7 +78,7 @@
 
 
 
-
+{% include 'login_modal.html'%}
 
 </div>
 
@@ -89,7 +90,7 @@
       var userId = {{u.id}};
       var canSendPm = "{{can_send_pm}}";
       var subscribed = "{{subscribed}}";
-      var signedIn = "{{signed_in}}";
+      var signedIn = {{signed_in|lower}};
       var jsonData = {{json_data|tojson|safe}};
     </script>
     <script src ="{{ url_for('static', filename="lib/moment-with-locales.min.js") }}" type="text/javascript"></script>

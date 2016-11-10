@@ -376,7 +376,7 @@
 
 /* line 54, scss/tipsflow.scss */
 #add-tip-btn {
-  background-color: #c8efb1;
+  background-color: #0088cc;
   color: white;
   font-size: 24px;
   border-radius: 6px 6px 0 0;
@@ -390,11 +390,11 @@
 }
 /* line 65, scss/tipsflow.scss */
 #add-tip-btn:hover {
-  background-color: #55d426;
+  background-color: #ff9800;
 }
 /* line 68, scss/tipsflow.scss */
 #add-tip-btn:active {
-  background-color: #0c9702;
+  background-color: #0088cc;
 }
 
 /* line 73, scss/tipsflow.scss */

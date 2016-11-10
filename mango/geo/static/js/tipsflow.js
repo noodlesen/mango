@@ -507,7 +507,7 @@ var tipsFlow = new Vue({
         self.sortTips();
 
         self.tagsFilter.placeTags=jd.place_tags;
-        self.newTipForm.allTags=jd.all_tags;
+        self.newTipForm.allTags=jd.all_tags ? jd.all_tags : [];
 
 
         console.log(JSON.stringify(this.relatedUsers));
