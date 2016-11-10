@@ -1,6 +1,6 @@
 from flask import session, request, url_for, redirect, render_template, flash, abort
 from .models import User, PrivateMessage, UsersRelationship, Notification, NotificationHistory
-from flask.ext.login import login_user, login_required, logout_user, current_user
+from flask_login import login_user, login_required, logout_user, current_user
 from . .db import db
 from . .config import GOOGLE_ID, GOOGLE_SECRET, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET, VK_APP_KEY, VK_APP_SECRET
 from datetime import datetime

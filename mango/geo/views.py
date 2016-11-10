@@ -4,7 +4,7 @@ from operator import itemgetter
 from alphabet_detector import AlphabetDetector
 
 from flask import session, request, url_for, redirect, render_template, flash, abort
-from flask.ext.login import login_user, login_required, logout_user, current_user
+from flask_login import login_user, login_required, logout_user, current_user
 from sqlalchemy.sql import or_, and_
 from sqlalchemy import desc
 from . .cache import cache

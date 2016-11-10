@@ -4,7 +4,7 @@ import json
 from urllib.parse import unquote
 
 from flask import url_for
-from flask.ext.script import Manager
+from flask_script import Manager
 from fuzzywuzzy import fuzz
 from unidecode import unidecode
 from werkzeug.datastructures import FileStorage

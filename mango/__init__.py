@@ -1,8 +1,14 @@
 
+# import warnings
+# from flask.exthook import ExtDeprecationWarning
+
+# warnings.simplefilter('ignore', ExtDeprecationWarning)
+
+
 from flask import Flask, request, session, render_template, url_for, make_response
 from flask_debugtoolbar import DebugToolbarExtension
-from flask.ext.bootstrap import Bootstrap
-from flask.ext.login import LoginManager, login_required, login_user, logout_user, current_user
+from flask_bootstrap import Bootstrap
+from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 
 from flask_wtf.csrf import CsrfProtect
 import json
@@ -33,6 +39,7 @@ app.debug = DEBUG
 app.config['PROJECT_NAME']=PROJECT_NAME
 app.config['SECRET_KEY'] = SECRET_KEY
 app.config['SQLALCHEMY_DATABASE_URI'] = DBURI
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 60
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20

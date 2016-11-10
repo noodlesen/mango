@@ -1,5 +1,5 @@
 from . .db import db
-from flask.ext.login import UserMixin
+from flask_login import UserMixin
 from flask import session, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 

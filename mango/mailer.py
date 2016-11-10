@@ -1,4 +1,4 @@
-from flask.ext.emails import Message
+from flask_emails import Message
 from flask import render_template
 
 class Mailer():

@@ -1,5 +1,5 @@
 from flask import render_template, request, abort, redirect, url_for, session
-from flask.ext.login import current_user, login_required, login_user, logout_user
+from flask_login import current_user, login_required, login_user, logout_user
 from . .db import db
 from . .social.models import User
 from . import admin
