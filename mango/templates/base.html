@@ -1,5 +1,18 @@
 {% extends 'bootstrap/base.html' %}
 
+{% macro search_field(cl) %}
+<div id="navbar__search" class="{{cl}}">
+    <span class="glyphicon glyphicon-map-marker"></span>
+    <input type="text" 
+           class="form-control" 
+           placeholder="Поиск мест" 
+           v-model="needle" 
+           @keyup="checkNeedle" 
+           @keyup.enter="choosePreSelected"
+           @keyup.up="preSelect(-1)"
+           @keyup.down="preSelect(1)">
+</div>
+{% endmacro %}
 
 {% block head %}
 {{ super () }}
@@ -37,22 +50,11 @@
                     </a>
                 </div>
 
-                <div class="divider visible-xs"></div>
+            
+                {{search_field("hidden-xs")}}
                 
-                <div id="navbar__search">
-                    <span class="glyphicon glyphicon-map-marker"></span>
-                    <input type="text" 
-                           class="form-control" 
-                           placeholder="Поиск мест" 
-                           v-model="needle" 
-                           @keyup="checkNeedle" 
-                           @keyup.enter="choosePreSelected"
-                           @keyup.up="preSelect(-1)"
-                           @keyup.down="preSelect(1)">
-                </div>
 
-
-                <div class="divider visible-xs"></div>
+                
                 <div  id="navbar__user">
                     <div id="user__nickname">
                         {% if current_user.is_authenticated %}
@@ -69,9 +71,12 @@
                                         </a>
                                     </td>
                                     <td>
+                                        <a id="user__nickname-link" 
+                                            href="{{url_for('social.profile')}}">
                                         <img style="float:left" 
                                             src="{{current_user.get_avatar()}}" 
                                             class="img img-responsive avatar-small" />
+                                        </a>
                                     </td>
                                     <td>
                                         <a id="user__nickname-link" 
@@ -82,10 +87,12 @@
                                 </tr>
                             </table>
                         {% else %}
+                            <div id="user-login">
                             Войдите с 
                                 <a href="{{url_for('social.g_login')}}?follow={{request.path}}"><span class="fa fa-google"></span></a>
                                 , <a href="{{url_for('social.f_login')}}?follow={{request.path}}"><span class="fa fa-facebook"></a>
                                  или <a href="{{url_for('social.v_login')}}?follow={{request.path}}"><span class="fa fa-vk"></a>
+                            </div>
                         {% endif %}
                     </div><div class="clearfix"></div>
 
@@ -94,6 +101,12 @@
 
 
                 <div class="clearfix"></div>
+
+                <div class="divider visible-xs"></div>
+
+                {{search_field("visible-xs")}}
+
+                 <div class="divider visible-xs"></div>
                 
 
         </div>

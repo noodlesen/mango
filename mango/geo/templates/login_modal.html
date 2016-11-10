@@ -7,7 +7,7 @@
             <h2 class="modal-title" id="myModalLabel">Присоединяйтесь к нам :)</h2>
           </div>
           <div class="modal-body">
-            <p>Всего один клик, и вы сможете сохранять понравившиеся советы в избранное, добавлять свои, комментировать и помогать авторам самых достоверных и полезных советов становиться популярнее!</p>
+            <p class="modal-text">Всего один клик, и вы сможете сохранять понравившиеся советы в избранное, добавлять свои, комментировать и помогать авторам самых достоверных и полезных советов становиться популярнее!</p>
             <a class="si-facebook" href="{{url_for('social.f_login')}}?follow={{request.path}}">
                 <span class="si-icon fa fa-facebook"></span>
                 Войти через <strong>Facebook</strong>
@@ -20,10 +20,11 @@
                 <span class="si-icon fa fa-google"></span>
                 Войти через <strong>Google</strong>
             </a>
-            <p class="subtitle"><span class="glyphicon glyphicon-exclamation-sign"></span>Мы не получаем никакой информации кроме имени пользователя и его e-mail.<br/>И, разумеется, не делаем никаких публикаций от вашего имени.</p>
-          </div>
+            </div>
+            <p class="modal-important"><span class="glyphicon glyphicon-exclamation-sign"></span> Мы не получаем никакой информации кроме имени пользователя и его e-mail.<br/>И, разумеется, не делаем никаких публикаций от вашего имени.</p>
+          
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">&times; Да ну нафиг</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">&times; В другой раз</button>
           </div>
         </div>
       </div>

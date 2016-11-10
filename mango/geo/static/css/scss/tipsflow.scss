@@ -241,11 +241,14 @@
 .tip__tags {
     float: left;
     width:96%;
+    @include respond-to(xs) {width:88%}
 
 }
 
 .tip__favorite{
     float:right;
+    text-align: right;
+    padding-right:1em;
     width:4%;
     font-size: 1.3em;
     color: $orange;
@@ -254,6 +257,7 @@
         color:$dark-orange;
     }
     margin-top: -3px;
+    @include respond-to(xs) { font-size: 1.8em; width:12%; padding-right: 0.4em}
 }
 
 
@@ -380,6 +384,7 @@
     border-color: $gray4;
     border-style: dotted;
     min-height: 110px;
+    @include respond-to(xs) { width:88%}
 }
 
 .tip-block__sidebar{
@@ -390,6 +395,7 @@
     font-size: 1.6em;
     text-align: center;
     line-height: .5em;
+    @include respond-to(xs) { width:12%; font-size: 1.8em}
 }
 
 .tip__share-block{
@@ -413,3 +419,4 @@
     display: inline-block;
     margin-left: 1em;
 }
+

@@ -3,8 +3,11 @@
 // MODAL 
 
 .modal{
-    margin-top: 10%;
+    //margin-top: 10%;
     text-align: center;
+}
+.modal-body{
+    margin-bottom: 1em;
 }
 .modal-footer{
     text-align: center;
@@ -48,4 +51,11 @@
 .si-vk{
     @extend %si-btn;
     background-color: $c-vk;
+}
+
+.modal-text{
+    font-size: 110%;
+}
+.modal-important{
+    font-size: 90%;
 }

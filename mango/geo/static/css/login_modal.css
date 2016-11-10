@@ -322,16 +322,20 @@
 
 /* line 5, scss/login_modal.scss */
 .modal {
-  margin-top: 10%;
   text-align: center;
 }
 
 /* line 9, scss/login_modal.scss */
+.modal-body {
+  margin-bottom: 1em;
+}
+
+/* line 12, scss/login_modal.scss */
 .modal-footer {
   text-align: center;
 }
 
-/* line 13, scss/login_modal.scss */
+/* line 16, scss/login_modal.scss */
 .si-facebook, .si-google, .si-vk {
   display: block;
   min-width: 240px;
@@ -344,34 +348,44 @@
   margin: 0 auto 8px;
   text-decoration: none;
 }
-/* line 24, scss/login_modal.scss */
+/* line 27, scss/login_modal.scss */
 .si-facebook span, .si-google span, .si-vk span {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 28, scss/login_modal.scss */
+/* line 31, scss/login_modal.scss */
 .si-facebook:hover, .si-google:hover, .si-vk:hover {
   color: white;
   text-decoration: none;
 }
 
-/* line 34, scss/login_modal.scss */
+/* line 37, scss/login_modal.scss */
 .si-icon {
   font-size: 250%;
   margin-right: .5em;
 }
 
-/* line 39, scss/login_modal.scss */
+/* line 42, scss/login_modal.scss */
 .si-facebook {
   background-color: #3b5998;
 }
 
-/* line 44, scss/login_modal.scss */
+/* line 47, scss/login_modal.scss */
 .si-google {
   background-color: #3367d6;
 }
 
-/* line 48, scss/login_modal.scss */
+/* line 51, scss/login_modal.scss */
 .si-vk {
   background-color: #507299;
+}
+
+/* line 56, scss/login_modal.scss */
+.modal-text {
+  font-size: 110%;
+}
+
+/* line 59, scss/login_modal.scss */
+.modal-important {
+  font-size: 90%;
 }

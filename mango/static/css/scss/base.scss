@@ -97,6 +97,10 @@ body {
   }
 }
 
+#user-login{
+  @include respond-to(xs) { min-width: 100% ; text-align: center} 
+}
+
 #user__nickname{
   font-size: 18px;
   //float:right;

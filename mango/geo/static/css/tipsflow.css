@@ -587,80 +587,96 @@
   float: left;
   width: 96%;
 }
+@media only screen and (max-width: 767px) {
+  /* line 241, scss/tipsflow.scss */
+  .tip__tags {
+    width: 88%;
+  }
+}
 
-/* line 247, scss/tipsflow.scss */
+/* line 248, scss/tipsflow.scss */
 .tip__favorite {
   float: right;
+  text-align: right;
+  padding-right: 1em;
   width: 4%;
   font-size: 1.3em;
   color: #ff9800;
   cursor: pointer;
   margin-top: -3px;
 }
-/* line 253, scss/tipsflow.scss */
+/* line 256, scss/tipsflow.scss */
 .tip__favorite:hover {
   color: #ff7b00;
 }
+@media only screen and (max-width: 767px) {
+  /* line 248, scss/tipsflow.scss */
+  .tip__favorite {
+    font-size: 1.8em;
+    width: 12%;
+    padding-right: 0.4em;
+  }
+}
 
-/* line 260, scss/tipsflow.scss */
+/* line 264, scss/tipsflow.scss */
 .tip__vote-icon {
   font-size: 120%;
 }
 
-/* line 264, scss/tipsflow.scss */
+/* line 268, scss/tipsflow.scss */
 .tip__vote-number {
   font-size: 75%;
 }
 
-/* line 269, scss/tipsflow.scss */
+/* line 273, scss/tipsflow.scss */
 .tip__vote-up {
   cursor: pointer;
   color: #e3f7d8;
   margin-bottom: .7em;
 }
-/* line 272, scss/tipsflow.scss */
+/* line 276, scss/tipsflow.scss */
 .tip__vote-up:hover {
   color: #c8efb1;
 }
-/* line 275, scss/tipsflow.scss */
+/* line 279, scss/tipsflow.scss */
 .tip__vote-up:active {
   color: #0c9702;
 }
 
-/* line 283, scss/tipsflow.scss */
+/* line 287, scss/tipsflow.scss */
 .tip__vote-dn {
   cursor: pointer;
   color: #ffe1d9;
 }
-/* line 286, scss/tipsflow.scss */
+/* line 290, scss/tipsflow.scss */
 .tip__vote-dn:hover {
   color: #ffc4b3;
 }
 
-/* line 291, scss/tipsflow.scss */
+/* line 295, scss/tipsflow.scss */
 .tip__vote-up--active {
   color: #55d426;
 }
-/* line 293, scss/tipsflow.scss */
+/* line 297, scss/tipsflow.scss */
 .tip__vote-up--active:hover {
   color: #0c9702;
 }
 
-/* line 298, scss/tipsflow.scss */
+/* line 302, scss/tipsflow.scss */
 .tip__vote-dn--active {
   color: #ff4e2b;
 }
-/* line 300, scss/tipsflow.scss */
+/* line 304, scss/tipsflow.scss */
 .tip__vote-dn--active:hover {
   color: #ff0a02;
 }
 
-/* line 305, scss/tipsflow.scss */
+/* line 309, scss/tipsflow.scss */
 .tip__author {
   font-weight: bolder;
 }
 
-/* line 313, scss/tipsflow.scss */
+/* line 317, scss/tipsflow.scss */
 .commentForm__ta {
   width: 100%;
   resize: vertical;
@@ -669,19 +685,19 @@
   border-radius: 6px;
 }
 
-/* line 321, scss/tipsflow.scss */
+/* line 325, scss/tipsflow.scss */
 .comments {
   width: 88%;
   margin-left: 10%;
   margin-top: 10px;
   margin-right: 2%;
 }
-/* line 326, scss/tipsflow.scss */
+/* line 330, scss/tipsflow.scss */
 .comments .comment__button {
   width: 100%;
 }
 
-/* line 331, scss/tipsflow.scss */
+/* line 335, scss/tipsflow.scss */
 .comment {
   background-color: white;
   border-width: 0 0 0 7px;
@@ -690,18 +706,18 @@
   padding: 12px 12px 2px 25px;
   margin-bottom: 5px;
 }
-/* line 338, scss/tipsflow.scss */
+/* line 342, scss/tipsflow.scss */
 .comment .comment__text {
   font-size: 14px;
   line-height: 1.3em;
   font-weight: 400;
   margin-bottom: 5px;
 }
-/* line 343, scss/tipsflow.scss */
+/* line 347, scss/tipsflow.scss */
 .comment .comment__text:first-letter {
   font-size: 1.2em;
 }
-/* line 347, scss/tipsflow.scss */
+/* line 351, scss/tipsflow.scss */
 .comment .comment__meta {
   font-size: 12px;
   width: 100%;
@@ -709,22 +725,22 @@
   color: #878787;
 }
 
-/* line 355, scss/tipsflow.scss */
+/* line 359, scss/tipsflow.scss */
 .comment-link {
   color: #0088cc;
 }
 
-/* line 360, scss/tipsflow.scss */
+/* line 364, scss/tipsflow.scss */
 .tip__share {
   padding: 5px 6px;
   background-color: #d5eaf3;
   color: #0088cc;
 }
-/* line 364, scss/tipsflow.scss */
+/* line 368, scss/tipsflow.scss */
 .tip__share i {
   font-size: 20px;
 }
-/* line 367, scss/tipsflow.scss */
+/* line 371, scss/tipsflow.scss */
 .tip__share input {
   padding: 0.1em 0.5em;
   border: 0.1em solid #0088cc;
@@ -732,7 +748,7 @@
   display: inline-block;
 }
 
-/* line 375, scss/tipsflow.scss */
+/* line 379, scss/tipsflow.scss */
 .tip-block__body {
   padding-bottom: 12px;
   width: 93%;
@@ -742,8 +758,14 @@
   border-style: dotted;
   min-height: 110px;
 }
+@media only screen and (max-width: 767px) {
+  /* line 379, scss/tipsflow.scss */
+  .tip-block__body {
+    width: 88%;
+  }
+}
 
-/* line 385, scss/tipsflow.scss */
+/* line 390, scss/tipsflow.scss */
 .tip-block__sidebar {
   padding-bottom: 12px;
   width: 7%;
@@ -753,8 +775,15 @@
   text-align: center;
   line-height: .5em;
 }
+@media only screen and (max-width: 767px) {
+  /* line 390, scss/tipsflow.scss */
+  .tip-block__sidebar {
+    width: 12%;
+    font-size: 1.8em;
+  }
+}
 
-/* line 395, scss/tipsflow.scss */
+/* line 401, scss/tipsflow.scss */
 .tip__share-block {
   height: 30px;
   min-width: 30px;
@@ -767,13 +796,13 @@
   line-height: 0;
   cursor: pointer;
 }
-/* line 406, scss/tipsflow.scss */
+/* line 412, scss/tipsflow.scss */
 .tip__share-block:active {
   background-color: #0088cc;
   color: white;
 }
 
-/* line 412, scss/tipsflow.scss */
+/* line 418, scss/tipsflow.scss */
 .tip__share-link {
   display: inline-block;
   margin-left: 1em;

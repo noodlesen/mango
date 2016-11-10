@@ -441,33 +441,41 @@ body {
   padding-left: 10px;
 }
 
-/* line 100, scss/base.scss */
+@media only screen and (max-width: 767px) {
+  /* line 100, scss/base.scss */
+  #user-login {
+    min-width: 100%;
+    text-align: center;
+  }
+}
+
+/* line 104, scss/base.scss */
 #user__nickname {
   font-size: 18px;
 }
-/* line 104, scss/base.scss */
+/* line 108, scss/base.scss */
 #user__nickname table {
   margin: auto;
 }
 
-/* line 109, scss/base.scss */
+/* line 113, scss/base.scss */
 #user__nots {
   float: right;
   padding-top: 5px;
 }
 
-/* line 115, scss/base.scss */
+/* line 119, scss/base.scss */
 .user__alert a {
   text-decoration: none;
 }
 
-/* line 120, scss/base.scss */
+/* line 124, scss/base.scss */
 #search-results {
   padding: 2px 10% 2em;
   background-color: #0088cc;
   color: white;
 }
-/* line 124, scss/base.scss */
+/* line 128, scss/base.scss */
 #search-results a {
   color: white;
   text-decoration: none;
@@ -475,11 +483,11 @@ body {
   border-radius: 5px;
   border: 2px solid #0088cc;
 }
-/* line 130, scss/base.scss */
+/* line 134, scss/base.scss */
 #search-results a:hover {
   border-color: white;
 }
-/* line 133, scss/base.scss */
+/* line 137, scss/base.scss */
 #search-results a.search-result--preselected {
   border-color: white;
 }
