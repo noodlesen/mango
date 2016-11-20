@@ -7,314 +7,334 @@
   @include respond-to(wide-screens) { float: none; }
 }​ */
 /* line 102, scss/_config.scss */
+.back-color-white {
+  background-color: white;
+}
+
+/* line 106, scss/_config.scss */
+.color-white {
+  color: white;
+}
+
+/* line 110, scss/_config.scss */
+.back-color-black {
+  background-color: black;
+}
+
+/* line 114, scss/_config.scss */
+.color-black {
+  color: black;
+}
+
+/* line 118, scss/_config.scss */
 .color-blue {
   color: #0088cc;
 }
 
-/* line 107, scss/_config.scss */
+/* line 123, scss/_config.scss */
 .color-cyan {
   color: #0cbeb2;
 }
 
-/* line 112, scss/_config.scss */
+/* line 128, scss/_config.scss */
 .color-green {
   color: #55d426;
 }
 
-/* line 117, scss/_config.scss */
+/* line 133, scss/_config.scss */
 .color-yellow {
   color: #ff9800;
 }
 
-/* line 122, scss/_config.scss */
+/* line 138, scss/_config.scss */
 .color-orange {
   color: #ff9800;
 }
 
-/* line 127, scss/_config.scss */
+/* line 143, scss/_config.scss */
 .color-red {
   color: #ff4e2b;
 }
 
-/* line 131, scss/_config.scss */
+/* line 147, scss/_config.scss */
 .color-magenta {
   color: #b652bf;
 }
 
-/* line 137, scss/_config.scss */
+/* line 153, scss/_config.scss */
 .color-dark-blue {
   color: #002c87;
 }
 
-/* line 142, scss/_config.scss */
+/* line 158, scss/_config.scss */
 .color-dark-cyan {
   color: #00705d;
 }
 
-/* line 147, scss/_config.scss */
+/* line 163, scss/_config.scss */
 .color-dark-green {
   color: #0c9702;
 }
 
-/* line 152, scss/_config.scss */
+/* line 168, scss/_config.scss */
 .color-dark-orange {
   color: #ff7b00;
 }
 
-/* line 157, scss/_config.scss */
+/* line 173, scss/_config.scss */
 .color-dark-yellow {
   color: #ffd900;
 }
 
-/* line 162, scss/_config.scss */
+/* line 178, scss/_config.scss */
 .color-dark-red {
   color: #ff0a02;
 }
 
-/* line 167, scss/_config.scss */
+/* line 183, scss/_config.scss */
 .color-dark-magenta {
   color: #821a8f;
 }
 
-/* line 172, scss/_config.scss */
+/* line 188, scss/_config.scss */
 .color-light-blue {
   color: #acd6e7;
 }
 
-/* line 177, scss/_config.scss */
+/* line 193, scss/_config.scss */
 .color-light-cyan {
   color: #b1e8df;
 }
 
-/* line 182, scss/_config.scss */
+/* line 198, scss/_config.scss */
 .color-light-green {
   color: #c8efb1;
 }
 
-/* line 187, scss/_config.scss */
+/* line 203, scss/_config.scss */
 .color-light-orange {
   color: #ffeaa5;
 }
 
-/* line 192, scss/_config.scss */
+/* line 208, scss/_config.scss */
 .color-light-yellow {
   color: #fff8a9;
 }
 
-/* line 197, scss/_config.scss */
+/* line 213, scss/_config.scss */
 .color-light-red {
   color: #ffc4b3;
 }
 
-/* line 202, scss/_config.scss */
+/* line 218, scss/_config.scss */
 .color-pale-blue {
   color: #d5eaf3;
 }
 
-/* line 207, scss/_config.scss */
+/* line 223, scss/_config.scss */
 .color-light-magenta {
   color: #d294d7;
 }
 
-/* line 212, scss/_config.scss */
+/* line 228, scss/_config.scss */
 .color-pale-cyan {
   color: #d8f3ef;
 }
 
-/* line 217, scss/_config.scss */
+/* line 233, scss/_config.scss */
 .color-pale-green {
   color: #e3f7d8;
 }
 
-/* line 222, scss/_config.scss */
+/* line 238, scss/_config.scss */
 .color-pale-yellow {
   color: #fff4d2;
 }
 
-/* line 227, scss/_config.scss */
+/* line 243, scss/_config.scss */
 .color-pale-yellow {
   color: #fffbd4;
 }
 
-/* line 232, scss/_config.scss */
+/* line 248, scss/_config.scss */
 .color-pale-red {
   color: #ffe1d9;
 }
 
-/* line 237, scss/_config.scss */
+/* line 253, scss/_config.scss */
 .color-pale-magenta {
   color: #e8c9eb;
 }
 
-/* line 245, scss/_config.scss */
+/* line 261, scss/_config.scss */
 .back-color-none {
   background-color: #78a7b4;
   color: white;
 }
 
-/* line 250, scss/_config.scss */
+/* line 266, scss/_config.scss */
 .back-color-blue {
   background-color: #0088cc;
   color: white;
 }
 
-/* line 255, scss/_config.scss */
+/* line 271, scss/_config.scss */
 .back-color-cyan {
   background-color: #0cbeb2;
   color: white;
 }
 
-/* line 260, scss/_config.scss */
+/* line 276, scss/_config.scss */
 .back-color-green {
   background-color: #55d426;
   color: white;
 }
 
-/* line 265, scss/_config.scss */
+/* line 281, scss/_config.scss */
 .back-color-yellow {
   background-color: #ff9800;
   color: white;
 }
 
-/* line 270, scss/_config.scss */
+/* line 286, scss/_config.scss */
 .back-color-orange {
   background-color: #ff9800;
   color: white;
 }
 
-/* line 275, scss/_config.scss */
+/* line 291, scss/_config.scss */
 .back-color-red {
   background-color: #ff4e2b;
   color: white;
 }
 
-/* line 280, scss/_config.scss */
+/* line 296, scss/_config.scss */
 .back-color-magenta {
   background-color: #b652bf;
   color: white;
 }
 
-/* line 286, scss/_config.scss */
+/* line 302, scss/_config.scss */
 .back-color-dark-blue {
   background-color: #002c87;
   color: white;
 }
 
-/* line 291, scss/_config.scss */
+/* line 307, scss/_config.scss */
 .back-color-dark-cyan {
   background-color: #00705d;
   color: white;
 }
 
-/* line 296, scss/_config.scss */
+/* line 312, scss/_config.scss */
 .back-color-dark-green {
   background-color: #0c9702;
   color: white;
 }
 
-/* line 301, scss/_config.scss */
+/* line 317, scss/_config.scss */
 .back-color-dark-orange {
   background-color: #ff7b00;
   color: white;
 }
 
-/* line 306, scss/_config.scss */
+/* line 322, scss/_config.scss */
 .back-color-dark-yellow {
   background-color: #ffd900;
   color: white;
 }
 
-/* line 311, scss/_config.scss */
+/* line 327, scss/_config.scss */
 .back-color-dark-red {
   background-color: #ff0a02;
   color: white;
 }
 
-/* line 316, scss/_config.scss */
+/* line 332, scss/_config.scss */
 .back-color-dark-magenta {
   background-color: #821a8f;
   color: white;
 }
 
-/* line 321, scss/_config.scss */
+/* line 337, scss/_config.scss */
 .back-color-light-blue {
   background-color: #acd6e7;
   color: white;
 }
 
-/* line 326, scss/_config.scss */
+/* line 342, scss/_config.scss */
 .back-color-light-cyan {
   background-color: #b1e8df;
   color: white;
 }
 
-/* line 331, scss/_config.scss */
+/* line 347, scss/_config.scss */
 .back-color-light-green {
   background-color: #c8efb1;
   color: white;
 }
 
-/* line 336, scss/_config.scss */
+/* line 352, scss/_config.scss */
 .back-color-light-orange {
   background-color: #ffeaa5;
   color: white;
 }
 
-/* line 341, scss/_config.scss */
+/* line 357, scss/_config.scss */
 .back-color-light-yellow {
   background-color: #fff8a9;
   color: white;
 }
 
-/* line 346, scss/_config.scss */
+/* line 362, scss/_config.scss */
 .back-color-light-red {
   background-color: #ffc4b3;
   color: white;
 }
 
-/* line 351, scss/_config.scss */
+/* line 367, scss/_config.scss */
 .back-color-pale-blue {
   background-color: #d5eaf3;
   color: white;
 }
 
-/* line 356, scss/_config.scss */
+/* line 372, scss/_config.scss */
 .back-color-light-magenta {
   background-color: #d294d7;
   color: white;
 }
 
-/* line 361, scss/_config.scss */
+/* line 377, scss/_config.scss */
 .back-color-pale-cyan {
   background-color: #d8f3ef;
   color: white;
 }
 
-/* line 366, scss/_config.scss */
+/* line 382, scss/_config.scss */
 .back-color-pale-green {
   background-color: #e3f7d8;
   color: white;
 }
 
-/* line 371, scss/_config.scss */
+/* line 387, scss/_config.scss */
 .back-color-pale-orange {
   background-color: #fff4d2;
   color: white;
 }
 
-/* line 376, scss/_config.scss */
+/* line 392, scss/_config.scss */
 .back-color-pale-yellow {
   background-color: #fffbd4;
   color: white;
 }
 
-/* line 381, scss/_config.scss */
+/* line 397, scss/_config.scss */
 .back-color-pale-red {
   background-color: #ffe1d9;
   color: white;
 }
 
-/* line 386, scss/_config.scss */
+/* line 402, scss/_config.scss */
 .back-color-pale-magenta {
   background-color: #e8c9eb;
   color: white;
@@ -477,19 +497,20 @@ body {
 }
 /* line 128, scss/base.scss */
 #search-results a {
-  color: white;
   text-decoration: none;
   cursor: pointer;
   border-radius: 5px;
   border: 2px solid #0088cc;
 }
-/* line 134, scss/base.scss */
+/* line 133, scss/base.scss */
 #search-results a:hover {
   border-color: white;
+  color: white;
 }
 /* line 137, scss/base.scss */
 #search-results a.search-result--preselected {
   border-color: white;
+  color: white;
 }
 
 /* ================================= END NAVBAR =============================*/

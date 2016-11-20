@@ -490,7 +490,7 @@ var tipsFlow = new Vue({
         } else if (self.mode=='public_profile'){
             this.allowFilters=false;
             this.allowAddTip = false;
-            this.allowEdit = true;
+            this.allowEdit = false;
             this.collapsed = true;
             this.collapsedMessage =jd.config.collapsed_message;
 

@@ -5,7 +5,7 @@
 # warnings.simplefilter('ignore', ExtDeprecationWarning)
 
 
-from flask import Flask, request, session, render_template, url_for, make_response
+from flask import Flask, request, session, render_template, url_for, make_response, redirect
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
@@ -52,7 +52,7 @@ app.config['EMAIL_HOST_PASSWORD']= MAIL_PASSWORD
 app.config['EMAIL_USE_SSL']= MAIL_USE_SSL
 app.config['EMAIL_USE_TLS']= MAIL_USE_TLS
 
-app.config['WTF_CSRF_TIME_LIMIT'] = 36000
+app.config['WTF_CSRF_TIME_LIMIT'] = None
 
 cache.init_app(app)
 
@@ -150,7 +150,19 @@ def sitemap():
 @app.route('/')
 def root():
     Log.register(action='route:root')
-    return render_template('main.html')
+    return render_template('ntb_base.html')
+
+@app.route('/active')
+def active():
+    places = list(db.engine.execute("""SELECT rus_name, url_string FROM G_places WHERE chd_has_tips=1 LIMIT 500"""))
+    links = '<br/>'.join(['<a href="/place/%s">%s</a>' % (p[1], p[0]) for p in places])
+    return links
+
+@app.route('/inactive')
+def inactive():
+    places = list(db.engine.execute("""SELECT rus_name, url_string FROM G_places WHERE chd_has_tips=0 LIMIT 500"""))
+    links = '<br/>'.join(['<a href="/place/%s">%s</a>' % (p[1], p[0]) for p in places])
+    return links
 
 @app.route('/users')
 def users():

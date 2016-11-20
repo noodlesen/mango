@@ -273,37 +273,36 @@
 .tip__vote-up{
     cursor: pointer;
     color: $pale-green;
-    &:hover{
+/*     &:hover{
         color:$light-green;
     }
     &:active{
         color: $dark-green;
-    }
+    } */
     margin-bottom: .7em;
 }
-
 
 
 .tip__vote-dn{
     cursor: pointer;
     color: $pale-red;
-    &:hover{
+/*     &:hover{
         color:$light-red;
-    }
+    } */
 }
 
 .tip__vote-up--active{
     color: $green;
-    &:hover{
+/*     &:hover{
         color:$dark-green;
-    }
+    } */
 }
 
 .tip__vote-dn--active{
     color: $red;
-    &:hover{
+/*     &:hover{
         color:$dark-red;
-    }
+    } */
 }
 
 .tip__author{

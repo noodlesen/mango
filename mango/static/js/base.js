@@ -53,18 +53,8 @@ var placeSearch = new Vue({
     methods:{
         choosePreSelected: function(){
             if (this.preSelected){
-               //location.assign(this.results[this.preSelectedIndex].url);
                var hr = this.results[this.preSelectedIndex].url;
                setTimeout(function(){window.location.pathname = hr;},500);
-               
-
-               //$(location).attr('href', 'http://www.sitefinity.com');
-
-                //window.location.assign("http://www.mozilla.org");//'http://localhost:5000'+this.results[this.preSelectedIndex].url;
-                //console.log(this.results[this.preSelectedIndex].url);
-                //$('#search-results').trigger('click', 'a #sl'+this.preSelectedIndex);
-                //$('#sl'+this.preSelectedIndex).trigger('click');
-                //$("#search-results").find("a:first").trigger("click");
             }
         },
         elPreSelected: function(i){
