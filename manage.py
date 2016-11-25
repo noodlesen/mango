@@ -385,17 +385,19 @@ def count_comments():
 
 
 @manager.command
-def show_my_tips():
+def filter_my_comments():
     tips = list(db.engine.execute("""SELECT id, comments FROM tips"""))
     for t in tips:
         if t[1]:
             comments = json.loads(t[1])
-            for c in comments:
-                if c['author_id']==131:
-                    print ('#%d' % t[0])
-                    print(c['text'])
-                    print()
-
+            # for c in comments:
+            #     if c['author_id']==131:
+            #         print ('#%d' % t[0])
+            #         print(c['text'])
+            #         print()
+            new_comments = [c for c in comments if len(c['text'])>20]
+            print (new_comments)
+            db.engine.execute("""UPDATE tips SET comments='%s' WHERE id=%d""" % (json.dumps(new_comments), t[0]))
 
 
 if __name__ == "__main__":
