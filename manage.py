@@ -395,7 +395,7 @@ def filter_my_comments():
             #         print ('#%d' % t[0])
             #         print(c['text'])
             #         print()
-            new_comments = [c for c in comments if len(c['text'])>20]
+            new_comments = [c for c in comments if len(c['text'])>20 or c['author_id']!=131]
             print (new_comments)
             db.engine.execute("""UPDATE tips SET comments='%s' WHERE id=%d""" % (json.dumps(new_comments), t[0]))
 
