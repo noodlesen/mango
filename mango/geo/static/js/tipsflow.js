@@ -389,7 +389,7 @@ var tag = Vue.extend({
     },
     template:'<div class="filter-item" :class="[tag_class]" @click="toggle">\
                         <span class="glyphicon glyphicon-tag" :class="[act_color]" style="font-size:75%" ></span>\
-                        <span>{{name}}</span>\
+                        <span :style="{fontSize: (name.length>15 ? 70 : 100) +\'%\'}" >{{name}}</span>\
             </div>'
 });
 

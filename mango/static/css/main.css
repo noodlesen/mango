@@ -340,109 +340,68 @@
   color: white;
 }
 
-/* line 3, scss/ui.scss */
-.item-block {
-  background-color: #f8f8f8;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #c6c6c6;
-  margin-top: 6px;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.22);
-  border-radius: 6px;
-}
-/* line 12, scss/ui.scss */
-.item-block:hover {
-  background-color: white;
-  border-color: #acf;
-}
-
-/* line 18, scss/ui.scss */
-.item-block__body {
-  padding: 5px 10px;
-}
-
-/* line 22, scss/ui.scss */
-.cmd-bar {
-  display: none;
-  padding: 5px;
-  background-color: #eef;
-  color: black;
-  border-radius: 0 0 6px 6px;
-}
-
-/* line 31, scss/ui.scss */
-.cmd-bar__left {
-  float: left;
-  text-align: left;
-}
-
-/* line 36, scss/ui.scss */
-.cmd-bar__right {
-  float: right;
-  text-align: right;
-}
-
-/* line 41, scss/ui.scss */
-.cmd-bar-static {
-  padding: 5px;
-  color: black;
-  text-align: right;
-  border-radius: 0 0 6px 6px;
-}
-
-/* line 48, scss/ui.scss */
-.cmd-bar__button, .cmd-bar__btn--agree, .cmd-bar__btn--agree-active, .cmd-bar__btn--disagree, .cmd-bar__btn--disagree-active {
-  padding: 1px 3px;
-  background-color: white;
-  color: #0088cc;
-  text-align: center;
-  display: inline-block;
-  margin: 0 3px;
-  padding: 0 4px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-/* line 65, scss/ui.scss */
-.cmd-bar__btn--agree {
-  background-color: #c8efb1;
-}
-
-/* line 70, scss/ui.scss */
-.cmd-bar__btn--agree-active {
-  background-color: #55d426;
-}
-
-/* line 75, scss/ui.scss */
-.cmd-bar__btn--disagree {
-  background-color: #ffc4b3;
-}
-
-/* line 80, scss/ui.scss */
-.cmd-bar__btn--disagree-active {
-  background-color: #ff4e2b;
-}
-
-/* line 86, scss/ui.scss */
-.confirm-delete {
-  background-color: red;
-  color: white;
-  padding: 3px 10px;
-  border-radius: 4px;
-  margin-top: 3px;
-}
-
-/* line 95, scss/ui.scss */
-.has-cmd-bar:hover .cmd-bar {
+/* line 3, scss/main.scss */
+#main-logo {
   display: block;
+  width: 50%;
+  margin: 3em auto 2em;
 }
 
-/* line 100, scss/ui.scss */
-.badge {
-  background-color: red;
-  color: white;
-  font-weight: bolder;
+/* line 9, scss/main.scss */
+#main__search {
+  text-align: center;
+  min-width: 20em;
+  margin-top: .8em;
+  width: 100%;
+}
+@media only screen and (max-width: 767px) {
+  /* line 9, scss/main.scss */
+  #main__search {
+    min-width: 100%;
+    width: 100%;
+    float: none;
+  }
+}
+/* line 16, scss/main.scss */
+#main__search input {
+  border-radius: 1em;
   display: inline-block;
-  padding: 6px 8px;
-  border-radius: 12px;
+  width: 80%;
+  vertical-align: middle;
+  border-color: #acd6e7;
+  border-width: 2px;
+  font-size: 120%;
+  height: 2em;
+}
+/* line 26, scss/main.scss */
+#main__search span {
+  vertical-align: middle;
+  font-size: 1.5em;
+  color: #0088cc;
+}
+
+/* line 33, scss/main.scss */
+#main-search-results {
+  padding: 2px 10% 2em;
+  background-color: #f8f8f8;
+  color: white;
+}
+/* line 37, scss/main.scss */
+#main-search-results a {
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #f8f8f8;
+}
+/* line 42, scss/main.scss */
+#main-search-results a:hover {
+  border-color: #0088cc;
+  background-color: #0088cc;
+  color: white;
+}
+/* line 47, scss/main.scss */
+#main-search-results a.search-result--preselected {
+  border-color: #0088cc;
+  background-color: #0088cc;
+  color: white;
 }

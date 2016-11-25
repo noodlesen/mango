@@ -100,11 +100,11 @@ def maintenance():
 @app.route('/robots.txt')
 def robots():
     if not ALLOW_ROBOTS:
-        return ("User-agent: *\nDisallow: /")
+        response = make_response("User-agent: *\nDisallow: /")
     else:
-        return ("User-agent: *\nDisallow:")
-
-
+        response = make_response("User-agent: *\nDisallow:")
+    response.headers["content-type"] = "text/plain"
+    return response
 
 @app.route('/sitemap.xml', methods=['GET'])
 @cache.cached(timeout=3600)
@@ -150,7 +150,7 @@ def sitemap():
 @app.route('/')
 def root():
     Log.register(action='route:root')
-    return render_template('ntb_base.html')
+    return render_template('main.html')
 
 @app.route('/active')
 def active():

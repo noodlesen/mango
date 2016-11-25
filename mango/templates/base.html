@@ -1,18 +1,6 @@
 {% extends 'bootstrap/base.html' %}
 
-{% macro search_field(cl) %}
-<div id="navbar__search" class="{{cl}}">
-    <span class="glyphicon glyphicon-map-marker"></span>
-    <input type="text" 
-           class="form-control" 
-           placeholder="Поиск мест" 
-           v-model="needle" 
-           @keyup="checkNeedle" 
-           @keyup.enter="choosePreSelected"
-           @keyup.up="preSelect(-1)"
-           @keyup.down="preSelect(1)">
-</div>
-{% endmacro %}
+{% from 'macros.html' import search_field %}
 
 {% block head %}
 {{ super () }}
@@ -41,17 +29,17 @@
 
 {% block navbar %}
     
-    <div id="navbar">
+    <div id="navbar" class="place-search__scope">
         <div class="container-fluid">
 
                 <div id="navbar__logo">
                     <a href="{{url_for('root')}}">
-                        <img src="{{url_for('static', filename='images/kdb_logo_160.png')}}" />
+                        <img src="{{url_for('static', filename='images/logo.svg')}}" />
                     </a>
                 </div>
 
             
-                {{search_field("hidden-xs")}}
+                {{search_field("navbar__search", "hidden-xs")}}
                 
 
                 
@@ -104,7 +92,7 @@
 
                 <div class="divider visible-xs"></div>
 
-                {{search_field("visible-xs")}}
+                {{search_field("navbar__search","visible-xs")}}
 
                  <div class="divider visible-xs"></div>
                 

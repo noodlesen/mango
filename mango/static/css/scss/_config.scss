@@ -19,6 +19,13 @@ $screen-lg: 1200px;
   @else if $media == lg {
     @media only screen and (min-width: $screen-lg) { @content; }
   }
+  @else if $media == retina {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2), /* Webkit-based browsers */
+       (min--moz-device-pixel-ratio: 2),    /* Older Firefox browsers (prior to Firefox 16) */
+       (min-resolution: 2dppx),             /* The standard way */
+       (min-resolution: 192dpi)             /* dppx fallback */
+       { @content; }
+  }
 }
 /*  EXAMPLE
 .block {

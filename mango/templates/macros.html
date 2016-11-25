@@ -1,0 +1,13 @@
+{% macro search_field(did,cl) %}
+<div id="{{did}}" class="{{cl}}">
+    <span class="glyphicon glyphicon-map-marker"></span>
+    <input type="text" 
+           class="form-control" 
+           placeholder="Выберите место..." 
+           v-model="needle" 
+           @keyup="checkNeedle" 
+           @keyup.enter="choosePreSelected"
+           @keyup.up="preSelect(-1)"
+           @keyup.down="preSelect(1)">
+</div>
+{% endmacro %}

@@ -41,7 +41,7 @@ $(document).ready(function(){
 });
 
 var placeSearch = new Vue({
-    el: '#navbar',
+    el: '.place-search__scope',
     data: {
         needle: '',
         previousNeedle:'',

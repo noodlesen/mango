@@ -384,6 +384,17 @@ def count_comments():
         db.engine.execute("""UPDATE tips SET chd_comments_count=%d WHERE id=%d""" %(cc, t[0]))
 
 
+@manager.command
+def show_my_tips():
+    tips = list(db.engine.execute("""SELECT id, comments FROM tips"""))
+    for t in tips:
+        if t[1]:
+            comments = json.loads(t[1])
+            for c in comments:
+                if c['author_id']==131:
+                    print ('#%d' % t[0])
+                    print(c['text'])
+                    print()
 
 
 
