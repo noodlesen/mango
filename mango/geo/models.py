@@ -124,6 +124,7 @@ class Tip(db.Model):
     created_at = db.Column(db.DateTime)
     updated_at = db.Column(db.DateTime)
     chd_comments_count = db.Column(db.Integer, default=0)
+    taglines = db.Column(db.Text)
 
     #temp
     taglines = db.Column(db.Text)

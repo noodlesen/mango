@@ -418,7 +418,8 @@ def save_out_tweets():
                 print (tid, "OK")
 
     
-                # tweets+="@"+'\n'.join([tip[2], tip[1], tip[0],'\n'])
+                #tweets+="@"+'\n'.join([tip[2], tip[1], tip[0],'\n'])
+                tweets+="\n".join(["^"+str(t.place.id)+"-"+t.place.rus_name+" ("+t.place.country.rus_name+")", "@"+t.sex, t.taglines, t.text, '\n'])
                 # print(lc, tid, tip[2])
                 if tid not in tns:
                     tns.append(tid)
