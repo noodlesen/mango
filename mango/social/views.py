@@ -29,7 +29,7 @@ from . .logger import Log
 
 
 def welcome_procedure():
-    Notification.add(current_user.id, 'personal', 'Добро пожаловать в органы, сынок! (Пример приветственного сообщения) Параллельно должно прийти письмо на почту')
+    Notification.add(current_user.id, 'personal', 'Добро пожаловать на КУДАБЫ!!! Как здорово, что вы к нам присоединились! :)')
     Mailer.welcome_mail(current_user.contact_email)
 
 

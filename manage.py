@@ -390,14 +390,32 @@ def filter_my_comments():
     for t in tips:
         if t[1]:
             comments = json.loads(t[1])
-            # for c in comments:
-            #     if c['author_id']==131:
-            #         print ('#%d' % t[0])
-            #         print(c['text'])
-            #         print()
-            new_comments = [c for c in comments if len(c['text'])>20 or c['author_id']!=131]
-            print (new_comments)
-            db.engine.execute("""UPDATE tips SET comments='%s' WHERE id=%d""" % (json.dumps(new_comments), t[0]))
+            for c in comments:
+                if c['author_id']==131:
+                    print ('#%d' % t[0])
+                    print(c['text'])
+                    print()
+            # new_comments = [c for c in comments if len(c['text'])>20 or c['author_id']!=131]
+            # print (new_comments)
+            # db.engine.execute("""UPDATE tips SET comments='%s' WHERE id=%d""" % (json.dumps(new_comments), t[0]))
+
+@manager.command
+def save_out_tweets():
+    tweets=''
+    with open('out_tweets.txt', 'r') as f:
+        lines=f.read().split('\n')
+        for l in lines:
+            tid = int(l.split('/')[-1])
+            tip = list(db.engine.execute("""SELECT text, taglines, sex FROM tips WHERE id=%d""" % tid))[0]
+            print ()
+            print (tip[1])
+            print (tip[0])
+            print ()
+            tweets+="@"+'\n'.join([tip[2], tip[1], tip[0],'\n'])
+    with open('excluded.txt','w') as w:
+        w.write(tweets)
+
+
 
 
 if __name__ == "__main__":

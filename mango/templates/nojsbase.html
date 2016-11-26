@@ -1,18 +1,6 @@
 {% extends 'bootstrap/base.html' %}
 
-{% macro search_field(cl) %}
-<div id="navbar__search" class="{{cl}}">
-    <span class="glyphicon glyphicon-map-marker"></span>
-    <input type="text" 
-           class="form-control" 
-           placeholder="Поиск мест" 
-           v-model="needle" 
-           @keyup="checkNeedle" 
-           @keyup.enter="choosePreSelected"
-           @keyup.up="preSelect(-1)"
-           @keyup.down="preSelect(1)">
-</div>
-{% endmacro %}
+{% from 'base_macros.html' import search_field %}
 
 {% block head %}
 {{ super () }}

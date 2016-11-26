@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 var cTip = Vue.extend({
 
-    props: ['tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit', 'related','mode'],
+    props: ['text','tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit', 'related','mode'],
 
     data: function(){
         return { 
@@ -54,15 +54,15 @@ var cTip = Vue.extend({
     },
     methods:{
         shareVk: function(){
-            Share.vkontakte(this.url, 'Полезный совет', 'А тут собственно текст');
+            Share.vkontakte(this.url, 'Кудабы.Ру: Совет от пользователя '+this.author.name, this.text);
         },
 
         shareFacebook: function(){
-            Share.facebook(this.url, 'Полезный совет');
+            Share.facebook(this.url, this.text);
         },
 
         shareTwitter: function(){
-            Share.twitter(this.url, 'Полезный совет');
+            Share.twitter(this.url, this.text);
         },
         clickUpVote: function(){
             if (signedIn){
@@ -263,7 +263,7 @@ var cTip = Vue.extend({
                                 <div class="clearfix"></div>\
                             </div>\
                         <div class="tip__main-text">\
-                           <slot></slot> <span class="plink comment-link" v-if="hasComments" @click="toggleShowComments"> <i class="fa fa-comment"></i>{{comments ? comments.length : 0}}</span>\
+                           <slot></slot>{{text}} <span class="plink comment-link" v-if="hasComments" @click="toggleShowComments"> <i class="fa fa-comment"></i>{{comments ? comments.length : 0}}</span>\
                         </div>\
                         <div class="tip__bottom">\
                         </div>\
@@ -902,9 +902,9 @@ var tipsFlow = new Vue({
                             :edit="allowEdit"\
                             :related="relatedUsers"\
                             :mode="mode"\
+                            :text="tip.text"\
                             :comments="tip.comments">\
                         {{tip.showThis}}\
-                        {{tip.text}}\
                     </c-tip>\
                     </div>\
                 </div>\

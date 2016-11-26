@@ -29,6 +29,8 @@ from .logger import Log
 
 app = Flask(__name__)
 
+app.url_map.strict_slashes = False
+
 app.register_blueprint(social)
 app.register_blueprint(admin)
 app.register_blueprint(geo)
@@ -80,9 +82,17 @@ def load_user(id):
     else:
         return None
 
+
 @app.before_request
 def make_session_permanent():
     session.permanent = True
+
+
+@app.before_request
+def clear_trailing():
+    rp = request.path 
+    if rp != '/' and rp.endswith('/'):
+        return redirect(rp[:-1]), 301
 
 
 @app.before_request
