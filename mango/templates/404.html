@@ -1,4 +1,4 @@
-{% extends "nojsbase.html" %}
+{% extends "ntb_base.html" %}
 
 {% block title %}{% endblock %}
 
@@ -12,4 +12,7 @@
     <h1 class="center-label">404: СТРАНИЦА НЕ НАЙДЕНА</h1>
     <p class="center-sub-label">Похоже по этому адресу ничего нет. Возможно, страница была удалена её владельцем</p>
     <p class="center-sub-label"><a href="{{url_for('root')}}">Вернуться на главную</a></p>
+{% endblock %}
+
+{% block scripts %}
 {% endblock %}

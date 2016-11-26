@@ -402,18 +402,38 @@ def filter_my_comments():
 @manager.command
 def save_out_tweets():
     tweets=''
+    tns = []
     with open('out_tweets.txt', 'r') as f:
         lines=f.read().split('\n')
+        lc=0
         for l in lines:
+            lc+=1
             tid = int(l.split('/')[-1])
-            tip = list(db.engine.execute("""SELECT text, taglines, sex FROM tips WHERE id=%d""" % tid))[0]
-            print ()
-            print (tip[1])
-            print (tip[0])
-            print ()
-            tweets+="@"+'\n'.join([tip[2], tip[1], tip[0],'\n'])
+            #print ("tid %d" % tid)
+
+            #tip_res = list(db.engine.execute("""SELECT text, taglines, sex FROM tips WHERE id=%d""" % tid))
+
+            t = Tip.query.get(tid)
+            if t:
+                print (tid, "OK")
+
+    
+                # tweets+="@"+'\n'.join([tip[2], tip[1], tip[0],'\n'])
+                # print(lc, tid, tip[2])
+                if tid not in tns:
+                    tns.append(tid)
+
+
     with open('excluded.txt','w') as w:
         w.write(tweets)
+
+    print(tns)
+    print("TOTAL", len(tns))
+
+
+
+    db.engine.execute("""DELETE FROM tips WHERE id IN (%s)""" % ", ".join([str(x) for x in tns]))
+
 
 
 
