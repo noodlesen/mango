@@ -109,7 +109,7 @@ def old_places(pid):
     Log.register(action='geo.route:legacy_place', data=pid)
     p = Place.query.filter_by(fpid=pid).first()
     if p:
-        return redirect(url_for('geo.places', us=p.url_string))
+        return redirect(url_for('geo.places', us=p.url_string)), 301
     else:
         abort(404)
 

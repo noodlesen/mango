@@ -436,8 +436,31 @@ def save_out_tweets():
     db.engine.execute("""DELETE FROM tips WHERE id IN (%s)""" % ", ".join([str(x) for x in tns]))
 
 
+@manager.command
+def make_url_strings():
+    places = list(db.engine.execute("""SELECT p.id, p.url_string, p.eng_name, c.name FROM G_places AS p JOIN G_countries AS c ON p.country_id=c.id WHERE p.url_string LIKE '\_%%' """))
+    for p in places:
+        cname = unidecode(p[3].lower().replace(' ','_'))
+        current_us = p[1][1:]
+        inc = current_us.find(cname)
+        if  inc ==-1:
+            nn = current_us+"_"+cname
+        else:
+            nn = current_us
+        check = list(db.engine.execute("""SELECT url_string FROM G_places WHERE url_string="%s" """ % nn))
+        if len(check)==0:
+            print (p[1], " >>> ", nn, " : APPROVED")
+            db.engine.execute("""UPDATE G_places SET url_string="%s" WHERE id=%d""" %(nn,p[0]))
+        else:
+            print()
+            print (p[1], " >>> ", nn, " : DOUBLE")
+            print()
 
-
+@manager.command
+def quit_underscore():
+    places = list(db.engine.execute("""SELECT id, url_string FROM G_places"""))
+    for p in places:
+        db.engine.execute("""UPDATE G_places SET url_string = "%s" WHERE id=%d""" % (p[1].replace('_','-'),p[0]))
 
 if __name__ == "__main__":
     manager.run()

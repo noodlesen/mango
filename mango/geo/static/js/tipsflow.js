@@ -78,20 +78,21 @@ var cTip = Vue.extend({
                     selected = "downVote"
                 }
                 var self = this;
+                switch (selected){
+                    case "none":
+                        self.upVote = true;
+                        break;
+                    case "upVote":
+                        self.upVote=false;
+                        break;
+                    case "downVote":
+                        self.downVote=false;
+                        self.upVote=true;
+                        break;
+                }
                 getResults('/json/tip', 'json', {cmd: 'clickUpVote', selected: selected, id: this.id}, function(res){
                     if (res.status=='ok'){
-                        switch (selected){
-                            case "none":
-                                self.upVote = true;
-                                break;
-                            case "upVote":
-                                self.upVote=false;
-                                break;
-                            case "downVote":
-                                self.downVote=false;
-                                self.upVote=true;
-                                break;
-                        }
+             
                         self.upvoted = res.upvoted;
                         self.downvoted = res.downvoted;
                         self.$dispatch('eCheckTipsOrder', {id: self.id, upvoted: self.upvoted, downvoted: self.downvoted});
