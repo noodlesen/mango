@@ -24,6 +24,10 @@ from .geo import geo
 from .geo.models import Place
 from .logger import Log
 
+#from flask_assets import Bundle, Environment
+
+from .assets import assets
+
 
 
 
@@ -69,6 +73,10 @@ bootstrap = Bootstrap(app)
 
 lm = LoginManager(app)
 lm.login_view = 'social.login'
+
+#assets = Environment(app)
+
+assets.init_app(app)
 
 @app.context_processor
 def set_global_mode():
