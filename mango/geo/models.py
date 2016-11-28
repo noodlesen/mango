@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+from flask import url_for
 
 from . .db import db
 
@@ -134,7 +135,7 @@ class Tip(db.Model):
     def cache_it(self):
         cache = {
                 "author":{'id':self.user.id, 'name':self.user.nickname},
-                "tags":[]
+                "tags":[], "url": url_for('geo.places', us=self.place.url_string)+"?t="+str(self.id)
                 }
 
         for tag in self.tags:

@@ -66,7 +66,7 @@ def get_tips_data(tips_list, **kwargs):
                 'upvoted': t.chd_upvoted,
                 'downvoted': t.chd_downvoted,
                 'rating': t.chd_upvoted - t.chd_downvoted,
-                'url': url_for('geo.single_tip', tid=t.id, _external = True)
+                'url': url_for('root', _external=True)+cached_data['url'][1:]
                 }
                 
         tip['tags'] = cached_data['tags']
@@ -218,30 +218,30 @@ def place_search():
 
 #  TIP ROUTES =========================================================
 
-@geo.route('/tip/<tid>', methods=['GET'])
-def single_tip(tid):
-    Log.register(action='geo.route:single_tip', data=tid)
-    tip = Tip.query.get(tid)
+# @geo.route('/tip/<tid>', methods=['GET'])
+# def single_tip(tid):
+#     Log.register(action='geo.route:single_tip', data=tid)
+#     tip = Tip.query.get(tid)
 
-    jd ={}
+#     jd ={}
         
-    td = get_tips_data([tip])
+#     td = get_tips_data([tip])
 
-    jd.update(td)
+#     jd.update(td)
     
-    #jd['all_tags']= get_all_tags()        
+#     #jd['all_tags']= get_all_tags()        
 
-    jd['config'] = {
-                    'mode': 'single'
-    }
+#     jd['config'] = {
+#                     'mode': 'single'
+#     }
 
-    print (jd)
+#     print (jd)
 
-    return render_template('alt_single_tip.html',
-                            tip = tip,
-                            json_data=json.dumps(jd),
-                            signed_in=current_user.is_authenticated,
-                            )
+#     return render_template('alt_single_tip.html',
+#                             tip = tip,
+#                             json_data=json.dumps(jd),
+#                             signed_in=current_user.is_authenticated,
+#                             )
     
     # if tip:
     #     if current_user.is_authenticated:
