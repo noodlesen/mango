@@ -70,7 +70,11 @@ def get_tips_data(tips_list, **kwargs):
                 }
                 
         tip['tags'] = cached_data['tags']
-        td['tips'].append(tip)
+        if 'featured' in kwargs and kwargs['featured'] == str(tip['id']):
+            td['featured']=tip
+            print (">>>>>>>>>>>>>>>>>>>>FEATURED ", tip['id'])
+        else:
+            td['tips'].append(tip)
 
     td['tips'] = sorted(td['tips'], key=itemgetter('rating'), reverse=True)
     
@@ -116,12 +120,23 @@ def old_places(pid):
 
 @geo.route('/place/<us>', methods=['GET'])
 def places(us):
+
+    
+    #featured = 36231
+
+    try:
+        #featured = request.args.get('featured')
+        featured = request.args['t'] if request.args and request.args['t'] else -1
+    except KeyError:
+        abort(404)
     Log.register(action='geo.route:place', data=us)
     p = Place.query.filter_by(url_string=us).first()
     if p:
         jd ={}
+
+        print ("*****************GET ", featured)
         
-        td = get_tips_data(p.tips, place_id=p.id)
+        td = get_tips_data(p.tips, place_id=p.id, featured=featured)
 
         jd.update(td)
         
@@ -146,7 +161,8 @@ def places(us):
                                airports=p.get_airports(),
                                signed=current_user.is_authenticated,
                                subscribed=subscribed,
-                               place_tags = jd["place_tags"]
+                               place_tags = jd["place_tags"],
+                               featured=featured
                                )
 
     else:

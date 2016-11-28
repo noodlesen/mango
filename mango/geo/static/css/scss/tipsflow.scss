@@ -143,6 +143,14 @@
 
 .tip{
     background-color: white;
+    &.featured{
+        border-color: $light-blue;
+        border-width: 3px;
+        .tip__main-text{
+            padding-left: 1em;
+            font-size: 120%;
+        }
+    }
 }
 
 .tip-agreed{

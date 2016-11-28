@@ -6,335 +6,335 @@
   @include respond-to(medium-screens) { width: 125px; }
   @include respond-to(wide-screens) { float: none; }
 }​ */
-/* line 102, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 109, ../../../static/css/scss/_config.scss */
 .back-color-white {
   background-color: white;
 }
 
-/* line 106, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 113, ../../../static/css/scss/_config.scss */
 .color-white {
   color: white;
 }
 
-/* line 110, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 117, ../../../static/css/scss/_config.scss */
 .back-color-black {
   background-color: black;
 }
 
-/* line 114, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 121, ../../../static/css/scss/_config.scss */
 .color-black {
   color: black;
 }
 
-/* line 118, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 125, ../../../static/css/scss/_config.scss */
 .color-blue {
   color: #0088cc;
 }
 
-/* line 123, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 130, ../../../static/css/scss/_config.scss */
 .color-cyan {
   color: #0cbeb2;
 }
 
-/* line 128, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 135, ../../../static/css/scss/_config.scss */
 .color-green {
   color: #55d426;
 }
 
-/* line 133, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 140, ../../../static/css/scss/_config.scss */
 .color-yellow {
   color: #ff9800;
 }
 
-/* line 138, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 145, ../../../static/css/scss/_config.scss */
 .color-orange {
   color: #ff9800;
 }
 
-/* line 143, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 150, ../../../static/css/scss/_config.scss */
 .color-red {
   color: #ff4e2b;
 }
 
-/* line 147, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 154, ../../../static/css/scss/_config.scss */
 .color-magenta {
   color: #b652bf;
 }
 
-/* line 153, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 160, ../../../static/css/scss/_config.scss */
 .color-dark-blue {
   color: #002c87;
 }
 
-/* line 158, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 165, ../../../static/css/scss/_config.scss */
 .color-dark-cyan {
   color: #00705d;
 }
 
-/* line 163, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 170, ../../../static/css/scss/_config.scss */
 .color-dark-green {
   color: #0c9702;
 }
 
-/* line 168, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 175, ../../../static/css/scss/_config.scss */
 .color-dark-orange {
   color: #ff7b00;
 }
 
-/* line 173, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 180, ../../../static/css/scss/_config.scss */
 .color-dark-yellow {
   color: #ffd900;
 }
 
-/* line 178, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 185, ../../../static/css/scss/_config.scss */
 .color-dark-red {
   color: #ff0a02;
 }
 
-/* line 183, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 190, ../../../static/css/scss/_config.scss */
 .color-dark-magenta {
   color: #821a8f;
 }
 
-/* line 188, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 195, ../../../static/css/scss/_config.scss */
 .color-light-blue {
   color: #acd6e7;
 }
 
-/* line 193, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 200, ../../../static/css/scss/_config.scss */
 .color-light-cyan {
   color: #b1e8df;
 }
 
-/* line 198, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 205, ../../../static/css/scss/_config.scss */
 .color-light-green {
   color: #c8efb1;
 }
 
-/* line 203, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 210, ../../../static/css/scss/_config.scss */
 .color-light-orange {
   color: #ffeaa5;
 }
 
-/* line 208, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 215, ../../../static/css/scss/_config.scss */
 .color-light-yellow {
   color: #fff8a9;
 }
 
-/* line 213, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 220, ../../../static/css/scss/_config.scss */
 .color-light-red {
   color: #ffc4b3;
 }
 
-/* line 218, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 225, ../../../static/css/scss/_config.scss */
 .color-pale-blue {
   color: #d5eaf3;
 }
 
-/* line 223, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 230, ../../../static/css/scss/_config.scss */
 .color-light-magenta {
   color: #d294d7;
 }
 
-/* line 228, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 235, ../../../static/css/scss/_config.scss */
 .color-pale-cyan {
   color: #d8f3ef;
 }
 
-/* line 233, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 240, ../../../static/css/scss/_config.scss */
 .color-pale-green {
   color: #e3f7d8;
 }
 
-/* line 238, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 245, ../../../static/css/scss/_config.scss */
 .color-pale-yellow {
   color: #fff4d2;
 }
 
-/* line 243, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 250, ../../../static/css/scss/_config.scss */
 .color-pale-yellow {
   color: #fffbd4;
 }
 
-/* line 248, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 255, ../../../static/css/scss/_config.scss */
 .color-pale-red {
   color: #ffe1d9;
 }
 
-/* line 253, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 260, ../../../static/css/scss/_config.scss */
 .color-pale-magenta {
   color: #e8c9eb;
 }
 
-/* line 261, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 268, ../../../static/css/scss/_config.scss */
 .back-color-none {
   background-color: #78a7b4;
   color: white;
 }
 
-/* line 266, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 273, ../../../static/css/scss/_config.scss */
 .back-color-blue {
   background-color: #0088cc;
   color: white;
 }
 
-/* line 271, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 278, ../../../static/css/scss/_config.scss */
 .back-color-cyan {
   background-color: #0cbeb2;
   color: white;
 }
 
-/* line 276, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 283, ../../../static/css/scss/_config.scss */
 .back-color-green {
   background-color: #55d426;
   color: white;
 }
 
-/* line 281, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 288, ../../../static/css/scss/_config.scss */
 .back-color-yellow {
   background-color: #ff9800;
   color: white;
 }
 
-/* line 286, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 293, ../../../static/css/scss/_config.scss */
 .back-color-orange {
   background-color: #ff9800;
   color: white;
 }
 
-/* line 291, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 298, ../../../static/css/scss/_config.scss */
 .back-color-red {
   background-color: #ff4e2b;
   color: white;
 }
 
-/* line 296, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 303, ../../../static/css/scss/_config.scss */
 .back-color-magenta {
   background-color: #b652bf;
   color: white;
 }
 
-/* line 302, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 309, ../../../static/css/scss/_config.scss */
 .back-color-dark-blue {
   background-color: #002c87;
   color: white;
 }
 
-/* line 307, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 314, ../../../static/css/scss/_config.scss */
 .back-color-dark-cyan {
   background-color: #00705d;
   color: white;
 }
 
-/* line 312, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 319, ../../../static/css/scss/_config.scss */
 .back-color-dark-green {
   background-color: #0c9702;
   color: white;
 }
 
-/* line 317, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 324, ../../../static/css/scss/_config.scss */
 .back-color-dark-orange {
   background-color: #ff7b00;
   color: white;
 }
 
-/* line 322, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 329, ../../../static/css/scss/_config.scss */
 .back-color-dark-yellow {
   background-color: #ffd900;
   color: white;
 }
 
-/* line 327, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 334, ../../../static/css/scss/_config.scss */
 .back-color-dark-red {
   background-color: #ff0a02;
   color: white;
 }
 
-/* line 332, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 339, ../../../static/css/scss/_config.scss */
 .back-color-dark-magenta {
   background-color: #821a8f;
   color: white;
 }
 
-/* line 337, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 344, ../../../static/css/scss/_config.scss */
 .back-color-light-blue {
   background-color: #acd6e7;
   color: white;
 }
 
-/* line 342, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 349, ../../../static/css/scss/_config.scss */
 .back-color-light-cyan {
   background-color: #b1e8df;
   color: white;
 }
 
-/* line 347, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 354, ../../../static/css/scss/_config.scss */
 .back-color-light-green {
   background-color: #c8efb1;
   color: white;
 }
 
-/* line 352, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 359, ../../../static/css/scss/_config.scss */
 .back-color-light-orange {
   background-color: #ffeaa5;
   color: white;
 }
 
-/* line 357, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 364, ../../../static/css/scss/_config.scss */
 .back-color-light-yellow {
   background-color: #fff8a9;
   color: white;
 }
 
-/* line 362, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 369, ../../../static/css/scss/_config.scss */
 .back-color-light-red {
   background-color: #ffc4b3;
   color: white;
 }
 
-/* line 367, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 374, ../../../static/css/scss/_config.scss */
 .back-color-pale-blue {
   background-color: #d5eaf3;
   color: white;
 }
 
-/* line 372, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 379, ../../../static/css/scss/_config.scss */
 .back-color-light-magenta {
   background-color: #d294d7;
   color: white;
 }
 
-/* line 377, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 384, ../../../static/css/scss/_config.scss */
 .back-color-pale-cyan {
   background-color: #d8f3ef;
   color: white;
 }
 
-/* line 382, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 389, ../../../static/css/scss/_config.scss */
 .back-color-pale-green {
   background-color: #e3f7d8;
   color: white;
 }
 
-/* line 387, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 394, ../../../static/css/scss/_config.scss */
 .back-color-pale-orange {
   background-color: #fff4d2;
   color: white;
 }
 
-/* line 392, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 399, ../../../static/css/scss/_config.scss */
 .back-color-pale-yellow {
   background-color: #fffbd4;
   color: white;
 }
 
-/* line 397, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 404, ../../../static/css/scss/_config.scss */
 .back-color-pale-red {
   background-color: #ffe1d9;
   color: white;
 }
 
-/* line 402, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 409, ../../../static/css/scss/_config.scss */
 .back-color-pale-magenta {
   background-color: #e8c9eb;
   color: white;
@@ -500,18 +500,28 @@
 .tip {
   background-color: white;
 }
+/* line 146, scss/tipsflow.scss */
+.tip.featured {
+  border-color: #acd6e7;
+  border-width: 3px;
+}
+/* line 149, scss/tipsflow.scss */
+.tip.featured .tip__main-text {
+  padding-left: 1em;
+  font-size: 120%;
+}
 
-/* line 148, scss/tipsflow.scss */
+/* line 156, scss/tipsflow.scss */
 .tip-agreed {
   background-color: #e3f7d8;
 }
 
-/* line 151, scss/tipsflow.scss */
+/* line 159, scss/tipsflow.scss */
 .tip-disagreed {
   background-color: #ffe1d9;
 }
 
-/* line 155, scss/tipsflow.scss */
+/* line 163, scss/tipsflow.scss */
 .filter-item {
   padding: 1px 7px;
   border-radius: 5px 0 0 5px;
@@ -520,19 +530,19 @@
   cursor: pointer;
 }
 
-/* line 163, scss/tipsflow.scss */
+/* line 171, scss/tipsflow.scss */
 .filter-item-inactive {
   background-color: #efefef;
   color: #c6c6c6;
   border: 1px solid #c6c6c6;
 }
-/* line 168, scss/tipsflow.scss */
+/* line 176, scss/tipsflow.scss */
 .filter-item-inactive:hover {
   border: 1px solid #878787;
   color: #878787;
 }
 
-/* line 175, scss/tipsflow.scss */
+/* line 183, scss/tipsflow.scss */
 .tip__main-text {
   font-size: 14px;
   line-height: 1.3em;
@@ -541,12 +551,12 @@
   padding-right: 4px;
   padding-top: 4px;
 }
-/* line 182, scss/tipsflow.scss */
+/* line 190, scss/tipsflow.scss */
 .tip__main-text:first-letter {
   font-size: 1.2em;
 }
 
-/* line 187, scss/tipsflow.scss */
+/* line 195, scss/tipsflow.scss */
 .tip__tag, .form__tag, .form__main-tag, .form__added-tag {
   display: inline-block;
   color: white;
@@ -554,7 +564,7 @@
   cursor: pointer;
 }
 
-/* line 194, scss/tipsflow.scss */
+/* line 202, scss/tipsflow.scss */
 .tip__tag {
   font-size: 12px;
   border-radius: 2px;
@@ -562,7 +572,7 @@
   margin-right: 1px;
 }
 
-/* line 203, scss/tipsflow.scss */
+/* line 211, scss/tipsflow.scss */
 .form__tag {
   font-size: 14px;
   border-radius: 3px;
@@ -571,7 +581,7 @@
   line-height: 1.3em;
 }
 
-/* line 212, scss/tipsflow.scss */
+/* line 220, scss/tipsflow.scss */
 .form__main-tag {
   display: block;
   float: left;
@@ -585,7 +595,7 @@
   line-height: 1.3em;
 }
 
-/* line 226, scss/tipsflow.scss */
+/* line 234, scss/tipsflow.scss */
 .form__added-tag {
   font-size: 14px;
   border-radius: 3px;
@@ -593,28 +603,28 @@
   margin-right: 3px;
   line-height: 1.3em;
 }
-/* line 233, scss/tipsflow.scss */
+/* line 241, scss/tipsflow.scss */
 .form__added-tag .added-tag__remove-sign {
   display: none;
 }
-/* line 236, scss/tipsflow.scss */
+/* line 244, scss/tipsflow.scss */
 .form__added-tag:hover .added-tag__remove-sign {
   display: inline;
 }
 
-/* line 241, scss/tipsflow.scss */
+/* line 249, scss/tipsflow.scss */
 .tip__tags {
   float: left;
   width: 96%;
 }
 @media only screen and (max-width: 767px) {
-  /* line 241, scss/tipsflow.scss */
+  /* line 249, scss/tipsflow.scss */
   .tip__tags {
     width: 88%;
   }
 }
 
-/* line 248, scss/tipsflow.scss */
+/* line 256, scss/tipsflow.scss */
 .tip__favorite {
   float: right;
   text-align: right;
@@ -625,12 +635,12 @@
   cursor: pointer;
   margin-top: -3px;
 }
-/* line 256, scss/tipsflow.scss */
+/* line 264, scss/tipsflow.scss */
 .tip__favorite:hover {
   color: #ff7b00;
 }
 @media only screen and (max-width: 767px) {
-  /* line 248, scss/tipsflow.scss */
+  /* line 256, scss/tipsflow.scss */
   .tip__favorite {
     font-size: 1.8em;
     width: 12%;
@@ -638,17 +648,17 @@
   }
 }
 
-/* line 264, scss/tipsflow.scss */
+/* line 272, scss/tipsflow.scss */
 .tip__vote-icon {
   font-size: 120%;
 }
 
-/* line 268, scss/tipsflow.scss */
+/* line 276, scss/tipsflow.scss */
 .tip__vote-number {
   font-size: 75%;
 }
 
-/* line 273, scss/tipsflow.scss */
+/* line 281, scss/tipsflow.scss */
 .tip__vote-up {
   cursor: pointer;
   color: #e3f7d8;
@@ -661,7 +671,7 @@
   margin-bottom: .7em;
 }
 
-/* line 286, scss/tipsflow.scss */
+/* line 294, scss/tipsflow.scss */
 .tip__vote-dn {
   cursor: pointer;
   color: #ffe1d9;
@@ -670,7 +680,7 @@
       } */
 }
 
-/* line 294, scss/tipsflow.scss */
+/* line 302, scss/tipsflow.scss */
 .tip__vote-up--active {
   color: #55d426;
   /*     &:hover{
@@ -678,7 +688,7 @@
       } */
 }
 
-/* line 301, scss/tipsflow.scss */
+/* line 309, scss/tipsflow.scss */
 .tip__vote-dn--active {
   color: #ff4e2b;
   /*     &:hover{
@@ -686,12 +696,12 @@
       } */
 }
 
-/* line 308, scss/tipsflow.scss */
+/* line 316, scss/tipsflow.scss */
 .tip__author {
   font-weight: bolder;
 }
 
-/* line 316, scss/tipsflow.scss */
+/* line 324, scss/tipsflow.scss */
 .commentForm__ta {
   width: 100%;
   resize: vertical;
@@ -700,19 +710,19 @@
   border-radius: 6px;
 }
 
-/* line 324, scss/tipsflow.scss */
+/* line 332, scss/tipsflow.scss */
 .comments {
   width: 88%;
   margin-left: 10%;
   margin-top: 10px;
   margin-right: 2%;
 }
-/* line 329, scss/tipsflow.scss */
+/* line 337, scss/tipsflow.scss */
 .comments .comment__button {
   width: 100%;
 }
 
-/* line 334, scss/tipsflow.scss */
+/* line 342, scss/tipsflow.scss */
 .comment {
   background-color: white;
   border-width: 0 0 0 7px;
@@ -721,18 +731,18 @@
   padding: 12px 12px 2px 25px;
   margin-bottom: 5px;
 }
-/* line 341, scss/tipsflow.scss */
+/* line 349, scss/tipsflow.scss */
 .comment .comment__text {
   font-size: 14px;
   line-height: 1.3em;
   font-weight: 400;
   margin-bottom: 5px;
 }
-/* line 346, scss/tipsflow.scss */
+/* line 354, scss/tipsflow.scss */
 .comment .comment__text:first-letter {
   font-size: 1.2em;
 }
-/* line 350, scss/tipsflow.scss */
+/* line 358, scss/tipsflow.scss */
 .comment .comment__meta {
   font-size: 12px;
   width: 100%;
@@ -740,22 +750,22 @@
   color: #878787;
 }
 
-/* line 358, scss/tipsflow.scss */
+/* line 366, scss/tipsflow.scss */
 .comment-link {
   color: #0088cc;
 }
 
-/* line 363, scss/tipsflow.scss */
+/* line 371, scss/tipsflow.scss */
 .tip__share {
   padding: 5px 6px;
   background-color: #d5eaf3;
   color: #0088cc;
 }
-/* line 367, scss/tipsflow.scss */
+/* line 375, scss/tipsflow.scss */
 .tip__share i {
   font-size: 20px;
 }
-/* line 370, scss/tipsflow.scss */
+/* line 378, scss/tipsflow.scss */
 .tip__share input {
   padding: 0.1em 0.5em;
   border: 0.1em solid #0088cc;
@@ -763,7 +773,7 @@
   display: inline-block;
 }
 
-/* line 378, scss/tipsflow.scss */
+/* line 386, scss/tipsflow.scss */
 .tip-block__body {
   padding-bottom: 12px;
   width: 93%;
@@ -774,13 +784,13 @@
   min-height: 110px;
 }
 @media only screen and (max-width: 767px) {
-  /* line 378, scss/tipsflow.scss */
+  /* line 386, scss/tipsflow.scss */
   .tip-block__body {
     width: 88%;
   }
 }
 
-/* line 389, scss/tipsflow.scss */
+/* line 397, scss/tipsflow.scss */
 .tip-block__sidebar {
   padding-bottom: 12px;
   width: 7%;
@@ -791,14 +801,14 @@
   line-height: .5em;
 }
 @media only screen and (max-width: 767px) {
-  /* line 389, scss/tipsflow.scss */
+  /* line 397, scss/tipsflow.scss */
   .tip-block__sidebar {
     width: 12%;
     font-size: 1.8em;
   }
 }
 
-/* line 400, scss/tipsflow.scss */
+/* line 408, scss/tipsflow.scss */
 .tip__share-block {
   height: 30px;
   min-width: 30px;
@@ -811,13 +821,13 @@
   line-height: 0;
   cursor: pointer;
 }
-/* line 411, scss/tipsflow.scss */
+/* line 419, scss/tipsflow.scss */
 .tip__share-block:active {
   background-color: #0088cc;
   color: white;
 }
 
-/* line 417, scss/tipsflow.scss */
+/* line 425, scss/tipsflow.scss */
 .tip__share-link {
   display: inline-block;
   margin-left: 1em;

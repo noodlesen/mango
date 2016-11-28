@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 var cTip = Vue.extend({
 
-    props: ['text','tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit', 'related','mode'],
+    props: ['text','tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit', 'related','mode', 'featured'],
 
     data: function(){
         return { 
@@ -251,7 +251,7 @@ var cTip = Vue.extend({
 
     template: '<div>\
                 <div class="tip__extra-top"></div>\
-                <div class="item-block tip has-cmd-bar" >\
+                <div class="item-block tip has-cmd-bar" :class="{\'featured\':featured}" >\
                     <div class="tip-block__body" :class="{\'tip-upVoted\':upVote, \'tip-downVoted\':downVote}" >\
                             <div class="tip__top">\
                               <div class="tip__tags">\
@@ -450,7 +450,8 @@ var tipsFlow = new Vue({
         collapsed: false,
         collapsedMessage: '',
         allowTipFilters: true,
-        relatedUsers:[]
+        relatedUsers:[],
+        featured: null
     },
 
     computed:{
@@ -472,6 +473,9 @@ var tipsFlow = new Vue({
         var jd = JSON.parse(jsonData);
 
         self.mode = jd.config.mode;
+
+/*        this.featured = featured;
+        this.hasFeatured = featured >= 0 ? true : false;*/
 
         if (self.mode=='place'){
             this.allowFilters=true;
@@ -507,6 +511,8 @@ var tipsFlow = new Vue({
         self.shown_tips=jd.tips;
         self.sortTips();
 
+        self.featured = jd.featured;
+
         self.tagsFilter.placeTags=jd.place_tags;
         self.newTipForm.allTags=jd.all_tags ? jd.all_tags : [];
 
@@ -518,8 +524,6 @@ var tipsFlow = new Vue({
         self.tagsFilter.placeTags.forEach(function(t){
             self.tagsFilter.selectedTags[t.name]=false;
         });
-        
-        
         
 
         this.signedIn = signedIn;
@@ -836,6 +840,25 @@ var tipsFlow = new Vue({
                 <!-- ==== TIPS COLUMN ==== -->\
                 \
                 <div id="tips" :class="{\'tips-1sb\': allowFilters}" v-if="!collapsed">\
+                    <div v-if="featured">\
+                        <c-tip\
+                            :tags="featured.tags" \
+                            :author="featured.author"\
+                            :id="featured.id" \
+                            :fave="featured.favorite" \
+                            :upvote="featured.like" \
+                            :downvote="featured.dislike" \
+                            :upvoted="featured.upvoted" \
+                            :downvoted="featured.downvoted" \
+                            :url="featured.url" \
+                            :edit="allowEdit"\
+                            :related="relatedUsers"\
+                            :mode="mode"\
+                            :text="featured.text"\
+                            :featured="true"\
+                            :comments="featured.comments">\
+                    </c-tip>\
+                    </div>\
                     <div v-show="!showingTipForm&&allowAddTip" id="add-tip-btn" @click="showTipForm">\
                         <span class="glyphicon glyphicon-plus-sign"></span>\
                         <span>Добавьте свой совет!</span>\
@@ -904,6 +927,7 @@ var tipsFlow = new Vue({
                             :related="relatedUsers"\
                             :mode="mode"\
                             :text="tip.text"\
+                            :featured="false"\
                             :comments="tip.comments">\
                         {{tip.showThis}}\
                     </c-tip>\

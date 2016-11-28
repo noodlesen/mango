@@ -132,7 +132,9 @@
         var place_id = {{place.id}};
         var jsonData = {{json_data|tojson|safe}};
         var signedIn = {{signed|lower}};
-        
+/*        var thisUrl = "{{request.path}}";
+        console.log(thisUrl);*/
+
     </script>
     {% assets "place_js" %}
         <script src ="{{ ASSET_URL }}" type="text/javascript"></script>
