@@ -11,11 +11,9 @@
 
 {% block styles %}
 {{ super() }}
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/common.css') }}">
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/ui.css') }}">
-    <link rel=stylesheet type=text/css href="{{ url_for('geo.static', filename='css/place.css') }}">
-    <link rel=stylesheet type=text/css href="{{ url_for('geo.static', filename='css/tipsflow.css') }}">
-    <link rel=stylesheet type=text/css href="{{ url_for('geo.static', filename='css/login_modal.css') }}">
+    {% assets "place_css" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}" />
+    {% endassets %}
 {% endblock %}
 
 {% block page_content %}
@@ -136,8 +134,7 @@
         var signedIn = {{signed|lower}};
         
     </script>
-    <script src ="{{ url_for('static', filename="lib/moment-with-locales.min.js") }}" type="text/javascript"></script>
-    <script src ="{{ url_for('static', filename="lib/sharer.js") }}" type="text/javascript"></script>
-    <script src ="{{ url_for('geo.static', filename="js/tipsflow.js") }}" type="text/javascript"></script>
-    <script src ="{{ url_for('geo.static', filename="js/place.js") }}" type="text/javascript"></script>
+    {% assets "place_js" %}
+        <script src ="{{ ASSET_URL }}" type="text/javascript"></script>
+    {% endassets %}
 {% endblock %}

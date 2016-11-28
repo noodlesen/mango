@@ -5,10 +5,10 @@
 {% block title %}Hello world!{% endblock %}
 
 {% block styles %}
-{{ super() }}
-{% assets "root_css" %}
-    <link rel="stylesheet" href="{{ ASSET_URL }}" />
-{% endassets %}
+    {{ super() }}
+    {% assets "root_css" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}" />
+    {% endassets %}
 {% endblock %}
 
 {% block page_content %}
