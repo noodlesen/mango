@@ -19,6 +19,7 @@ from . .mailer import Mailer
 from . .db import db
 from . .logger import Log
 
+from . .dttools import NEVER
 
 ad = AlphabetDetector()
 
@@ -121,14 +122,13 @@ def old_places(pid):
 @geo.route('/place/<us>', methods=['GET'])
 def places(us):
 
-    
-    #featured = 36231
-
     try:
-        #featured = request.args.get('featured')
         featured = request.args['t'] if request.args and request.args['t'] else -1
+        canonical = url_for('geo.places', us=us, _external=True) if featured != -1 else ''
     except KeyError:
-        abort(404)
+        #abort(404)
+        return redirect(url_for('geo.places', us=us)), 301
+
     Log.register(action='geo.route:place', data=us)
     p = Place.query.filter_by(url_string=us).first()
     if p:
@@ -152,7 +152,11 @@ def places(us):
             if u2p:
                 subscribed = True
 
+        modified_at = p.modified_at
+        if not modified_at:
+            modified_at = NEVER
 
+        last_modified = datetime.strftime(modified_at, '%a, %d %b %Y %H:%M:%S GMT')
 
         return render_template('place.html',
                                place=p,
@@ -162,8 +166,9 @@ def places(us):
                                signed=current_user.is_authenticated,
                                subscribed=subscribed,
                                place_tags = jd["place_tags"],
-                               featured=featured
-                               )
+                               featured=featured,
+                               canonical=canonical
+                               ), 200, {'Last-Modified':last_modified}
 
     else:
         abort(404)

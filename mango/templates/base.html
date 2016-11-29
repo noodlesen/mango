@@ -8,7 +8,11 @@
 
 {% block metas %}
 {{ super () }}
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    {% if canonical and canonical!='' %}
+        <link rel="canonical" href="{{canonical}}" />
+    {% endif %}
 {% endblock %}
 
 {% block title %}

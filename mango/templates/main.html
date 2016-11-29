@@ -2,7 +2,13 @@
 
 {% from 'base_macros.html' import search_field %}
 
-{% block title %}Hello world!{% endblock %}
+{% block title %}КУДАБЫ.РУ — коротко и по делу о путешествиях{% endblock %}
+
+{% block metas %}
+{{super()}}
+<meta name="description" content="Самая полезная информация для путешественников в уникальном коротком формате. Советы, отзывы, рекомендации." />
+
+{% endblock %}
 
 {% block styles %}
     {{ super() }}
@@ -20,8 +26,6 @@
                 <img src="{{url_for('static', filename="images/logo.svg")}}" id="main-logo" />
                 {{search_field('main__search','')}}
             </div>
-
-
         </div>
 
 

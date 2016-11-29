@@ -12,8 +12,9 @@
 #filters{
     //margin-right:2%;
 
-    h2{
+    .fheader{
         text-align: right;
+        font-size: 200%;
     }
     .tags__list{
         border-width: 0 1px 0 0px;
@@ -139,6 +140,21 @@
     border-radius: 6px;
     background-color: white;
     padding: 5px 10px 7px;
+}
+
+#featured-box{
+    //margin-bottom: 3em;
+}
+
+#featured__author{
+    float:left;
+}
+
+#featured-box__other{
+    margin-top: 1.5em;
+    margin-bottom: .8em;
+    font-size: 200%;
+    font-weight: 300;
 }
 
 .tip{

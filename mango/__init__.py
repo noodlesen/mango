@@ -1,8 +1,8 @@
 
-# import warnings
-# from flask.exthook import ExtDeprecationWarning
+import warnings
+from flask.exthook import ExtDeprecationWarning
 
-# warnings.simplefilter('ignore', ExtDeprecationWarning)
+warnings.simplefilter('ignore', ExtDeprecationWarning)
 
 
 from flask import Flask, request, session, render_template, url_for, make_response, redirect
@@ -11,6 +11,10 @@ from flask_bootstrap import Bootstrap
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 
 from flask_wtf.csrf import CsrfProtect
+
+from flask_sslify import SSLify
+
+
 import json
 from datetime import datetime, timedelta
 
@@ -24,14 +28,16 @@ from .geo import geo
 from .geo.models import Place
 from .logger import Log
 
-#from flask_assets import Bundle, Environment
-
 from .assets import assets
+
+from .dttools import NEVER
 
 
 
 
 app = Flask(__name__)
+
+sslify = SSLify(app)
 
 app.url_map.strict_slashes = False
 
@@ -131,35 +137,19 @@ def sitemap():
     """Generate sitemap.xml. Makes a list of urls and date modified."""
 
     pages=[]
-    ten_days_ago=(datetime.now() - timedelta(days=10)).date().isoformat()
 
     pages.append([url_for('root', _external = True), ten_days_ago])
-
-    # PLACES
 
     places = list(db.engine.execute("""SELECT url_string, modified_at FROM G_places WHERE chd_has_tips=1"""))
 
     for p in places:
-        date = ten_days_ago if not p[1] else p[1].date().isoformat()
+        date = NEVER if not p[1] else p[1].date().isoformat()
         pages.append([url_for('geo.places', us=p[0], _external=True), date])
 
-    # #SINGLE TIPS
 
-    # tips = list(db.engine.execute("""SELECT id, updated_at FROM tips WHERE chd_comments_count >0 """))
-    # for t in tips:
-    #     pages.append([url_for('geo.single_tip', tid=t[0], _external=True), t[1].date().isoformat()])
-
-    # # USER PROFILES
-
-    # users = list(db.engine.execute("""SELECT id, changed_at FROM users """))
-    # for u in users:
-    #     date = ten_days_ago if not u[1] else u[1].date().isoformat()
-    #     pages.append([url_for('social.public_profile', uid=u[0], _external=True), date])
-
-
-    # sitemap_xml = render_template('sitemap_template.xml', pages=pages)
-    # response= make_response(sitemap_xml)
-    # response.headers["Content-Type"] = "application/xml"
+    sitemap_xml = render_template('sitemap_template.xml', pages=pages)
+    response= make_response(sitemap_xml)
+    response.headers["Content-Type"] = "application/xml"
 
     return response
 
@@ -169,35 +159,6 @@ def sitemap():
 def root():
     Log.register(action='route:root')
     return render_template('main.html')
-
-# @app.route('/active')
-# def active():
-#     places = list(db.engine.execute("""SELECT rus_name, url_string FROM G_places WHERE chd_has_tips=1 LIMIT 500"""))
-#     links = '<br/>'.join(['<a href="/place/%s">%s</a>' % (p[1], p[0]) for p in places])
-#     return links
-
-# @app.route('/inactive')
-# def inactive():
-#     places = list(db.engine.execute("""SELECT rus_name, url_string FROM G_places WHERE chd_has_tips=0 LIMIT 500"""))
-#     links = '<br/>'.join(['<a href="/place/%s">%s</a>' % (p[1], p[0]) for p in places])
-#     return links
-
-# @app.route('/users')
-# def users():
-#     users = User.query.all()
-#     if current_user.is_authenticated:
-#         notifications = Notification.count(current_user)
-#         return render_template(
-#                                 'test_users.html',
-#                                 users=users,
-#                                 notifications_count=notifications['other'],
-#                                 messages_count=notifications['messages']
-#                                 )
-#     else:
-#         return render_template(
-#                                 'test_users.html',
-#                                 users=users
-#                                 )
 
 
 @app.template_filter('nl2br')

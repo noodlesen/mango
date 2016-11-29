@@ -41,10 +41,10 @@ var cTip = Vue.extend({
         } else if (this.downvote){
             this.downVote = true;
         }
-        if (this.mode=='single'){
+        if (this.featured){
             this.showingShare = true;
             this.showingComments = true;
-            this.allowCmdBar = false;
+            this.allowCmdBar = true;
         }
     },
     computed: {
@@ -832,7 +832,7 @@ var tipsFlow = new Vue({
                 </button>\
                 <div id="filters" class="hidden-xs tips-sidebar" v-if="allowFilters&&!collapsed">\
                     <div class="tags__list">\
-                        <h2>Метки</h2>\
+                        <div class="fheader">Метки</div>\
                         <div id="tag-list"><tag v-for="t in tagsFilter.placeTags" :name="t.name" :color="t.style" :active="false"></tag></div>\
                     </div>\
                 </div>\
@@ -840,7 +840,8 @@ var tipsFlow = new Vue({
                 <!-- ==== TIPS COLUMN ==== -->\
                 \
                 <div id="tips" :class="{\'tips-1sb\': allowFilters}" v-if="!collapsed">\
-                    <div v-if="featured">\
+                    <div id="featured-box" v-if="featured">\
+                        <div class="clearfix"></div>\
                         <c-tip\
                             :tags="featured.tags" \
                             :author="featured.author"\
@@ -858,6 +859,7 @@ var tipsFlow = new Vue({
                             :featured="true"\
                             :comments="featured.comments">\
                     </c-tip>\
+                    <div id="featured-box__other">Другие советы:</div>\
                     </div>\
                     <div v-show="!showingTipForm&&allowAddTip" id="add-tip-btn" @click="showTipForm">\
                         <span class="glyphicon glyphicon-plus-sign"></span>\

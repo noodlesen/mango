@@ -5,6 +5,9 @@ from time import sleep
 import random
 
 
+NEVER = datetime(2016, 11, 29, 16, 3, 7)
+
+
 class RTS():
 
     __FORMAT_STRING = '%Y-%m-%d %H:%M:%S'
