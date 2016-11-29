@@ -104,7 +104,7 @@ def make_session_permanent():
 
 @app.before_request
 def clear_trailing():
-    rp = request.path 
+    rp = request.path
     if rp != '/' and rp.endswith('/'):
         return redirect(rp[:-1]), 301
 
@@ -126,7 +126,11 @@ def robots():
     if not ALLOW_ROBOTS:
         response = make_response("User-agent: *\nDisallow: /")
     else:
-        response = make_response("User-agent: *\nDisallow:")
+
+        DA=['/profile','/private-messages','/my-tips','/favorites','/user*']
+        daj = '\n'.join(['Disallow: '+d for d in DA])
+        rt = 'User-agent: *\n'+daj+'\n\nUser-agent: Yandex\n'+daj+'\nHost: '+url_for('root', _external=True)[:-1]
+        response = make_response(rt)
     response.headers["content-type"] = "text/plain"
     return response
 
