@@ -37,7 +37,7 @@ from .dttools import NEVER
 
 app = Flask(__name__)
 
-sslify = SSLify(app)
+sslify = SSLify(app, permanent=True)
 
 app.url_map.strict_slashes = False
 
