@@ -56,7 +56,7 @@ def get_tips_data(tips_list, **kwargs):
         cached_data = json.loads(chd_data)
         for c in comments:
             related_users_ids.append(c['author_id'])
-        tip = {"text":t.text, 
+        tip = {"text":t.text,
                 "tags":[],
                 "author":{'id':cached_data['author']['id'], 'name':cached_data['author']['name']},
                 'id':t.id,
@@ -69,7 +69,7 @@ def get_tips_data(tips_list, **kwargs):
                 'rating': t.chd_upvoted - t.chd_downvoted,
                 'url': url_for('root', _external=True)+cached_data['url'][1:]
                 }
-                
+
         tip['tags'] = cached_data['tags']
         if 'featured' in kwargs and kwargs['featured'] == str(tip['id']):
             td['featured']=tip
@@ -78,7 +78,7 @@ def get_tips_data(tips_list, **kwargs):
             td['tips'].append(tip)
 
     td['tips'] = sorted(td['tips'], key=itemgetter('rating'), reverse=True)
-    
+
     place_tags=[]
     for t in td['tips']:
         for tag in t['tags']:
@@ -135,12 +135,12 @@ def places(us):
         jd ={}
 
         print ("*****************GET ", featured)
-        
+
         td = get_tips_data(p.tips, place_id=p.id, featured=featured)
 
         jd.update(td)
-        
-        jd['all_tags']= get_all_tags()        
+
+        jd['all_tags']= get_all_tags()
 
         jd['config'] = {
                         'mode': 'place'
@@ -168,7 +168,7 @@ def places(us):
                                place_tags = jd["place_tags"],
                                featured=featured,
                                canonical=canonical
-                               ), 200, {'Last-Modified':last_modified}
+                               ), 200 #, {'Last-Modified':last_modified}
 
     else:
         abort(404)
@@ -229,12 +229,12 @@ def place_search():
 #     tip = Tip.query.get(tid)
 
 #     jd ={}
-        
+
 #     td = get_tips_data([tip])
 
 #     jd.update(td)
-    
-#     #jd['all_tags']= get_all_tags()        
+
+#     #jd['all_tags']= get_all_tags()
 
 #     jd['config'] = {
 #                     'mode': 'single'
@@ -247,13 +247,13 @@ def place_search():
 #                             json_data=json.dumps(jd),
 #                             signed_in=current_user.is_authenticated,
 #                             )
-    
+
     # if tip:
     #     if current_user.is_authenticated:
     #         pa = current_user.get_place_actions(tip.place_id)
     #     else:
     #         pa = {"favorites":[], "likes":[], "dislikes":[]}
-        
+
     #     upvoted = True if tip.id in pa["likes"] else False
     #     downvoted = True if tip.id in pa["dislikes"] else False
 
@@ -263,7 +263,7 @@ def place_search():
     #         uid = c["author_id"]
     #         name = next(u for u in n['related_users'] if u["id"]==uid)["nickname"]
     #         c["author_name"]=name
-    #     return render_template('single_tip.html', 
+    #     return render_template('single_tip.html',
     #                             tip=tip,
     #                             signed_in=current_user.is_authenticated,
     #                             upvoted=upvoted,
@@ -277,7 +277,7 @@ def place_search():
 @geo.route('/json/tip', methods=['POST'])
 def json_tip():
     Log.register(action='geo.post:json_tip', data=request.json)
-    
+
     q = request.json
     res={"status":"ok"}
 
@@ -322,7 +322,7 @@ def json_tip():
             res_comments = [c for c in comments]
             for c in res_comments:
                 c["is_mine"]=True if c["author_id"] == current_user.id else False
-            
+
             tip.comments = json.dumps(comments)
             res['comments'] = res_comments
 
@@ -353,10 +353,10 @@ def json_tip():
                 res_comments = [c for c in comments]
                 for c in res_comments:
                     c["is_mine"]=True if c["author_id"] == current_user.id else False
-                
+
                 res['comments'] = res_comments
                 tip.comments = json.dumps(comments)
-                
+
 
                 tip.chd_comments_count = len(comments)
 
@@ -407,7 +407,7 @@ def json_tip():
                         new_tag.count = 1
                         db.session.add(new_tag)
                         tip.tags.append(new_tag)
-                        
+
                 tip.created_at = datetime.utcnow()
                 db.session.add(tip)
                 db.session.commit()
@@ -420,10 +420,10 @@ def json_tip():
                 subscribed_users = UsersRelationship.query.filter_by(user2=current_user.id, follows=True)
                 for su in subscribed_users:
                     Notification.add(
-                                    su.user1, 
-                                    'NP', 
-                                    msg, 
-                                    data=tip.text[:100]+"...", 
+                                    su.user1,
+                                    'NP',
+                                    msg,
+                                    data=tip.text[:100]+"...",
                                     user_from=current_user.id,
                                     extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
                                     )
@@ -434,10 +434,10 @@ def json_tip():
                 for su in subscribed_users:
                     if su.user_id != current_user.id:
                         Notification.add(
-                                        su.user_id, 
-                                        'NP', 
-                                        msg, 
-                                        data=tip.text[:100]+"...", 
+                                        su.user_id,
+                                        'NP',
+                                        msg,
+                                        data=tip.text[:100]+"...",
                                         user_from=current_user.id,
                                         extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
                                         )
@@ -453,7 +453,7 @@ def json_tip():
     else:
         res['status']='error: not logged in'
 
-    
+
     return json.dumps(res)
 
 

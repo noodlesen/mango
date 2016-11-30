@@ -127,9 +127,21 @@ def robots():
         response = make_response("User-agent: *\nDisallow: /")
     else:
 
-        DA=['/profile','/private-messages','/my-tips','/favorites','/user*']
+        DA=['/profile',
+            '/private-messages',
+            '/my-tips',
+            '/favorites',
+            '/user*',
+            url_for('social.v_login'),
+            url_for('social.v_authorized'),
+            url_for('social.g_login'),
+            url_for('social.g_authorized'),
+            url_for('social.f_login'),
+            url_for('social.f_authorized')]
         daj = '\n'.join(['Disallow: '+d for d in DA])
-        rt = 'User-agent: *\n'+daj+'\n\nUser-agent: Yandex\n'+daj+'\nHost: '+url_for('root', _external=True)[:-1]
+        root = url_for('root', _external=True)[:-1]
+        host = root if root.startswith('https') else root[7:]
+        rt = 'User-agent: *\n'+daj+'\n\nUser-agent: Yandex\n'+daj+'\nHost: '+host
         response = make_response(rt)
     response.headers["content-type"] = "text/plain"
     return response
