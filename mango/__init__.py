@@ -131,17 +131,14 @@ def robots():
             '/private-messages',
             '/my-tips',
             '/favorites',
-            '/user*',
+            '/user',
             url_for('social.v_login'),
-            url_for('social.v_authorized'),
             url_for('social.g_login'),
-            url_for('social.g_authorized'),
-            url_for('social.f_login'),
-            url_for('social.f_authorized')]
+            url_for('social.f_login')]
         daj = '\n'.join(['Disallow: '+d for d in DA])
         root = url_for('root', _external=True)[:-1]
         host = root if root.startswith('https') else root[7:]
-        rt = 'User-agent: *\n'+daj+'\n\nUser-agent: Yandex\n'+daj+'\nHost: '+host
+        rt = 'User-agent: *\n'+daj+'\nHost: '+host+'\nSitemap: '+url_for('sitemap', _external=True)
         response = make_response(rt)
     response.headers["content-type"] = "text/plain"
     return response
@@ -154,7 +151,7 @@ def sitemap():
 
     pages=[]
 
-    pages.append([url_for('root', _external = True), ten_days_ago])
+    pages.append([url_for('root', _external = True), NEVER])
 
     places = list(db.engine.execute("""SELECT url_string, modified_at FROM G_places WHERE chd_has_tips=1"""))
 
