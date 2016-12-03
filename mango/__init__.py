@@ -166,6 +166,10 @@ def sitemap():
 
     return response
 
+@app.route('/static/photos/page_images/<pf>', methods=['GET'])
+def place_picture(pf):
+    return redirect(url_for('geo.static', filename='images/places/'+pf)), 301
+
 
 #@cache.cached(3600)
 @app.route('/')
