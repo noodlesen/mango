@@ -27,7 +27,7 @@ $(document).ready(function(){
 					}
 					$('#nickname__status').show();
 
-				});	
+				});
 			}
 			else{
 				$('#nickname__status').html('<span style="color:red">Это имя слишком длинное</span>');
@@ -36,7 +36,7 @@ $(document).ready(function(){
 		} else {
 			$('#nickname__save-button').trigger('click');
 		}
-		
+
 	});
 
 
@@ -44,9 +44,9 @@ $(document).ready(function(){
 		var name = $('#nickname__edit-input').val();
 		getResults('/save-nick','json',{val: name}, function(res){
 			if (res.val){
-				$('#nickname__title').html(name);
+				//$('#nickname__title').html(name);
 				$('#user__nickname-link').html(name);
-				$('#nickname__status').hide();
+				//$('#nickname__status').hide();
 			}
 		});
 	});
@@ -54,7 +54,7 @@ $(document).ready(function(){
 	$('#nickname__edit-input').on('keyup', function(e){
 		if (e.which==13){
 
-		} 
+		}
 	});
 
 	$('#email__save-button').on('click', function(){
@@ -74,7 +74,7 @@ $(document).ready(function(){
 					});
 				}
 	});
-				
+
 
 
 	$('.dropzone').dmUploader({
@@ -92,7 +92,7 @@ $(document).ready(function(){
 				$('#user__avatar').attr('src', data.url);
 				$('#avatar__image').show(300);
 			},350);
-			
+
 		}
 	});
 
