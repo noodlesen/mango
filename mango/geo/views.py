@@ -204,7 +204,8 @@ def place_search():
     def get_places(field, needle):
         urlbase = url_for('geo.places', us='')
         places = []
-        sql = "SELECT id, %s, `number`, url_string, chd_has_tips FROM G_places WHERE %s LIKE '%s%%'  ORDER BY `number` DESC LIMIT 25" % (field, field, needle)
+        needle=needle.replace('"','')
+        sql = """SELECT id, %s, `number`, url_string, chd_has_tips FROM G_places WHERE %s LIKE "%s%%"  ORDER BY `number` DESC LIMIT 25""" % (field, field, needle)
         results = db.session.execute(sql)
         for r in results:
             places.append({"id": r[0], "name": r[1], "number": r[2], "url": urlbase+r[3], "has_tips":r[4]})
