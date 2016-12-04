@@ -296,7 +296,7 @@ import os
 from werkzeug.utils import secure_filename
 
 AVATAR_ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
-MAX_FILE_SIZE = 1024*1024
+MAX_FILE_SIZE = 10*1024*1024
 
 
 def allowed_file(filename):
@@ -314,6 +314,7 @@ def avatar_picture_upload(f, user, skipFileSize): #  f - FileStorage objct
             has_size_error = len(file_bytes) == MAX_FILE_SIZE
 
     if f and allowed_file(f.filename) and not has_size_error:
+        print('PICTURE OK')
         filename = secure_filename(f.filename)
         file_path = os.path.join(ROOT_DIR, UPLOAD_DIR, 'avatars', filename)
         f.save(file_path)
@@ -330,7 +331,7 @@ def avatar_picture_upload(f, user, skipFileSize): #  f - FileStorage objct
             off = int((img.size[1]-max_size)/2)
             img2 = img.crop([0, off, max_size, off+max_size])
 
-        ava_name = get_hash(str(user.id)+filename)+".png"
+        ava_name = get_hash(str(user.id)+filename+datetime.utcnow().strftime('%H%M%S'))+".png"
         print('ava name: '+ava_name)
         old_ava_name = user.image
         user.image = ava_name
@@ -342,7 +343,13 @@ def avatar_picture_upload(f, user, skipFileSize): #  f - FileStorage objct
         f.close()
         os.remove(file_path)
         if old_ava_name:
-            os.remove(os.path.join(ROOT_DIR, 'social', 'static', 'images', 'avatars', old_ava_name))
+            try:
+                os.remove(os.path.join(ROOT_DIR, 'social', 'static', 'images', 'avatars', old_ava_name))
+            except:
+                pass
+                print ('OLD AVATAR NOT FOUND')
+    else:
+        print('PICTURE ERROR')
 
 
 @social.route('/avatar-upload', methods=['POST'])
