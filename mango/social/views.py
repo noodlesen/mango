@@ -211,7 +211,7 @@ def f_authorized():
     if user is None:
         user = User.query.filter_by(register_email=me.data['email']).first()
         if user is None:
-            Log.register(action='f_register', data={"marker":session['marker'], "email":email})
+            Log.register(action='f_register', data={"marker":session['marker'], "email":me.data['email']})
             user = User.register_facebook_user(me.data['name'], me.data['email'], me.data['id'])
             just_registered = True
             user.registered_at = datetime.utcnow()

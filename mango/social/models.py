@@ -90,32 +90,32 @@ class User (UserMixin, db.Model):
     private_messages_to = db.relationship('PrivateMessage', backref='recipient', lazy='dynamic', foreign_keys='PrivateMessage.user_to')
     users_relationships = db.relationship('UsersRelationship', backref='user', lazy='dynamic', foreign_keys='UsersRelationship.user1')
     notifications = db.relationship('Notification', backref='recipient', lazy='dynamic', foreign_keys='Notification.user_to')
-    
+
 
 
     # MANGO EXTRAS ===============================
-    tips = db.relationship('Tip', backref='user', lazy='dynamic', foreign_keys='Tip.user_id') 
+    tips = db.relationship('Tip', backref='user', lazy='dynamic', foreign_keys='Tip.user_id')
     subscribed_places = db.relationship(
-                                        'UserToPlaceRelationship', 
-                                        backref='subscriber', 
-                                        lazy='dynamic', 
+                                        'UserToPlaceRelationship',
+                                        backref='subscriber',
+                                        lazy='dynamic',
                                         foreign_keys='UserToPlaceRelationship.user_id'
                                         )
     power = db.Column(db.Integer, default=1)
 
-    faved = db.relationship('Tip', 
-        secondary = users_favorites, 
-        backref = db.backref('faved_by', lazy = 'dynamic'), 
+    faved = db.relationship('Tip',
+        secondary = users_favorites,
+        backref = db.backref('faved_by', lazy = 'dynamic'),
         lazy = 'dynamic')
 
-    upvoted = db.relationship('Tip', 
-        secondary = users_upvotes, 
-        backref = db.backref('upvoted_by', lazy = 'dynamic'), 
+    upvoted = db.relationship('Tip',
+        secondary = users_upvotes,
+        backref = db.backref('upvoted_by', lazy = 'dynamic'),
         lazy = 'dynamic')
 
-    downvoted = db.relationship('Tip', 
-        secondary = users_downvotes, 
-        backref = db.backref('downvoted_by', lazy = 'dynamic'), 
+    downvoted = db.relationship('Tip',
+        secondary = users_downvotes,
+        backref = db.backref('downvoted_by', lazy = 'dynamic'),
         lazy = 'dynamic')
 
     def is_faved(self, tip):
@@ -186,7 +186,7 @@ class User (UserMixin, db.Model):
     def get_list_actions(self, ids):
         res={}
         idss = ','.join([str(i) for i in ids])
-        query = "SELECT tip_id FROM %s WHERE user_id=%d AND tip_id IN (%s)" 
+        query = "SELECT tip_id FROM %s WHERE user_id=%d AND tip_id IN (%s)"
         res['favorites'] = [n[0] for n in db.session.execute(query % ("users_favorites",self.id, idss))]
         res['likes'] = [n[0] for n in db.session.execute(query % ("users_upvotes", self.id, idss))]
         res['dislikes'] = [n[0] for n in db.session.execute(query % ("users_downvotes",self.id, idss))]
@@ -216,7 +216,7 @@ class User (UserMixin, db.Model):
         user = User(g_username=username, nickname=username, register_email=email, contact_email=email, google_id=google_id, contact_email_accepted=True)
         db.session.add(user)
         db.session.commit()
-        StrangersLog.write('google_sign_up')
+        #StrangersLog.write('google_sign_up')
         return user
 
     @staticmethod
@@ -226,7 +226,17 @@ class User (UserMixin, db.Model):
         user = User(f_username=username, nickname=username, register_email=email, contact_email=email, facebook_id=facebook_id, contact_email_accepted=True)
         db.session.add(user)
         db.session.commit()
-        StrangersLog.write('fb_sign_up')
+        #StrangersLog.write('fb_sign_up')
+        return user
+
+    @staticmethod
+    def register_vk_user(username, email, vk_id):
+        if username == '':
+            username = email
+        user = User(vk_username=username, nickname=username, register_email=email, contact_email=email, vk_id=vk_id, contact_email_accepted=True)
+        db.session.add(user)
+        db.session.commit()
+        #StrangersLog.write('vk_sign_up')
         return user
 
     def __repr__(self):
@@ -382,7 +392,7 @@ class Notification(db.Model, NotificationMixin):
 
             db.session.commit()
 
-    
+
 
 
 
