@@ -123,6 +123,7 @@ bundles = {
         filters='jsmin'),
 
     'user_events_js': Bundle(
+        'lib/vue.js',
         'js/common.js',
         'js/base.js',
         'social/js/user_events.js',

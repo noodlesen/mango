@@ -900,9 +900,9 @@ var tipsFlow = new Vue({
                             </div>\
                         </div><div class="divider"></div>\
                         <div class="alert alert-danger" v-show="newTipForm.error">{{newTipForm.errorMessage}}</div>\
-                        <button @click="closeTipForm" class="btn btn-large btn-default" style="width:15%" >Отмена</button>\
-                        <button v-if="!allowEdit" @click="submitTipForm(allowEdit)" class="btn btn-large btn-primary" style="width:84%" >Сохранить мой совет</button>\
-                        <button v-if="allowEdit" @click="submitTipForm(allowEdit)" class="btn btn-large btn-primary" style="width:84%" >Завершить редактирование</button>\
+                        <button @click="closeTipForm" class="btn btn-large btn-default" id="add-tip__cancel-btn">Отмена</button>\
+                        <button v-if="!allowEdit" @click="submitTipForm(allowEdit)" class="btn btn-large btn-primary" id="add-tip__commit-btn" >Сохранить мой совет</button>\
+                        <button v-if="allowEdit" @click="submitTipForm(allowEdit)" class="btn btn-large btn-primary" id="add-tip__commit-btn"  >Завершить редактирование</button>\
                     </div>\
                     <div id="tips__info" v-if="!showAll" >\
                         <div>Показаны советы с метками: </div>\
