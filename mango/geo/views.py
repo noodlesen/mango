@@ -3,19 +3,13 @@ from datetime import datetime
 from operator import itemgetter
 from alphabet_detector import AlphabetDetector
 
-from flask import session, request, url_for, redirect, render_template, flash, abort
-from flask_login import login_user, login_required, logout_user, current_user
-from sqlalchemy.sql import or_, and_
+from flask import request, url_for, redirect, render_template, abort
+from flask_login import login_required, current_user
 from sqlalchemy import desc
-from . .cache import cache
 
 from . import geo
 from .models import Place, Tip, Tag
 from . .social.models import User, UsersRelationship, Notification, UserToPlaceRelationship
-from . .config import GOOGLE_ID, GOOGLE_SECRET, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET
-from . .path import ROOT_DIR, UPLOAD_DIR
-from . .toolbox import get_hash, how_long_ago
-from . .mailer import Mailer
 from . .db import db
 from . .logger import Log
 
@@ -24,11 +18,9 @@ from . .dttools import NEVER
 ad = AlphabetDetector()
 
 
-
-
 def get_tips_data(tips_list, **kwargs):
     td = {}
-    td['tips']=[]
+    td['tips'] = []
     related_users_ids = []
 
     if current_user.is_authenticated:
@@ -73,7 +65,6 @@ def get_tips_data(tips_list, **kwargs):
         tip['tags'] = cached_data['tags']
         if 'featured' in kwargs and kwargs['featured'] == str(tip['id']):
             td['featured']=tip
-            print (">>>>>>>>>>>>>>>>>>>>FEATURED ", tip['id'])
         else:
             td['tips'].append(tip)
 
@@ -126,22 +117,15 @@ def places(us):
         featured = request.args['t'] if request.args and request.args['t'] else -1
         canonical = url_for('geo.places', us=us, _external=True) if featured != -1 else ''
     except KeyError:
-        #abort(404)
         return redirect(url_for('geo.places', us=us)), 301
 
     Log.register(action='geo.route:place', data=us)
     p = Place.query.filter_by(url_string=us).first()
     if p:
         jd ={}
-
-        print ("*****************GET ", featured)
-
         td = get_tips_data(p.tips, place_id=p.id, featured=featured)
-
         jd.update(td)
-
         jd['all_tags']= get_all_tags()
-
         jd['config'] = {
                         'mode': 'place'
         }
@@ -168,7 +152,7 @@ def places(us):
                                place_tags = jd["place_tags"],
                                featured=featured,
                                canonical=canonical
-                               ), 200 #, {'Last-Modified':last_modified}
+                               ), 200
 
     else:
         abort(404)
@@ -220,58 +204,6 @@ def place_search():
 
     return json.dumps(res)
 
-
-
-#  TIP ROUTES =========================================================
-
-# @geo.route('/tip/<tid>', methods=['GET'])
-# def single_tip(tid):
-#     Log.register(action='geo.route:single_tip', data=tid)
-#     tip = Tip.query.get(tid)
-
-#     jd ={}
-
-#     td = get_tips_data([tip])
-
-#     jd.update(td)
-
-#     #jd['all_tags']= get_all_tags()
-
-#     jd['config'] = {
-#                     'mode': 'single'
-#     }
-
-#     print (jd)
-
-#     return render_template('alt_single_tip.html',
-#                             tip = tip,
-#                             json_data=json.dumps(jd),
-#                             signed_in=current_user.is_authenticated,
-#                             )
-
-    # if tip:
-    #     if current_user.is_authenticated:
-    #         pa = current_user.get_place_actions(tip.place_id)
-    #     else:
-    #         pa = {"favorites":[], "likes":[], "dislikes":[]}
-
-    #     upvoted = True if tip.id in pa["likes"] else False
-    #     downvoted = True if tip.id in pa["dislikes"] else False
-
-    #     ## ^^^ REWRITE AS VVV
-    #     n = get_tips_data([tip])
-    #     for c in n['tips'][0]["comments"]:
-    #         uid = c["author_id"]
-    #         name = next(u for u in n['related_users'] if u["id"]==uid)["nickname"]
-    #         c["author_name"]=name
-    #     return render_template('single_tip.html',
-    #                             tip=tip,
-    #                             signed_in=current_user.is_authenticated,
-    #                             upvoted=upvoted,
-    #                             downvoted=downvoted,
-    #                             comments=n['tips'][0]["comments"])
-    # else:
-    #     abort(404)
 
 
 @login_required
@@ -382,6 +314,7 @@ def json_tip():
                 Log.register('ERROR', 'unauthorized comment deleting attempt')
 
         elif q['cmd']=='addNew' or q['cmd']=='edit':
+
             if q['cmd']=='addNew':
                 tip = Tip()
                 tip.user_id = current_user.id
@@ -412,7 +345,7 @@ def json_tip():
                 tip.created_at = datetime.utcnow()
                 db.session.add(tip)
                 db.session.commit()
-                tip.place.renew_timestamp()
+                tip.place.bake()
                 tip.cache_it()
                 res['tip_data']={'author_name': current_user.nickname, 'author_id':current_user.id, 'tip_id': tip.id}
 

@@ -76,13 +76,12 @@ class Place(db.Model):
             ap_list = []
         return {"list": ap_list, "count": len(ap_list)}
 
-    def renew_timestamp(self):
+    def bake(self):
         self.modified_at = datetime.utcnow()
+        if self.tips.count()>0:
+            self.chd_has_tips=True
         db.session.add(self)
         db.session.commit()
-
-
-
 
 
 

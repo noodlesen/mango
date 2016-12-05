@@ -2,18 +2,14 @@
 
 import json
 from urllib.parse import unquote
-
 from flask import url_for
 from flask_script import Manager
-from fuzzywuzzy import fuzz
 from unidecode import unidecode
 from werkzeug.datastructures import FileStorage
-
 from mango import app
 from mango.db import db
 from mango.dttools import get_random_datetime
-from mango.mailer import Mailer
-from mango.toolbox import russian_plurals, get_distance
+from mango.toolbox import get_distance
 from mango.geo.models import Tip, Place
 from mango.social.models import User
 from mango.social.views import avatar_picture_upload

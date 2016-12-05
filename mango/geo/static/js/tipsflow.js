@@ -433,8 +433,8 @@ var tipsFlow = new Vue({
             errorMessage:''
         },
 
-        all_tips:[],
-        shown_tips:[],
+        allTips:[],
+        shownTips:[],
 
         // CONFIG / STATE
         showAll: true,
@@ -507,8 +507,8 @@ var tipsFlow = new Vue({
 
 
         this.relatedUsers=jd.related_users;
-        self.all_tips=jd.tips;
-        self.shown_tips=jd.tips;
+        self.allTips=jd.tips;
+        self.shownTips=jd.tips;
         self.sortTips();
 
         self.featured = jd.featured;
@@ -538,7 +538,7 @@ var tipsFlow = new Vue({
         },
 
         sortTips: function(){
-           this.shown_tips.sort(function(a,b){
+           this.shownTips.sort(function(a,b){
                 var rating = function(t){ return t.upvoted - t.downvoted }
                 return rating(b) - rating(a);
             }); 
@@ -600,10 +600,10 @@ var tipsFlow = new Vue({
                                             author: {id: res.tip_data.author_id, name: res.tip_data.author_name},
                                             id: res.tip_data.tip_id
                                         };
-                                        self.all_tips.push(newTip);
-                                        self.shown_tips.push(newTip);
+                                        self.allTips.push(newTip);
+                                        self.shownTips.push(newTip);
                                     } else {
-                                        self.shown_tips.every(function(el, i){
+                                        self.shownTips.every(function(el, i){
                                             if (el.id == self.lastEdited){
                                                 alert('found');
                                                 el.text = self.newTipForm.tipText;
@@ -711,7 +711,7 @@ var tipsFlow = new Vue({
         resetFilters : function(){
             this.tagsFilter.selectedTags = {};
             this.showAll = true;
-            this.shown_tips = this.all_tips;
+            this.shownTips = this.allTips;
             this.$broadcast('eResetAllFilters');
         },
         
@@ -734,11 +734,11 @@ var tipsFlow = new Vue({
                 
             });
 
-            this.shown_tips=[];
-                this.all_tips.forEach(function(tip){
+            this.shownTips=[];
+                this.allTips.forEach(function(tip){
                     tip.tags.forEach(function(tag){
                         if (self.tagsFilter.selectedTags[tag.name]){
-                            self.shown_tips.push(tip);
+                            self.shownTips.push(tip);
                         }
                     });
                 });
@@ -767,7 +767,7 @@ var tipsFlow = new Vue({
                 this.filterTips();
 
             } else {
-                this.shown_tips = this.all_tips;
+                this.shownTips = this.allTips;
             }
             console.log (JSON.stringify(this.tips));
         },
@@ -787,7 +787,7 @@ var tipsFlow = new Vue({
         },
 
         'eCheckTipsOrder': function(e){
-            this.shown_tips.every(function(el, i){
+            this.shownTips.every(function(el, i){
                 if (el.id == e.id) {
                     el.upvoted = e.upvoted;
                     el.downvoted = e.downvoted;
@@ -795,7 +795,7 @@ var tipsFlow = new Vue({
                 }
                 else return true;
             });
-            this.all_tips.every(function(el, i){
+            this.allTips.every(function(el, i){
                 if (el.id == e.id) {
                     el.upvoted = e.upvoted;
                     el.downvoted = e.downvoted;
@@ -803,14 +803,14 @@ var tipsFlow = new Vue({
                 }
                 else return true;
             });
-            console.log(JSON.stringify(this.shown_tips));
+            console.log(JSON.stringify(this.shownTips));
             //this.sortTips();
         },
 
         'eEditTip': function(e){
             var self=this;
             this.showTipForm();
-            this.all_tips.every(function(el,i){
+            this.allTips.every(function(el,i){
                 if (el.id == e.id){
                     self.newTipForm.tipText=el.text;
                     self.newTipForm.addedTags=el.tags;
@@ -822,8 +822,8 @@ var tipsFlow = new Vue({
 
         'eTipRemoved': function(e){
             var self = this;
-            this.all_tips = this.all_tips.filter(function(n){return n.id!=e.id});
-            this.shown_tips = this.shown_tips.filter(function(n){return n.id!=e.id});
+            this.allTips = this.allTips.filter(function(n){return n.id!=e.id});
+            this.shownTips = this.shownTips.filter(function(n){return n.id!=e.id});
         }
     },
 
@@ -860,6 +860,13 @@ var tipsFlow = new Vue({
                             :comments="featured.comments">\
                     </c-tip>\
                     <div id="featured-box__other">Другие советы:</div>\
+                    </div>\
+                    <div id="no-tips-message" v-if="allTips.length==0">\
+                        <div class="message-header">Ой! Здесь пока ничего нет...</div>\
+                        <div class="message-body">\
+                            Станьте первооткрывателем!<br/>Поделитесь своим опытом с другими путешественниками.<br/>\
+                            Для кого-то любой ваш совет обязательно окажется полезным\
+                        </div>\
                     </div>\
                     <div v-show="!showingTipForm&&allowAddTip" id="add-tip-btn" @click="showTipForm">\
                         <span class="glyphicon glyphicon-plus-sign"></span>\
@@ -915,7 +922,7 @@ var tipsFlow = new Vue({
                     <!-- ==== TIPS CONTENT ==== -->\
                     \
                     <div id="tips-content" v-if="!collapsed">\
-                    <c-tip v-for="tip in shown_tips" track-by="id" \
+                    <c-tip v-for="tip in shownTips" track-by="id" \
                             :tags="tip.tags" \
                             :author="tip.author"\
                             :id="tip.id" \
