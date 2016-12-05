@@ -144,19 +144,20 @@ def robots():
     return response
 
 @app.route('/sitemap.xml', methods=['GET'])
-@cache.cached(timeout=3600)
+#@cache.cached(timeout=3600)
 def sitemap():
 
     """Generate sitemap.xml. Makes a list of urls and date modified."""
 
     pages=[]
 
-    pages.append([url_for('root', _external = True), NEVER])
+    never = NEVER.date().isoformat()
+    pages.append([url_for('root', _external = True), never])
 
     places = list(db.engine.execute("""SELECT url_string, modified_at FROM G_places WHERE chd_has_tips=1"""))
 
     for p in places:
-        date = NEVER if not p[1] else p[1].date().isoformat()
+        date = never if not p[1] else p[1].date().isoformat()
         pages.append([url_for('geo.places', us=p[0], _external=True), date])
 
 
