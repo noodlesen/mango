@@ -75,7 +75,15 @@
                 Профиль пользователя
               </a>
             </div>
+            {% else %}
+              <div class="item-block__body">
+                {{n.message}}
+                <div class="divider"></div>
+                {{n.data}}
+              </div>
             {% endif %}
+            
+
 
 
           </div>

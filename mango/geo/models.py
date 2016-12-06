@@ -134,7 +134,9 @@ class Tip(db.Model):
     def cache_it(self):
         cache = {
                 "author":{'id':self.user.id, 'name':self.user.nickname},
-                "tags":[], "url": url_for('geo.places', us=self.place.url_string)+"?t="+str(self.id)
+                "tags":[],
+                "url": url_for('geo.places', us=self.place.url_string)+"?t="+str(self.id),
+                "place": {"name": self.place.rus_name, "country": self.place.country.rus_name}
                 }
 
         for tag in self.tags:

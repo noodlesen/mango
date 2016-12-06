@@ -59,7 +59,9 @@ def get_tips_data(tips_list, **kwargs):
                 'upvoted': t.chd_upvoted,
                 'downvoted': t.chd_downvoted,
                 'rating': t.chd_upvoted - t.chd_downvoted,
-                'url': url_for('root', _external=True)+cached_data['url'][1:]
+                'url': url_for('root', _external=True)+cached_data['url'][1:],
+                'place_name': cached_data['place']['name'],
+                'country_name': cached_data['place']['country']
                 }
 
         tip['tags'] = cached_data['tags']

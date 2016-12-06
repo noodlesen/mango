@@ -819,17 +819,24 @@
   color: #0088cc;
 }
 
-/* line 414, scss/tipsflow.scss */
+/* line 413, scss/tipsflow.scss */
+.tip__extra-top {
+  font-size: 140%;
+  color: #0088cc;
+  margin-top: 1em;
+}
+
+/* line 419, scss/tipsflow.scss */
 .tip__share {
   padding: 5px 6px;
   background-color: #d5eaf3;
   color: #0088cc;
 }
-/* line 418, scss/tipsflow.scss */
+/* line 423, scss/tipsflow.scss */
 .tip__share i {
   font-size: 20px;
 }
-/* line 421, scss/tipsflow.scss */
+/* line 426, scss/tipsflow.scss */
 .tip__share input {
   padding: 0.1em 0.5em;
   border: 0.1em solid #0088cc;
@@ -837,7 +844,7 @@
   display: inline-block;
 }
 
-/* line 429, scss/tipsflow.scss */
+/* line 434, scss/tipsflow.scss */
 .tip-block__body {
   padding-bottom: 12px;
   width: 93%;
@@ -848,13 +855,13 @@
   min-height: 110px;
 }
 @media only screen and (max-width: 767px) {
-  /* line 429, scss/tipsflow.scss */
+  /* line 434, scss/tipsflow.scss */
   .tip-block__body {
     width: 88%;
   }
 }
 
-/* line 440, scss/tipsflow.scss */
+/* line 445, scss/tipsflow.scss */
 .tip-block__sidebar {
   padding-bottom: 12px;
   width: 7%;
@@ -865,14 +872,14 @@
   line-height: .5em;
 }
 @media only screen and (max-width: 767px) {
-  /* line 440, scss/tipsflow.scss */
+  /* line 445, scss/tipsflow.scss */
   .tip-block__sidebar {
     width: 12%;
     font-size: 1.8em;
   }
 }
 
-/* line 451, scss/tipsflow.scss */
+/* line 456, scss/tipsflow.scss */
 .tip__share-block {
   height: 30px;
   min-width: 30px;
@@ -885,13 +892,13 @@
   line-height: 0;
   cursor: pointer;
 }
-/* line 462, scss/tipsflow.scss */
+/* line 467, scss/tipsflow.scss */
 .tip__share-block:active {
   background-color: #0088cc;
   color: white;
 }
 
-/* line 468, scss/tipsflow.scss */
+/* line 473, scss/tipsflow.scss */
 .tip__share-link {
   display: inline-block;
   margin-left: 1em;

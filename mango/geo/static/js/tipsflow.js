@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 var cTip = Vue.extend({
 
-    props: ['text','tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit', 'related','mode', 'featured'],
+    props: ['text','tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit', 'related','mode', 'featured', 'place','country'],
 
     data: function(){
         return { 
@@ -250,7 +250,7 @@ var cTip = Vue.extend({
 
 
     template: '<div>\
-                <div class="tip__extra-top"></div>\
+                <div class="tip__extra-top" v-if="mode==\'favorites\' || mode==\'my_tips\'">{{place}} - {{country}}</div>\
                 <div class="item-block tip has-cmd-bar" :class="{\'featured\':featured}" >\
                     <div class="tip-block__body" :class="{\'tip-upVoted\':upVote, \'tip-downVoted\':downVote}" >\
                             <div class="tip__top">\
@@ -861,7 +861,7 @@ var tipsFlow = new Vue({
                     </c-tip>\
                     <div id="featured-box__other">Другие советы:</div>\
                     </div>\
-                    <div id="no-tips-message" v-if="allTips.length==0">\
+                    <div id="no-tips-message" v-if="allTips.length==0 && mode==\'place\'">\
                         <div class="message-header">Ой! Здесь пока ничего нет...</div>\
                         <div class="message-body">\
                             Станьте первооткрывателем!<br/>Поделитесь своим опытом с другими путешественниками.<br/>\
@@ -937,8 +937,9 @@ var tipsFlow = new Vue({
                             :mode="mode"\
                             :text="tip.text"\
                             :featured="false"\
+                            :place="tip.place_name"\
+                            :country="tip.country_name"\
                             :comments="tip.comments">\
-                        {{tip.showThis}}\
                     </c-tip>\
                     </div>\
                 </div>\
