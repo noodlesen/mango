@@ -6,11 +6,7 @@ h1 {
 
 
 
-.place__info {
-    border-width: 0 0 0 1px;
-    border-color: $gray4;
-    border-style: solid;
-}
+
 
 
 // TRANSITIONS
@@ -76,14 +72,27 @@ h1 {
 
 #place-subscribe{
     text-align: center;
-    padding: 5px;
+    width:60%; 
+    margin: auto;
+    padding: 10px 5px;
     background-color: $gray4;
     border-radius: 4px;
     font-weight: bolder;
     color: white;
-    font-size: 110%;
     cursor: pointer;
     margin-bottom: 10px;
+    font-size: 120%;
+
+    @include respond-to(lg) {
+        margin-top: .4em;
+        min-height: 3em;
+        font-size: 160%;
+    }
+    @include respond-to(md) {
+        margin-top: .5em;
+        min-height: 3em;
+        font-size: 140%;
+    }
     &:hover{
         background-color: $green;
     }
@@ -93,6 +102,58 @@ h1 {
     &.subscribed{
         background-color: $green;
     }
+    span {
+        vertical-align: middle;
+    }
+
 }
+
+#tipsflow{
+
+}
+
+
+#place__info {
+    border-width: 0 0 0 1px;
+    border-color: $gray4;
+    border-style: solid;
+}
+
+#place__header{
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: $gray4;
+    padding-bottom: .6em;
+    h1{
+        display: inline;
+    }
+    h2 {
+        display: inline-block;
+        padding-left: .4em;
+        font-size: 140%;
+        img {
+            height: 30px;
+        }
+    }
+    h1, h2{
+        @include respond-to(xs) {
+            display: block;
+            text-align: center;
+        }
+        @include respond-to(sm) {
+            display: block;
+            text-align: center;
+        }
+    }
+}
+
+.breadcrumb{
+    font-size: 200%;
+    display: inline;
+    vertical-align: top;
+    color: $gray4;
+
+}
+
 
 

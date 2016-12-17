@@ -46,7 +46,7 @@ var placeSubscribe = new Vue({
     },
     computed:{
         msg: function(){
-            return this.subscribed ? 'Вы подписаны на обновления по этому месту':'Подписаться на обновления по этому месту';
+            return this.subscribed ? 'Вы подписаны':'Подписаться';
         }
     },
     ready: function(){

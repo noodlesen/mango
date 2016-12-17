@@ -18,6 +18,22 @@
 
 {% block page_content %}
 <div class="container-fluid" id="cont">
+    <div id="place__header" class="row">
+        <div class="col-lg-8 col-md-8">
+        <h1>{{place.rus_name}}
+        </h1>
+        <h2>{{place.country.direction.rus_name}} >&nbsp;<img src="{{ url_for('geo.static', filename='images/flags/big/'+place.country.code|lower+'.png')}}" />&nbsp;{{place.country.rus_name}}
+        </h2>
+        </div>
+
+        <div class="col-lg-4 col-md-4">
+        <div id="place-subscribe" :class="{subscribed:subscribed}" @click="toggle">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                <span v-text="msg"></span>
+            </div>
+        </div>
+
+    </div>
     <div class="row">
 
 
@@ -74,24 +90,17 @@
             <div class="clearfix"></div>
         </div>
 
-        <div class="col-lg-5 col-xs-12 place__info">
+        <div class="col-lg-5 col-xs-12 " id ="place__info">
 
-            <h1>{{place.rus_name}}</h1>
-            <h2>
-                <img src="{{ url_for('geo.static', filename='images/flags/big/'+place.country.code|lower+'.png')}}" />
-                {{place.country.rus_name}}
-            </h2>
 
-            <div id="place-subscribe" :class="{subscribed:subscribed}" @click="toggle">
-                <span class="glyphicon glyphicon-map-marker"></span>
-                <span v-text="msg"></span>
-            </div>
+            
 
-            <div id="main-picture">
+            <div id="main-picture" class="hidden-xs">
                 {% if place.image %}
                 <img class="img img-responsive" src="{{ url_for('geo.static', filename='images/places/'+place.image+'_big.jpg') }}" />
                 {% endif %}
             </div>
+
             <div class="row">
                 <div class="col-lg-6">
                     {% if place.city_code %}
