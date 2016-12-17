@@ -5,7 +5,6 @@
 
 {% block metas %}
 {{super()}}
-<meta name="keywords" content="{{place.rus_name}}, {{place.eng_name}}, {{place.rus_name}} советы, {{place.rus_name}} отзывы" />
 <meta name="description" content="{{place.rus_name}}, {{place.country.rus_name}}. Советы и отзывы путешественников. Как добраться и что посмотреть. Факты и цены" />
 
 {% endblock %}
@@ -20,8 +19,8 @@
 {% block page_content %}
 <div class="container-fluid" id="cont">
     <div class="row">
-   
-        
+
+
         <div id="tipsflow" class="col-lg-7 col-xs-12">
             <div id="filters" class="hidden-xs tips-sidebar">
                 <div class="tags__list">
@@ -83,7 +82,7 @@
                 {{place.country.rus_name}}
             </h2>
 
-            <div id="place-subscribe" :class="{subscribed:subscribed}" @click="toggle">                
+            <div id="place-subscribe" :class="{subscribed:subscribed}" @click="toggle">
                 <span class="glyphicon glyphicon-map-marker"></span>
                 <span v-text="msg"></span>
             </div>
