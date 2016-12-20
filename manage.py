@@ -458,5 +458,13 @@ def quit_underscore():
     for p in places:
         db.engine.execute("""UPDATE G_places SET url_string = "%s" WHERE id=%d""" % (p[1].replace('_','-'),p[0]))
 
+@manager.command
+def country_urls():
+    countries = list(db.engine.execute("""SELECT id, name FROM G_countries"""))
+    for c in countries:
+        us = unidecode(c[1]).replace(' ','-').replace('.','').lower()
+        print (us)
+        db.engine.execute("""UPDATE G_countries SET url_string="%s" WHERE id=%d""" % (us, c[0]))
+
 if __name__ == "__main__":
     manager.run()

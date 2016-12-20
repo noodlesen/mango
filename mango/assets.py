@@ -163,6 +163,21 @@ bundles = {
         output='gen/place.js',
         filters='jsmin'),
 
+    # COUNTRY ============================
+    'country_js': Bundle(
+        'lib/vue.js',
+        'js/common.js',
+        'js/base.js',
+        output='gen/country.js',
+        filters='jsmin'),
+
+    'country_css': Bundle(
+        'css/base.css',
+        'css/common.css',
+        'css/ui.css',
+        'geo/css/country.css',
+        output='gen/country.css',
+        filters='cssmin'),
 
 }
  

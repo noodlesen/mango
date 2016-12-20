@@ -12,6 +12,7 @@ class Direction(db.Model):
     name = db.Column(db.String(100))
     rus_name = db.Column(db.String(100))
     countries = db.relationship('Country', backref='direction', lazy='dynamic')
+    url_string = db.Column(db.String(50))
 
 
 
@@ -28,6 +29,7 @@ class Country(db.Model):
     direction_id = db.Column(db.Integer, db.ForeignKey('G_directions.id'))
     places = db.relationship('Place', backref='country', lazy='dynamic')
     old_kdb_id = db.Column(db.Integer)
+    url_string = db.Column(db.String(50))
 
 
 

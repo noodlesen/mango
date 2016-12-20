@@ -8,7 +8,7 @@ from flask_login import login_required, current_user
 from sqlalchemy import desc
 
 from . import geo
-from .models import Place, Tip, Tag
+from .models import Place, Tip, Tag, Country, Direction
 from . .social.models import User, UsersRelationship, Notification, UserToPlaceRelationship
 from . .db import db
 from . .logger import Log
@@ -393,7 +393,27 @@ def json_tip():
     return json.dumps(res)
 
 
+@geo.route('/country/<us>')
+def country(us):
+    c = Country.query.filter_by(url_string=us).first()
+    if c:
+        places = list(db.engine.execute(""" SELECT rus_name, url_string FROM G_places WHERE country_id=%d and chd_has_tips=1 ORDER BY `number` DESC""" % c.id))
+        return render_template('country.html', c=c, places=places)
+    else:
+        abort(404)
 
+@geo.route('/direction/<us>')
+def direction(us):
+    d = Direction.query.filter_by(url_string=us).first()
+    if d:
+        countries = list(db.engine.execute(""" SELECT c.rus_name, COUNT(p.id), c.url_string as cp FROM G_countries as c JOIN G_places as p ON p.country_id=c.id WHERE p.chd_has_tips=1 AND c.direction_id=%d GROUP BY c.rus_name ORDER BY cp DESC, rus_name""" % d.id))
+        return render_template('direction.html', d=d, countries=countries)
+    else:
+        abort(404)
+
+@geo.route('/world')
+def world():
+    return render_template('world.html')
 
 
 

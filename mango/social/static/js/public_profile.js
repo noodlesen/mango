@@ -32,10 +32,13 @@ var pp = new Vue({
             this.showingMessageForm = !this.showingMessageForm;
         },
         sendPrivateMessage: function(){
+            console.log('sending');
             var self = this;
             if (this.signedIn && this.messageText!=''){
+                console.log('to server');
                 getResults('/post-messenger', 'json', {text: this.messageText, cmd:'sendMessage', uid: this.userId}, function(res){
                     if (res.status=='ok'){
+                        console.log('ok');
                         self.messageText='';
                         self.showingMessageForm=false;
                         self.messageSuccess = true;
@@ -47,7 +50,7 @@ var pp = new Vue({
     ready: function(){
         this.subscribed = subscribed == "True" ? true : false;
         this.canSendPm = canSendPm == "True" ? true : false;
-        this.signedIn = signedIn == "True" ? true : false;
+        this.signedIn = signedIn;// == "True" ? true : false;
         this.userId = userId;
     }
 });

@@ -1,0 +1,23 @@
+@import "../../../../static/css/scss/_config";
+
+h1 {
+    font-size: 400%;
+
+    img{
+        display: inline;
+    }
+}
+
+#col-header{
+    text-align: center;
+}
+
+#col-places{
+    p {
+        font-size: 160%;
+    }
+    @include respond-to(xs) {text-align: center;}
+}
+
+
+
