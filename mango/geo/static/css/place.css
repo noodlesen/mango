@@ -411,9 +411,8 @@ h1 {
 /* line 73, scss/place.scss */
 #place-subscribe {
   text-align: center;
-  width: 60%;
+  width: 100%;
   margin: auto;
-  padding: 10px 5px;
   background-color: #c6c6c6;
   border-radius: 4px;
   font-weight: bolder;
@@ -426,7 +425,6 @@ h1 {
   /* line 73, scss/place.scss */
   #place-subscribe {
     margin-top: .4em;
-    min-height: 3em;
     font-size: 160%;
   }
 }
@@ -438,70 +436,76 @@ h1 {
     font-size: 140%;
   }
 }
-/* line 96, scss/place.scss */
+/* line 94, scss/place.scss */
 #place-subscribe:hover {
   background-color: #55d426;
 }
-/* line 99, scss/place.scss */
+/* line 97, scss/place.scss */
 #place-subscribe:active {
   background-color: #585858;
 }
-/* line 102, scss/place.scss */
+/* line 100, scss/place.scss */
 #place-subscribe.subscribed {
   background-color: #55d426;
 }
-/* line 105, scss/place.scss */
+/* line 103, scss/place.scss */
 #place-subscribe span {
   vertical-align: middle;
 }
 
-/* line 116, scss/place.scss */
+/* line 114, scss/place.scss */
 #place__info {
   border-width: 0 0 0 1px;
   border-color: #c6c6c6;
   border-style: solid;
 }
 
-/* line 122, scss/place.scss */
+/* line 120, scss/place.scss */
 #place__header {
+  text-align: center;
   border-width: 0 0 1px 0;
   border-style: solid;
   border-color: #c6c6c6;
   padding-bottom: .6em;
 }
-/* line 127, scss/place.scss */
+/* line 126, scss/place.scss */
 #place__header h1 {
-  display: inline;
+  font-size: 500%;
+  margin-bottom: -20px;
 }
-/* line 130, scss/place.scss */
+/* line 131, scss/place.scss */
 #place__header h2 {
-  display: inline-block;
-  padding-left: .4em;
-  font-size: 140%;
-}
-/* line 134, scss/place.scss */
-#place__header h2 img {
-  height: 30px;
+  font-size: 100%;
+  margin-top: .8em;
+  margin-bottom: 1em;
 }
 @media only screen and (max-width: 767px) {
-  /* line 138, scss/place.scss */
+  /* line 139, scss/place.scss */
   #place__header h1, #place__header h2 {
     display: block;
     text-align: center;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* line 138, scss/place.scss */
+  /* line 139, scss/place.scss */
   #place__header h1, #place__header h2 {
     display: block;
     text-align: center;
   }
 }
 
-/* line 150, scss/place.scss */
+/* line 151, scss/place.scss */
 .breadcrumb {
   font-size: 200%;
   display: inline;
   vertical-align: top;
   color: #c6c6c6;
+}
+
+/* line 159, scss/place.scss */
+#main-picture img {
+  width: 70%;
+  margin: auto;
+  display: block;
+  border-radius: 6px;
 }
