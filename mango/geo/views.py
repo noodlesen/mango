@@ -64,6 +64,9 @@ def get_tips_data(tips_list, **kwargs):
                 'country_name': cached_data['place']['country']
                 }
 
+        tip["country_url"] = url_for('geo.country',us=t.place.country.url_string)
+        tip["direction_url"] = url_for('geo.direction',us=t.place.country.direction.url_string)
+
         tip['tags'] = cached_data['tags']
         if 'featured' in kwargs and kwargs['featured'] == str(tip['id']):
             td['featured']=tip

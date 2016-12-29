@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 var cTip = Vue.extend({
 
-    props: ['text','tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit', 'related','mode', 'featured', 'place','country'],
+    props: ['text','tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit', 'related','mode', 'featured', 'place','country', 'countryurl', 'directionurl'],
 
     data: function(){
         return { 
@@ -34,6 +34,7 @@ var cTip = Vue.extend({
         }
     },
     ready:function(){
+        console.log(this.countryurl)
         this.signedIn = signedIn;
         this.favorite = this.fave;
         if (this.upvote){
@@ -250,7 +251,7 @@ var cTip = Vue.extend({
 
 
     template: '<div>\
-                <div class="tip__extra-top" v-if="mode==\'favorites\' || mode==\'my_tips\'">{{place}} - {{country}}</div>\
+                <div class="tip__extra-top" v-if="mode==\'favorites\' || mode==\'my_tips\'"><a href="{{url}}">{{place}}</a> - <a href="{{countryurl}}">{{country}}</a></div>\
                 <div class="item-block tip has-cmd-bar" :class="{\'featured\':featured}" >\
                     <div class="tip-block__body" :class="{\'tip-upVoted\':upVote, \'tip-downVoted\':downVote}" >\
                             <div class="tip__top">\
@@ -870,10 +871,10 @@ var tipsFlow = new Vue({
                     </div>\
                     <div v-show="!showingTipForm&&allowAddTip" id="add-tip-btn" @click="showTipForm">\
                         <span class="glyphicon glyphicon-plus-sign"></span>\
-                        <span>Добавьте свой совет!</span>\
+                        <span>Поделитесь своим опытом</span>\
                     </div>\
                     <div v-if="showingTipForm" id="tip__add-new-form">\
-                        <div id="addTipForm__header"><h2><span v-if="!allowEdit">Добавьте свой</span><span v-if="allowEdit">Редактировать</span> совет</h2></div>\
+                        <div id="addTipForm__header"><h2><span v-if="!allowEdit">Поделитесь своим опытом</span><span v-if="allowEdit">Редактировать пост</span></h2></div>\
                         <div @click="closeTipForm" id="addTipForm__close"><span class="glyphicon glyphicon-remove"></span></div>\
                         <div class="clearfix"></div>\
                         <div style="text-align:right" :class="{\'error-text\':limitError}">{{newTipForm.tipText.length}}/600</div>\
@@ -939,6 +940,8 @@ var tipsFlow = new Vue({
                             :featured="false"\
                             :place="tip.place_name"\
                             :country="tip.country_name"\
+                            :countryurl="tip.country_url"\
+                            :directionurl="tip.direction_url"\
                             :comments="tip.comments">\
                     </c-tip>\
                     </div>\
