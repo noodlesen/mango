@@ -364,7 +364,8 @@ def json_tip():
                                     msg,
                                     data=tip.text[:100]+"...",
                                     user_from=current_user.id,
-                                    extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
+                                    #extra={"tip_url": url_for('geo.single_tip', tid=tip.id)}
+                                    extra={"tip_url": url_for('geo.places', us=tip.place.url_string)+"?t=%d" % tip.id}
                                     )
 
                 subscribed_users = UserToPlaceRelationship.query.filter_by(place_id=tip.place_id)
