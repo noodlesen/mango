@@ -126,14 +126,14 @@ h1 {
     h1{
         //display: inline;
         font-size: 500%;
-        margin-bottom: -20px;
+        //margin-bottom: 1em;
     }
     h2 {
         //display: inline-block; 
         //padding-left: .4em;
         font-size: 100%;
         margin-top: .8em;
-        margin-bottom: 1em;
+        margin-bottom: -0.2em;
 
     }
     h1, h2{
@@ -162,6 +162,7 @@ h1 {
     display: block;
     border-radius: 6px;
 }
+
 
 
 

@@ -22,14 +22,13 @@
     <div id="place__header">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <h1>
-                    <img src="{{ url_for('geo.static', filename='images/flags/big/'+place.country.code|lower+'.png')}}" /> {{place.rus_name}}
-                </h1>
-
                 <h2><a href="{{url_for('geo.world')}}"><span class="glyphicon glyphicon-globe"></span></a> >&nbsp;
                     <a href="{{url_for('geo.direction', us=place.country.direction.url_string)}}">{{place.country.direction.rus_name}}</a> >
                     <a href="{{url_for('geo.country', us=place.country.url_string)}}">{{place.country.rus_name}}</a>
                 </h2>
+                <h1>
+                    <img src="{{ url_for('geo.static', filename='images/flags/big/'+place.country.code|lower+'.png')}}" /> {{place.rus_name}}
+                </h1>
             </div>
         </div>
 

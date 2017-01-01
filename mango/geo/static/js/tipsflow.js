@@ -251,7 +251,7 @@ var cTip = Vue.extend({
 
 
     template: '<div>\
-                <div class="tip__extra-top" v-if="mode==\'favorites\' || mode==\'my_tips\'"><a href="{{url}}">{{place}}</a> - <a href="{{countryurl}}">{{country}}</a></div>\
+                <div class="tip__extra-top" v-if="mode==\'favorites\' || mode==\'my_tips\'|| mode==\'public_profile\'"><a href="{{url}}">{{place}}</a> - <a href="{{countryurl}}">{{country}}</a></div>\
                 <div class="item-block tip has-cmd-bar" :class="{\'featured\':featured}" >\
                     <div class="tip-block__body" :class="{\'tip-upVoted\':upVote, \'tip-downVoted\':downVote}" >\
                             <div class="tip__top">\
@@ -497,8 +497,8 @@ var tipsFlow = new Vue({
             this.allowFilters=false;
             this.allowAddTip = false;
             this.allowEdit = false;
-            this.collapsed = true;
-            this.collapsedMessage =jd.config.collapsed_message;
+            this.collapsed = false;
+            //this.collapsedMessage =jd.config.collapsed_message;
 
         } else if (self.mode=='favorites'){
             this.allowFilters=false;
