@@ -459,8 +459,14 @@ h1 {
   border-color: #c6c6c6;
   border-style: solid;
 }
+@media only screen and (min-width: 1200px) {
+  /* line 114, scss/place.scss */
+  #place__info {
+    width: 18%;
+  }
+}
 
-/* line 120, scss/place.scss */
+/* line 124, scss/place.scss */
 #place__header {
   text-align: center;
   border-width: 0 0 1px 0;
@@ -468,32 +474,32 @@ h1 {
   border-color: #c6c6c6;
   padding-bottom: .6em;
 }
-/* line 126, scss/place.scss */
+/* line 130, scss/place.scss */
 #place__header h1 {
   font-size: 500%;
 }
-/* line 131, scss/place.scss */
+/* line 135, scss/place.scss */
 #place__header h2 {
   font-size: 100%;
   margin-top: .8em;
   margin-bottom: -0.2em;
 }
 @media only screen and (max-width: 767px) {
-  /* line 139, scss/place.scss */
+  /* line 143, scss/place.scss */
   #place__header h1, #place__header h2 {
     display: block;
     text-align: center;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* line 139, scss/place.scss */
+  /* line 143, scss/place.scss */
   #place__header h1, #place__header h2 {
     display: block;
     text-align: center;
   }
 }
 
-/* line 151, scss/place.scss */
+/* line 155, scss/place.scss */
 .breadcrumb {
   font-size: 200%;
   display: inline;
@@ -501,7 +507,7 @@ h1 {
   color: #c6c6c6;
 }
 
-/* line 159, scss/place.scss */
+/* line 163, scss/place.scss */
 #main-picture img {
   width: 70%;
   margin: auto;

@@ -115,7 +115,11 @@ h1 {
     border-width: 0 0 0 1px;
     border-color: $gray4;
     border-style: solid;
+    @include respond-to(lg) {
+        width:18%;
+    }
 }
+
 
 #place__header{
     text-align: center;
