@@ -6,10 +6,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . .config import ADMIN_EMAILS
 from datetime import datetime
 
-from sqlalchemy.sql import or_
+#from sqlalchemy.sql import or_
 
 import json
-
 
 
 class PrivateMessage(db.Model):
@@ -45,24 +44,20 @@ class UsersRelationship(db.Model):
     user2 = db.Column(db.ForeignKey('users.id'))
 
 
-
 users_favorites = db.Table('users_favorites',
-    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
-    db.Column('tip_id', db.Integer, db.ForeignKey('tips.id'))
-    )
+                           db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+                           db.Column('tip_id', db.Integer, db.ForeignKey('tips.id'))
+                           )
 
 users_upvotes = db.Table('users_upvotes',
-    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
-    db.Column('tip_id', db.Integer, db.ForeignKey('tips.id'))
-    )
+                         db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+                         db.Column('tip_id', db.Integer, db.ForeignKey('tips.id'))
+                         )
 
 users_downvotes = db.Table('users_downvotes',
-    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
-    db.Column('tip_id', db.Integer, db.ForeignKey('tips.id'))
-    )
-
-
-
+                           db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+                           db.Column('tip_id', db.Integer, db.ForeignKey('tips.id'))
+                           )
 
 
 class User (UserMixin, db.Model):
@@ -293,7 +288,6 @@ class User (UserMixin, db.Model):
         return (url_for('social.static', filename='images/avatars/'+image))
 
 
-
 class NotificationMixin():
     id = db.Column(db.Integer, primary_key=True)
     ntype = db.Column(db.String(20))
@@ -358,23 +352,23 @@ class Notification(db.Model, NotificationMixin):
         for n in nots:
             res['total']+=1
             if n.ntype=='PM':
-                res['messages']+=1
+                res['messages'] += 1
             else:
-                res['other']+=1
+                res['other'] += 1
         return res
 
     def release(mode, **kwargs):
         if mode == 'conversation':
             Notification.query.filter(
-                            Notification.user_from == kwargs["user_from"],
-                            Notification.user_to == kwargs["user_to"]
-                            ).delete()
+                Notification.user_from == kwargs["user_from"],
+                Notification.user_to == kwargs["user_to"]
+                ).delete()
             db.session.commit()
         elif mode == 'events':
             nots = Notification.query.filter(
-                            Notification.user_to == kwargs["user_to"],
-                            Notification.ntype != 'PM'
-                            )
+                Notification.user_to == kwargs["user_to"],
+                Notification.ntype != 'PM'
+                )
             for n in nots:
                 h = NotificationHistory()
                 h.user_from = n.user_from
