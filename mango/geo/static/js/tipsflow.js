@@ -606,7 +606,7 @@ var tipsFlow = new Vue({
                                     } else {
                                         self.shownTips.every(function(el, i){
                                             if (el.id == self.lastEdited){
-                                                alert('found');
+                                                //alert('found');
                                                 el.text = self.newTipForm.tipText;
                                                 el.tags = self.newTipForm.addedTags;
                                             }

@@ -325,14 +325,28 @@ def json_tip():
                 tip = Tip()
                 tip.user_id = current_user.id
                 tip.place_id = q['placeID']
+                existing_tags=[]
             else:
                 tip = Tip.query.get(q['tipID'])
                 if not tip or tip.user_id!=current_user.id:
                     res['status']='Wrong id'
                     return json.dumps(res)
+                existing_tags=[t.name for t in tip.tags]
+
+
 
             tip.text = q['text'].strip()
-            tag_names = q['tags']
+
+            tag_names = [t for t in q['tags'] if t['name'] not in existing_tags]
+
+            tags_to_remove = [e for e in existing_tags if e not in [t['name'] for t in q['tags']]]
+            print ('REMOVE ', tags_to_remove)
+            for t in tags_to_remove:
+                tr = Tag.query.filter_by(name=t).first()
+                print (tr)
+                tip.tags.remove(tr)
+                tip.cache_it()
+
 
             if tip.text!='' and len(tag_names)>0 and len(tip.text)<=600:
 
