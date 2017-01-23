@@ -496,19 +496,19 @@ body {
   background-color: #0088cc;
   color: white;
 }
-/* line 129, scss/base.scss */
+/* line 130, scss/base.scss */
 #search-results a {
   text-decoration: none;
   cursor: pointer;
   border-radius: 5px;
   border: 2px solid #0088cc;
 }
-/* line 134, scss/base.scss */
+/* line 135, scss/base.scss */
 #search-results a:hover {
   border-color: white;
   color: white;
 }
-/* line 138, scss/base.scss */
+/* line 139, scss/base.scss */
 #search-results a.search-result--preselected {
   border-color: white;
   color: white;

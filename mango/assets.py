@@ -178,6 +178,14 @@ bundles = {
         'geo/css/country.css',
         output='gen/country.css',
         filters='cssmin'),
+    # WORLD ============================
+    'world_css': Bundle(
+        'css/base.css',
+        'css/common.css',
+        'css/ui.css',
+        'geo/css/world.css',
+        output='gen/world.css',
+        filters='cssmin'),
 
 }
  

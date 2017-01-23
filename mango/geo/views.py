@@ -8,6 +8,7 @@ from flask_login import login_required, current_user
 from sqlalchemy import desc
 
 from . import geo
+from . .cache import cache
 from .models import Place, Tip, Tag, Country, Direction
 from . .social.models import User, UsersRelationship, Notification, UserToPlaceRelationship
 from . .db import db
@@ -419,8 +420,30 @@ def direction(us):
         abort(404)
 
 @geo.route('/world')
+#@cache.cached(timeout=3600)
 def world():
-    return render_template('world.html')
+    dirs = Direction.query.all()
+    countries = list(db.engine.execute("""SELECT c.rus_name, c.url_string, count(p.id) as cn
+                                          FROM G_countries as c
+                                          JOIN  G_places as p
+                                          ON p.country_id=c.id
+                                          GROUP BY c.rus_name
+                                          ORDER BY cn DESC
+                                          LIMIT 15"""))
+
+    places = list(db.engine.execute("""SELECT p.rus_name, p.url_string, count(t.id)*p.number as cn
+                                          FROM G_places as p
+                                          JOIN  tips as t
+                                          ON t.place_id=p.id
+                                          GROUP BY p.rus_name
+                                          ORDER BY cn DESC
+                                          LIMIT 30"""))
+    print('>>>>>>>>>>>>>>')
+    print (countries)
+    return render_template('world.html',
+                           directions=dirs,
+                           countries=countries,
+                           places=places)
 
 
 

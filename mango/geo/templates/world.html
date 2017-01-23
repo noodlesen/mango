@@ -12,7 +12,7 @@
 
 {% block styles %}
 {{ super() }}
-    {% assets "country_css" %}
+    {% assets "world_css" %}
         <link rel="stylesheet" href="{{ ASSET_URL }}" />
     {% endassets %}
 {% endblock %}
@@ -20,20 +20,42 @@
 {% block page_content %}
 <div class="container">
     <div class="row">
-        <div class="col-lg-6 col-lg-offset-3">
+        <h1>Весь мир</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
             <div id="col-header">
-                <h1>
-                    Все направления
-                </h1>
+                <h2>Направления</h2>
             </div>
+            <ul>
+                {% for d in directions %}
+                    <li class="dir-item"><a href="{{url_for('geo.direction', us=d.url_string)}}">{{ d.rus_name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-lg-4">
+            <div id="col-header">
+                <h2>Популярные страны</h2>
+            </div>
+            <ul>
+                {% for c in countries %}
+                    <li class="country-item"><a href="{{url_for('geo.country', us=c[1])}}">{{ c[0] }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-lg-4">
+            <div id="col-header">
+                <h2>Популярные места</h2>
+            </div>
+            <ul>
+                {% for p in places %}
+                    <li class="place-item"><a href="{{url_for('geo.places', us=p[1])}}">{{ p[0] }}</a></li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
     <div class="divider"></div>
-    <div class="row">
-        <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 " id="col-places">
-            Тада!
-        </div>
-    </div>
+
 
 
 
@@ -42,9 +64,6 @@
 
 {% block scripts %}
     {{super()}}
-    {% assets "country_js" %}
-        <script src ="{{ ASSET_URL }}" type="text/javascript"></script>
-    {% endassets %}
 
 {% endblock %}
 

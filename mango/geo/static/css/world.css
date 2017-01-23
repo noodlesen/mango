@@ -1,0 +1,19 @@
+/* line 1, scss/world.scss */
+li {
+  list-style: none;
+}
+
+/* line 5, scss/world.scss */
+.dir-item {
+  font-size: 200%;
+}
+
+/* line 8, scss/world.scss */
+.country-item {
+  font-size: 160%;
+}
+
+/* line 11, scss/world.scss */
+.place-item {
+  font-size: 120%;
+}
