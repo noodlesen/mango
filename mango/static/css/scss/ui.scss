@@ -20,7 +20,7 @@
 }
 
 .cmd-bar {
-    display: none;
+    @include respond-to(notxs) {display: none;}
     padding: 5px;
     background-color: #eef;
     color: black;
@@ -93,7 +93,7 @@
 
 
 .has-cmd-bar:hover .cmd-bar{
-    display: block;
+    @include respond-to(notxs) { display: block;}
 }
 
 

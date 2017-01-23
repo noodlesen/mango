@@ -79,7 +79,7 @@
         vertical-align: middle;
     }
     &:hover{
-        background-color: $orange;
+        @include respond-to(notxs) {background-color: $orange;}
     }
     &:active{
         background-color: $blue;
@@ -285,7 +285,7 @@
         display: none;
     }
     &:hover .added-tag__remove-sign{
-        display: inline;
+        @include respond-to(notxs) {display: inline;}
     }
 }
 
@@ -324,12 +324,6 @@
 .tip__vote-up{
     cursor: pointer;
     color: $pale-green;
-/*     &:hover{
-        color:$light-green;
-    }
-    &:active{
-        color: $dark-green;
-    } */
     margin-bottom: .7em;
 }
 
@@ -337,23 +331,14 @@
 .tip__vote-dn{
     cursor: pointer;
     color: $pale-red;
-/*     &:hover{
-        color:$light-red;
-    } */
 }
 
 .tip__vote-up--active{
     color: $green;
-/*     &:hover{
-        color:$dark-green;
-    } */
 }
 
 .tip__vote-dn--active{
     color: $red;
-/*     &:hover{
-        color:$dark-red;
-    } */
 }
 
 .tip__author{

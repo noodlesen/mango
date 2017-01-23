@@ -6,335 +6,335 @@
   @include respond-to(medium-screens) { width: 125px; }
   @include respond-to(wide-screens) { float: none; }
 }​ */
-/* line 109, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 112, ../../../static/css/scss/_config.scss */
 .back-color-white {
   background-color: white;
 }
 
-/* line 113, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 116, ../../../static/css/scss/_config.scss */
 .color-white {
   color: white;
 }
 
-/* line 117, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 120, ../../../static/css/scss/_config.scss */
 .back-color-black {
   background-color: black;
 }
 
-/* line 121, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 124, ../../../static/css/scss/_config.scss */
 .color-black {
   color: black;
 }
 
-/* line 125, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 128, ../../../static/css/scss/_config.scss */
 .color-blue {
   color: #0088cc;
 }
 
-/* line 130, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 133, ../../../static/css/scss/_config.scss */
 .color-cyan {
   color: #0cbeb2;
 }
 
-/* line 135, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 138, ../../../static/css/scss/_config.scss */
 .color-green {
   color: #55d426;
 }
 
-/* line 140, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 143, ../../../static/css/scss/_config.scss */
 .color-yellow {
   color: #ff9800;
 }
 
-/* line 145, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 148, ../../../static/css/scss/_config.scss */
 .color-orange {
   color: #ff9800;
 }
 
-/* line 150, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 153, ../../../static/css/scss/_config.scss */
 .color-red {
   color: #ff4e2b;
 }
 
-/* line 154, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 157, ../../../static/css/scss/_config.scss */
 .color-magenta {
   color: #b652bf;
 }
 
-/* line 160, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 163, ../../../static/css/scss/_config.scss */
 .color-dark-blue {
   color: #002c87;
 }
 
-/* line 165, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 168, ../../../static/css/scss/_config.scss */
 .color-dark-cyan {
   color: #00705d;
 }
 
-/* line 170, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 173, ../../../static/css/scss/_config.scss */
 .color-dark-green {
   color: #0c9702;
 }
 
-/* line 175, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 178, ../../../static/css/scss/_config.scss */
 .color-dark-orange {
   color: #ff7b00;
 }
 
-/* line 180, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 183, ../../../static/css/scss/_config.scss */
 .color-dark-yellow {
   color: #ffd900;
 }
 
-/* line 185, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 188, ../../../static/css/scss/_config.scss */
 .color-dark-red {
   color: #ff0a02;
 }
 
-/* line 190, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 193, ../../../static/css/scss/_config.scss */
 .color-dark-magenta {
   color: #821a8f;
 }
 
-/* line 195, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 198, ../../../static/css/scss/_config.scss */
 .color-light-blue {
   color: #acd6e7;
 }
 
-/* line 200, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 203, ../../../static/css/scss/_config.scss */
 .color-light-cyan {
   color: #b1e8df;
 }
 
-/* line 205, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 208, ../../../static/css/scss/_config.scss */
 .color-light-green {
   color: #c8efb1;
 }
 
-/* line 210, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 213, ../../../static/css/scss/_config.scss */
 .color-light-orange {
   color: #ffeaa5;
 }
 
-/* line 215, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 218, ../../../static/css/scss/_config.scss */
 .color-light-yellow {
   color: #fff8a9;
 }
 
-/* line 220, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 223, ../../../static/css/scss/_config.scss */
 .color-light-red {
   color: #ffc4b3;
 }
 
-/* line 225, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 228, ../../../static/css/scss/_config.scss */
 .color-pale-blue {
   color: #d5eaf3;
 }
 
-/* line 230, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 233, ../../../static/css/scss/_config.scss */
 .color-light-magenta {
   color: #d294d7;
 }
 
-/* line 235, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 238, ../../../static/css/scss/_config.scss */
 .color-pale-cyan {
   color: #d8f3ef;
 }
 
-/* line 240, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 243, ../../../static/css/scss/_config.scss */
 .color-pale-green {
   color: #e3f7d8;
 }
 
-/* line 245, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 248, ../../../static/css/scss/_config.scss */
 .color-pale-yellow {
   color: #fff4d2;
 }
 
-/* line 250, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 253, ../../../static/css/scss/_config.scss */
 .color-pale-yellow {
   color: #fffbd4;
 }
 
-/* line 255, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 258, ../../../static/css/scss/_config.scss */
 .color-pale-red {
   color: #ffe1d9;
 }
 
-/* line 260, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 263, ../../../static/css/scss/_config.scss */
 .color-pale-magenta {
   color: #e8c9eb;
 }
 
-/* line 268, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 271, ../../../static/css/scss/_config.scss */
 .back-color-none {
   background-color: #78a7b4;
   color: white;
 }
 
-/* line 273, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 276, ../../../static/css/scss/_config.scss */
 .back-color-blue {
   background-color: #0088cc;
   color: white;
 }
 
-/* line 278, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 281, ../../../static/css/scss/_config.scss */
 .back-color-cyan {
   background-color: #0cbeb2;
   color: white;
 }
 
-/* line 283, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 286, ../../../static/css/scss/_config.scss */
 .back-color-green {
   background-color: #55d426;
   color: white;
 }
 
-/* line 288, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 291, ../../../static/css/scss/_config.scss */
 .back-color-yellow {
   background-color: #ff9800;
   color: white;
 }
 
-/* line 293, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 296, ../../../static/css/scss/_config.scss */
 .back-color-orange {
   background-color: #ff9800;
   color: white;
 }
 
-/* line 298, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 301, ../../../static/css/scss/_config.scss */
 .back-color-red {
   background-color: #ff4e2b;
   color: white;
 }
 
-/* line 303, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 306, ../../../static/css/scss/_config.scss */
 .back-color-magenta {
   background-color: #b652bf;
   color: white;
 }
 
-/* line 309, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 312, ../../../static/css/scss/_config.scss */
 .back-color-dark-blue {
   background-color: #002c87;
   color: white;
 }
 
-/* line 314, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 317, ../../../static/css/scss/_config.scss */
 .back-color-dark-cyan {
   background-color: #00705d;
   color: white;
 }
 
-/* line 319, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 322, ../../../static/css/scss/_config.scss */
 .back-color-dark-green {
   background-color: #0c9702;
   color: white;
 }
 
-/* line 324, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 327, ../../../static/css/scss/_config.scss */
 .back-color-dark-orange {
   background-color: #ff7b00;
   color: white;
 }
 
-/* line 329, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 332, ../../../static/css/scss/_config.scss */
 .back-color-dark-yellow {
   background-color: #ffd900;
   color: white;
 }
 
-/* line 334, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 337, ../../../static/css/scss/_config.scss */
 .back-color-dark-red {
   background-color: #ff0a02;
   color: white;
 }
 
-/* line 339, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 342, ../../../static/css/scss/_config.scss */
 .back-color-dark-magenta {
   background-color: #821a8f;
   color: white;
 }
 
-/* line 344, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 347, ../../../static/css/scss/_config.scss */
 .back-color-light-blue {
   background-color: #acd6e7;
   color: white;
 }
 
-/* line 349, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 352, ../../../static/css/scss/_config.scss */
 .back-color-light-cyan {
   background-color: #b1e8df;
   color: white;
 }
 
-/* line 354, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 357, ../../../static/css/scss/_config.scss */
 .back-color-light-green {
   background-color: #c8efb1;
   color: white;
 }
 
-/* line 359, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 362, ../../../static/css/scss/_config.scss */
 .back-color-light-orange {
   background-color: #ffeaa5;
   color: white;
 }
 
-/* line 364, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 367, ../../../static/css/scss/_config.scss */
 .back-color-light-yellow {
   background-color: #fff8a9;
   color: white;
 }
 
-/* line 369, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 372, ../../../static/css/scss/_config.scss */
 .back-color-light-red {
   background-color: #ffc4b3;
   color: white;
 }
 
-/* line 374, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 377, ../../../static/css/scss/_config.scss */
 .back-color-pale-blue {
   background-color: #d5eaf3;
   color: white;
 }
 
-/* line 379, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 382, ../../../static/css/scss/_config.scss */
 .back-color-light-magenta {
   background-color: #d294d7;
   color: white;
 }
 
-/* line 384, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 387, ../../../static/css/scss/_config.scss */
 .back-color-pale-cyan {
   background-color: #d8f3ef;
   color: white;
 }
 
-/* line 389, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 392, ../../../static/css/scss/_config.scss */
 .back-color-pale-green {
   background-color: #e3f7d8;
   color: white;
 }
 
-/* line 394, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 397, ../../../static/css/scss/_config.scss */
 .back-color-pale-orange {
   background-color: #fff4d2;
   color: white;
 }
 
-/* line 399, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 402, ../../../static/css/scss/_config.scss */
 .back-color-pale-yellow {
   background-color: #fffbd4;
   color: white;
 }
 
-/* line 404, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 407, ../../../static/css/scss/_config.scss */
 .back-color-pale-red {
   background-color: #ffe1d9;
   color: white;
 }
 
-/* line 409, /Users/lapshov/Documents/venv/mango/mango/geo/static/css/scss/../../../../static/css/scss/_config.scss */
+/* line 412, ../../../static/css/scss/_config.scss */
 .back-color-pale-magenta {
   background-color: #e8c9eb;
   color: white;

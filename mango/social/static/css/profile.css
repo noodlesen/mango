@@ -6,335 +6,335 @@
   @include respond-to(medium-screens) { width: 125px; }
   @include respond-to(wide-screens) { float: none; }
 }​ */
-/* line 109, ../../../static/css/scss/_config.scss */
+/* line 112, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-white {
   background-color: white;
 }
 
-/* line 113, ../../../static/css/scss/_config.scss */
+/* line 116, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-white {
   color: white;
 }
 
-/* line 117, ../../../static/css/scss/_config.scss */
+/* line 120, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-black {
   background-color: black;
 }
 
-/* line 121, ../../../static/css/scss/_config.scss */
+/* line 124, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-black {
   color: black;
 }
 
-/* line 125, ../../../static/css/scss/_config.scss */
+/* line 128, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-blue {
   color: #0088cc;
 }
 
-/* line 130, ../../../static/css/scss/_config.scss */
+/* line 133, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-cyan {
   color: #0cbeb2;
 }
 
-/* line 135, ../../../static/css/scss/_config.scss */
+/* line 138, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-green {
   color: #55d426;
 }
 
-/* line 140, ../../../static/css/scss/_config.scss */
+/* line 143, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-yellow {
   color: #ff9800;
 }
 
-/* line 145, ../../../static/css/scss/_config.scss */
+/* line 148, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-orange {
   color: #ff9800;
 }
 
-/* line 150, ../../../static/css/scss/_config.scss */
+/* line 153, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-red {
   color: #ff4e2b;
 }
 
-/* line 154, ../../../static/css/scss/_config.scss */
+/* line 157, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-magenta {
   color: #b652bf;
 }
 
-/* line 160, ../../../static/css/scss/_config.scss */
+/* line 163, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-dark-blue {
   color: #002c87;
 }
 
-/* line 165, ../../../static/css/scss/_config.scss */
+/* line 168, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-dark-cyan {
   color: #00705d;
 }
 
-/* line 170, ../../../static/css/scss/_config.scss */
+/* line 173, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-dark-green {
   color: #0c9702;
 }
 
-/* line 175, ../../../static/css/scss/_config.scss */
+/* line 178, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-dark-orange {
   color: #ff7b00;
 }
 
-/* line 180, ../../../static/css/scss/_config.scss */
+/* line 183, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-dark-yellow {
   color: #ffd900;
 }
 
-/* line 185, ../../../static/css/scss/_config.scss */
+/* line 188, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-dark-red {
   color: #ff0a02;
 }
 
-/* line 190, ../../../static/css/scss/_config.scss */
+/* line 193, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-dark-magenta {
   color: #821a8f;
 }
 
-/* line 195, ../../../static/css/scss/_config.scss */
+/* line 198, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-light-blue {
   color: #acd6e7;
 }
 
-/* line 200, ../../../static/css/scss/_config.scss */
+/* line 203, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-light-cyan {
   color: #b1e8df;
 }
 
-/* line 205, ../../../static/css/scss/_config.scss */
+/* line 208, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-light-green {
   color: #c8efb1;
 }
 
-/* line 210, ../../../static/css/scss/_config.scss */
+/* line 213, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-light-orange {
   color: #ffeaa5;
 }
 
-/* line 215, ../../../static/css/scss/_config.scss */
+/* line 218, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-light-yellow {
   color: #fff8a9;
 }
 
-/* line 220, ../../../static/css/scss/_config.scss */
+/* line 223, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-light-red {
   color: #ffc4b3;
 }
 
-/* line 225, ../../../static/css/scss/_config.scss */
+/* line 228, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-pale-blue {
   color: #d5eaf3;
 }
 
-/* line 230, ../../../static/css/scss/_config.scss */
+/* line 233, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-light-magenta {
   color: #d294d7;
 }
 
-/* line 235, ../../../static/css/scss/_config.scss */
+/* line 238, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-pale-cyan {
   color: #d8f3ef;
 }
 
-/* line 240, ../../../static/css/scss/_config.scss */
+/* line 243, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-pale-green {
   color: #e3f7d8;
 }
 
-/* line 245, ../../../static/css/scss/_config.scss */
+/* line 248, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-pale-yellow {
   color: #fff4d2;
 }
 
-/* line 250, ../../../static/css/scss/_config.scss */
+/* line 253, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-pale-yellow {
   color: #fffbd4;
 }
 
-/* line 255, ../../../static/css/scss/_config.scss */
+/* line 258, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-pale-red {
   color: #ffe1d9;
 }
 
-/* line 260, ../../../static/css/scss/_config.scss */
+/* line 263, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .color-pale-magenta {
   color: #e8c9eb;
 }
 
-/* line 268, ../../../static/css/scss/_config.scss */
+/* line 271, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-none {
   background-color: #78a7b4;
   color: white;
 }
 
-/* line 273, ../../../static/css/scss/_config.scss */
+/* line 276, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-blue {
   background-color: #0088cc;
   color: white;
 }
 
-/* line 278, ../../../static/css/scss/_config.scss */
+/* line 281, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-cyan {
   background-color: #0cbeb2;
   color: white;
 }
 
-/* line 283, ../../../static/css/scss/_config.scss */
+/* line 286, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-green {
   background-color: #55d426;
   color: white;
 }
 
-/* line 288, ../../../static/css/scss/_config.scss */
+/* line 291, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-yellow {
   background-color: #ff9800;
   color: white;
 }
 
-/* line 293, ../../../static/css/scss/_config.scss */
+/* line 296, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-orange {
   background-color: #ff9800;
   color: white;
 }
 
-/* line 298, ../../../static/css/scss/_config.scss */
+/* line 301, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-red {
   background-color: #ff4e2b;
   color: white;
 }
 
-/* line 303, ../../../static/css/scss/_config.scss */
+/* line 306, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-magenta {
   background-color: #b652bf;
   color: white;
 }
 
-/* line 309, ../../../static/css/scss/_config.scss */
+/* line 312, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-dark-blue {
   background-color: #002c87;
   color: white;
 }
 
-/* line 314, ../../../static/css/scss/_config.scss */
+/* line 317, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-dark-cyan {
   background-color: #00705d;
   color: white;
 }
 
-/* line 319, ../../../static/css/scss/_config.scss */
+/* line 322, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-dark-green {
   background-color: #0c9702;
   color: white;
 }
 
-/* line 324, ../../../static/css/scss/_config.scss */
+/* line 327, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-dark-orange {
   background-color: #ff7b00;
   color: white;
 }
 
-/* line 329, ../../../static/css/scss/_config.scss */
+/* line 332, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-dark-yellow {
   background-color: #ffd900;
   color: white;
 }
 
-/* line 334, ../../../static/css/scss/_config.scss */
+/* line 337, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-dark-red {
   background-color: #ff0a02;
   color: white;
 }
 
-/* line 339, ../../../static/css/scss/_config.scss */
+/* line 342, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-dark-magenta {
   background-color: #821a8f;
   color: white;
 }
 
-/* line 344, ../../../static/css/scss/_config.scss */
+/* line 347, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-light-blue {
   background-color: #acd6e7;
   color: white;
 }
 
-/* line 349, ../../../static/css/scss/_config.scss */
+/* line 352, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-light-cyan {
   background-color: #b1e8df;
   color: white;
 }
 
-/* line 354, ../../../static/css/scss/_config.scss */
+/* line 357, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-light-green {
   background-color: #c8efb1;
   color: white;
 }
 
-/* line 359, ../../../static/css/scss/_config.scss */
+/* line 362, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-light-orange {
   background-color: #ffeaa5;
   color: white;
 }
 
-/* line 364, ../../../static/css/scss/_config.scss */
+/* line 367, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-light-yellow {
   background-color: #fff8a9;
   color: white;
 }
 
-/* line 369, ../../../static/css/scss/_config.scss */
+/* line 372, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-light-red {
   background-color: #ffc4b3;
   color: white;
 }
 
-/* line 374, ../../../static/css/scss/_config.scss */
+/* line 377, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-pale-blue {
   background-color: #d5eaf3;
   color: white;
 }
 
-/* line 379, ../../../static/css/scss/_config.scss */
+/* line 382, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-light-magenta {
   background-color: #d294d7;
   color: white;
 }
 
-/* line 384, ../../../static/css/scss/_config.scss */
+/* line 387, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-pale-cyan {
   background-color: #d8f3ef;
   color: white;
 }
 
-/* line 389, ../../../static/css/scss/_config.scss */
+/* line 392, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-pale-green {
   background-color: #e3f7d8;
   color: white;
 }
 
-/* line 394, ../../../static/css/scss/_config.scss */
+/* line 397, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-pale-orange {
   background-color: #fff4d2;
   color: white;
 }
 
-/* line 399, ../../../static/css/scss/_config.scss */
+/* line 402, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-pale-yellow {
   background-color: #fffbd4;
   color: white;
 }
 
-/* line 404, ../../../static/css/scss/_config.scss */
+/* line 407, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-pale-red {
   background-color: #ffe1d9;
   color: white;
 }
 
-/* line 409, ../../../static/css/scss/_config.scss */
+/* line 412, /Users/lapshov/Documents/venv/mango/mango/social/static/css/scss/../../../../static/css/scss/_config.scss */
 .back-color-pale-magenta {
   background-color: #e8c9eb;
   color: white;
