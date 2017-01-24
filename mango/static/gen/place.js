@@ -742,7 +742,7 @@ self.upvoted=res.upvoted;self.downvoted=res.downvoted;self.$dispatch('eCheckTips
                                 <div class="tip__share-block" @click="shareTwitter"><i class="fa fa-twitter"></i></div>\
                                 <div class="tip__share-link"><a href="{{url}}">Ссылка:</a> <input type="text" size="40" v-model="url"></div>\
                     </div>\
-                    <div class="cmd-bar" transition="expand" v-if="allowCmdBar">\
+                    <div class="cmd-bar" v-if="allowCmdBar">\
                         <div class="cmd-bar__left">\
                         <div class="cmd-bar__button" @click="toggleShowShare">\
                                 <i class="fa fa-share-alt-square"></i> Поделиться\

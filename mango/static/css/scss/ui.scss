@@ -20,12 +20,19 @@
 }
 
 .cmd-bar {
-    @include respond-to(notxs) {display: none;}
+    @include respond-to(notxs) {
+        visibility: hidden;
+        opacity: 0;
+        height: 0px;
+        transition: visibility 0s, opacity 0.5s linear, height 0.5s linear;
+        
+    }
     padding: 5px;
     background-color: #eef;
     color: black;
     //text-align: right;
     border-radius: 0 0 6px 6px;
+    
 }
 
 .cmd-bar__left{
@@ -93,7 +100,11 @@
 
 
 .has-cmd-bar:hover .cmd-bar{
-    @include respond-to(notxs) { display: block;}
+    @include respond-to(notxs) { 
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+    }
 }
 
 
