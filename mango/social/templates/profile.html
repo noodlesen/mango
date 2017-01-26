@@ -41,6 +41,7 @@
             <section id="userinfo">
               <div class="section-body">
                 <h1 id="nickname__title">{{u.nickname}}</h1>
+                <a href="{{url_for('social.public_profile', uid=u.id)}}">Посмотреть публичный профиль</a>
                 <div class="divider"></div>
 
                 <label class="form-label" for="nickname__edit-input">Никнейм:</label>
@@ -67,7 +68,7 @@
                 <label class="form-label" for="website__edit-input">Адрес сайта:</label>
                 <div class="form-inline">
                   <div id ="website__group" class="form-group" >
-                    <input type="text" class="form-control"  id="website__edit-input" value="" placeholder="http://..."
+                    <input type="text" class="form-control"  id="website__edit-input" value="{% if u.url %}{{u.url}}{% endif %}" placeholder="http://..."
                       >
                   </div>
                   <button id="website__save-button" class="btn btn-default">Сохранить</button>
@@ -79,7 +80,7 @@
                 <div class="form-inline">
                   <div id ="selfinfo__group" class="form-group" >
                     <textarea class="form-control"  id="selfinfo__edit-input" value="" placeholder="О себе..."
-                      ></textarea>
+                      >{% if u.status %}{{u.status}}{% endif %}</textarea>
                   </div>
                   <br />
                   <button id="selfinfo__save-button" class="btn btn-default">Сохранить</button>

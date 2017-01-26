@@ -159,6 +159,16 @@
     display: inline-block;
 }
 
+#add-new-form__link-ta{
+    height: 2em;
+    width:95%;
+    resize:vertical;
+    padding:0.1em 0.5em;
+    border: 0.1em solid $green;
+    border-radius: 6px;
+    display: inline-block;
+}
+
 .error-text{
     color: $dark-red;
 }

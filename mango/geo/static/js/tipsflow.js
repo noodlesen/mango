@@ -431,7 +431,8 @@ var tipsFlow = new Vue({
             moreTags:[],
             tipText:'',
             error: false,
-            errorMessage:''
+            errorMessage:'',
+            attachedUrl: ''
         },
 
         allTips:[],
@@ -577,6 +578,7 @@ var tipsFlow = new Vue({
                                 cmd: edit ? 'edit' : 'addNew', 
                                 tags: this.newTipForm.addedTags, 
                                 text:this.newTipForm.tipText, 
+                                attached_url:this.newTipForm.attachedUrl, 
                                 placeID: edit ? null : place_id,
                                 tipID: this.lastEdited
                             },
@@ -698,6 +700,10 @@ var tipsFlow = new Vue({
                 console.log(JSON.stringify(this.newTipForm.acTags));
         },
 
+        linkTextChanged: function(){
+
+        },
+
 
         showTipForm: function(){
             if (signedIn){
@@ -815,6 +821,7 @@ var tipsFlow = new Vue({
                 if (el.id == e.id){
                     self.newTipForm.tipText=el.text;
                     self.newTipForm.addedTags=el.tags;
+                    self.newTipForm.attachedUrl=el.attached_url;
                     self.lastEdited = e.id;
                     return false;
                 } else return true;
@@ -907,6 +914,11 @@ var tipsFlow = new Vue({
                                 </div>\
                             </div>\
                         </div><div class="divider"></div>\
+                            <div>\
+                            <span class="glyphicon glyphicon-link"></span>\
+                            <input placeholder="Добавить ссылку" type="text" id="add-new-form__link-ta" @keyup="linkTextChanged" @blur="linkTextChanged" v-model="newTipForm.attachedUrl"></input>\
+                            </div>\
+                        <div class="divider"></div>\
                         <div class="alert alert-danger" v-show="newTipForm.error">{{newTipForm.errorMessage}}</div>\
                         <button @click="closeTipForm" class="btn btn-large btn-default" id="add-tip__cancel-btn">Отмена</button>\
                         <button v-if="!allowEdit" @click="submitTipForm(allowEdit)" class="btn btn-large btn-primary" id="add-tip__commit-btn" >Сохранить мой совет</button>\

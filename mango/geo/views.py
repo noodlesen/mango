@@ -62,7 +62,8 @@ def get_tips_data(tips_list, **kwargs):
                 'rating': t.chd_upvoted - t.chd_downvoted,
                 'url': url_for('root', _external=True)+cached_data['url'][1:],
                 'place_name': cached_data['place']['name'],
-                'country_name': cached_data['place']['country']
+                'country_name': cached_data['place']['country'],
+                'attached_url': t.attached_url
                 }
 
         tip["country_url"] = url_for('geo.country',us=t.place.country.url_string)
@@ -336,6 +337,10 @@ def json_tip():
 
 
             tip.text = q['text'].strip()
+            tip.attached_url = q['attached_url'].strip()
+
+            print('>>>>>>>>>>>>>>>>>>>>', tip.attached_url)
+            print()
 
             tag_names = [t for t in q['tags'] if t['name'] not in existing_tags]
 
@@ -348,7 +353,7 @@ def json_tip():
                 tip.cache_it()
 
 
-            if tip.text!='' and len(tag_names)>0 and len(tip.text)<=600:
+            if tip.text!='' and (len(tag_names)>0 or len(existing_tags)>0) and len(tip.text)<=600:
 
                 for tn in tag_names:
                     tag = Tag.query.filter_by(name=tn['name']).first()
@@ -363,6 +368,7 @@ def json_tip():
                         tip.tags.append(new_tag)
 
                 tip.created_at = datetime.utcnow()
+                print ('SAVING')
                 db.session.add(tip)
                 db.session.commit()
                 tip.place.bake()

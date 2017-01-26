@@ -127,7 +127,7 @@ class Tip(db.Model):
     updated_at = db.Column(db.DateTime)
     chd_comments_count = db.Column(db.Integer, default=0)
     taglines = db.Column(db.Text)
-    url = db.Column(db.String(255))
+    attached_url = db.Column(db.String(255))
 
     #temp
     taglines = db.Column(db.Text)
