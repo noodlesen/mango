@@ -289,6 +289,26 @@ def save_nick():
     return json.dumps({"val": False})
 
 
+@social.route('/save-info', methods=['POST'])
+@login_required
+def save_info():
+    query = request.json
+    try:
+        if query['type'] == 'url':
+            Log.register(action='social.post:save_url', data=request.json)
+            current_user.url = query['val']
+        elif query['type'] == 'status':
+            Log.register(action='social.post:save_status', data=request.json)
+            current_user.status = query['val']
+        db.session.add(current_user)
+        db.session.commit()
+        res={'status':'ok'}
+    except:
+        res={'status':'error'}
+    return json.dumps(res)
+
+
+
 # AVATAR UPLOAD
 #=============================================================
 
