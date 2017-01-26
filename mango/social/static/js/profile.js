@@ -52,9 +52,7 @@ $(document).ready(function(){
 		var name = $('#nickname__edit-input').val();
 		getResults('/save-nick','json',{val: name}, function(res){
 			if (res.val){
-				//$('#nickname__title').html(name);
 				$('#user__nickname-link').html(name);
-				//$('#nickname__status').hide();
 			}
 		});
 	});

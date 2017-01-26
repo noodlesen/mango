@@ -337,7 +337,13 @@ def json_tip():
 
 
             tip.text = q['text'].strip()
-            tip.attached_url = q['attached_url'].strip()
+
+            aurl = q['attached_url'].strip()
+            if aurl.startswith('http:') or aurl.startswith('https:'):
+                pass
+            else:
+                aurl = 'http://'+aurl
+            tip.attached_url = aurl
 
             print('>>>>>>>>>>>>>>>>>>>>', tip.attached_url)
             print()

@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 var cTip = Vue.extend({
 
-    props: ['text','tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit', 'related','mode', 'featured', 'place','country', 'countryurl', 'directionurl'],
+    props: ['text','tags', 'author', 'id', 'fave', 'upvote', 'downvote','upvoted', 'downvoted', 'comments', 'url', 'edit', 'related','mode', 'featured', 'place','country', 'countryurl', 'directionurl', 'attachedurl'],
 
     data: function(){
         return { 
@@ -265,7 +265,8 @@ var cTip = Vue.extend({
                                 <div class="clearfix"></div>\
                             </div>\
                         <div class="tip__main-text">\
-                           <slot></slot>{{text}} <span class="plink comment-link" v-if="hasComments" @click="toggleShowComments"> <i class="fa fa-comment"></i>{{comments ? comments.length : 0}}</span>\
+                            <slot></slot>{{text}} <span class="plink comment-link" v-if="hasComments" @click="toggleShowComments"> <i class="fa fa-comment"></i>{{comments ? comments.length : 0}}</span>\
+                            <p v-if="attachedurl"><br/><a :href="attachedurl"><span class="glyphicon glyphicon-link"></span>&nbsp;{{attachedurl}}</a></p>\
                         </div>\
                         <div class="tip__bottom">\
                         </div>\
@@ -611,6 +612,7 @@ var tipsFlow = new Vue({
                                                 //alert('found');
                                                 el.text = self.newTipForm.tipText;
                                                 el.tags = self.newTipForm.addedTags;
+                                                el.attached_url = self.newTipForm.attachedUrl;
                                             }
                                         });
                                     }
@@ -954,6 +956,7 @@ var tipsFlow = new Vue({
                             :country="tip.country_name"\
                             :countryurl="tip.country_url"\
                             :directionurl="tip.direction_url"\
+                            :attachedurl="tip.attached_url"\
                             :comments="tip.comments">\
                     </c-tip>\
                     </div>\
