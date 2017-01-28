@@ -371,10 +371,10 @@
 @media only screen and (min-width: 768px) {
   /* line 22, scss/ui.scss */
   .cmd-bar {
-    visibility: hidden;
-    opacity: 0;
-    height: 0px;
-    transition: visibility 0s, opacity 0.5s linear, height 0.5s linear;
+    /*         visibility: hidden;
+            opacity: 0;
+            height: 0px;
+            transition: visibility 0s, opacity 0.5s linear, height 0.5s linear; */
   }
 }
 
@@ -440,13 +440,13 @@
   margin-top: 3px;
 }
 
-@media only screen and (min-width: 768px) {
-  /* line 102, scss/ui.scss */
-  .has-cmd-bar:hover .cmd-bar {
-    visibility: visible;
-    opacity: 1;
-    height: auto;
-  }
+/* line 102, scss/ui.scss */
+.has-cmd-bar:hover .cmd-bar {
+  /*     @include respond-to(notxs) { 
+          visibility: visible;
+          opacity: 1;
+          height: auto;
+      } */
 }
 
 /* line 111, scss/ui.scss */

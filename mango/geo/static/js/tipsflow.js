@@ -548,8 +548,11 @@ var tipsFlow = new Vue({
         },
 
         submitTipForm: function(edit){
+            // Submits form data to server when you add or edit a tip 
+
             var self=this;
 
+            // validate form data
             if (self.newTipForm.addedTags.length==0){
                 self.newTipForm.error=true;
                 self.newTipForm.errorMessage='Добавьте хотя бы одну метку';
@@ -572,6 +575,7 @@ var tipsFlow = new Vue({
             console.log(self.newTipForm.error);
             console.log(self.newTipForm.errorMessage);
 
+            // if valid — send to server
             if (!self.newTipForm.error){
                 getResults('/json/tip', 
                             'json', 
@@ -602,14 +606,14 @@ var tipsFlow = new Vue({
                                             text: self.newTipForm.tipText,
                                             tags: self.newTipForm.addedTags,
                                             author: {id: res.tip_data.author_id, name: res.tip_data.author_name},
-                                            id: res.tip_data.tip_id
+                                            id: res.tip_data.tip_id,
+                                            attached_url: self.newTipForm.attachedUrl
                                         };
                                         self.allTips.push(newTip);
                                         self.shownTips.push(newTip);
                                     } else {
                                         self.shownTips.every(function(el, i){
                                             if (el.id == self.lastEdited){
-                                                //alert('found');
                                                 el.text = self.newTipForm.tipText;
                                                 el.tags = self.newTipForm.addedTags;
                                                 el.attached_url = self.newTipForm.attachedUrl;
