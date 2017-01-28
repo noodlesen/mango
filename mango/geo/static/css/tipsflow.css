@@ -903,3 +903,9 @@
   display: inline-block;
   margin-left: 1em;
 }
+
+/* line 473, scss/tipsflow.scss */
+#add-new-form__add-link {
+  padding-left: 16px;
+  padding-right: 4px;
+}

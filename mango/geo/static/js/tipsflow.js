@@ -920,7 +920,7 @@ var tipsFlow = new Vue({
                                 </div>\
                             </div>\
                         </div><div class="divider"></div>\
-                            <div>\
+                            <div id="add-new-form__add-link">\
                             <span class="glyphicon glyphicon-link"></span>\
                             <input placeholder="Добавить ссылку" type="text" id="add-new-form__link-ta" @keyup="linkTextChanged" @blur="linkTextChanged" v-model="newTipForm.attachedUrl"></input>\
                             </div>\
