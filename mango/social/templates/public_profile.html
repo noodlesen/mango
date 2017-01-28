@@ -29,6 +29,7 @@
               <img class="avatar-big" id="avatar__image" src="{{u.get_avatar()}}"/>
                 <h1 id="nickname__title">{{u.nickname}}</h1>
                 {% if u.status %}<p>{{u.status}}</p>{% endif %}
+                {% if u.url %}<p><a href="{{u.url}}">{{u.url}}</a></p>{% endif %}
 
                 <div class="divider"></div>
 

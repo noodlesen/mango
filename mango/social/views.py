@@ -296,7 +296,8 @@ def save_info():
     try:
         if query['type'] == 'url':
             Log.register(action='social.post:save_url', data=request.json)
-            current_user.url = query['val']
+            url = query['val']
+            current_user.url = url if url.startswith('http:') or url.startswith('https:') else 'http://'+url
         elif query['type'] == 'status':
             Log.register(action='social.post:save_status', data=request.json)
             current_user.status = query['val']
