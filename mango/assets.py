@@ -11,6 +11,8 @@ bundles = {
         'lib/vue.js',
         'js/common.js',
         'js/base.js',
+        'lib/moment-with-locales.min.js',
+        'geo/js/tipsflow.js',
         output='gen/root.js',
         filters='jsmin'),
 
@@ -19,6 +21,7 @@ bundles = {
         'css/common.css',
         'css/ui.css',
         'css/main.css',
+        'geo/css/tipsflow.css',
         output='gen/root.css',
         filters='cssmin'),
 

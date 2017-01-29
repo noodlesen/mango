@@ -22,31 +22,71 @@
     <div class="row">
 
         <div class="col-lg-8 col-lg-offset-2 ">
-            <div>
+            <div class="page-block">
                 <img src="{{url_for('static', filename="images/logo.svg")}}" id="main-logo" />
-                {{search_field('main__search','')}}
+                <h1>Путешествия в&nbsp;чистом виде</h1>
+                <p>Больше никаких длинных бессодержательных отчетов.<br/>Никаких&nbsp;коммерческих заказных статей. Готовьтесь к поездкам используя простой и понятный формат. Только то,&nbsp;что нужно и&nbsp;важно знать самостоятельному путешественнику</p>
             </div>
+            <div class="page-block">
+                <h2>Куда бы вы поехали?</h2>
+                {{search_field('main__search','')}}
+                <div id="main-search-results" v-if="showingResults">
+                    <a style="display:inline-block; margin:5px; padding:5px;" 
+                        :id="'sl'+$index"
+                        :style="{fontSize: (p.number>3000?3000:p.number)/10+120+'%', fontWeight: p.has_tips?'bolder':'lighter'}" 
+                        :class="{'search-result--preselected': elPreSelected($index),
+                                 'color-light-blue': !p.has_tips,
+                                 'color-blue': p.has_tips
+                                 }"
+                        v-for="p in results" v-text="p.name" track-by="$index"
+                        :href="p.url">
+                    </a>
+                </div>
+                <div class="divider"></div>
+                <h3>Самые популярные места:</h3>
+                {% for p in places %}
+                 <a class="popular" href="{{url_for('geo.places', us=p[1])}}">{{p[0]}}</a>
+                {% endfor %}
+                <div class="divider"></div>
+                <h3>Самые популярные страны:</h3>
+                {% for c in countries %}
+                 <a class="popular" href="{{url_for('geo.country', us=c[1])}}">{{c[0]}}</a>
+                {% endfor %}
+            </div>
+            <div class="page-block">
+                <h2>Как это выглядит?</h2>
+                <p>Вот самые популярные советы на сегодня, созданные нашими путешественниками. Вы можете не только искать нужную информацию с помощью удобных меток, но и влиять на рейтинг каждого "кусочка" информации, чтобы помочь самым полезным советам найти своих читателей.</p>
+                <div id="tipsflow"></div>
+            </div>
+            <div class="page-block">
+                <h2>Узнайте больше!</h2>
+                <p>Подписывайтесь на обновления по конкретным местам. Следите за интересными вам авторами. Сохраняйте в избранное. Комментируйте и общайтесь с единомышленниками!</p>
+            </div>
+            <div class="page-block">
+                <h2>Топ-10 авторов</h2>
+                {% for u in users %}
+                    <div class="user-item">
+                        <img src={{u.image}} />
+                        <a href="{{url_for('social.public_profile', uid=u['id'])}}">{{u['nickname']}}</a>
+                        <div class="clearfix"></div>
+                    </div>
+                {% endfor %}
+            </div>
+            
         </div>
 
 
     </div>
-            <div id="main-search-results" v-if="showingResults">
-                <a style="display:inline-block; margin:5px; padding:5px;" 
-                    :id="'sl'+$index"
-                    :style="{fontSize: (p.number>3000?3000:p.number)/10+120+'%', fontWeight: p.has_tips?'bolder':'lighter'}" 
-                    :class="{'search-result--preselected': elPreSelected($index),
-                             'color-light-blue': !p.has_tips,
-                             'color-blue': p.has_tips
-                             }"
-                    v-for="p in results" v-text="p.name" track-by="$index"
-                    :href="p.url">
-                </a>
-            </div>
+
 </div>
 {% endblock %}
 
 {% block scripts %}
     {{ super() }}
+    <script type="text/javascript">
+        var jsonData = {{json_data|tojson|safe}};
+        var signedIn = {{signed|lower}};
+    </script>
     {% assets "root_js" %}
             <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}

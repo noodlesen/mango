@@ -2,15 +2,16 @@
 
 #main-logo{
     display: block;
-    width:50%;
-    margin:3em auto 2em;
+    width:40%;
+    margin:1.5em auto 0;
 }
 
 #main__search{
   text-align: center;
   //float: left;
   min-width:20em;
-  margin-top:.8em;
+  margin-top:2.2em;
+  margin-bottom: 2em;
   width:100%;
   @include respond-to(xs) { min-width: 100%;width: 100%; float: none;} 
   input{
@@ -49,5 +50,71 @@
       background-color: $blue;
       color:white;
     }
+  }
+}
+
+.page-block{
+  text-align: center;
+  margin-bottom: 3em;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: $gray4;
+  padding-bottom: 3em;
+}
+
+h1 {
+  font-size: 400%;
+  margin: .5em 0 0.2em;
+}
+
+h2 {
+  font-size: 340%;
+  margin: .3em 0 0.2em;
+}
+
+h3 {
+  font-size: 200%;
+  margin: .3em 0 0.1em;
+}
+
+p{
+  font-size: 130%;
+  display: block;
+  margin: 0 auto 0;
+  width:80%;
+}
+
+#tipsflow{
+  width:80%;
+  margin: auto;
+}
+
+a.popular{
+  display: inline-block;
+  font-size: 140%;
+  text-decoration: none;
+  margin: 0 .1em 0;
+  padding: 0 .2em;
+}
+
+.user-item{
+  text-align: left;
+  vertical-align: middle;
+  width:50%;
+  margin: 0 auto .3em;
+  padding: .5em;
+  background-color: white;
+  border-color: $gray4;
+  border-radius: .5em;
+  border-style: solid;
+  border-width: 1px;
+  img {
+    float: left;
+    width:40px;
+    margin-right: 1em;
+  }
+  a{
+    font-size: 140%;
+    text-decoration: none;
   }
 }

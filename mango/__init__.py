@@ -25,7 +25,8 @@ from .social import social, oauth
 from .social.models import User, Notification
 from .admin import admin
 from .geo import geo
-from .geo.models import Place
+from .geo.models import Place, Tip
+from .geo.views import get_tips_data
 from .logger import Log
 
 from .assets import assets
@@ -172,11 +173,41 @@ def place_picture(pf):
     return redirect(url_for('geo.static', filename='images/places/'+pf)), 301
 
 
-#@cache.cached(3600)
+
 @app.route('/')
+#@cache.cached(timeout=3600)
 def root():
     Log.register(action='route:root')
-    return render_template('main.html')
+    #p = Place.query.get(2)
+    jd = get_tips_data(Tip.query.order_by(Tip.chd_rating.desc()).limit(10))
+    jd['config'] = {'mode': 'public_profile'}
+    cuia = True if current_user and current_user.is_authenticated else False
+    countries = list(db.engine.execute("""SELECT c.rus_name, c.url_string, count(p.id) as cn
+                                          FROM G_countries as c
+                                          JOIN  G_places as p
+                                          ON p.country_id=c.id
+                                          GROUP BY c.rus_name
+                                          ORDER BY cn DESC
+                                          LIMIT 10"""))
+
+    places = list(db.engine.execute("""SELECT p.rus_name, p.url_string, count(t.id)*p.number as cn
+                                          FROM G_places as p
+                                          JOIN  tips as t
+                                          ON t.place_id=p.id
+                                          GROUP BY p.rus_name
+                                          ORDER BY cn DESC
+                                          LIMIT 10"""))
+
+    users_raw = list(db.engine.execute("""SELECT u.nickname, u.id, u.image, count(t.id) as c FROM users as u JOIN tips as t ON t.user_id=u.id GROUP BY u.id ORDER BY c DESC LIMIT 10"""))
+    users=[]
+    for u in users_raw:
+        if not u[2]:
+            iname='avatar_placeholder.png'
+        else:
+            iname = u[2]
+        ipth = url_for('social.static', filename='images/avatars/'+iname)
+        users.append({'nickname':u[0],'id':u[1],'image':ipth,'count':u[3]})
+    return render_template('main.html', json_data=json.dumps(jd), signed=cuia, countries=countries, places=places, users=users)
 
 
 @app.template_filter('nl2br')
