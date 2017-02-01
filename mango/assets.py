@@ -22,6 +22,7 @@ bundles = {
         'css/ui.css',
         'css/main.css',
         'geo/css/tipsflow.css',
+        'geo/css/login_modal.css',
         output='gen/root.css',
         filters='cssmin'),
 
