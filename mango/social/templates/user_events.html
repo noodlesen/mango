@@ -2,6 +2,73 @@
 
 {% extends "base.html" %}
 
+{% macro render_events(events) %}
+  {% for n in events %}
+    <div class=" item-block notification notification-new has-cmd-bar">
+
+      {% if n.ntype=='PM' %}
+      <div class="item-block__body">
+        {{n.message}}
+      </div>
+
+      <div class="cmd-bar">
+        <a href="{{url_for('social.messenger')}}?user={{n.user_from}}">
+            <span class="glyphicon glyphicon-envelope"></span>
+            Перейти к сообщениям 
+        </a>
+          <a 
+          href="{{url_for('social.public_profile', uid=n.user_from)}}">
+          <span class="glyphicon glyphicon-user"></span>
+          Профиль пользователя
+        </a>
+      </div>
+
+      {% elif n.ntype == 'NP' %}
+        <div class="item-block__body">
+          {{n.message}}
+          <div class="divider"></div>
+          {{n.data}}
+        </div>
+        <div class="cmd-bar">
+        <a href="{{n.get_extras()['tip_url']}}">
+            <span class="glyphicon glyphicon-envelope"></span>
+            Читать
+        </a>
+          <a 
+          href="{{url_for('social.public_profile', uid=n.user_from)}}">
+          <span class="glyphicon glyphicon-user"></span>
+          Профиль пользователя
+        </a>
+      </div>
+
+      {% elif n.ntype == 'NC' %}
+        <div class="item-block__body">
+          {{n.message}}
+          <div class="divider"></div>
+          {{n.data}}
+        </div>
+        <div class="cmd-bar">
+        <a href="{{n.get_extras()['tip_url']}}">
+            <span class="glyphicon glyphicon-envelope"></span>
+            Читать
+        </a>
+          <a 
+          href="{{url_for('social.public_profile', uid=n.user_from)}}">
+          <span class="glyphicon glyphicon-user"></span>
+          Профиль пользователя
+        </a>
+      </div>
+      {% else %}
+        <div class="item-block__body">
+          {{n.message}}
+          <div class="divider"></div>
+          {{n.data}}
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+{% endmacro %}
+
 {% block title %}События{% endblock %}
 
 {% block styles %}
@@ -19,77 +86,11 @@
     <div class="row" id ="profile__main">
       <div class="col-lg-6 col-lg-offset-3">
 
-        {% for n in nots %}
-          <div class=" item-block notification notification-new has-cmd-bar">
+        {{render_events(nots)}}
 
-
-            {% if n.ntype=='PM' %}
-            <div class="item-block__body">
-              {{n.message}}
-            </div>
-
-            <div class="cmd-bar">
-              <a href="{{url_for('social.messenger')}}?user={{n.user_from}}">
-                  <span class="glyphicon glyphicon-envelope"></span>
-                  Перейти к сообщениям 
-              </a>
-                <a 
-                href="{{url_for('social.public_profile', uid=n.user_from)}}">
-                <span class="glyphicon glyphicon-user"></span>
-                Профиль пользователя
-              </a>
-            </div>
-
-            {% elif n.ntype == 'NP' %}
-              <div class="item-block__body">
-                {{n.message}}
-                <div class="divider"></div>
-                {{n.data}}
-              </div>
-              <div class="cmd-bar">
-              <a href="{{n.get_extras()['tip_url']}}">
-                  <span class="glyphicon glyphicon-envelope"></span>
-                  Читать
-              </a>
-                <a 
-                href="{{url_for('social.public_profile', uid=n.user_from)}}">
-                <span class="glyphicon glyphicon-user"></span>
-                Профиль пользователя
-              </a>
-            </div>
-
-            {% elif n.ntype == 'NC' %}
-              <div class="item-block__body">
-                {{n.message}}
-                <div class="divider"></div>
-                {{n.data}}
-              </div>
-              <div class="cmd-bar">
-              <a href="{{n.get_extras()['tip_url']}}">
-                  <span class="glyphicon glyphicon-envelope"></span>
-                  Читать
-              </a>
-                <a 
-                href="{{url_for('social.public_profile', uid=n.user_from)}}">
-                <span class="glyphicon glyphicon-user"></span>
-                Профиль пользователя
-              </a>
-            </div>
-            {% else %}
-              <div class="item-block__body">
-                {{n.message}}
-                <div class="divider"></div>
-                {{n.data}}
-              </div>
-            {% endif %}
-            
-
-
-
-          </div>
-        {% endfor %}
-
-        {% for h in nots_history %}
+        <div class="divider"></div>
+        <p>Прочитанные</p>
+<!--         {% for h in nots_history %}
           <div class="item-block notification notification-old has-cmd-bar">
             <div class="item-block__body" >
               {{h.message}}
@@ -97,7 +98,9 @@
                 {{h.data}}
             </div>
           </div>
-        {% endfor %}
+        {% endfor %} -->
+
+        {{render_events(nots_history)}}
 
 
       </div> <!-- col -->

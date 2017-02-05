@@ -87,7 +87,7 @@ def get_tips_data(tips_list, **kwargs):
     td['related_users']=[]
     ru = User.query.filter(User.id.in_(related_users_ids)).all()
     for u in ru:
-        td['related_users'].append({"id": u.id, "nickname": u.nickname})
+        td['related_users'].append({"id": u.id, "nickname": u.nickname, "public_profile": url_for('social.public_profile', uid=u.id)})
     if current_user.is_authenticated:
         td['related_users'].append({"id": current_user.id, "nickname": current_user.nickname})
 
@@ -342,7 +342,7 @@ def json_tip():
             if aurl.startswith('http:') or aurl.startswith('https:'):
                 pass
             else:
-                if aurl!='':
+                if aurl and aurl!='':
                     aurl = 'http://'+aurl
             tip.attached_url = aurl
 

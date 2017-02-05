@@ -246,6 +246,10 @@ var cTip = Vue.extend({
             console.log('get user: '+uid);
             console.log(JSON.stringify(this.related));
             return this.related.find(function(u){ return u.id==uid}).nickname;
+        },
+
+        getPublicProfile: function(uid){
+            return this.related.find(function(u){ return u.id==uid}).public_profile;
         }
     },
 
@@ -319,7 +323,7 @@ var cTip = Vue.extend({
                         <div class="comment__text">{{c.text}}</div>\
                         <div class="comment__meta">\
                         <span @click="editComment($index)" v-if="c.is_mine" class="plink"><span class="glyphicon glyphicon-edit"></span></span>\
-                        {{getUser(c.author_id)}} {{getDate(c.timestamp)}}\
+                        <a href="{{getPublicProfile(c.author_id)}}">{{getUser(c.author_id)}}</a> {{getDate(c.timestamp)}}\
                         </div>\
                     </div>\
                     <div class="commentForm" v-if="signedIn">\

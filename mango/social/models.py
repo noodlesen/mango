@@ -300,7 +300,7 @@ class NotificationMixin():
     extra = db.Column(db.Text)
 
     def get_extras(self):
-        return json.loads(self.extra)
+        return json.loads(self.extra) if self.extra else None
 
 
 class NotificationHistory(db.Model, NotificationMixin):
