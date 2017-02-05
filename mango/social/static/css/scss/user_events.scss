@@ -9,10 +9,14 @@
 }
 
 .notification-new {
-    background-color: $light-green;
+    background-color: white;
 }
 
 .notification-old {
-    background-color: $gray5;
+    background-color: $gray6;
     color:$gray3;
+}
+
+h2 {
+    margin-top: 2em;
 }

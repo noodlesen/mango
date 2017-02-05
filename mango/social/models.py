@@ -137,6 +137,7 @@ class User (UserMixin, db.Model):
         if not self.is_upvoted(tip):
             self.upvoted.append(tip)
             tip.chd_upvoted += self.power
+            tip.chd_rating=tip.chd_upvoted-tip.chd_downvoted
             db.session.add(self)
             db.session.add(tip)
             db.session.commit()
@@ -147,6 +148,7 @@ class User (UserMixin, db.Model):
             tip.chd_upvoted -= self.power
             if tip.chd_upvoted <0:
                 tip.chd_upvoted = 0
+            tip.chd_rating=tip.chd_upvoted-tip.chd_downvoted
             db.session.add(self)
             db.session.add(tip)
             db.session.commit()
@@ -158,6 +160,7 @@ class User (UserMixin, db.Model):
         if not self.is_downvoted(tip):
             self.downvoted.append(tip)
             tip.chd_downvoted += self.power
+            tip.chd_rating=tip.chd_upvoted-tip.chd_downvoted
             db.session.add(self)
             db.session.add(tip)
             db.session.commit()
@@ -168,6 +171,7 @@ class User (UserMixin, db.Model):
             tip.chd_downvoted -= self.power
             if tip.chd_downvoted <0:
                 tip.chd_downvoted = 0
+            tip.chd_rating=tip.chd_upvoted-tip.chd_downvoted
             db.session.add(self)
             db.session.add(tip)
             db.session.commit()

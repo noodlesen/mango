@@ -2,9 +2,9 @@
 
 {% extends "base.html" %}
 
-{% macro render_events(events) %}
+{% macro render_events(events, unread) %}
   {% for n in events %}
-    <div class=" item-block notification notification-new has-cmd-bar">
+    <div class=" item-block notification {% if unread %} notification-new {% else %} notification-old {% endif %} has-cmd-bar">
 
       {% if n.ntype=='PM' %}
       <div class="item-block__body">
@@ -85,22 +85,14 @@
 
     <div class="row" id ="profile__main">
       <div class="col-lg-6 col-lg-offset-3">
-
-        {{render_events(nots)}}
-
+        <h2>Новые</h2>
         <div class="divider"></div>
-        <p>Прочитанные</p>
-<!--         {% for h in nots_history %}
-          <div class="item-block notification notification-old has-cmd-bar">
-            <div class="item-block__body" >
-              {{h.message}}
-              <div class="divider"></div>
-                {{h.data}}
-            </div>
-          </div>
-        {% endfor %} -->
+        {{render_events(nots, True)}}
 
-        {{render_events(nots_history)}}
+        <h2>Прочитанные</h2>
+        <div class="divider"></div>
+
+        {{render_events(nots_history, False)}}
 
 
       </div> <!-- col -->
