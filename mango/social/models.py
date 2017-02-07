@@ -383,6 +383,7 @@ class Notification(db.Model, NotificationMixin):
                 h.created_at = n.created_at
                 h.message = n.message
                 h.data = n.data
+                h.extra = n.extra
 
                 h.archived_at = datetime.utcnow()
 
