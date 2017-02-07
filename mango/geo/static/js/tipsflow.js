@@ -7,6 +7,18 @@ $(document).ready(function(){
 });
 
 
+function checkHttp(s){
+    if (s && s!=''){
+        if (!(s.startsWith('http:') || s.startsWith('https:'))){
+            return 'http://'+s;
+        } else {
+            return s;
+        }
+    } else {
+        return '';
+    }
+}
+
 
 
 // TIP COMPONENT 
@@ -611,7 +623,7 @@ var tipsFlow = new Vue({
                                             tags: self.newTipForm.addedTags,
                                             author: {id: res.tip_data.author_id, name: res.tip_data.author_name},
                                             id: res.tip_data.tip_id,
-                                            attached_url: self.newTipForm.attachedUrl
+                                            attached_url: checkHttp(self.newTipForm.attachedUrl)
                                         };
                                         self.allTips.push(newTip);
                                         self.shownTips.push(newTip);
@@ -620,7 +632,7 @@ var tipsFlow = new Vue({
                                             if (el.id == self.lastEdited){
                                                 el.text = self.newTipForm.tipText;
                                                 el.tags = self.newTipForm.addedTags;
-                                                el.attached_url = self.newTipForm.attachedUrl;
+                                                el.attached_url = checkHttp(self.newTipForm.attachedUrl);
                                             }
                                         });
                                     }
@@ -650,6 +662,7 @@ var tipsFlow = new Vue({
             }*/
             this.newTipForm.tipText='';
             this.newTipForm.addedTags=[];
+            this.newTipForm.attachedUrl='';
             //this.newTipForm.moreTags=[];
             this.showingMoreTags = false;
 

@@ -338,7 +338,7 @@ def json_tip():
 
             tip.text = q['text'].strip()
 
-            aurl = q['attached_url'].strip()
+            aurl = q['attached_url'].strip() if q['attached_url'] else ''
             if aurl.startswith('http:') or aurl.startswith('https:'):
                 pass
             else:
