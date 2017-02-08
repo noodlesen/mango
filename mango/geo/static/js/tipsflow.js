@@ -282,7 +282,7 @@ var cTip = Vue.extend({
                             </div>\
                         <div class="tip__main-text">\
                             <slot></slot>{{text}} <span class="plink comment-link" v-if="hasComments" @click="toggleShowComments"> <i class="fa fa-comment"></i>{{comments ? comments.length : 0}}</span>\
-                            <p v-if="attachedurl"><br/><a :href="attachedurl"><span class="glyphicon glyphicon-link"></span>&nbsp;{{attachedurl}}</a></p>\
+                            <p v-if="attachedurl"><br/><a :href="attachedurl" target="_blank"><span class="glyphicon glyphicon-link"></span>&nbsp;{{attachedurl}}</a></p>\
                         </div>\
                         <div class="tip__bottom">\
                         </div>\
@@ -480,6 +480,10 @@ var tipsFlow = new Vue({
 
         limitError: function(){
             return this.newTipForm.tipText.length>600;
+        },
+
+        hasTips: function(){
+            return this.allTips.length>0;
         }
     },
 
@@ -625,8 +629,14 @@ var tipsFlow = new Vue({
                                             id: res.tip_data.tip_id,
                                             attached_url: checkHttp(self.newTipForm.attachedUrl)
                                         };
-                                        self.allTips.push(newTip);
+                                        console.log('before');
+                                        console.log(JSON.stringify(self.allTips));
+                                        console.log(JSON.stringify(self.shownTips));
+                                        //self.allTips.push(newTip);
                                         self.shownTips.push(newTip);
+                                        console.log('pushed 1');
+                                        console.log(JSON.stringify(self.allTips));
+                                        console.log(JSON.stringify(self.shownTips));
                                     } else {
                                         self.shownTips.every(function(el, i){
                                             if (el.id == self.lastEdited){
@@ -769,6 +779,7 @@ var tipsFlow = new Vue({
                     tip.tags.forEach(function(tag){
                         if (self.tagsFilter.selectedTags[tag.name]){
                             self.shownTips.push(tip);
+                            console.log('pushed 2');
                         }
                     });
                 });
@@ -892,7 +903,7 @@ var tipsFlow = new Vue({
                     </c-tip>\
                     <div id="featured-box__other">Другие советы:</div>\
                     </div>\
-                    <div id="no-tips-message" v-if="allTips.length==0 && mode==\'place\'">\
+                    <div id="no-tips-message" v-if="!hasTips && mode==\'place\'">\
                         <div class="message-header">Ой! Здесь пока ничего нет...</div>\
                         <div class="message-body">\
                             Станьте первооткрывателем!<br/>Поделитесь своим опытом с другими путешественниками.<br/>\
