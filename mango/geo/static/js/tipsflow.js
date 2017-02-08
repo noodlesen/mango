@@ -627,7 +627,8 @@ var tipsFlow = new Vue({
                                             tags: self.newTipForm.addedTags,
                                             author: {id: res.tip_data.author_id, name: res.tip_data.author_name},
                                             id: res.tip_data.tip_id,
-                                            attached_url: checkHttp(self.newTipForm.attachedUrl)
+                                            attached_url: checkHttp(self.newTipForm.attachedUrl),
+                                            url: res.tip_data.url
                                         };
                                         console.log('before');
                                         console.log(JSON.stringify(self.allTips));
@@ -903,7 +904,7 @@ var tipsFlow = new Vue({
                     </c-tip>\
                     <div id="featured-box__other">Другие советы:</div>\
                     </div>\
-                    <div id="no-tips-message" v-if="!hasTips && mode==\'place\'">\
+                    <div id="no-tips-message" v-if="!hasTips && mode==\'place\' &&!featured">\
                         <div class="message-header">Ой! Здесь пока ничего нет...</div>\
                         <div class="message-body">\
                             Станьте первооткрывателем!<br/>Поделитесь своим опытом с другими путешественниками.<br/>\

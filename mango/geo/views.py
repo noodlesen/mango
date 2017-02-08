@@ -380,7 +380,7 @@ def json_tip():
                 db.session.commit()
                 tip.place.bake()
                 tip.cache_it()
-                res['tip_data']={'author_name': current_user.nickname, 'author_id':current_user.id, 'tip_id': tip.id}
+                res['tip_data']={'author_name': current_user.nickname, 'author_id':current_user.id, 'tip_id': tip.id, 'url': tip.url}
 
             if q['cmd'] == 'addNew':
                 msg = 'Новый совет от '+current_user.nickname
