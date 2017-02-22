@@ -436,7 +436,7 @@ h3 {
 }
 
 /* line 80, scss/main.scss */
-p {
+p.lp-paragraph {
   font-size: 130%;
   display: block;
   margin: 0 auto 0;

@@ -33,6 +33,24 @@
 
                 <div class="divider"></div>
 
+      
+                {% set stats=u.get_stats() %}
+                Посетил(а) {{stats.places_text}}
+                <br/>
+                {% for p in stats.places %}
+                  {% if loop.index>1 %} &#8226;{% endif %}
+                  <a href="{{url_for('geo.places', us=p.url_string)}}">{{p.name}}</a>
+                {% endfor %}
+                <br>
+
+                Посетил(а) {{stats.countries_text}}
+                <br/>
+                {% for c in stats.countries %}
+                  {% if loop.index>1 %} &#8226;{% endif %}
+                  <a href="{{url_for('geo.country', us=c.url_string)}}">{{c.name}}</a>
+                {% endfor %}
+
+
                 {% if current_user.id!= u.id %}
                 <div id="user-actions__panel">
 

@@ -6,6 +6,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . .config import ADMIN_EMAILS
 from datetime import datetime
 
+from . .toolbox import russian_plurals
+
 #from sqlalchemy.sql import or_
 
 import json
@@ -192,6 +194,41 @@ class User (UserMixin, db.Model):
         res['likes'] = [n[0] for n in db.session.execute(query % ("users_upvotes", self.id, idss))]
         res['dislikes'] = [n[0] for n in db.session.execute(query % ("users_downvotes",self.id, idss))]
         return res
+
+    def get_stats(self):
+        res={}
+        query = """
+                    SELECT u.id, p.url_string, p.rus_name, count(t.id) as c
+                    FROM users AS u
+                    JOIN tips AS t ON t.user_id = u.id
+                    JOIN G_places AS p ON t.place_id=p.id
+                    WHERE u.id = %d
+                    GROUP BY p.id
+                    ORDER BY c DESC
+                """
+        places = list(db.engine.execute(query % self.id))
+        res['places'] = [{'url_string': p[1], 'name': p[2], 'count': p[3]} for p in places]
+        res['places_count'] = len(places)
+        res['places_text'] = str(res['places_count'])+" "+russian_plurals('место', res['places_count'])
+
+        query = """
+                    SELECT u.id, c.url_string, c.rus_name, count(t.id) as ct
+                    FROM users AS u
+                    JOIN tips AS t ON t.user_id = u.id
+                    JOIN G_places AS p ON t.place_id=p.id
+                    JOIN G_countries AS c ON p.country_id=c.id
+                    WHERE u.id = %d
+                    GROUP BY c.id
+                    ORDER BY ct DESC
+                """
+        countries = list(db.engine.execute(query % self.id))
+        res['countries'] = [{'url_string': c[1], 'name': c[2], 'count': c[3]} for c in countries]
+        res['countries_count'] = len(countries)
+        res['countries_text'] = str(res['countries_count'])+" "+russian_plurals('страна', res['countries_count'])
+
+        return res
+
+
 
 
     #=============================================

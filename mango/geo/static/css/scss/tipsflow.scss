@@ -240,8 +240,15 @@
     padding-left: 35px;
     padding-right: 4px;
     padding-top: 4px;
-    &:first-letter{
-        font-size: 1.2em;
+    
+    p {
+        &:first-letter{
+            font-size: 1.2em;
+        }
+        margin:0;
+        padding: 0;
+        width: auto;
+        font-size: 100%;
     }
 }
 

@@ -722,7 +722,7 @@ self.upvoted=res.upvoted;self.downvoted=res.downvoted;self.$dispatch('eCheckTips
                                 <div class="clearfix"></div>\
                             </div>\
                         <div class="tip__main-text">\
-                            <slot></slot>{{text}} <span class="plink comment-link" v-if="hasComments" @click="toggleShowComments"> <i class="fa fa-comment"></i>{{comments ? comments.length : 0}}</span>\
+                            <slot></slot><p>{{text}}</p> <span class="plink comment-link" v-if="hasComments" @click="toggleShowComments"> <i class="fa fa-comment"></i>{{comments ? comments.length : 0}}</span>\
                             <p v-if="attachedurl"><br/><a :href="attachedurl" target="_blank"><span class="glyphicon glyphicon-link"></span>&nbsp;{{attachedurl}}</a></p>\
                         </div>\
                         <div class="tip__bottom">\
